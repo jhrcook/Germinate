@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		841DF34423359FC900D20B08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF34323359FC900D20B08 /* AppDelegate.swift */; };
-		841DF34623359FC900D20B08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF34523359FC900D20B08 /* ViewController.swift */; };
+		841DF34623359FC900D20B08 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF34523359FC900D20B08 /* LibraryViewController.swift */; };
 		841DF34923359FC900D20B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841DF34723359FC900D20B08 /* Main.storyboard */; };
 		841DF34B23359FCB00D20B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841DF34A23359FCB00D20B08 /* Assets.xcassets */; };
 		841DF34E23359FCB00D20B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841DF34C23359FCB00D20B08 /* LaunchScreen.storyboard */; };
+		841DF3562335AAB700D20B08 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF3552335AAB700D20B08 /* Plant.swift */; };
+		841DF3582335ACC700D20B08 /* PlantsArrayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		841DF34023359FC900D20B08 /* Germination Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Germination Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		841DF34323359FC900D20B08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		841DF34523359FC900D20B08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		841DF34523359FC900D20B08 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		841DF34823359FC900D20B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		841DF34A23359FCB00D20B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		841DF34D23359FCB00D20B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		841DF34F23359FCB00D20B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		841DF3552335AAB700D20B08 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsArrayManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				841DF34323359FC900D20B08 /* AppDelegate.swift */,
-				841DF34523359FC900D20B08 /* ViewController.swift */,
+				841DF34523359FC900D20B08 /* LibraryViewController.swift */,
+				841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */,
+				841DF3552335AAB700D20B08 /* Plant.swift */,
 				841DF34723359FC900D20B08 /* Main.storyboard */,
 				841DF34A23359FCB00D20B08 /* Assets.xcassets */,
 				841DF34C23359FCB00D20B08 /* LaunchScreen.storyboard */,
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				841DF34623359FC900D20B08 /* ViewController.swift in Sources */,
+				841DF34623359FC900D20B08 /* LibraryViewController.swift in Sources */,
+				841DF3562335AAB700D20B08 /* Plant.swift in Sources */,
 				841DF34423359FC900D20B08 /* AppDelegate.swift in Sources */,
+				841DF3582335ACC700D20B08 /* PlantsArrayManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
