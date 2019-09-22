@@ -45,6 +45,15 @@ class LibraryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return plants.count
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? DetailPagingViewController, let indexPath = tableView.indexPathForSelectedRow {
+            print("segue to DetailPagingVC")
+            destinationVC.plant = plants[indexPath.row]
+            destinationVC.plantsManager = self.plantsManager
+        }
+    }
 
 
 }

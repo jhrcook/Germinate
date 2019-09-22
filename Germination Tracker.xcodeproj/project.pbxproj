@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,11 @@
 		841DF34E23359FCB00D20B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841DF34C23359FCB00D20B08 /* LaunchScreen.storyboard */; };
 		841DF3562335AAB700D20B08 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF3552335AAB700D20B08 /* Plant.swift */; };
 		841DF3582335ACC700D20B08 /* PlantsArrayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */; };
+		847B6EF8233714FC00BEFFC4 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EF7233714FC00BEFFC4 /* InformationView.swift */; };
+		847B6EFA2337150A00BEFFC4 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EF92337150A00BEFFC4 /* NotesView.swift */; };
+		847B6EFC233717C600BEFFC4 /* DetailPagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */; };
+		849CA3232336E28700505FE9 /* DetailPagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CA3222336E28700505FE9 /* DetailPagingViewController.swift */; };
+		FD1B73EA73842028A2F51E2E /* Pods_Germination_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32EC6AB9316DFB8B8D6E36C /* Pods_Germination_Tracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,13 @@
 		841DF34F23359FCB00D20B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841DF3552335AAB700D20B08 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsArrayManager.swift; sourceTree = "<group>"; };
+		847B6EF7233714FC00BEFFC4 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		847B6EF92337150A00BEFFC4 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagingView.swift; sourceTree = "<group>"; };
+		849CA3222336E28700505FE9 /* DetailPagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagingViewController.swift; sourceTree = "<group>"; };
+		8AF7233A6627F2216CC4ACD7 /* Pods-Germination Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Germination Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Germination Tracker/Pods-Germination Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		8DBB20544F06CC20347A6E10 /* Pods-Germination Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Germination Tracker.release.xcconfig"; path = "Target Support Files/Pods-Germination Tracker/Pods-Germination Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		A32EC6AB9316DFB8B8D6E36C /* Pods_Germination_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Germination_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1B73EA73842028A2F51E2E /* Pods_Germination_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +57,8 @@
 			children = (
 				841DF34223359FC900D20B08 /* Germination Tracker */,
 				841DF34123359FC900D20B08 /* Products */,
+				D615FDE04AEB6FAD7724A321 /* Pods */,
+				E67F7DE475D469E9F1BB4F91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,15 +74,60 @@
 			isa = PBXGroup;
 			children = (
 				841DF34323359FC900D20B08 /* AppDelegate.swift */,
-				841DF34523359FC900D20B08 /* LibraryViewController.swift */,
-				841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */,
-				841DF3552335AAB700D20B08 /* Plant.swift */,
-				841DF34723359FC900D20B08 /* Main.storyboard */,
+				849CA3292336E78200505FE9 /* View Controllers */,
+				849CA3282336E77400505FE9 /* Models */,
+				849CA32A2336E91600505FE9 /* Views */,
 				841DF34A23359FCB00D20B08 /* Assets.xcassets */,
-				841DF34C23359FCB00D20B08 /* LaunchScreen.storyboard */,
 				841DF34F23359FCB00D20B08 /* Info.plist */,
 			);
 			path = "Germination Tracker";
+			sourceTree = "<group>";
+		};
+		849CA3282336E77400505FE9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */,
+				841DF3552335AAB700D20B08 /* Plant.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		849CA3292336E78200505FE9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				841DF34523359FC900D20B08 /* LibraryViewController.swift */,
+				849CA3222336E28700505FE9 /* DetailPagingViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		849CA32A2336E91600505FE9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */,
+				847B6EF7233714FC00BEFFC4 /* InformationView.swift */,
+				847B6EF92337150A00BEFFC4 /* NotesView.swift */,
+				841DF34723359FC900D20B08 /* Main.storyboard */,
+				841DF34C23359FCB00D20B08 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D615FDE04AEB6FAD7724A321 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8AF7233A6627F2216CC4ACD7 /* Pods-Germination Tracker.debug.xcconfig */,
+				8DBB20544F06CC20347A6E10 /* Pods-Germination Tracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E67F7DE475D469E9F1BB4F91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A32EC6AB9316DFB8B8D6E36C /* Pods_Germination_Tracker.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 841DF35223359FCB00D20B08 /* Build configuration list for PBXNativeTarget "Germination Tracker" */;
 			buildPhases = (
+				C3278D615344A01781EF7242 /* [CP] Check Pods Manifest.lock */,
 				841DF33C23359FC900D20B08 /* Sources */,
 				841DF33D23359FC900D20B08 /* Frameworks */,
 				841DF33E23359FC900D20B08 /* Resources */,
+				4C70FBD03D09EB89BF37D19E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,13 +198,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4C70FBD03D09EB89BF37D19E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Germination Tracker/Pods-Germination Tracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Germination Tracker/Pods-Germination Tracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Germination Tracker/Pods-Germination Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3278D615344A01781EF7242 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Germination Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		841DF33C23359FC900D20B08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847B6EFA2337150A00BEFFC4 /* NotesView.swift in Sources */,
 				841DF34623359FC900D20B08 /* LibraryViewController.swift in Sources */,
 				841DF3562335AAB700D20B08 /* Plant.swift in Sources */,
+				849CA3232336E28700505FE9 /* DetailPagingViewController.swift in Sources */,
+				847B6EF8233714FC00BEFFC4 /* InformationView.swift in Sources */,
+				847B6EFC233717C600BEFFC4 /* DetailPagingView.swift in Sources */,
 				841DF34423359FC900D20B08 /* AppDelegate.swift in Sources */,
 				841DF3582335ACC700D20B08 /* PlantsArrayManager.swift in Sources */,
 			);
@@ -288,6 +396,7 @@
 		};
 		841DF35323359FCB00D20B08 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AF7233A6627F2216CC4ACD7 /* Pods-Germination Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -306,6 +415,7 @@
 		};
 		841DF35423359FCB00D20B08 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DBB20544F06CC20347A6E10 /* Pods-Germination Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

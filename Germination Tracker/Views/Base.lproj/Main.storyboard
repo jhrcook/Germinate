@@ -43,7 +43,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="zhy-VS-0wy" kind="show" id="MzB-Im-tVS"/>
+                                    <segue destination="Ee4-zP-Zv4" kind="show" id="Biq-ic-QVp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -58,43 +58,30 @@
             </objects>
             <point key="canvasLocation" x="985.50724637681162" y="153.34821428571428"/>
         </scene>
-        <!--Page View Controller-->
-        <scene sceneID="FFy-ng-nJ2">
+        <!--Detail Paging View Controller-->
+        <scene sceneID="caS-hL-xUz">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="zhy-VS-0wy" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lMT-sr-xpN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1867" y="153"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="77S-0D-x9p">
-            <objects>
-                <viewController id="1rF-4V-G6Z" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Kzb-Eo-6q4">
+                <viewController id="Ee4-zP-Zv4" customClass="DetailPagingViewController" customModule="Germination_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UuY-Tc-P5I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjZ-lU-2Sn" customClass="DetailPagingView" customModule="Germination_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="t5U-e5-796"/>
+                        <viewLayoutGuide key="safeArea" id="5PV-KS-E3Q"/>
                     </view>
+                    <connections>
+                        <outlet property="detailPagingView" destination="fjZ-lU-2Sn" id="sPi-nS-fzR"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v0W-XE-Xq1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dR3-ei-8ZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2680" y="153"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Z43-ly-ZeC">
-            <objects>
-                <viewController id="w2O-Gq-Vr0" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4DJ-GG-ekK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="xRM-eY-3RD"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rth-Xi-0ma" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3477" y="153"/>
+            <point key="canvasLocation" x="1882.608695652174" y="152.67857142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YKm-8z-aIB">
