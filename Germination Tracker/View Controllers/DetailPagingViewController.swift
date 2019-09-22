@@ -32,6 +32,7 @@ class DetailPagingViewController: UIViewController {
         
         detailPagingView.navigationBarHeight = navigationController?.navigationBar.frame.height ?? 0.0
         detailPagingView.setupView()
+        setupPlantInformation()
         
         detailPagingView.scrollView.delegate = self
     }
@@ -47,6 +48,28 @@ class DetailPagingViewController: UIViewController {
     }
     */
     
+    func setupPlantInformation() {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        let text = "Date sown: \(dateFormatter.string(from: plant.dateOfSeedSowing))"
+        detailPagingView.informationView.dateSownLabel.text = text
+        
+        detailPagingView.informationView.numberOfSeedsSownLabel.text = "Num. seeds sown: \(plant.numberOfSeedsSown)"
+        
+        detailPagingView.informationView.germinationCounterLabel.text = "Num. of germinations: \(plant.numberOfGerminations)"
+        detailPagingView.informationView.germinationStepper.value = Double(plant.numberOfGerminations)
+        detailPagingView.informationView.germinationStepper.stepValue = 1.0
+        detailPagingView.informationView.germinationStepper.minimumValue = 0
+        detailPagingView.informationView.germinationStepper.addTarget(self, action: #selector(stepperChanged), for: .valueChanged)
+        
+        detailPagingView.informationView.deathCounterLabel.text = "Num. of deaths: \(plant.numberOfDeaths)"
+        detailPagingView.informationView.deathStepper.value = Double(plant.numberOfGerminations)
+        detailPagingView.informationView.deathStepper.stepValue = 1.0
+        detailPagingView.informationView.deathStepper.minimumValue = 0
+        detailPagingView.informationView.deathStepper.addTarget(self, action: #selector(stepperChanged), for: .valueChanged)
+    }
+    
 }
 
 
@@ -56,4 +79,27 @@ extension DetailPagingViewController: UIScrollViewDelegate {
         currentScrollIndex = scrollView.contentOffset.x < 0.5 * 414.0 ? 0 : 1
     }
     
+}
+
+
+extension DetailPagingViewController {
+    @objc func stepperChanged(_ stepper: UIStepper) {
+        if stepper == detailPagingView.informationView.germinationStepper {
+            detailPagingView.informationView.germinationCounterLabel.text = "Num. of germinations: \(Int(stepper.value))"
+            if Int(stepper.value) < plant.numberOfGerminations {
+                plant.removeGermination(atIndex: Int(stepper.value))
+            } else {
+                plant.addGermination(nil)
+            }
+            plantsManager.savePlants()
+        } else if stepper == detailPagingView.informationView.deathStepper {
+            detailPagingView.informationView.deathCounterLabel.text = "Num. of deaths: \(Int(stepper.value))"
+            if Int(stepper.value) < plant.numberOfDeaths {
+                plant.removeDeath(atIndex: Int(stepper.value))
+            } else {
+                plant.addDeath(nil)
+            }
+            plantsManager.savePlants()
+        }
+    }
 }

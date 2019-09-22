@@ -12,25 +12,22 @@ class LibraryViewController: UITableViewController {
 
     private let reusableCellIdentifier = "PlantCell"
     
-    var plants = [Plant]()
     var plantsManager = PlantsArrayManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPlant))
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Garden"
-        
-        // load plants using the plants manager
-        plants = plantsManager.plants
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath)
         
         // get plant and set name for cell
-        let plant = plants[indexPath.row]
+        let plant = plantsManager.plants[indexPath.row]
         cell.textLabel?.text = plant.name
         
         // format the date of sowing
@@ -43,14 +40,32 @@ class LibraryViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return plants.count
+        return plantsManager.plants.count
+    }
+    
+    @objc func addPlant() {
+        let ac = UIAlertController(title: "New plant name", message: "Enter the name of the new plant you are sowing.", preferredStyle: .alert)
+        ac.addTextField()
+        ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak self] _ in
+            print("number of plants before: \(self?.plantsManager.plants.count ?? -1)")
+            self?.plantsManager.newPlant(named: ac.textFields![0].text ?? "")
+            print("number of plants after: \(self?.plantsManager.plants.count ?? -1)")
+            self?.plantsManager.savePlants()
+            self?.tableView.reloadData()
+            let indexPath = IndexPath(row: (self?.plantsManager.plants.count)! - 1, section: 0)
+            self?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+            self?.performSegue(withIdentifier: "libraryToDetail", sender: self)
+            self?.tableView.deselectRow(at: indexPath, animated: true)
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(ac, animated: true)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? DetailPagingViewController, let indexPath = tableView.indexPathForSelectedRow {
             print("segue to DetailPagingVC")
-            destinationVC.plant = plants[indexPath.row]
+            destinationVC.plant = plantsManager.plants[indexPath.row]
             destinationVC.plantsManager = self.plantsManager
         }
     }

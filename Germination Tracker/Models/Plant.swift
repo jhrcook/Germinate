@@ -22,20 +22,20 @@ class Plant: NSObject, Codable {
     var dateOfSeedSowing: Date
     
     /// An array of dates of germinations.
-    var seedsSproutDates = [Date]()
+    var seedGerminationDates = [Date]()
     /// The number of germinations.
-    var numberOfSproutedSeeds: Int {
+    var numberOfGerminations: Int {
         get {
-            return seedsSproutDates.count
+            return seedGerminationDates.count
         }
     }
     
     /// An array of dates of plant deaths.
-    var plantsDeathDates = [Date]()
+    var plantDeathDates = [Date]()
     /// The number of plants that have died.
     var numberOfDeaths: Int {
         get {
-            return plantsDeathDates.count
+            return plantDeathDates.count
         }
     }
     
@@ -47,5 +47,22 @@ class Plant: NSObject, Codable {
     convenience init(name: String, numberOfSeedsSown: Int) {
         self.init(name: name)
         self.numberOfSeedsSown = numberOfSeedsSown
+    }
+    
+    
+    func addGermination(_ date: Date?) {
+        seedGerminationDates.append(date ?? Date())
+    }
+    
+    func removeGermination(atIndex index: Int) {
+        seedGerminationDates.remove(at: index)
+    }
+    
+    func addDeath(_ date: Date?) {
+        plantDeathDates.append(date ?? Date())
+    }
+    
+    func removeDeath(atIndex index: Int) {
+        plantDeathDates.remove(at: index)
     }
 }

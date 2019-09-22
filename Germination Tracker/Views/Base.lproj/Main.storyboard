@@ -43,7 +43,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Ee4-zP-Zv4" kind="show" id="Biq-ic-QVp"/>
+                                    <segue destination="Ee4-zP-Zv4" kind="show" identifier="libraryToDetail" id="Biq-ic-QVp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
