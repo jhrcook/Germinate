@@ -15,14 +15,13 @@ class DetailPagingView: UIView {
     var informationView = InformationView()
     var notesView = NotesView()
     
+    var navigationBarHeight: CGFloat = 0.0
+    
     func setupView() {
-        
-        backgroundColor = .purple
-        
         // set up the views
         setupScrollView()
-        informationView.setupView()
-        notesView.setupView()
+        informationView.setupView(withFrame: CGRect(origin: CGPoint(x: 0, y: 0), size: frame.size))
+        notesView.setupView(withFrame: CGRect(origin: CGPoint(x: frame.width, y: 0), size: frame.size))
         
         // set up view heirarchy
         self.addSubview(scrollView)
@@ -30,38 +29,22 @@ class DetailPagingView: UIView {
         scrollView.addSubview(notesView)
         
         // make constraints
+        scrollView.frame.size = self.frame.size
         scrollView.snp.makeConstraints({ make in make.edges.equalTo(self) })
-        informationView.snp.makeConstraints({ make in
-            make.top.equalTo(scrollView)
-            make.left.equalTo(scrollView)
-            make.width.equalTo(self)
-            make.bottom.equalTo(scrollView)
-        })
-        notesView.snp.makeConstraints({ make in
-            make.top.equalTo(scrollView)
-            make.left.equalTo(informationView.snp.right)
-            make.width.equalTo(self)
-            make.bottom.equalTo(scrollView)
-        })
-        
-        scrollView.contentSize = CGSize(width: self.frame.width * 2.0, height: self.frame.height)
-        
-        print("frame size - x: \(frame.width), y: \(frame.height)")
-        print("scroll view content size - x: \(scrollView.contentSize.width), y: \(scrollView.contentSize.height)")
+        scrollView.contentSize = CGSize(width: self.frame.width * 2.0, height: self.frame.height - navigationBarHeight)
     }
     
     
     func setupScrollView() {
-        scrollView.backgroundColor = .clear
-        
-        scrollView.showsVerticalScrollIndicator = true
-        scrollView.showsHorizontalScrollIndicator = true
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
         
         scrollView.alwaysBounceHorizontal = true
         scrollView.alwaysBounceVertical = false
         scrollView.isDirectionalLockEnabled = true
-        scrollView.isScrollEnabled = true
         scrollView.isPagingEnabled = true
+        
+        scrollView.frame = frame
     }
     
     /*

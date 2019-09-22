@@ -11,7 +11,13 @@ import UIKit
 class NotesView: UIView {
 
     func setupView() {
-        backgroundColor = .yellow
+
+    }
+    
+    
+    func setupView(withFrame newFrame: CGRect) {
+        setupView()
+        frame = newFrame
     }
     
     /*

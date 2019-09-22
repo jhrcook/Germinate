@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import SnapKit
 
 class InformationView: UIView {
     
     func setupView() {
-        backgroundColor = .green
+
+    }
+    
+    
+    func setupView(withFrame newFrame: CGRect) {
+        setupView()
+        frame = newFrame
     }
 
     /*
