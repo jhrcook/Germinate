@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import ChameleonFramework
 
 class InformationView: UIView {
     
@@ -33,7 +34,6 @@ class InformationView: UIView {
         
         // date sown label
         addSubview(dateSownLabel)
-        addTheme(toLabel: &dateSownLabel)
         dateSownLabel.snp.makeConstraints({ make in
             make.top.equalTo(self).inset(10)
             make.leading.equalTo(self).inset(10)
@@ -43,7 +43,6 @@ class InformationView: UIView {
         
         // number of seeds sown label
         addSubview(numberOfSeedsSownLabel)
-        addTheme(toLabel: &numberOfSeedsSownLabel)
         numberOfSeedsSownLabel.snp.makeConstraints({ make in
             make.top.equalTo(dateSownLabel.snp.bottom).offset(10)
             make.leading.equalTo(self).inset(10)
@@ -53,7 +52,6 @@ class InformationView: UIView {
         
         // germination counter
         addSubview(germinationCounterContainerView)
-        addTheme(toView: &germinationCounterContainerView)
         germinationCounterContainerView.snp.makeConstraints({ make in
             make.top.equalTo(numberOfSeedsSownLabel.snp.bottom).offset(10)
             make.leading.equalTo(self).inset(10)
@@ -81,7 +79,6 @@ class InformationView: UIView {
         
         // death counter
         addSubview(deathCounterContainerView)
-        addTheme(toView: &deathCounterContainerView)
         deathCounterContainerView.snp.makeConstraints({ make in
             make.top.equalTo(germinationCounterContainerView.snp.bottom).offset(10)
             make.leading.equalTo(self).inset(10)
@@ -102,6 +99,11 @@ class InformationView: UIView {
             make.trailing.equalTo(deathCounterContainerView).inset(8)
         })
         
+        addTheme(toLabel: &dateSownLabel)
+        addTheme(toLabel: &numberOfSeedsSownLabel)
+        addTheme(toView: &germinationCounterContainerView)
+        addTheme(toView: &deathCounterContainerView)
+
         deathCounterLabel.textColor = .white
         deathCounterLabel.text = "Number of germinations: 0"
         deathCounterLabel.textAlignment = .center
@@ -119,16 +121,16 @@ class InformationView: UIView {
     func addTheme(toView view: inout UIView) {
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 8
-        view.backgroundColor = infoViewPal.green
-        view.layer.borderColor = infoViewPal.green.cgColor
+        view.backgroundColor = FlatGreen()
+        view.layer.borderColor = FlatGreen().cgColor
         view.layer.borderWidth = 2
     }
     
     func addTheme(toLabel label: inout UILabel) {
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 8
-        label.backgroundColor = infoViewPal.green
-        label.layer.borderColor = infoViewPal.green.cgColor
+        label.backgroundColor = FlatGreen()
+        label.layer.borderColor = FlatGreen().cgColor
         label.layer.borderWidth = 2
         label.textColor = .white
         label.textAlignment = .center
