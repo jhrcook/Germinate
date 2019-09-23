@@ -14,6 +14,7 @@
 		841DF34E23359FCB00D20B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841DF34C23359FCB00D20B08 /* LaunchScreen.storyboard */; };
 		841DF3562335AAB700D20B08 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF3552335AAB700D20B08 /* Plant.swift */; };
 		841DF3582335ACC700D20B08 /* PlantsArrayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */; };
+		845780F123383D55004EEAD1 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845780F023383D55004EEAD1 /* DatePickerViewController.swift */; };
 		847B6EF8233714FC00BEFFC4 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EF7233714FC00BEFFC4 /* InformationView.swift */; };
 		847B6EFA2337150A00BEFFC4 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EF92337150A00BEFFC4 /* NotesView.swift */; };
 		847B6EFC233717C600BEFFC4 /* DetailPagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */; };
@@ -31,6 +32,7 @@
 		841DF34F23359FCB00D20B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841DF3552335AAB700D20B08 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsArrayManager.swift; sourceTree = "<group>"; };
+		845780F023383D55004EEAD1 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		847B6EF7233714FC00BEFFC4 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		847B6EF92337150A00BEFFC4 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagingView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				841DF34523359FC900D20B08 /* LibraryViewController.swift */,
 				849CA3222336E28700505FE9 /* DetailPagingViewController.swift */,
+				845780F023383D55004EEAD1 /* DatePickerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			files = (
 				847B6EFA2337150A00BEFFC4 /* NotesView.swift in Sources */,
 				841DF34623359FC900D20B08 /* LibraryViewController.swift in Sources */,
+				845780F123383D55004EEAD1 /* DatePickerViewController.swift in Sources */,
 				841DF3562335AAB700D20B08 /* Plant.swift in Sources */,
 				849CA3232336E28700505FE9 /* DetailPagingViewController.swift in Sources */,
 				847B6EF8233714FC00BEFFC4 /* InformationView.swift in Sources */,

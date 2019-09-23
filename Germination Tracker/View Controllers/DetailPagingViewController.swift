@@ -9,12 +9,13 @@
 import UIKit
 import SnapKit
 
+
 class DetailPagingViewController: UIViewController {
 
     var plant: Plant!
     var plantsManager: PlantsArrayManager!
     
-    @IBOutlet var detailPagingView: DetailPagingView!
+    var detailPagingView: DetailPagingView!
     
     var currentScrollIndex = 0 {
         didSet {
@@ -30,12 +31,17 @@ class DetailPagingViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         currentScrollIndex = 0
         
-        detailPagingView.navigationBarHeight = navigationController?.navigationBar.frame.height ?? 0.0
-        detailPagingView.setupView()
+        let navBarHeight = (navigationController?.navigationBar.frame.height ?? 0)
+        print(view.safeAreaLayoutGuide.layoutFrame)
+        detailPagingView = DetailPagingView(frame: view.frame)
+        view.addSubview(detailPagingView)
+        detailPagingView.snp.makeConstraints({ make in make.edges.equalTo(view.safeAreaLayoutGuide) })
+        
         setupPlantInformation()
         
         detailPagingView.scrollView.delegate = self
     }
+    
     
 
     /*
@@ -50,12 +56,9 @@ class DetailPagingViewController: UIViewController {
     
     func setupPlantInformation() {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        let text = "Date sown: \(dateFormatter.string(from: plant.dateOfSeedSowing))"
-        detailPagingView.informationView.dateSownLabel.text = text
+        setDateOfSowingLabel()
         
-        detailPagingView.informationView.numberOfSeedsSownLabel.text = "Num. seeds sown: \(plant.numberOfSeedsSown)"
+        setupNumberSeedsLabel()
         
         detailPagingView.informationView.germinationCounterLabel.text = "Num. of germinations: \(plant.numberOfGerminations)"
         detailPagingView.informationView.germinationStepper.value = Double(plant.numberOfGerminations)
@@ -68,6 +71,26 @@ class DetailPagingViewController: UIViewController {
         detailPagingView.informationView.deathStepper.stepValue = 1.0
         detailPagingView.informationView.deathStepper.minimumValue = 0
         detailPagingView.informationView.deathStepper.addTarget(self, action: #selector(stepperChanged), for: .valueChanged)
+        
+        // tep gestures
+        let dateLabelTapAction = UITapGestureRecognizer(target: self, action: #selector(dateLabelTapped(_:)))
+        detailPagingView.informationView.dateSownLabel.isUserInteractionEnabled = true
+        detailPagingView.informationView.dateSownLabel.addGestureRecognizer(dateLabelTapAction)
+        
+        let numSeedsTapAction = UITapGestureRecognizer(target: self, action: #selector(numSeedsLabelTapped(_:)))
+        detailPagingView.informationView.numberOfSeedsSownLabel.isUserInteractionEnabled = true
+        detailPagingView.informationView.numberOfSeedsSownLabel.addGestureRecognizer(numSeedsTapAction)
+    }
+    
+    func setDateOfSowingLabel() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        let text = "Date sown: \(dateFormatter.string(from: plant.dateOfSeedSowing))"
+        detailPagingView.informationView.dateSownLabel.text = text
+    }
+    
+    func setupNumberSeedsLabel() {
+        detailPagingView.informationView.numberOfSeedsSownLabel.text = "Num. seeds sown: \(plant.numberOfSeedsSown)"
     }
     
 }
@@ -76,7 +99,10 @@ class DetailPagingViewController: UIViewController {
 extension DetailPagingViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        currentScrollIndex = scrollView.contentOffset.x < 0.5 * 414.0 ? 0 : 1
+//        print("scrolling: \(scrollView.contentOffset)")
+        if scrollView == detailPagingView.scrollView {
+            currentScrollIndex = scrollView.contentOffset.x < 0.5 * view.frame.width ? 0 : 1
+        }
     }
     
 }
@@ -101,5 +127,52 @@ extension DetailPagingViewController {
             }
             plantsManager.savePlants()
         }
+    }
+}
+
+
+extension DetailPagingViewController {
+    
+    @objc func dateLabelTapped(_ sender: UITapGestureRecognizer) {
+        let datePickerVC = DatePickerViewController()
+        datePickerVC.delegate = self
+        present(datePickerVC, animated: true, completion: nil)
+    }
+    
+    @objc func numSeedsLabelTapped(_ sender: UITapGestureRecognizer) {
+        /// TODO
+        let ac = UIAlertController(title: "Number of seeds sown", message: nil, preferredStyle: .alert)
+        ac.addTextField(configurationHandler: { textField in
+            textField.keyboardType = .numberPad
+        })
+        ac.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [weak self] _ in
+            let numSeeds = self?.getFirstInteger(fromString: ac.textFields![0].text)
+            self?.plant.numberOfSeedsSown = numSeeds ?? 0
+            self?.setupNumberSeedsLabel()
+            self?.plantsManager.savePlants()
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
+    }
+    
+    
+    func getFirstInteger(fromString string: String?) -> Int {
+        guard let string = string else { return 0 }
+        
+        let stringArray = string.components(separatedBy: CharacterSet.decimalDigits.inverted)
+        if stringArray.count > 0 {
+            return Int(stringArray[0]) ?? 0
+        } else {
+            return 0
+        }
+    }
+}
+
+
+extension DetailPagingViewController: DatePickerViewControllerDelegate {
+    func dateSubmitted(_ date: Date) {
+        plant.dateOfSeedSowing = date
+        setDateOfSowingLabel()
+        plantsManager.savePlants()
     }
 }
