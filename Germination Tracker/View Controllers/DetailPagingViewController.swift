@@ -32,7 +32,7 @@ class DetailPagingViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         currentScrollIndex = 0
                 
-        let navBarHeight = (navigationController?.navigationBar.frame.height ?? 0)
+//        let navBarHeight = (navigationController?.navigationBar.frame.height ?? 0)
         print(view.safeAreaLayoutGuide.layoutFrame)
         detailPagingView = DetailPagingView(frame: view.frame)
         view.addSubview(detailPagingView)
