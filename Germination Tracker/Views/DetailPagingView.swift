@@ -14,7 +14,7 @@ class DetailPagingView: UIView {
     
     var scrollView = UIScrollView()
     var informationView = InformationView()
-    var notesView = NotesView()
+    var notesContainerView = UIView()
     
     var navigationBarHeight: CGFloat = 0.0
     
@@ -25,8 +25,6 @@ class DetailPagingView: UIView {
     }
     
     init(frame: CGRect, navigationBarHeight: CGFloat) {
-        print("frame - x: \(frame.width), y: \(frame.height)")
-        print("nav bar height: \(navigationBarHeight)")
         
         let adjustedHeight = frame.height - navigationBarHeight
         let adjustedFrame = CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: adjustedHeight))
@@ -34,9 +32,6 @@ class DetailPagingView: UIView {
         self.navigationBarHeight = navigationBarHeight
         
         setupView()
-        
-        print("adjusted frame - x: \(adjustedFrame.width), y: \(adjustedFrame.height)")
-        print("self.frame - x: \(self.frame.width), y: \(self.frame.height)")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,18 +46,16 @@ class DetailPagingView: UIView {
         // set up the views
         setupScrollView()
         informationView.setupView(withFrame: frame)
-        notesView.setupView(withFrame: CGRect(origin: CGPoint(x: frame.width, y: 0), size: frame.size))
+        notesContainerView.frame = CGRect(origin: CGPoint(x: frame.width, y: 0), size: frame.size)
         
         // set up view heirarchy
         self.addSubview(scrollView)
         scrollView.addSubview(informationView)
-        scrollView.addSubview(notesView)
+        scrollView.addSubview(notesContainerView)
         
         // make constraints
         scrollView.snp.makeConstraints({ make in make.edges.equalTo(self) })
         scrollView.contentSize = CGSize(width: frame.width * 2.0, height: frame.height)
-        
-        
     }
     
     

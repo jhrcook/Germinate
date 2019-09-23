@@ -17,6 +17,7 @@ class DetailPagingViewController: UIViewController {
     var plantsManager: PlantsArrayManager!
     
     var detailPagingView: DetailPagingView!
+    var notesTableViewController: UITableViewController!
     
     var currentScrollIndex = 0 {
         didSet {
@@ -33,10 +34,12 @@ class DetailPagingViewController: UIViewController {
         currentScrollIndex = 0
                 
 //        let navBarHeight = (navigationController?.navigationBar.frame.height ?? 0)
-        print(view.safeAreaLayoutGuide.layoutFrame)
         detailPagingView = DetailPagingView(frame: view.frame)
         view.addSubview(detailPagingView)
         detailPagingView.snp.makeConstraints({ make in make.edges.equalTo(view.safeAreaLayoutGuide) })
+        
+        notesTableViewController = NotesTableViewController()
+        setupNotesTable()
         
         setupPlantInformation()
         
@@ -92,6 +95,10 @@ class DetailPagingViewController: UIViewController {
     
     func setupNumberSeedsLabel() {
         detailPagingView.informationView.numberOfSeedsSownLabel.text = "Num. seeds sown: \(plant.numberOfSeedsSown)"
+    }
+    
+    func setupNotesTable() {
+        detailPagingView.notesContainerView.addSubview(notesTableViewController.tableView)
     }
     
 }
