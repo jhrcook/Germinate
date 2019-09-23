@@ -19,7 +19,6 @@
 		841DF3582335ACC700D20B08 /* PlantsArrayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */; };
 		845780F123383D55004EEAD1 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845780F023383D55004EEAD1 /* DatePickerViewController.swift */; };
 		847B6EF8233714FC00BEFFC4 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EF7233714FC00BEFFC4 /* InformationView.swift */; };
-		847B6EFA2337150A00BEFFC4 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EF92337150A00BEFFC4 /* NotesView.swift */; };
 		847B6EFC233717C600BEFFC4 /* DetailPagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */; };
 		849CA3232336E28700505FE9 /* DetailPagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CA3222336E28700505FE9 /* DetailPagingViewController.swift */; };
 		FD1B73EA73842028A2F51E2E /* Pods_Germination_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32EC6AB9316DFB8B8D6E36C /* Pods_Germination_Tracker.framework */; };
@@ -40,7 +39,6 @@
 		841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsArrayManager.swift; sourceTree = "<group>"; };
 		845780F023383D55004EEAD1 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		847B6EF7233714FC00BEFFC4 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
-		847B6EF92337150A00BEFFC4 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagingView.swift; sourceTree = "<group>"; };
 		849CA3222336E28700505FE9 /* DetailPagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagingViewController.swift; sourceTree = "<group>"; };
 		8AF7233A6627F2216CC4ACD7 /* Pods-Germination Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Germination Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Germination Tracker/Pods-Germination Tracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 			children = (
 				847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */,
 				847B6EF7233714FC00BEFFC4 /* InformationView.swift */,
-				847B6EF92337150A00BEFFC4 /* NotesView.swift */,
 				840100A82338F9A000AD7B1B /* NoteTableViewCell.swift */,
 				841DF34723359FC900D20B08 /* Main.storyboard */,
 				841DF34C23359FCB00D20B08 /* LaunchScreen.storyboard */,
@@ -257,7 +254,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				847B6EFA2337150A00BEFFC4 /* NotesView.swift in Sources */,
 				841DF34623359FC900D20B08 /* LibraryViewController.swift in Sources */,
 				840100A52338F52D00AD7B1B /* SeedNote.swift in Sources */,
 				845780F123383D55004EEAD1 /* DatePickerViewController.swift in Sources */,

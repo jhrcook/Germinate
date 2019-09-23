@@ -15,18 +15,25 @@ class NoteTableViewCell: UITableViewCell {
     var titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.numberOfLines = 0
-        lbl.textColor = .black
+        lbl.textColor = .white
+        lbl.backgroundColor = FlatWatermelon()
         lbl.font = UIFont.preferredFont(forTextStyle: .headline)
-        lbl.textAlignment = .left
+        lbl.textAlignment = .center
+        lbl.sizeToFit()
+        lbl.layer.cornerRadius = 0
+        lbl.layer.shadowOffset = CGSize(width: 3, height: 3)
+        lbl.layer.shadowColor = UIColor.black.cgColor
+        lbl.layer.shadowOpacity = 0.3
         return lbl
     }()
     
     var dateLabel: UILabel = {
         let lbl = UILabel()
         lbl.numberOfLines = 1
-        lbl.textColor = .black
-        lbl.font = UIFont.preferredFont(forTextStyle: .body)
-        lbl.textAlignment = .left
+        lbl.textColor = FlatWatermelonDark()
+        lbl.font = UIFont.preferredFont(forTextStyle: .caption1)
+        lbl.textAlignment = .right
+        lbl.sizeToFit()
         return lbl
     }()
     
@@ -36,6 +43,7 @@ class NoteTableViewCell: UITableViewCell {
         lbl.textColor = .black
         lbl.font = UIFont.preferredFont(forTextStyle: .body)
         lbl.textAlignment = .left
+        lbl.sizeToFit()
         return lbl
     }()
     
@@ -66,36 +74,47 @@ class NoteTableViewCell: UITableViewCell {
 
     func setupCell() {
         
-        self.backgroundColor = .white
-        layer.borderColor = FlatWatermelon().cgColor
-        layer.borderWidth = 4
-        self.layer.cornerRadius = 8
-        self.layer.masksToBounds = true
+        backgroundColor = .white
+        
+//        frame = layer.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+//        layer.borderColor = FlatWatermelon().cgColor
+//        layer.borderWidth = 1
+//        layer.cornerRadius = 8
+//        layer.masksToBounds = true
         
         addSubview(titleLabel)
         addSubview(dateLabel)
         addSubview(detailLabel)
         
         titleLabel.snp.makeConstraints({ make in
-            make.top.equalTo(self)
+            make.top.equalTo(self).offset(4)
             make.leading.equalTo(self).inset(4)
             make.trailing.equalTo(self).inset(4)
-            make.height.equalTo(40)
         })
         dateLabel.snp.makeConstraints({ make in
-            make.top.equalTo(titleLabel.snp.bottom)
-            make.leading.equalTo(self).inset(4)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.leading.equalTo(self).inset(8)
             make.trailing.equalTo(self).inset(4)
-            make.height.equalTo(40)
         })
         detailLabel.snp.makeConstraints({ make in
-            make.top.equalTo(dateLabel.snp.bottom)
-            make.leading.equalTo(self).inset(4)
+            make.top.equalTo(dateLabel.snp.bottom).offset(8)
+            make.leading.equalTo(self).inset(8)
             make.trailing.equalTo(self).inset(4)
-            make.height.equalTo(40)
-            make.bottom.equalTo(self)
+            make.bottom.equalTo(self).inset(4)
         })
         
+    }
+    
+    
+    func configureCell(forNote note: SeedNote) {
+        titleLabel.text = note.title
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        let text = dateFormatter.string(from: note.dateCreated)
+        dateLabel.text = text
+        
+        detailLabel.text = note.detail
     }
     
 }

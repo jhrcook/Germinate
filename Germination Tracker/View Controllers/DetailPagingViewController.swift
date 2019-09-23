@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 import ChameleonFramework
-
+import VegaScrollFlowLayout
 
 class DetailPagingViewController: UIViewController {
 
@@ -17,10 +17,15 @@ class DetailPagingViewController: UIViewController {
     var plantsManager: PlantsArrayManager!
     
     var detailPagingView: DetailPagingView!
-    var notesTableViewController: UITableViewController!
+    var notesTableViewController: NotesTableViewController!
     
     var currentScrollIndex = 0 {
         didSet {
+            if currentScrollIndex == 0 {
+                navigationItem.rightBarButtonItem = nil
+            } else {
+                navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: notesTableViewController, action: #selector(notesTableViewController.addNewNote))
+            }
             let titleAdditions = ["Info", "Notes"]
             title = "\(plant.name) - \(titleAdditions[currentScrollIndex])"
         }
@@ -98,7 +103,7 @@ class DetailPagingViewController: UIViewController {
     }
     
     func setupNotesTable() {
-        detailPagingView.notesContainerView.addSubview(notesTableViewController.tableView)
+        detailPagingView.notesContainerView.addSubview(notesTableViewController.view)
     }
     
 }
@@ -107,7 +112,6 @@ class DetailPagingViewController: UIViewController {
 extension DetailPagingViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print("scrolling: \(scrollView.contentOffset)")
         if scrollView == detailPagingView.scrollView {
             currentScrollIndex = scrollView.contentOffset.x < 0.5 * view.frame.width ? 0 : 1
         }

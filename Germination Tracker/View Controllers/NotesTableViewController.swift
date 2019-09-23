@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class NotesTableViewController: UITableViewController {
     
@@ -22,51 +23,29 @@ class NotesTableViewController: UITableViewController {
 
         makeTestNotes()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewNote))
-        
         setupTableView()
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return notes.count
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return notes.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NoteTableViewCell
         
-        let note = notes[indexPath.section]
-        cell.titleLabel.text = note.title
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        let text = dateFormatter.string(from: note.dateCreated)
-        cell.dateLabel.text = text
-        
-        cell.detailLabel.text = note.detail
-        
+        let note = notes[indexPath.row]
+        cell.configureCell(forNote: note)
         return cell
     }
     
     
     func setupTableView() {
-        tableView.separatorStyle = .none
+        
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = FlatWatermelon().lighten(byPercentage: 0.2)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
     }
