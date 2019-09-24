@@ -9,7 +9,6 @@
 import UIKit
 import SnapKit
 import ChameleonFramework
-import VegaScrollFlowLayout
 
 class DetailPagingViewController: UIViewController {
 
@@ -24,7 +23,7 @@ class DetailPagingViewController: UIViewController {
             if currentScrollIndex == 0 {
                 navigationItem.rightBarButtonItem = nil
             } else {
-                navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: notesTableViewController, action: #selector(notesTableViewController.addNewNote))
+                navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewNote))
             }
             let titleAdditions = ["Info", "Notes"]
             title = "\(plant.name) - \(titleAdditions[currentScrollIndex])"
@@ -139,6 +138,14 @@ extension DetailPagingViewController {
             }
             plantsManager.savePlants()
         }
+    }
+    
+    @objc func addNewNote() {
+        print("Add a new note - TODO")
+//        notesTableViewController.selectedNoteIndex = nil
+//        let vc = EditNoteViewController()
+////        vc.delegate = notesTableViewController
+//        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -16,6 +16,8 @@ class NotesTableViewController: UITableViewController {
     var notes = [SeedNote]()
     var plantsManager: PlantsArrayManager?
     
+    var selectedNoteIndex: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +45,6 @@ class NotesTableViewController: UITableViewController {
     
     
     func setupTableView() {
-        
         tableView.separatorStyle = .singleLine
         tableView.separatorColor = FlatWatermelon().lighten(byPercentage: 0.2)
         tableView.rowHeight = UITableView.automaticDimension
@@ -53,13 +54,22 @@ class NotesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         /// TODO
         print("Selected notes cell \(indexPath.row).")
-    }
-    
-    @objc func addNewNote() {
-        /// TODO
-        print("Add a new note.")
+        selectedNoteIndex = indexPath.row
     }
 
+}
+
+extension NotesTableViewController: EditNoteViewControllerDelegate {
+    func noteWasEdited(_ note: SeedNote) {
+        if let index = selectedNoteIndex {
+            notes[index] = note
+        } else {
+            notes.append(note)
+        }
+        plantsManager?.savePlants()
+    }
+    
+    
 }
 
 
