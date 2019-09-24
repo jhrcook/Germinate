@@ -19,7 +19,15 @@ protocol DatePickerViewControllerDelegate {
 
 class DatePickerViewController: UIViewController {
 
-    let label = UILabel()
+    let titleLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.backgroundColor = .white
+        lbl.text = "Date of Sowing"
+        lbl.textAlignment = .center
+        lbl.font = UIFont.preferredFont(forTextStyle: .title1)
+        return lbl
+    }()
+    
     let datePicker = UIDatePicker()
     let containerView = UIView()
     
@@ -65,44 +73,39 @@ class DatePickerViewController: UIViewController {
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
         
-        view.addSubview(label)
+        view.addSubview(titleLabel)
         view.addSubview(datePicker)
         view.addSubview(containerView)
         containerView.addSubview(enterButton)
         containerView.addSubview(cancelButton)
         
-        label.snp.makeConstraints({ make in
+        titleLabel.snp.makeConstraints({ make in
             make.top.equalTo(view)
             make.bottom.equalTo(datePicker.snp.top)
             make.leading.equalTo(view)
             make.trailing.equalTo(view)
         })
         datePicker.snp.makeConstraints({ make in
-            make.centerX.equalTo(view)
-            make.centerY.equalTo(view)
+            make.center.equalTo(view)
         })
         containerView.snp.makeConstraints({ make in
             make.top.equalTo(datePicker.snp.bottom).offset(20)
             make.centerX.equalTo(view)
             make.width.equalTo(300)
-            make.height.equalTo(50)
+            make.bottom.equalTo(view)
         })
         enterButton.snp.makeConstraints({ make in
-            make.top.equalTo(containerView)
-            make.bottom.equalTo(containerView)
+            make.centerY.equalTo(containerView)
             make.leading.equalTo(containerView)
+            make.height.equalTo(50)
         })
         cancelButton.snp.makeConstraints({ make in
-            make.top.equalTo(containerView)
-            make.bottom.equalTo(containerView)
+            make.centerY.equalTo(containerView)
             make.width.equalTo(enterButton)
             make.leading.equalTo(enterButton.snp.trailing).offset(10)
             make.trailing.equalTo(containerView)
+            make.height.equalTo(enterButton)
         })
-        
-        label.text = "The date of sowing."
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.textAlignment = .center
         
         enterButton.addTarget(self, action: #selector(tapEnter), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(tapCancel), for: .touchUpInside)

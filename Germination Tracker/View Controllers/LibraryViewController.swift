@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class LibraryViewController: UITableViewController {
 
@@ -18,7 +19,7 @@ class LibraryViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPlant))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPlant))
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Garden"
     }
@@ -49,7 +50,7 @@ class LibraryViewController: UITableViewController {
         return plantsManager.plants.count
     }
     
-    @objc func addPlant() {
+    @objc func addNewPlant() {
         let ac = UIAlertController(title: "New plant name", message: "Enter the name of the new plant you are sowing.", preferredStyle: .alert)
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak self] _ in
@@ -67,6 +68,31 @@ class LibraryViewController: UITableViewController {
         present(ac, animated: true)
     }
     
+    func addPlant(copiedFromPlant plant: Plant) {
+        let indexPath = IndexPath(row: plantsManager.plants.count, section: 0)
+        plantsManager.newPlant(named: plant.name)
+        tableView.insertRows(at: [indexPath], with: .fade)
+    }
+    
+    func editPlantName(atIndex indexPath: IndexPath) {
+        let ac = UIAlertController(title: "Rename plant", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+        ac.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self] _ in
+            if let plant = self?.plantsManager.plants[indexPath.row],
+                let text = ac.textFields![0].text,
+                let manager = self?.plantsManager,
+                let tableView = self?.tableView{
+                plant.name = text
+                manager.savePlants()
+                tableView.reloadData()
+            }
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(ac, animated: true)
+    }
+    
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? DetailPagingViewController, let indexPath = tableView.indexPathForSelectedRow {
@@ -74,6 +100,31 @@ class LibraryViewController: UITableViewController {
             destinationVC.plant = plantsManager.plants[indexPath.row]
             destinationVC.plantsManager = self.plantsManager
         }
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            plantsManager.plants.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
+            plantsManager.savePlants()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let copyAction = UIContextualAction(style: .normal, title: "Copy") { [weak self] (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in
+            self?.addPlant(copiedFromPlant: self?.plantsManager.plants[indexPath.row] ?? Plant(name: ""))
+            success(true)
+        }
+        copyAction.backgroundColor = FlatGreen()
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { [weak self] (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in
+            self?.editPlantName(atIndex: indexPath)
+            success(true)
+        }
+        editAction.backgroundColor = FlatBlue()
+        
+        return UISwipeActionsConfiguration(actions: [editAction, copyAction])
     }
 
 

@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-Germination Tracker/Pods-Germination Tracker-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework
+${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyButton/SwiftyButton.framework
