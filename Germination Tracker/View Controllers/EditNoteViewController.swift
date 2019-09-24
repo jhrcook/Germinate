@@ -15,7 +15,12 @@ protocol EditNoteViewControllerDelegate {
 
 class EditNoteViewController: UIViewController {
     
-    var note: SeedNote?
+    var note: SeedNote? {
+        didSet {
+            editNoteView.configureEditView(withNote: note)
+        }
+    }
+    
     var editNoteView = EditNoteView()
     
     var delegate: EditNoteViewControllerDelegate?
@@ -24,6 +29,7 @@ class EditNoteViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        view.backgroundColor = .white
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
@@ -31,25 +37,32 @@ class EditNoteViewController: UIViewController {
         view.addSubview(editNoteView)
         editNoteView.snp.makeConstraints({ make in make.edges.equalTo(view) })
         
-        if note == nil { note = SeedNote(title: "Title", detail: "Detail") }
+        editNoteView.datePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
+        
+        if note == nil {
+            note = SeedNote(title: "Title", detail: "Detail")
+        }
         editNoteView.configureEditView(withNote: note)
         
     }
     
     
-    @objc func cancelButtonTapped() {
-        dismiss(animated: true, completion: nil)
+    @objc private func cancelButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
     
-    @objc func saveButtonTapped() {
-        
+    @objc private func saveButtonTapped() {
         note?.title = editNoteView.titleTextView.text
-        note?.dateCreated = editNoteView.datePicker.date
         note?.detail = editNoteView.detailTextView.text
         
         if let delegate = delegate { delegate.noteWasEdited(note!) }
-        dismiss(animated: true, completion: nil)
         
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @objc func datePickerChanged(picker: UIDatePicker) {
+        note?.dateCreated = picker.date
     }
     
     

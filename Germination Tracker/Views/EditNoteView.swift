@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import ChameleonFramework
+import SwiftyButton
 
 class EditNoteView: UIView {
     
@@ -32,30 +34,36 @@ class EditNoteView: UIView {
     
     func configureEditView(withNote note: SeedNote?) {
         
-        titleTextView.text = note?.title ?? ""
-        datePicker.date = note?.dateCreated ?? Date()
-        detailTextView.text = note?.detail ?? ""
+        titleTextView.text = note?.title ?? "Title"
+        datePicker.setDate(note?.dateCreated ?? Date(), animated: false)
+        detailTextView.text = note?.detail ?? "Detail"
+        
+        titleTextView.font = UIFont.preferredFont(forTextStyle: .body)
+        detailTextView.font = UIFont.preferredFont(forTextStyle: .body)
         
         addSubview(titleTextView)
         addSubview(datePicker)
         addSubview(detailTextView)
         
+        titleTextView.backgroundColor = .red
+        datePicker.backgroundColor = .green
+        detailTextView.backgroundColor = .blue
+        
         titleTextView.snp.makeConstraints({ make in
-            make.top.equalTo(self).offset(20)
-            make.leading.equalTo(self).inset(20)
-            make.trailing.equalTo(self).inset(20)
-            make.height.equalTo(60)
+            make.top.equalTo(self.safeAreaLayoutGuide).priorityHigh()
+            make.leading.equalTo(self)
+            make.trailing.equalTo(self)
+            make.height.equalTo(60).priorityMedium()
         })
         datePicker.snp.makeConstraints({ make in
-            make.top.equalTo(titleTextView.snp.bottom).offset(10)
-            make.centerY.equalTo(self)
-            make.height.equalTo(80)
+            make.top.equalTo(titleTextView.snp.bottom).offset(20)
+            make.centerX.equalTo(self)
         })
         detailTextView.snp.makeConstraints({ make in
             make.top.equalTo(datePicker.snp.bottom).offset(20)
-            make.leading.equalTo(self).inset(20)
-            make.trailing.equalTo(self).inset(20)
-            make.bottom.equalTo(self).inset(20)
+            make.leading.equalTo(self)
+            make.trailing.equalTo(self)
+            make.bottom.equalTo(self)
         })
     }
 

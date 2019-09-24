@@ -39,6 +39,9 @@ class Plant: NSObject, Codable {
         }
     }
     
+    /// An array of type `SeedNote` containing notes about the germination process.
+    var notes = [SeedNote]()
+    
     init(name: String) {
         self.name = name
         self.dateOfSeedSowing = Date()
@@ -49,20 +52,40 @@ class Plant: NSObject, Codable {
         self.numberOfSeedsSown = numberOfSeedsSown
     }
     
-    
+    /// Add a date to `seedGerminationDates`
     func addGermination(_ date: Date?) {
         seedGerminationDates.append(date ?? Date())
     }
     
+    /// Remove a date from `seedGerminationDates`
     func removeGermination(atIndex index: Int) {
         seedGerminationDates.remove(at: index)
     }
     
+    /// Add a date to `plantDeathDates`
     func addDeath(_ date: Date?) {
         plantDeathDates.append(date ?? Date())
     }
     
+    /// Remove a date from `plantDeathDates`
     func removeDeath(atIndex index: Int) {
         plantDeathDates.remove(at: index)
+    }
+    
+    /// Add a `SeedNote` to the `notes` array.
+    func add(_ note: SeedNote) {
+        notes.append(note)
+        orderNotes()
+    }
+    
+    /// Replace a note in the `notes` array
+    func replaceNote(atIndex index: Int, with note: SeedNote) {
+        notes[index] = note
+        orderNotes()
+    }
+    
+    /// Reorder the notes by date created: oldest to newest
+    private func orderNotes() {
+        notes = notes.sorted(by: { $0.dateCreated < $1.dateCreated })
     }
 }

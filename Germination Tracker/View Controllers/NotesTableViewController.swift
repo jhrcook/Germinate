@@ -9,26 +9,34 @@
 import UIKit
 import ChameleonFramework
 
+protocol NotesTableViewControllerContainerDelegate {
+    func didSelectNoteToEdit(atIndex index: Int)
+    func didDeleteNote(atIndex index: Int)
+}
+
 class NotesTableViewController: UITableViewController {
     
     let reuseIdentifier = "notesCell"
     
     var notes = [SeedNote]()
     var plantsManager: PlantsArrayManager?
-    
-    var selectedNoteIndex: Int?
+    var delegate: NotesTableViewControllerContainerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(NoteTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
 
-        makeTestNotes()
+//        makeTestNotes()
         
         setupTableView()
     }
 
     // MARK: - Table view data source
+    
+    func reloadData() {
+        tableView.reloadData()
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notes.count
@@ -52,24 +60,17 @@ class NotesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        /// TODO
-        print("Selected notes cell \(indexPath.row).")
-        selectedNoteIndex = indexPath.row
+        if let delegate = delegate { delegate.didSelectNoteToEdit(atIndex: indexPath.row) }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
-}
-
-extension NotesTableViewController: EditNoteViewControllerDelegate {
-    func noteWasEdited(_ note: SeedNote) {
-        if let index = selectedNoteIndex {
-            notes[index] = note
-        } else {
-            notes.append(note)
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            delegate?.didDeleteNote(atIndex: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
         }
-        plantsManager?.savePlants()
     }
-    
-    
 }
 
 

@@ -18,6 +18,8 @@ class DetailPagingViewController: UIViewController {
     var detailPagingView: DetailPagingView!
     var notesTableViewController: NotesTableViewController!
     
+    var selectedNoteIndex: Int?
+    
     var currentScrollIndex = 0 {
         didSet {
             if currentScrollIndex == 0 {
@@ -102,6 +104,9 @@ class DetailPagingViewController: UIViewController {
     }
     
     func setupNotesTable() {
+        notesTableViewController.notes = plant.notes
+        notesTableViewController.reloadData()
+        notesTableViewController.delegate = self
         detailPagingView.notesContainerView.addSubview(notesTableViewController.view)
     }
     
@@ -140,14 +145,25 @@ extension DetailPagingViewController {
         }
     }
     
+    
     @objc func addNewNote() {
-        print("Add a new note - TODO")
-//        notesTableViewController.selectedNoteIndex = nil
-//        let vc = EditNoteViewController()
-////        vc.delegate = notesTableViewController
-//        navigationController?.pushViewController(vc, animated: true)
+        selectedNoteIndex = nil
+        let vc = EditNoteViewController()
+        vc.delegate = self
+        push(vc)
+    }
+    
+    /// Push the edit note view controller with self as delegate.
+    fileprivate func push(_ editNoteViewController: EditNoteViewController) {
+        if let navController = self.navigationController {
+            navController.pushViewController(editNoteViewController, animated: true)
+        } else {
+            let navController = UINavigationController(rootViewController: editNoteViewController)
+            self.present(navController, animated: true, completion: nil)
+        }
     }
 }
+
 
 
 extension DetailPagingViewController {
@@ -155,11 +171,14 @@ extension DetailPagingViewController {
     @objc func dateLabelTapped(_ sender: UITapGestureRecognizer) {
         let datePickerVC = DatePickerViewController()
         datePickerVC.delegate = self
+        datePickerVC.datePicker.setDate(plant.dateOfSeedSowing, animated: false)
+        datePickerVC.modalPresentationStyle = .formSheet
+        datePickerVC.modalTransitionStyle = .coverVertical
         present(datePickerVC, animated: true, completion: nil)
     }
     
+    
     @objc func numSeedsLabelTapped(_ sender: UITapGestureRecognizer) {
-        /// TODO
         let ac = UIAlertController(title: "Number of seeds sown", message: nil, preferredStyle: .alert)
         ac.addTextField(configurationHandler: { textField in
             textField.keyboardType = .numberPad
@@ -188,10 +207,48 @@ extension DetailPagingViewController {
 }
 
 
+extension DetailPagingViewController: EditNoteViewControllerDelegate {
+    func noteWasEdited(_ note: SeedNote) {
+        if let index = selectedNoteIndex {
+            plant.replaceNote(atIndex: index, with: note)
+            plant.notes[index] = note
+            plantsManager.savePlants()
+            notesTableViewController.notes = plant.notes
+            notesTableViewController.reloadData()
+        } else {
+            plant.add(note)
+            plantsManager.savePlants()
+            notesTableViewController.notes = plant.notes
+            notesTableViewController.reloadData()
+        }
+    }
+}
+
+
 extension DetailPagingViewController: DatePickerViewControllerDelegate {
     func dateSubmitted(_ date: Date) {
         plant.dateOfSeedSowing = date
         setDateOfSowingLabel()
         plantsManager.savePlants()
     }
+}
+
+
+extension DetailPagingViewController: NotesTableViewControllerContainerDelegate {
+    
+    func didDeleteNote(atIndex index: Int) {
+        plant.notes.remove(at: index)
+        plantsManager.savePlants()
+        notesTableViewController.notes = plant.notes
+    }
+    
+    
+    func didSelectNoteToEdit(atIndex index: Int) {
+        selectedNoteIndex = index
+        let vc = EditNoteViewController()
+        vc.delegate = self
+        vc.note = plant.notes[index]
+        push(vc)
+    }
+    
 }

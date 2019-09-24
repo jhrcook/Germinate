@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SeedNote {
+struct SeedNote: Codable {
     
     var title: String
     var detail: String

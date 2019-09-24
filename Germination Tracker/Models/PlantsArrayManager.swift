@@ -29,7 +29,7 @@ class PlantsArrayManager {
                 plants = try jsonDecoder.decode([Plant].self, from: savedPlants)
                 print("Loading \(plants.count) plants.")
             } catch {
-                fatalError("Unable to load plants.")
+                print("Data type has changed and we lost your plants... sad.")
             }
         }
     }

@@ -23,6 +23,12 @@ class LibraryViewController: UITableViewController {
         title = "Garden"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        plantsManager.savePlants()
+        tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath)
         
