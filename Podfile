@@ -8,4 +8,5 @@ target 'Germination Tracker' do
   # Pods for Germination Tracker
   pod 'SnapKit', '~> 4.0'
   pod 'ChameleonFramework/Swift'
+  pod 'SwiftyButton'
 end

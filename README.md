@@ -13,3 +13,10 @@ date: 2019-09-20
 A simple iOS app to track the germination of my seeds.
 
 **Status:** in development
+
+
+Third-Party Libraries
+
+* SnapKit
+* Chameleon
+* [SwiftyButton](https://github.com/TakeScoop/SwiftyButton)

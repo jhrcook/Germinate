@@ -3,20 +3,24 @@ PODS:
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - SnapKit (4.2.0)
+  - SwiftyButton (0.8.2)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
   - SnapKit (~> 4.0)
+  - SwiftyButton
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ChameleonFramework
     - SnapKit
+    - SwiftyButton
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
 
-PODFILE CHECKSUM: 18b71216678725c4da9401a9f205416e1e7206c9
+PODFILE CHECKSUM: 6c6dafe9d678ffe26024c44f1833e9146961d70b
 
 COCOAPODS: 1.7.4
