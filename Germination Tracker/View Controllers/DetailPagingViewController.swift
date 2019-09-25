@@ -15,6 +15,8 @@ class DetailPagingViewController: UIViewController {
     var plant: Plant!
     var plantsManager: PlantsArrayManager!
     
+    var chartViewController: ChartViewController!
+    
     var detailPagingView: DetailPagingView!
     var notesTableViewController: NotesTableViewController!
     
@@ -38,11 +40,20 @@ class DetailPagingViewController: UIViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = false
         currentScrollIndex = 0
-                
-//        let navBarHeight = (navigationController?.navigationBar.frame.height ?? 0)
+        
+        //let navBarHeight = (navigationController?.navigationBar.frame.height ?? 0)
         detailPagingView = DetailPagingView(frame: view.frame)
         view.addSubview(detailPagingView)
         detailPagingView.snp.makeConstraints({ make in make.edges.equalTo(view.safeAreaLayoutGuide) })
+        
+        // chart
+        chartViewController = ChartViewController()
+        chartViewController.plant = self.plant
+        chartViewController.setGerminationLineChart()
+        detailPagingView.informationView.chartContainerView.addSubview(chartViewController.view)
+        chartViewController.view.snp.makeConstraints({make in
+            make.edges.equalTo(detailPagingView.informationView.chartContainerView)
+        })
         
         notesTableViewController = NotesTableViewController()
         setupNotesTable()

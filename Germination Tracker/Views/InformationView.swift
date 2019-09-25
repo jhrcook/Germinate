@@ -26,6 +26,8 @@ class InformationView: UIView {
     var germinationCounterLabel = UILabel()
     var germinationStepper = UIStepper()
     
+    var chartContainerView = UIView()
+    
     var deathCounterContainerView = UIView()
     var deathCounterLabel = UILabel()
     var deathStepper = UIStepper()
@@ -109,12 +111,26 @@ class InformationView: UIView {
         deathCounterLabel.textAlignment = .center
         deathStepper.tintColor = .white
         
+        // chart container view
+        addSubview(chartContainerView)
+        chartContainerView.snp.makeConstraints({ make in
+            make.top.equalTo(deathCounterContainerView.snp.bottom)
+            make.leading.equalTo(self)
+            make.trailing.equalTo(self)
+            make.bottom.equalTo(self)
+        })
+        
     }
     
     
     func setupView(withFrame newFrame: CGRect) {
         setupView()
         frame = newFrame
+    }
+    
+    
+    func setChartContainerView() {
+        
     }
     
     
