@@ -16,8 +16,8 @@ class PlantsArrayManager {
     
     
     init() {
-        loadPlants()
-//        makeTestPlantsArray()
+//        loadPlants()
+        makeTestPlantsArray()
     }
     
     
@@ -60,6 +60,25 @@ class PlantsArrayManager {
             Plant(name: "Euphorbia obesa"),
             Plant(name: "Haworthia truncata")
         ]
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let anotherPlant = Plant(name: "Plant withseeds", numberOfSeedsSown: 20)
+        anotherPlant.dateOfSeedSowing = dateFormatter.date(from: "09/01/2019")!
+        let datesToAdd = [
+            "09/02/2019", "09/02/2019", "09/02/2019",
+            "09/04/2019", "09/04/2019", "09/04/2019", "09/04/2019",
+            "09/08/2019",
+            "09/12/2019", "09/12/2019", "09/12/2019",
+            "09/15/2019", "09/15/2019", "09/15/2019", "09/15/2019"
+        ]
+        for date in datesToAdd {
+            anotherPlant.addGermination(dateFormatter.date(from: date)!)
+        }
+        plants.append(anotherPlant)
+        
     }
     
 }
+
+

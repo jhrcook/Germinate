@@ -36,8 +36,6 @@ class ChartViewController: UIViewController {
     
     func setGerminationLineChart() {
         
-        let secondsInADay = 60 * 60 * 24
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
@@ -56,6 +54,7 @@ class ChartViewController: UIViewController {
             allDatesSinceBeginning.append(startDate)
             startDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)!
         }
+        allDatesSinceBeginning = allDatesSinceBeginning.sorted(by: { $0 < $1 })
         
         
         // y-values for plot
@@ -76,24 +75,20 @@ class ChartViewController: UIViewController {
         }
         
         // turn into chart data entry
-        let now = Date().timeIntervalSince1970
         var values = [ChartDataEntry]()
         for i in 1..<cumulativeGerminationCount.count {
-            let x = (now - allDatesSinceBeginning[i].timeIntervalSince1970) / Double(secondsInADay)
-            values.append(ChartDataEntry(x: x.rounded(.towardZero), y: cumulativeGerminationCount[i]))
+            values.append(ChartDataEntry(x: Double(i), y: cumulativeGerminationCount[i]))
         }
-        
-        values = values.reversed()
-        
+                
         let set1 = LineChartDataSet(entries: values, label: "Germinations")
         
         // customize set1
-        set1.drawCirclesEnabled = true
+        set1.drawCirclesEnabled = false
         set1.drawCircleHoleEnabled = false
-        set1.drawValuesEnabled = true
+        set1.drawValuesEnabled = false
         set1.lineWidth = 2
         set1.axisDependency = .left
-        set1.fillColor = FlatMintDark()
+        set1.colors = [FlatMintDark()]
         
         let data = LineChartData(dataSet: set1)
         germinationLineChartView.data = data
@@ -129,29 +124,5 @@ class ChartViewController: UIViewController {
 //        data.setValueFont(.systemFont(ofSize: 9, weight: .light))
 //
 //        germinationLineChartView.data = data
-    }
-
-}
-
-
-
-extension ChartViewController {
-    
-    func getTestDates() -> [Date] {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        let testGerminationDates: [Date] = [
-            dateFormatter.date(from: "09/20/2019")!,
-            dateFormatter.date(from: "09/20/2019")!,
-            dateFormatter.date(from: "09/20/2019")!,
-            dateFormatter.date(from: "09/21/2019")!,
-            dateFormatter.date(from: "09/22/2019")!,
-            dateFormatter.date(from: "09/22/2019")!,
-            dateFormatter.date(from: "09/22/2019")!,
-            dateFormatter.date(from: "09/23/2019")!,
-            dateFormatter.date(from: "09/23/2019")!,
-            dateFormatter.date(from: "09/23/2019")!
-        ]
-        return testGerminationDates
     }
 }
