@@ -10,7 +10,7 @@ import UIKit
 
 
 /// A plant trying to be grown from seed.
-class Plant: NSObject, Codable {
+class Plant: Codable {
 
     /// The name of the plant.
     var name: String
