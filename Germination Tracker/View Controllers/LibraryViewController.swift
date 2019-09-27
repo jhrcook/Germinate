@@ -95,12 +95,19 @@ class LibraryViewController: UITableViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? DetailPagingViewController, let indexPath = tableView.indexPathForSelectedRow {
-            print("segue to DetailPagingVC")
+//        if let destinationVC = segue.destination as? DetailPagingViewController, let indexPath = tableView.indexPathForSelectedRow {
+//            print("segue to DetailPagingVC")
+//            destinationVC.plant = plantsManager.plants[indexPath.row]
+//            destinationVC.plantsManager = self.plantsManager
+//        }
+        
+        if let destinationVC = segue.destination as? PagingViewController,
+            let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.plant = plantsManager.plants[indexPath.row]
             destinationVC.plantsManager = self.plantsManager
         }
     }
+    
     
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

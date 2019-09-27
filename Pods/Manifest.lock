@@ -5,12 +5,14 @@ PODS:
   - Charts (3.3.0):
     - Charts/Core (= 3.3.0)
   - Charts/Core (3.3.0)
+  - Pageboy (3.4.0)
   - SnapKit (4.2.0)
   - SwiftyButton (0.8.2)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
   - Charts (~> 3.3)
+  - Pageboy (~> 3.2)
   - SnapKit (~> 4.0)
   - SwiftyButton
 
@@ -18,15 +20,17 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ChameleonFramework
     - Charts
+    - Pageboy
     - SnapKit
     - SwiftyButton
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
+  Pageboy: fd23a9b9e8156f4fac62731637f5d6f7d1e1c3aa
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
 
-PODFILE CHECKSUM: 155490fd0f732df5de9901a29433ceb11e934db6
+PODFILE CHECKSUM: 3094e473d58e158b16461f5f6bdb4c544cd3c1f4
 
 COCOAPODS: 1.7.4

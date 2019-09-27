@@ -10,4 +10,5 @@ target 'Germination Tracker' do
   pod 'ChameleonFramework/Swift'
   pod 'SwiftyButton'
   pod 'Charts', '~> 3.3'
+  pod 'Pageboy', '~> 3.2'
 end
