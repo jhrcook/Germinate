@@ -15,14 +15,14 @@ class PagingViewController: PageboyViewController {
     weak var plant: Plant!
     weak var plantsManager: PlantsArrayManager!
     
-    var informationViewController = InformationViewController()
+    var informationViewController: InformationViewController!
     var notesTableViewController = NotesTableViewController()
     var viewControllers = [UIViewController]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        informationViewController.plant = plant
+        informationViewController = InformationViewController(plant: plant)
         informationViewController.plantsManager = plantsManager
         
         notesTableViewController.plantsManager = plantsManager

@@ -22,117 +22,173 @@ class InformationView: UIView {
     var dateSownLabel = UILabel()
     var numberOfSeedsSownLabel = UILabel()
     
-    var germinationCounterContainerView = UIView()
+    var germinationCounterContainerView = UIStackView()
     var germinationCounterLabel = UILabel()
     var germinationStepper = UIStepper()
     
-    var chartContainerView = UIView()
-    
-    var deathCounterContainerView = UIView()
     var deathCounterLabel = UILabel()
     var deathStepper = UIStepper()
+    var deathCounterContainerView = UIStackView()
     
-    func setupView() {
+    var chartContainerView = UIStackView()
+    
+    var mainStackView = UIStackView()
+    
+    var halfViewFrameHeight: CGFloat = 0
+    var heightOfTopViews: CGFloat = 0
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupStackView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    /// Setup the main stack view.
+    func setupStackView() {
         
-        // date sown label
-        addSubview(dateSownLabel)
+        halfViewFrameHeight = frame.height / 2.0
+        heightOfTopViews = halfViewFrameHeight / 4.0
+        
+        addSubview(mainStackView)
+        mainStackView.snp.makeConstraints({ make in make.edges.equalTo(self) })
+        
+        mainStackView.addArrangedSubview(dateSownLabel)
+        mainStackView.addArrangedSubview(numberOfSeedsSownLabel)
+        mainStackView.addArrangedSubview(germinationCounterContainerView)
+        mainStackView.addArrangedSubview(deathCounterContainerView)
+        mainStackView.addArrangedSubview(chartContainerView)
+        
+        setupDateSownLabel()
+        setupNumberOfSeedsSownLabel()
+        setupGerminationContainer()
+        setupDeathContainer()
+        setupChartContainer()
+        
+        mainStackView.alignment = .fill
+        mainStackView.axis = .vertical
+        
+        
+        /// FOR LAYING OUT VIEW
+        dateSownLabel.backgroundColor = .red
+        numberOfSeedsSownLabel.backgroundColor = .green
+        germinationCounterLabel.backgroundColor = .blue
+        deathCounterLabel.backgroundColor = .yellow
+    }
+    
+    /// Setup the date sown label.
+    private func setupDateSownLabel() {
         dateSownLabel.snp.makeConstraints({ make in
-            make.top.equalTo(self).inset(10)
-            make.leading.equalTo(self).inset(10)
-            make.trailing.equalTo(self).inset(10)
-            make.height.equalTo(50)
+            make.top.equalTo(mainStackView)
+            make.leading.equalTo(mainStackView)
+            make.trailing.equalTo(mainStackView)
         })
-        
-        // number of seeds sown label
-        addSubview(numberOfSeedsSownLabel)
+    }
+    
+    /// Setup the date sown label.
+    private func setupNumberOfSeedsSownLabel() {
         numberOfSeedsSownLabel.snp.makeConstraints({ make in
-            make.top.equalTo(dateSownLabel.snp.bottom).offset(10)
-            make.leading.equalTo(self).inset(10)
-            make.trailing.equalTo(self).inset(10)
-            make.height.equalTo(50)
+            make.leading.equalTo(mainStackView)
+            make.trailing.equalTo(mainStackView)
+            make.height.equalTo(dateSownLabel)
         })
+    }
+    
+    /// Setup the germination container view.
+    private func setupGerminationContainer() {
+        germinationCounterContainerView.addArrangedSubview(germinationCounterLabel)
+        germinationCounterContainerView.addArrangedSubview(germinationStepper)
+        germinationCounterContainerView.alignment = .fill
+        germinationCounterContainerView.axis = .horizontal
+        germinationCounterContainerView.spacing = 5
         
-        // germination counter
-        addSubview(germinationCounterContainerView)
         germinationCounterContainerView.snp.makeConstraints({ make in
-            make.top.equalTo(numberOfSeedsSownLabel.snp.bottom).offset(10)
-            make.leading.equalTo(self).inset(10)
-            make.trailing.equalTo(self).inset(10)
-            make.height.equalTo(50)
+            make.leading.equalTo(mainStackView)
+            make.trailing.equalTo(mainStackView)
+            make.height.equalTo(dateSownLabel)
         })
-        
-        germinationCounterContainerView.addSubview(germinationCounterLabel)
-        germinationCounterContainerView.addSubview(germinationStepper)
         germinationCounterLabel.snp.makeConstraints({ make in
-            make.top.equalTo(germinationCounterContainerView)
             make.leading.equalTo(germinationCounterContainerView)
-            make.bottom.equalTo(germinationCounterContainerView)
+            make.centerY.equalTo(germinationCounterContainerView)
         })
         germinationStepper.snp.makeConstraints({ make in
+            make.trailing.equalTo(germinationCounterContainerView)
             make.centerY.equalTo(germinationCounterContainerView)
-            make.leading.equalTo(germinationCounterLabel.snp.trailing)
-            make.trailing.equalTo(germinationCounterContainerView).inset(8)
         })
+    }
+    
+    /// Setup the death container view.
+    private func setupDeathContainer() {
+        deathCounterContainerView.addArrangedSubview(deathCounterLabel)
+        deathCounterContainerView.addArrangedSubview(deathStepper)
+        deathCounterContainerView.alignment = .fill
+        deathCounterContainerView.axis = .horizontal
+        deathCounterContainerView.spacing = 5
         
-        germinationCounterLabel.textColor = .white
-        germinationCounterLabel.text = "Number of germinations: 0"
-        germinationCounterLabel.textAlignment = .center
-        germinationStepper.tintColor = .white
-        
-        // death counter
-        addSubview(deathCounterContainerView)
         deathCounterContainerView.snp.makeConstraints({ make in
-            make.top.equalTo(germinationCounterContainerView.snp.bottom).offset(10)
-            make.leading.equalTo(self).inset(10)
-            make.trailing.equalTo(self).inset(10)
-            make.height.equalTo(50)
+            make.leading.equalTo(mainStackView)
+            make.trailing.equalTo(mainStackView)
+            make.height.equalTo(dateSownLabel)
         })
-        
-        deathCounterContainerView.addSubview(deathCounterLabel)
-        deathCounterContainerView.addSubview(deathStepper)
         deathCounterLabel.snp.makeConstraints({ make in
-            make.top.equalTo(deathCounterContainerView)
             make.leading.equalTo(deathCounterContainerView)
-            make.bottom.equalTo(deathCounterContainerView)
+            make.centerY.equalTo(deathCounterContainerView)
         })
         deathStepper.snp.makeConstraints({ make in
+            make.trailing.equalTo(deathCounterContainerView)
             make.centerY.equalTo(deathCounterContainerView)
-            make.leading.equalTo(deathCounterLabel.snp.trailing)
-            make.trailing.equalTo(deathCounterContainerView).inset(8)
         })
-        
-        addTheme(toLabel: &dateSownLabel)
-        addTheme(toLabel: &numberOfSeedsSownLabel)
-        addTheme(toView: &germinationCounterContainerView)
-        addTheme(toView: &deathCounterContainerView)
-
-        deathCounterLabel.textColor = .white
-        deathCounterLabel.text = "Number of germinations: 0"
-        deathCounterLabel.textAlignment = .center
-        deathStepper.tintColor = .white
-        
-        // chart container view
-        addSubview(chartContainerView)
+    }
+    
+    /// Setup the container view for the chart.
+    private func setupChartContainer() {
         chartContainerView.snp.makeConstraints({ make in
-            make.top.equalTo(deathCounterContainerView.snp.bottom)
-            make.leading.equalTo(self)
-            make.trailing.equalTo(self)
-            make.bottom.equalTo(self)
+            make.bottom.equalTo(mainStackView)
+            make.height.equalTo(halfViewFrameHeight)
         })
+    }
+    
+    
+    /// Set up the information for a plant object.
+    func configureViewFor(_ plant: Plant) {
+        set(dateSownLabelTo: plant.dateOfSeedSowing)
+        set(numberOfSeedlingsTo: plant.numberOfSeedsSown)
         
     }
     
-    
-    func setupView(withFrame newFrame: CGRect) {
-        setupView()
-        frame = newFrame
+    /// Set the date of sowing label.
+    func set(dateSownLabelTo date: Date) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        let text = "Date sown: \(dateFormatter.string(from: date))"
+        dateSownLabel.text = text
     }
     
     
-    func setChartContainerView() {
-        
+    /// Set the number of seedlings label.
+    func set(numberOfSeedlingsTo num: Int) {
+        numberOfSeedsSownLabel.text = "Num. seeds sown: \(num)"
     }
     
+    /// Set the number of germinations.
+    ///
+    /// This sets both the label and the stepper value.
+    func set(numberOfGerminationsTo num: Int) {
+        germinationCounterLabel.text = "Num. of germinations: \(num)"
+        germinationStepper.value = Double(num)
+    }
+    
+    /// Set the number of deaths.
+    ///
+    /// This sets both the label and the stepper value.
+    func set(numberOfDeathsTo num: Int) {
+        deathCounterLabel.text = "Num. of deaths: \(num)"
+        deathStepper.value = Double(num)
+    }
+
     
     func addTheme(toView view: inout UIView) {
         view.layer.masksToBounds = true
