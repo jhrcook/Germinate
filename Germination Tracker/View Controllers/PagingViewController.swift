@@ -22,6 +22,10 @@ class PagingViewController: PageboyViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        navigationController?.setNavigationBarHidden(false, animated: false)
+        title = plant.name
+        navigationItem.largeTitleDisplayMode = .never
+                        
         informationViewController = InformationViewController(plant: plant)
         informationViewController.plantsManager = plantsManager
         

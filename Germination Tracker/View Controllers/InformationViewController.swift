@@ -32,9 +32,10 @@ class InformationViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        informationView = InformationView(frame: view.frame)
+        informationView = InformationView(frame: view.safeAreaLayoutGuide.layoutFrame)
         view.addSubview(informationView)
-        informationView.snp.makeConstraints({ make in make.edges.equalTo(view) })
+        informationView.snp.makeConstraints({ make in make.edges.equalTo(view.safeAreaLayoutGuide) })
+        informationView.configureViewFor(plant)
     }
     
 

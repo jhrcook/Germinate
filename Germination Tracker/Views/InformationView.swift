@@ -19,16 +19,21 @@ class InformationView: UIView {
     }
     let infoViewPal = InfoViewPalette()
     
+    var dateSownContainerView = UIView()
     var dateSownLabel = UILabel()
+    
+    var numberOfSeedsSownContainerView = UIView()
     var numberOfSeedsSownLabel = UILabel()
     
     var germinationCounterContainerView = UIStackView()
     var germinationCounterLabel = UILabel()
     var germinationStepper = UIStepper()
+    var germinationStepperBackgroundView = UIView()
     
     var deathCounterLabel = UILabel()
     var deathStepper = UIStepper()
     var deathCounterContainerView = UIStackView()
+    var deathStepperBackgroundView = UIView()
     
     var chartContainerView = UIStackView()
     
@@ -36,6 +41,10 @@ class InformationView: UIView {
     
     var halfViewFrameHeight: CGFloat = 0
     var heightOfTopViews: CGFloat = 0
+    var sideInset: CGFloat = 10
+    var verticalSeparation: CGFloat = 5
+    
+    var cornerRadius: CGFloat = 8
     
     
     override init(frame: CGRect) {
@@ -53,48 +62,75 @@ class InformationView: UIView {
         halfViewFrameHeight = frame.height / 2.0
         heightOfTopViews = halfViewFrameHeight / 4.0
         
+        addSubview(germinationStepperBackgroundView)
+        addSubview(deathStepperBackgroundView)
         addSubview(mainStackView)
-        mainStackView.snp.makeConstraints({ make in make.edges.equalTo(self) })
+        mainStackView.snp.makeConstraints({ make in make.edges.equalTo(safeAreaLayoutGuide) })
         
-        mainStackView.addArrangedSubview(dateSownLabel)
-        mainStackView.addArrangedSubview(numberOfSeedsSownLabel)
+        mainStackView.addArrangedSubview(dateSownContainerView)
+        mainStackView.addArrangedSubview(numberOfSeedsSownContainerView)
         mainStackView.addArrangedSubview(germinationCounterContainerView)
         mainStackView.addArrangedSubview(deathCounterContainerView)
         mainStackView.addArrangedSubview(chartContainerView)
         
-        setupDateSownLabel()
+        mainStackView.spacing = 0
+        
+        setupDateSownView()
         setupNumberOfSeedsSownLabel()
         setupGerminationContainer()
         setupDeathContainer()
         setupChartContainer()
         
-        mainStackView.alignment = .fill
         mainStackView.axis = .vertical
-        
-        
-        /// FOR LAYING OUT VIEW
-        dateSownLabel.backgroundColor = .red
-        numberOfSeedsSownLabel.backgroundColor = .green
-        germinationCounterLabel.backgroundColor = .blue
-        deathCounterLabel.backgroundColor = .yellow
+        mainStackView.distribution = .fill
     }
     
     /// Setup the date sown label.
-    private func setupDateSownLabel() {
-        dateSownLabel.snp.makeConstraints({ make in
+    private func setupDateSownView() {
+        dateSownContainerView.addSubview(dateSownLabel)
+        
+        dateSownContainerView.snp.makeConstraints({ make in
             make.top.equalTo(mainStackView)
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
         })
+        dateSownLabel.snp.makeConstraints({ make in
+            make.top.equalTo(dateSownContainerView).inset(verticalSeparation)
+            make.bottom.equalTo(dateSownContainerView).inset(verticalSeparation)
+            make.leading.equalTo(dateSownContainerView).inset(sideInset)
+            make.trailing.equalTo(dateSownContainerView).inset(sideInset)
+        })
+        
+        dateSownLabel.textColor = .white
+        dateSownLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        dateSownLabel.textAlignment = .center
+        dateSownLabel.backgroundColor = infoViewPal.green
+        dateSownLabel.layer.cornerRadius = cornerRadius
+        dateSownLabel.layer.masksToBounds = true
     }
     
     /// Setup the date sown label.
     private func setupNumberOfSeedsSownLabel() {
-        numberOfSeedsSownLabel.snp.makeConstraints({ make in
+        numberOfSeedsSownContainerView.addSubview(numberOfSeedsSownLabel)
+        
+        numberOfSeedsSownContainerView.snp.makeConstraints({ make in
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
-            make.height.equalTo(dateSownLabel)
+            make.height.equalTo(dateSownContainerView)
         })
+        numberOfSeedsSownLabel.snp.makeConstraints({ make in
+            make.top.equalTo(numberOfSeedsSownContainerView).inset(verticalSeparation)
+            make.bottom.equalTo(numberOfSeedsSownContainerView).inset(verticalSeparation)
+            make.leading.equalTo(numberOfSeedsSownContainerView).inset(sideInset)
+            make.trailing.equalTo(numberOfSeedsSownContainerView).inset(sideInset)
+        })
+        
+        numberOfSeedsSownLabel.textColor = .white
+        numberOfSeedsSownLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        numberOfSeedsSownLabel.textAlignment = .center
+        numberOfSeedsSownLabel.backgroundColor = infoViewPal.green
+        numberOfSeedsSownLabel.layer.cornerRadius = cornerRadius
+        numberOfSeedsSownLabel.layer.masksToBounds = true
     }
     
     /// Setup the germination container view.
@@ -108,7 +144,7 @@ class InformationView: UIView {
         germinationCounterContainerView.snp.makeConstraints({ make in
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
-            make.height.equalTo(dateSownLabel)
+            make.height.equalTo(dateSownContainerView)
         })
         germinationCounterLabel.snp.makeConstraints({ make in
             make.leading.equalTo(germinationCounterContainerView)
@@ -116,8 +152,25 @@ class InformationView: UIView {
         })
         germinationStepper.snp.makeConstraints({ make in
             make.trailing.equalTo(germinationCounterContainerView)
-            make.centerY.equalTo(germinationCounterContainerView)
+            make.centerY.equalTo(germinationCounterLabel)
         })
+        germinationStepperBackgroundView.snp.makeConstraints({ make in
+            make.top.equalTo(germinationCounterContainerView).inset(verticalSeparation)
+            make.bottom.equalTo(germinationCounterContainerView).inset(verticalSeparation)
+            make.leading.equalTo(germinationCounterContainerView).inset(sideInset)
+            make.trailing.equalTo(germinationCounterContainerView).inset(sideInset)
+        })
+        
+        germinationCounterLabel.textAlignment = .center
+        germinationCounterLabel.textColor = .white
+        germinationCounterLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        
+        germinationStepper.minimumValue = 0
+        germinationStepper.stepValue = 1
+        
+        germinationStepperBackgroundView.backgroundColor = infoViewPal.green
+        germinationStepperBackgroundView.layer.cornerRadius = cornerRadius
+        germinationStepperBackgroundView.layer.masksToBounds = true
     }
     
     /// Setup the death container view.
@@ -131,7 +184,7 @@ class InformationView: UIView {
         deathCounterContainerView.snp.makeConstraints({ make in
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
-            make.height.equalTo(dateSownLabel)
+            make.height.equalTo(dateSownContainerView)
         })
         deathCounterLabel.snp.makeConstraints({ make in
             make.leading.equalTo(deathCounterContainerView)
@@ -141,6 +194,24 @@ class InformationView: UIView {
             make.trailing.equalTo(deathCounterContainerView)
             make.centerY.equalTo(deathCounterContainerView)
         })
+        deathStepperBackgroundView.snp.makeConstraints({ make in
+            make.top.equalTo(deathCounterContainerView).inset(verticalSeparation)
+            make.bottom.equalTo(deathCounterContainerView).inset(verticalSeparation)
+            make.leading.equalTo(deathCounterContainerView).inset(sideInset)
+            make.trailing.equalTo(deathCounterContainerView).inset(sideInset)
+        })
+        
+        deathCounterLabel.textAlignment = .center
+        deathCounterLabel.textColor = .white
+        deathCounterLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        
+        deathStepper.minimumValue = 0
+        deathStepper.stepValue = 1
+        deathStepper.tintColor = .white
+        
+        deathStepperBackgroundView.backgroundColor = infoViewPal.green
+        deathStepperBackgroundView.layer.cornerRadius = cornerRadius
+        deathStepperBackgroundView.layer.masksToBounds = true
     }
     
     /// Setup the container view for the chart.
@@ -156,7 +227,8 @@ class InformationView: UIView {
     func configureViewFor(_ plant: Plant) {
         set(dateSownLabelTo: plant.dateOfSeedSowing)
         set(numberOfSeedlingsTo: plant.numberOfSeedsSown)
-        
+        set(numberOfGerminationsTo: plant.numberOfGerminations)
+        set(numberOfDeathsTo: plant.numberOfDeaths)
     }
     
     /// Set the date of sowing label.

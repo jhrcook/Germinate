@@ -41,7 +41,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gc4-Sj-RaK" kind="show" identifier="gardenToPagingVC" id="oy1-rj-yjk"/>
+                                    <segue destination="gc4-Sj-RaK" kind="show" id="UUU-tB-8Yk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
