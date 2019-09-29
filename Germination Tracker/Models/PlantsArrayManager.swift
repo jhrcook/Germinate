@@ -16,8 +16,8 @@ class PlantsArrayManager {
     
     
     init() {
-//        loadPlants()
-        makeTestPlantsArray()
+        loadPlants()
+//        makeTestPlantsArray()
     }
     
     

@@ -61,7 +61,7 @@ class LibraryViewController: UITableViewController {
             self?.tableView.reloadData()
             let indexPath = IndexPath(row: (self?.plantsManager.plants.count)! - 1, section: 0)
             self?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
-            self?.performSegue(withIdentifier: "libraryToDetail", sender: self)
+            self?.performSegue(withIdentifier: "gardenToDetail", sender: self)
             self?.tableView.deselectRow(at: indexPath, animated: true)
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

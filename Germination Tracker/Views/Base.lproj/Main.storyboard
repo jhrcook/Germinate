@@ -41,7 +41,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gc4-Sj-RaK" kind="show" id="UUU-tB-8Yk"/>
+                                    <segue destination="gc4-Sj-RaK" kind="show" identifier="gardenToDetail" id="UUU-tB-8Yk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dR3-ei-8ZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2424" y="153"/>
+            <point key="canvasLocation" x="1706" y="979"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YKm-8z-aIB">

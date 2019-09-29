@@ -116,9 +116,9 @@
 				849CA3222336E28700505FE9 /* DetailPagingViewController.swift */,
 				842149AF233DB137006CA704 /* PagingViewController.swift */,
 				842149B1233DB27F006CA704 /* InformationViewController.swift */,
+				840100A22338F4EC00AD7B1B /* NotesTableViewController.swift */,
 				848E8CF0233B080400C663D0 /* ChartViewController.swift */,
 				845780F023383D55004EEAD1 /* DatePickerViewController.swift */,
-				840100A22338F4EC00AD7B1B /* NotesTableViewController.swift */,
 				84B63CA72339B54B0064444C /* EditNoteViewController.swift */,
 			);
 			path = "View Controllers";

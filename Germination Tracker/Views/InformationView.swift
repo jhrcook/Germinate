@@ -10,7 +10,18 @@ import UIKit
 import SnapKit
 import ChameleonFramework
 
+
+protocol InformationViewDelegate {
+    func dateSownLabelWasTapped(_ label: UILabel)
+    func numberOfSeedsSownLabelWasTapped(_ label: UILabel)
+    func germinationStepperValueDidChange(_ stepper: UIStepper)
+    func deathStepperValueDidChange(_ stepper: UIStepper)
+}
+
+
 class InformationView: UIView {
+    
+    var delegate: InformationViewDelegate?
     
     struct InfoViewPalette {
         let lightGreen = UIColor(red: 212/255, green: 255/255, blue: 214/255, alpha: 1.0)
@@ -25,17 +36,19 @@ class InformationView: UIView {
     var numberOfSeedsSownContainerView = UIView()
     var numberOfSeedsSownLabel = UILabel()
     
-    var germinationCounterContainerView = UIStackView()
+    var germinationCounterContainerView = UIView()
+    var germinationCounterStackView = UIStackView()
     var germinationCounterLabel = UILabel()
     var germinationStepper = UIStepper()
     var germinationStepperBackgroundView = UIView()
     
+    var deathCounterContainerView = UIView()
+    var deathCounterStackView = UIStackView()
     var deathCounterLabel = UILabel()
     var deathStepper = UIStepper()
-    var deathCounterContainerView = UIStackView()
     var deathStepperBackgroundView = UIView()
     
-    var chartContainerView = UIStackView()
+    var chartContainerView = UIView()
     
     var mainStackView = UIStackView()
     
@@ -50,6 +63,7 @@ class InformationView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupStackView()
+        setupInteractions()
     }
     
     required init?(coder: NSCoder) {
@@ -135,23 +149,34 @@ class InformationView: UIView {
     
     /// Setup the germination container view.
     private func setupGerminationContainer() {
-        germinationCounterContainerView.addArrangedSubview(germinationCounterLabel)
-        germinationCounterContainerView.addArrangedSubview(germinationStepper)
-        germinationCounterContainerView.alignment = .fill
-        germinationCounterContainerView.axis = .horizontal
-        germinationCounterContainerView.spacing = 5
+        germinationCounterContainerView.addSubview(germinationCounterStackView)
+        
+        germinationCounterStackView.addArrangedSubview(germinationCounterLabel)
+        germinationCounterStackView.addArrangedSubview(germinationStepper)
+        germinationCounterStackView.alignment = .center
+        germinationCounterStackView.distribution = .fill
+        germinationCounterStackView.axis = .horizontal
+        germinationCounterStackView.spacing = 5
+        germinationCounterStackView.isLayoutMarginsRelativeArrangement = true
+        germinationCounterStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: sideInset, bottom: 0, trailing: sideInset)
         
         germinationCounterContainerView.snp.makeConstraints({ make in
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
             make.height.equalTo(dateSownContainerView)
         })
+        germinationCounterStackView.snp.makeConstraints({ make in
+            make.top.equalTo(germinationCounterContainerView)
+            make.bottom.equalTo(germinationCounterContainerView)
+            make.leading.equalTo(germinationCounterContainerView).inset(sideInset)
+            make.trailing.equalTo(germinationCounterContainerView).inset(sideInset)
+        })
         germinationCounterLabel.snp.makeConstraints({ make in
-            make.leading.equalTo(germinationCounterContainerView)
-            make.centerY.equalTo(germinationCounterContainerView)
+            make.leading.equalTo(germinationCounterStackView)
+            make.centerY.equalTo(germinationCounterStackView)
         })
         germinationStepper.snp.makeConstraints({ make in
-            make.trailing.equalTo(germinationCounterContainerView)
+            make.trailing.equalTo(germinationCounterStackView)
             make.centerY.equalTo(germinationCounterLabel)
         })
         germinationStepperBackgroundView.snp.makeConstraints({ make in
@@ -175,24 +200,35 @@ class InformationView: UIView {
     
     /// Setup the death container view.
     private func setupDeathContainer() {
-        deathCounterContainerView.addArrangedSubview(deathCounterLabel)
-        deathCounterContainerView.addArrangedSubview(deathStepper)
-        deathCounterContainerView.alignment = .fill
-        deathCounterContainerView.axis = .horizontal
-        deathCounterContainerView.spacing = 5
+        deathCounterContainerView.addSubview(deathCounterStackView)
+        
+        deathCounterStackView.addArrangedSubview(deathCounterLabel)
+        deathCounterStackView.addArrangedSubview(deathStepper)
+        deathCounterStackView.alignment = .center
+        deathCounterStackView.distribution = .fill
+        deathCounterStackView.axis = .horizontal
+        deathCounterStackView.spacing = 5
+        deathCounterStackView.isLayoutMarginsRelativeArrangement = true
+        deathCounterStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: sideInset, bottom: 0, trailing: sideInset)
         
         deathCounterContainerView.snp.makeConstraints({ make in
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
             make.height.equalTo(dateSownContainerView)
         })
+        deathCounterStackView.snp.makeConstraints({ make in
+            make.top.equalTo(deathCounterContainerView)
+            make.bottom.equalTo(deathCounterContainerView)
+            make.leading.equalTo(deathCounterContainerView).inset(sideInset)
+            make.trailing.equalTo(deathCounterContainerView).inset(sideInset)
+        })
         deathCounterLabel.snp.makeConstraints({ make in
-            make.leading.equalTo(deathCounterContainerView)
-            make.centerY.equalTo(deathCounterContainerView)
+            make.leading.equalTo(deathCounterStackView)
+            make.centerY.equalTo(deathCounterStackView)
         })
         deathStepper.snp.makeConstraints({ make in
-            make.trailing.equalTo(deathCounterContainerView)
-            make.centerY.equalTo(deathCounterContainerView)
+            make.trailing.equalTo(deathCounterStackView)
+            make.centerY.equalTo(deathCounterStackView)
         })
         deathStepperBackgroundView.snp.makeConstraints({ make in
             make.top.equalTo(deathCounterContainerView).inset(verticalSeparation)
@@ -279,13 +315,51 @@ class InformationView: UIView {
         label.textColor = .white
         label.textAlignment = .center
     }
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    /// Setup the functions that pass UI with labels and steppers to the delegate
+    private func setupInteractions() {
+        // set up date sown label
+        dateSownLabel.isUserInteractionEnabled = true
+        let tapDateSown = UITapGestureRecognizer(target: self, action: #selector(dateSownLabelWasTapped))
+        dateSownLabel.addGestureRecognizer(tapDateSown)
+        
+        // set up number of seeds label
+        numberOfSeedsSownLabel.isUserInteractionEnabled = true
+        let tapNumberSown = UITapGestureRecognizer(target: self, action: #selector(numberOfSeedsSownLabelWasTapped))
+        numberOfSeedsSownLabel.addGestureRecognizer(tapNumberSown)
+        
+        // set stepper targets
+        germinationStepper.addTarget(self, action: #selector(stepperValueDidChange), for: .valueChanged)
+        deathStepper.addTarget(self, action: #selector(stepperValueDidChange), for: .valueChanged)
     }
-    */
-
+    
+    /// Respond to the date of sowing label being tapped.
+    ///
+    /// Calls the deleage's `dateSownLabelWasTapped(_ label: UILabel)` method.
+    @objc private func dateSownLabelWasTapped() {
+        guard let delegate = delegate else { return }
+        delegate.dateSownLabelWasTapped(dateSownLabel)
+    }
+    
+    /// Respond to the number of seeds label being tapped.
+    ///
+    /// Calls the deleage's `numberOfSeedsSownLabelWasTapped(_ label: UILabel)` method.
+    @objc private func numberOfSeedsSownLabelWasTapped() {
+        guard let delegate = delegate else { return }
+        delegate.numberOfSeedsSownLabelWasTapped(numberOfSeedsSownLabel)
+    }
+    
+    /// Respond the the change in value of a stepper.
+    /// This is the target for both the germination and death steppers.
+    ///
+    /// Calls the delegate's appropriate method for dealing with the steppers.
+    @objc private func stepperValueDidChange(_ stepper: UIStepper) {
+        guard let delegate = delegate else { return }
+        if stepper == germinationStepper {
+            delegate.germinationStepperValueDidChange(stepper)
+        } else if stepper == deathStepper {
+            delegate.deathStepperValueDidChange(stepper)
+        }
+    }
+    
 }
