@@ -21,7 +21,14 @@ class DatePickerViewController: UIViewController {
 
     let titleLabel: UILabel = {
         let lbl = UILabel()
-        lbl.backgroundColor = .white
+        
+        if #available(iOS 13.0, *) {
+            lbl.backgroundColor = .secondarySystemBackground
+            lbl.textColor = .label
+        } else {
+            lbl.backgroundColor = .white
+            lbl.textColor = .black
+        }
         lbl.text = "Date of Sowing"
         lbl.textAlignment = .center
         lbl.font = UIFont.preferredFont(forTextStyle: .title1)
@@ -33,8 +40,12 @@ class DatePickerViewController: UIViewController {
     
     let enterButton: FlatButton = {
         let button = FlatButton()
-        button.color = FlatGreen()
-        button.highlightedColor = FlatGreenDark()
+        if #available(iOS 13, *) {
+            button.color = .systemGreen
+        } else {
+            button.color = FlatGreen()
+        }
+        button.highlightedColor = button.color.darken(byPercentage: 0.25)
         button.cornerRadius = 8
         button.titleLabel?.text = "Save"
         button.setTitle("Save", for: [.normal])
@@ -44,8 +55,12 @@ class DatePickerViewController: UIViewController {
     
     let cancelButton: UIButton = {
         let button = FlatButton()
-        button.color = FlatRed()
-        button.highlightedColor = FlatRedDark()
+        if #available(iOS 13, *) {
+            button.color = .systemRed
+        } else {
+            button.color = FlatRed()
+        }
+        button.highlightedColor = button.color.darken(byPercentage: 0.25)
         button.cornerRadius = 8
         button.titleLabel?.text = "Cancel"
         button.setTitle("Cancel", for: [.normal])
@@ -62,7 +77,11 @@ class DatePickerViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        view.backgroundColor = .white
+        if #available(iOS 13, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            view.backgroundColor = .white
+        }
         
         // set up the picker and buttons
         setupView()
@@ -127,21 +146,4 @@ class DatePickerViewController: UIViewController {
         selectedDate = picker.date
     }
 
-}
-
-
-
-
-public extension UIImage {
-    convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
-        let rect = CGRect(origin: .zero, size: size)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
-        color.setFill()
-        UIRectFill(rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        guard let cgImage = image?.cgImage else { return nil }
-        self.init(cgImage: cgImage)
-    }
 }
