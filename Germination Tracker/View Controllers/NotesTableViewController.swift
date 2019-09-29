@@ -27,7 +27,7 @@ class NotesTableViewController: UITableViewController {
         
         tableView.register(NoteTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
 
-//        makeTestNotes()
+        makeTestNotes()
         
         setupTableView()
     }
@@ -48,6 +48,7 @@ class NotesTableViewController: UITableViewController {
         
         let note = notes[indexPath.row]
         cell.configureCell(forNote: note)
+        
         return cell
     }
     

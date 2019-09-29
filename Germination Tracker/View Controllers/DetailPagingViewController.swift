@@ -48,7 +48,7 @@ class DetailPagingViewController: UIViewController {
         
         // chart
         chartViewController = ChartViewController(plant: plant)
-        chartViewController.setGerminationLineChart()
+        chartViewController.drawChart(withAnimation: true)
         detailPagingView.informationView.chartContainerView.addSubview(chartViewController.view)
         chartViewController.view.snp.makeConstraints({make in
             make.edges.equalTo(detailPagingView.informationView.chartContainerView)

@@ -17,12 +17,12 @@ class ChartViewController: UIViewController {
     
     var germinationLineChartView = LineChartView()
     
-    var chartHasBeenDrawnPreviously = false
+    private var chartHasBeenDrawnPreviously = false
     
     init(plant: Plant) {
         self.plant = plant
         super.init(nibName: nil, bundle: nil)
-        setGerminationLineChart()
+        drawChart(withAnimation: true)
         chartHasBeenDrawnPreviously = true
     }
     
@@ -46,7 +46,14 @@ class ChartViewController: UIViewController {
     }
     
     
-    func setGerminationLineChart() {
+    func updateChart() {
+        drawChart(withAnimation: false)
+    }
+    
+    
+    func drawChart(withAnimation animate: Bool) {
+        
+        print("drawing chart")
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -105,8 +112,9 @@ class ChartViewController: UIViewController {
         
         let data = LineChartData(dataSet: set1)
         germinationLineChartView.data = data
+        germinationLineChartView.isUserInteractionEnabled = false
         
-        if (!chartHasBeenDrawnPreviously) {
+        if (animate) {
             germinationLineChartView.animate(xAxisDuration: 1.0, easingOption: .linear)
         }
     }

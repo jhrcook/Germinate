@@ -47,6 +47,16 @@ class NoteTableViewCell: UITableViewCell {
         return lbl
     }()
     
+    var cellStackView: UIStackView {
+        let sv = UIStackView()
+        sv.distribution = .equalSpacing
+        sv.axis = .vertical
+        sv.spacing = 5
+        sv.isLayoutMarginsRelativeArrangement = true
+        sv.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        return sv
+    }
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -56,12 +66,6 @@ class NoteTableViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
     }
     
 
@@ -74,33 +78,28 @@ class NoteTableViewCell: UITableViewCell {
 
     func setupCell() {
         
-        backgroundColor = .white
+//        self.addSubview(cellStackView)
+        contentView.addSubview(cellStackView)
+        cellStackView.addArrangedSubview(titleLabel)
+        cellStackView.addArrangedSubview(dateLabel)
+        cellStackView.addArrangedSubview(detailLabel)
         
-//        frame = layer.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-//        layer.borderColor = FlatWatermelon().cgColor
-//        layer.borderWidth = 1
-//        layer.cornerRadius = 8
-//        layer.masksToBounds = true
-        
-        addSubview(titleLabel)
-        addSubview(dateLabel)
-        addSubview(detailLabel)
-        
+        cellStackView.snp.makeConstraints({ make in
+            make.edges.equalTo(contentView)
+        })
         titleLabel.snp.makeConstraints({ make in
-            make.top.equalTo(self).offset(4)
-            make.leading.equalTo(self).inset(4)
-            make.trailing.equalTo(self).inset(4)
+            make.top.equalTo(cellStackView)
+            make.leading.equalTo(cellStackView)
+            make.trailing.equalTo(cellStackView)
         })
         dateLabel.snp.makeConstraints({ make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(8)
-            make.leading.equalTo(self).inset(8)
-            make.trailing.equalTo(self).inset(4)
+            make.leading.equalTo(cellStackView)
+            make.trailing.equalTo(cellStackView)
         })
         detailLabel.snp.makeConstraints({ make in
-            make.top.equalTo(dateLabel.snp.bottom).offset(8)
-            make.leading.equalTo(self).inset(8)
-            make.trailing.equalTo(self).inset(4)
-            make.bottom.equalTo(self).inset(4)
+            make.leading.equalTo(cellStackView)
+            make.trailing.equalTo(cellStackView)
+            make.bottom.equalTo(cellStackView)
         })
         
     }

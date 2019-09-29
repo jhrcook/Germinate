@@ -87,6 +87,7 @@ extension InformationViewController: InformationViewDelegate {
                 self?.plant.numberOfSeedsSown = numSeeds
                 self?.informationView.set(numberOfSeedlingsTo: numSeeds)
                 self?.plantsManager.savePlants()
+                self?.chartViewController.updateChart()
             }
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -115,7 +116,7 @@ extension InformationViewController: InformationViewDelegate {
         } else {
             plant.addGermination(nil)
         }
-        chartViewController.setGerminationLineChart()
+        chartViewController.updateChart()
         plantsManager.savePlants()
     }
     
@@ -142,6 +143,7 @@ extension InformationViewController: DatePickerViewControllerDelegate {
         plant.dateOfSeedSowing = date
         informationView.set(dateSownLabelTo: date)
         plantsManager.savePlants()
+        chartViewController.updateChart()
     }
     
     
