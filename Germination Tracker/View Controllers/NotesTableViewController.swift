@@ -25,10 +25,7 @@ class NotesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(NoteTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
-
-        makeTestNotes()
-        
+//        makeTestNotes()
         setupTableView()
     }
 
@@ -44,25 +41,59 @@ class NotesTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NoteTableViewCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
+            configureView(ofCell: &cell!)
+        }
         
         let note = notes[indexPath.row]
-        cell.configureCell(forNote: note)
+        configure(&cell!, forNote: note)
         
-        return cell
+        return cell!
+    }
+    
+    
+    func configureView(ofCell cell: inout UITableViewCell) {
+        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        cell.detailTextLabel?.numberOfLines = 0
+    }
+    
+    
+    func configure(_ cell: inout UITableViewCell, forNote note: SeedNote) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        let text = dateFormatter.string(from: note.dateCreated)
+        cell.textLabel?.text = text
+        
+        cell.detailTextLabel?.text = note.detail
     }
     
     
     func setupTableView() {
         tableView.separatorStyle = .singleLine
-        tableView.separatorColor = FlatWatermelon().lighten(byPercentage: 0.2)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let delegate = delegate { delegate.didSelectNoteToEdit(atIndex: indexPath.row) }
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let ac = UIAlertController(title: "Edit note", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Edit text", style: .default, handler: { _ in
+            // TODO
+        }))
+        ac.addAction(UIAlertAction(title: "Change date", style: .default, handler: { _ in
+            // TODO
+        }))
+        ac.addAction(UIAlertAction(title: "Delete note", style: .destructive, handler: { [weak self] _ in
+            if let delegate = self?.delegate, let tableView = self?.tableView {
+                delegate.didDeleteNote(atIndex: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }))
+        present(ac, animated: true)
     }
 
     
@@ -78,7 +109,7 @@ class NotesTableViewController: UITableViewController {
 extension NotesTableViewController {
     func makeTestNotes() {
         notes = [
-            SeedNote(title: "Test note 1", detail: "Here is some notes detail text."),
+            SeedNote(title: "Test note 1", detail: "Here is some notes detail text.This one is very long. So long in fact, that there is no way (whey) it will fit on a single line. Hopefully the text is wrapped, not truncated with some stupid ellipses!"),
             SeedNote(title: "Test note 2", detail: "Wow, some more test detail text!")
         ]
     }
