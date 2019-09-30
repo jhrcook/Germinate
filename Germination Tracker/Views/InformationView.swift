@@ -23,12 +23,7 @@ class InformationView: UIView {
     
     var delegate: InformationViewDelegate?
     
-    struct InfoViewPalette {
-        let lightGreen = UIColor(red: 212/255, green: 255/255, blue: 214/255, alpha: 1.0)
-        let green = UIColor(red: 52/255, green: 199/255, blue: 89/255, alpha: 1.0)
-        let darkGreen = UIColor(red: 0/255, green: 150/255, blue: 9/255, alpha: 1.0)
-    }
-    let infoViewPal = InfoViewPalette()
+    
     
     var dateSownContainerView = UIView()
     var dateSownLabel = UILabel()
@@ -115,10 +110,13 @@ class InformationView: UIView {
             make.trailing.equalTo(dateSownContainerView).inset(sideInset)
         })
         
-        dateSownLabel.textColor = .white
+        if #available(iOS 13, *) {
+            dateSownLabel.backgroundColor = .systemGreen
+        } else {
+            dateSownLabel.backgroundColor = UIColor.MyTheme.green
+        }
         dateSownLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         dateSownLabel.textAlignment = .center
-        dateSownLabel.backgroundColor = infoViewPal.green
         dateSownLabel.layer.cornerRadius = cornerRadius
         dateSownLabel.layer.masksToBounds = true
     }
@@ -139,10 +137,13 @@ class InformationView: UIView {
             make.trailing.equalTo(numberOfSeedsSownContainerView).inset(sideInset)
         })
         
-        numberOfSeedsSownLabel.textColor = .white
+        if #available(iOS 13, *) {
+            numberOfSeedsSownLabel.backgroundColor = .systemGreen
+        } else {
+            numberOfSeedsSownLabel.backgroundColor = UIColor.MyTheme.green
+        }
         numberOfSeedsSownLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         numberOfSeedsSownLabel.textAlignment = .center
-        numberOfSeedsSownLabel.backgroundColor = infoViewPal.green
         numberOfSeedsSownLabel.layer.cornerRadius = cornerRadius
         numberOfSeedsSownLabel.layer.masksToBounds = true
     }
@@ -186,14 +187,19 @@ class InformationView: UIView {
             make.trailing.equalTo(germinationCounterContainerView).inset(sideInset)
         })
         
+        
         germinationCounterLabel.textAlignment = .center
-        germinationCounterLabel.textColor = .white
         germinationCounterLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         
         germinationStepper.minimumValue = 0
         germinationStepper.stepValue = 1
+
         
-        germinationStepperBackgroundView.backgroundColor = infoViewPal.green
+        if #available(iOS 13, *) {
+            germinationStepperBackgroundView.backgroundColor = .systemGreen
+        } else {
+            germinationStepperBackgroundView.backgroundColor = UIColor.MyTheme.green
+        }
         germinationStepperBackgroundView.layer.cornerRadius = cornerRadius
         germinationStepperBackgroundView.layer.masksToBounds = true
     }
@@ -238,14 +244,17 @@ class InformationView: UIView {
         })
         
         deathCounterLabel.textAlignment = .center
-        deathCounterLabel.textColor = .white
         deathCounterLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         
         deathStepper.minimumValue = 0
         deathStepper.stepValue = 1
         deathStepper.tintColor = .white
         
-        deathStepperBackgroundView.backgroundColor = infoViewPal.green
+        if #available(iOS 13, *) {
+            deathStepperBackgroundView.backgroundColor = .systemGreen
+        } else {
+            deathStepperBackgroundView.backgroundColor = UIColor.MyTheme.green
+        }
         deathStepperBackgroundView.layer.cornerRadius = cornerRadius
         deathStepperBackgroundView.layer.masksToBounds = true
     }
@@ -296,25 +305,7 @@ class InformationView: UIView {
         deathCounterLabel.text = "Num. of deaths: \(num)"
         deathStepper.value = Double(num)
     }
-
     
-    func addTheme(toView view: inout UIView) {
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = 8
-        view.backgroundColor = FlatGreen()
-        view.layer.borderColor = FlatGreen().cgColor
-        view.layer.borderWidth = 2
-    }
-    
-    func addTheme(toLabel label: inout UILabel) {
-        label.layer.masksToBounds = true
-        label.layer.cornerRadius = 8
-        label.backgroundColor = FlatGreen()
-        label.layer.borderColor = FlatGreen().cgColor
-        label.layer.borderWidth = 2
-        label.textColor = .white
-        label.textAlignment = .center
-    }
     
     /// Setup the functions that pass UI with labels and steppers to the delegate
     private func setupInteractions() {
