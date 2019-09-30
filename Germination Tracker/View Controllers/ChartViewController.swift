@@ -43,6 +43,12 @@ class ChartViewController: UIViewController {
         germinationLineChartView.snp.makeConstraints({ make in
             make.edges.equalTo(view).inset(20)
         })
+        
+        if #available(iOS 13, *) {
+            germinationLineChartView.backgroundColor = .tertiarySystemBackground
+            germinationLineChartView.layer.cornerRadius = 8
+            germinationLineChartView.layer.masksToBounds = true
+        }
     }
     
     
@@ -108,11 +114,34 @@ class ChartViewController: UIViewController {
         set1.drawValuesEnabled = false
         set1.lineWidth = 2
         set1.axisDependency = .left
-        set1.colors = [FlatMintDark()]
+        
+        if #available(iOS 13, *) {
+            set1.colors = [UIColor.systemBlue]
+        } else {
+            set1.colors = [FlatMintDark()]
+        }
         
         let data = LineChartData(dataSet: set1)
         germinationLineChartView.data = data
+        
         germinationLineChartView.isUserInteractionEnabled = false
+        germinationLineChartView.xAxis.labelPosition = .bottom
+        germinationLineChartView.xAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
+        germinationLineChartView.leftAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
+        germinationLineChartView.rightAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
+        germinationLineChartView.xAxis.axisLineWidth = 2
+        germinationLineChartView.leftAxis.axisLineWidth = 2
+        germinationLineChartView.rightAxis.axisLineWidth = 2
+        
+        if #available(iOS 13, *) {
+            germinationLineChartView.xAxis.labelTextColor = .label
+            germinationLineChartView.leftAxis.labelTextColor = .label
+            germinationLineChartView.rightAxis.labelTextColor = .label
+            germinationLineChartView.noDataTextColor = .label
+            germinationLineChartView.xAxis.axisLineColor = .systemGray
+            germinationLineChartView.leftAxis.axisLineColor = .systemGray
+            germinationLineChartView.rightAxis.axisLineColor = .systemGray
+        }
         
         if (animate) {
             germinationLineChartView.animate(xAxisDuration: 1.0, easingOption: .linear)
