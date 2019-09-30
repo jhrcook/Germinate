@@ -23,8 +23,6 @@ class InformationView: UIView {
     
     var delegate: InformationViewDelegate?
     
-    
-    
     var dateSownContainerView = UIView()
     var dateSownLabel = UILabel()
     

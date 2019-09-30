@@ -67,7 +67,7 @@ class NotesTableViewController: UITableViewController {
         let text = dateFormatter.string(from: note.dateCreated)
         cell.textLabel?.text = text
         
-        cell.detailTextLabel?.text = note.detail
+        cell.detailTextLabel?.text = note.text
     }
     
     
@@ -80,12 +80,11 @@ class NotesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let ac = UIAlertController(title: "Edit note", message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "Edit text", style: .default, handler: { _ in
-            // TODO
-        }))
-        ac.addAction(UIAlertAction(title: "Change date", style: .default, handler: { _ in
-            // TODO
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Edit note", style: .default, handler: { [weak self] _ in
+            if let delegate = self?.delegate {
+                delegate.didSelectNoteToEdit(atIndex: indexPath.row)
+            }
         }))
         ac.addAction(UIAlertAction(title: "Delete note", style: .destructive, handler: { [weak self] _ in
             if let delegate = self?.delegate, let tableView = self?.tableView {
@@ -109,8 +108,8 @@ class NotesTableViewController: UITableViewController {
 extension NotesTableViewController {
     func makeTestNotes() {
         notes = [
-            SeedNote(title: "Test note 1", detail: "Here is some notes detail text.This one is very long. So long in fact, that there is no way (whey) it will fit on a single line. Hopefully the text is wrapped, not truncated with some stupid ellipses!"),
-            SeedNote(title: "Test note 2", detail: "Wow, some more test detail text!")
+            SeedNote(text: "Here is some notes detail text.This one is very long. So long in fact, that there is no way (whey) it will fit on a single line. Hopefully the text is wrapped, not truncated with some stupid ellipses!"),
+            SeedNote(text: "Wow, some more test detail text!")
         ]
     }
 }

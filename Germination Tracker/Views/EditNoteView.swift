@@ -11,13 +11,42 @@ import SnapKit
 import ChameleonFramework
 import SwiftyButton
 
+
 class EditNoteView: UIView {
     
-    var titleTextView: UITextView = {
-        var textView = UITextView()
-        textView.textAlignment = .left
-        return textView
+    let buttonContainerView = UIView()
+    
+    let saveButton: FlatButton = {
+        let button = FlatButton()
+        if #available(iOS 13, *) {
+            button.color = .systemGreen
+        } else {
+            button.color = FlatGreen()
+        }
+        button.highlightedColor = button.color.darken(byPercentage: 0.25)
+        button.cornerRadius = 8
+        button.titleLabel?.text = "Save"
+        button.setTitle("Save", for: [.normal])
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title2)
+        return button
     }()
+    
+    let cancelButton: UIButton = {
+        let button = FlatButton()
+        if #available(iOS 13, *) {
+            button.color = .systemRed
+        } else {
+            button.color = FlatRed()
+        }
+        button.highlightedColor = button.color.darken(byPercentage: 0.25)
+        button.cornerRadius = 8
+        button.titleLabel?.text = "Cancel"
+        button.setTitle("Cancel", for: [.normal])
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title2)
+        return button
+    }()
+    
+    var datePickerLabel = UILabel()
     
     var datePicker: UIDatePicker = {
         let dp = UIDatePicker()
@@ -25,54 +54,111 @@ class EditNoteView: UIView {
         return dp
     }()
     
-    var detailTextView: UITextView = {
+    var textViewLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Notes"
+        return lbl
+    }()
+    
+    var textView: UITextView = {
         let textView = UITextView()
         textView.textAlignment = .left
         return textView
     }()
     
+    var mainStackView = UIStackView()
     
-    func configureEditView(withNote note: SeedNote?) {
+    var viewIsSetup = false
+    
+    
+    func configureEditView(withNote note: SeedNote) {
         
-        titleTextView.text = note?.title ?? "Title"
-        datePicker.setDate(note?.dateCreated ?? Date(), animated: false)
-        detailTextView.text = note?.detail ?? "Detail"
+        if !viewIsSetup { setupView() }
         
-        titleTextView.font = UIFont.preferredFont(forTextStyle: .body)
-        detailTextView.font = UIFont.preferredFont(forTextStyle: .body)
+        setDatePickerLabel(toDate: note.dateCreated)
+        datePicker.setDate(note.dateCreated, animated: false)
+        textView.text = note.text
         
-        addSubview(titleTextView)
+        textView.font = UIFont.preferredFont(forTextStyle: .body)
+        
         addSubview(datePicker)
-        addSubview(detailTextView)
+        addSubview(textView)
         
-        titleTextView.backgroundColor = .red
+        buttonContainerView.backgroundColor = .magenta
+        datePickerLabel.backgroundColor = .orange
         datePicker.backgroundColor = .green
-        detailTextView.backgroundColor = .blue
+        textViewLabel.backgroundColor = .yellow
+        textView.backgroundColor = .red
+    }
+    
+    /// Set the date picker label the the format: "Date: Month Day, Year"
+    private func setDatePickerLabel(toDate date: Date) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        let text = dateFormatter.string(from: date)
+        datePickerLabel.text = "Date: \(text)"
+    }
+}
+
+
+
+// MARK: Setup Views
+extension EditNoteView {
+    
+    private func setupView() {
+        setupMainStackView()
+        setupButtons()
+    }
+    
+    private func setupMainStackView() {
+        addSubview(mainStackView)
+        mainStackView.snp.makeConstraints({ make in make.edges.equalTo(safeAreaLayoutGuide) })
         
-        titleTextView.snp.makeConstraints({ make in
-            make.top.equalTo(self.safeAreaLayoutGuide).priorityHigh()
-            make.leading.equalTo(self)
-            make.trailing.equalTo(self)
-            make.height.equalTo(60).priorityMedium()
+        mainStackView.spacing = 5
+        mainStackView.axis = .vertical
+        mainStackView.alignment = .center
+//        mainStackView.distribution = .equalSpacing
+        mainStackView.isLayoutMarginsRelativeArrangement = true
+        mainStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10)
+        
+        mainStackView.addArrangedSubview(buttonContainerView)
+        mainStackView.addArrangedSubview(datePickerLabel)
+        mainStackView.addArrangedSubview(datePicker)
+        mainStackView.addArrangedSubview(textViewLabel)
+        mainStackView.addArrangedSubview(textView)
+        
+        buttonContainerView.snp.makeConstraints({ make in
+            make.top.equalTo(mainStackView)
+            make.leading.equalTo(mainStackView)
+            make.trailing.equalTo(mainStackView)
+            make.height.greaterThanOrEqualTo(54)
+        })
+        datePickerLabel.snp.makeConstraints({ make in
+            make.leading.equalTo(mainStackView)
+            make.trailing.equalTo(mainStackView)
+            make.height.greaterThanOrEqualTo(44)
         })
         datePicker.snp.makeConstraints({ make in
-            make.top.equalTo(titleTextView.snp.bottom).offset(20)
-            make.centerX.equalTo(self)
+            make.leading.equalTo(mainStackView)
+            make.trailing.equalTo(mainStackView)
+            make.centerX.equalTo(mainStackView)
         })
-        detailTextView.snp.makeConstraints({ make in
-            make.top.equalTo(datePicker.snp.bottom).offset(20)
-            make.leading.equalTo(self)
-            make.trailing.equalTo(self)
-            make.bottom.equalTo(self)
+        textViewLabel.snp.makeConstraints({ make in
+            make.leading.equalTo(mainStackView)
+            make.trailing.equalTo(mainStackView)
+            make.height.equalTo(datePickerLabel)
         })
+        textView.snp.makeConstraints({ make in
+            make.leading.equalTo(mainStackView)
+            make.trailing.equalTo(mainStackView)
+            make.bottom.equalTo(mainStackView)
+            make.height.greaterThanOrEqualTo(80)
+        })
+        
     }
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    
+    private func setupButtons() {
+        
     }
-    */
-
 }

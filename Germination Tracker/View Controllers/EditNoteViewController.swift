@@ -15,33 +15,41 @@ protocol EditNoteViewControllerDelegate {
 
 class EditNoteViewController: UIViewController {
     
-    var note: SeedNote? {
-        didSet {
-            editNoteView.configureEditView(withNote: note)
-        }
-    }
+    var note: SeedNote
     
     var editNoteView = EditNoteView()
     
     var delegate: EditNoteViewControllerDelegate?
+    
+    
+    init(note: SeedNote) {
+        self.note = note
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = .white
+        if #available(iOS 13, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            view.backgroundColor = .white
+        }
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
                 
         view.addSubview(editNoteView)
-        editNoteView.snp.makeConstraints({ make in make.edges.equalTo(view) })
+        editNoteView.snp.makeConstraints({ make in make.edges.equalTo(view.safeAreaLayoutGuide) })
         
         editNoteView.datePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
         
-        if note == nil {
-            note = SeedNote(title: "Title", detail: "Detail")
-        }
         editNoteView.configureEditView(withNote: note)
         
     }
@@ -52,29 +60,16 @@ class EditNoteViewController: UIViewController {
     }
     
     @objc private func saveButtonTapped() {
-        note?.title = editNoteView.titleTextView.text
-        note?.detail = editNoteView.detailTextView.text
+        note.text = editNoteView.textView.text
         
-        if let delegate = delegate { delegate.noteWasEdited(note!) }
+        if let delegate = delegate { delegate.noteWasEdited(note) }
         
         navigationController?.popViewController(animated: true)
     }
     
     
     @objc func datePickerChanged(picker: UIDatePicker) {
-        note?.dateCreated = picker.date
+        note.dateCreated = picker.date
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

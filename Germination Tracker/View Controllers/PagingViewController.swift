@@ -31,6 +31,8 @@ class PagingViewController: PageboyViewController {
         }
     }
     
+    var selectedNoteIndex: Int? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,8 +54,19 @@ class PagingViewController: PageboyViewController {
         delegate = self
     }
     
+    
     @objc func addNewNote() {
-        // TODO
+        selectedNoteIndex = nil
+        let editVC = EditNoteViewController(note: SeedNote())
+        editVC.delegate = self
+        push(editVC)
+    }
+        
+        /// Push the edit note view controller with self as delegate.
+    fileprivate func push(_ editNoteViewController: EditNoteViewController) {
+        editNoteViewController.modalPresentationStyle = .formSheet
+        editNoteViewController.modalTransitionStyle = .coverVertical
+        present(editNoteViewController, animated: true, completion: nil)
     }
 }
 
@@ -103,8 +116,12 @@ extension PagingViewController: PageboyViewControllerDelegate {
 // MARK: NotesTableViewControllerContainerDelegate
 
 extension PagingViewController: NotesTableViewControllerContainerDelegate {
+    
     func didSelectNoteToEdit(atIndex index: Int) {
-        // TODO
+        selectedNoteIndex = index
+        let editVC = EditNoteViewController(note: plant.notes[index])
+        editVC.delegate = self
+        push(editVC)
     }
     
     func didDeleteNote(atIndex index: Int) {
@@ -114,3 +131,19 @@ extension PagingViewController: NotesTableViewControllerContainerDelegate {
     
     
 }
+
+
+// MARK: EditNoteViewControllerDelegate
+
+extension PagingViewController: EditNoteViewControllerDelegate {
+    func noteWasEdited(_ note: SeedNote) {
+        if let index = selectedNoteIndex {
+            plant.notes[index] = note
+        } else {
+            plant.notes.append(note)
+        }
+    }
+    
+    
+}
+
