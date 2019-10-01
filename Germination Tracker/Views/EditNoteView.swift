@@ -15,7 +15,7 @@ import SwiftyButton
 class EditNoteView: UIView {
     
     let buttonContainerView = UIView()
-    
+    let buttonStackView = UIStackView()
     let saveButton: FlatButton = {
         let button = FlatButton()
         if #available(iOS 13, *) {
@@ -56,13 +56,15 @@ class EditNoteView: UIView {
     
     var textViewLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "Notes"
+        lbl.text = "  Notes"
         return lbl
     }()
     
     var textView: UITextView = {
         let textView = UITextView()
         textView.textAlignment = .left
+        textView.layer.cornerRadius = 8
+        textView.layer.masksToBounds = true
         return textView
     }()
     
@@ -81,9 +83,6 @@ class EditNoteView: UIView {
         
         textView.font = UIFont.preferredFont(forTextStyle: .body)
         
-        addSubview(datePicker)
-        addSubview(textView)
-        
         buttonContainerView.backgroundColor = .magenta
         datePickerLabel.backgroundColor = .orange
         datePicker.backgroundColor = .green
@@ -96,7 +95,7 @@ class EditNoteView: UIView {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         let text = dateFormatter.string(from: date)
-        datePickerLabel.text = "Date: \(text)"
+        datePickerLabel.text = "  Date: \(text)"
     }
 }
 
@@ -117,7 +116,7 @@ extension EditNoteView {
         mainStackView.spacing = 5
         mainStackView.axis = .vertical
         mainStackView.alignment = .center
-//        mainStackView.distribution = .equalSpacing
+        mainStackView.distribution = .fill
         mainStackView.isLayoutMarginsRelativeArrangement = true
         mainStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10)
         
@@ -131,7 +130,7 @@ extension EditNoteView {
             make.top.equalTo(mainStackView)
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
-            make.height.greaterThanOrEqualTo(54)
+            make.height.equalTo(100)
         })
         datePickerLabel.snp.makeConstraints({ make in
             make.leading.equalTo(mainStackView)
@@ -152,13 +151,28 @@ extension EditNoteView {
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
             make.bottom.equalTo(mainStackView)
-            make.height.greaterThanOrEqualTo(80)
         })
-        
     }
     
     
     private func setupButtons() {
+        buttonContainerView.addSubview(buttonStackView)
+        buttonStackView.addArrangedSubview(saveButton)
+        buttonStackView.addArrangedSubview(cancelButton)
         
+        buttonStackView.axis = .horizontal
+        buttonStackView.alignment = .center
+        buttonStackView.spacing = 10
+        
+        buttonStackView.snp.makeConstraints({ make in make.edges.equalTo(buttonContainerView).inset(10)})
+        saveButton.snp.makeConstraints({ make in
+            make.height.equalTo(50)
+            make.leading.equalTo(buttonStackView)
+        })
+        cancelButton.snp.makeConstraints({ make in
+            make.width.equalTo(saveButton)
+            make.height.equalTo(saveButton)
+            make.trailing.equalTo(buttonStackView)
+        })
     }
 }
