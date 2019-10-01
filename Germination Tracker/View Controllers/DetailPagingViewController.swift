@@ -47,9 +47,8 @@ class DetailPagingViewController: UIViewController {
         detailPagingView.snp.makeConstraints({ make in make.edges.equalTo(view.safeAreaLayoutGuide) })
         
         // chart
-        chartViewController = ChartViewController()
-        chartViewController.plant = self.plant
-        chartViewController.setGerminationLineChart()
+        chartViewController = ChartViewController(plant: plant)
+        chartViewController.drawChart(withAnimation: true)
         detailPagingView.informationView.chartContainerView.addSubview(chartViewController.view)
         chartViewController.view.snp.makeConstraints({make in
             make.edges.equalTo(detailPagingView.informationView.chartContainerView)
@@ -63,17 +62,6 @@ class DetailPagingViewController: UIViewController {
         detailPagingView.scrollView.delegate = self
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func setupPlantInformation() {
         
@@ -158,20 +146,20 @@ extension DetailPagingViewController {
     
     
     @objc func addNewNote() {
-        selectedNoteIndex = nil
-        let vc = EditNoteViewController()
-        vc.delegate = self
-        push(vc)
+//        selectedNoteIndex = nil
+//        let vc = EditNoteViewController(note: SeedNote())
+//        vc.delegate = self
+//        push(vc)
     }
     
     /// Push the edit note view controller with self as delegate.
     fileprivate func push(_ editNoteViewController: EditNoteViewController) {
-        if let navController = self.navigationController {
-            navController.pushViewController(editNoteViewController, animated: true)
-        } else {
-            let navController = UINavigationController(rootViewController: editNoteViewController)
-            self.present(navController, animated: true, completion: nil)
-        }
+//        if let navController = self.navigationController {
+//            navController.pushViewController(editNoteViewController, animated: true)
+//        } else {
+//            let navController = UINavigationController(rootViewController: editNoteViewController)
+//            self.present(navController, animated: true, completion: nil)
+//        }
     }
 }
 
@@ -256,7 +244,7 @@ extension DetailPagingViewController: NotesTableViewControllerContainerDelegate 
     
     func didSelectNoteToEdit(atIndex index: Int) {
         selectedNoteIndex = index
-        let vc = EditNoteViewController()
+        let vc = EditNoteViewController(note: SeedNote())
         vc.delegate = self
         vc.note = plant.notes[index]
         push(vc)

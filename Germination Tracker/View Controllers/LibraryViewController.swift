@@ -61,7 +61,7 @@ class LibraryViewController: UITableViewController {
             self?.tableView.reloadData()
             let indexPath = IndexPath(row: (self?.plantsManager.plants.count)! - 1, section: 0)
             self?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
-            self?.performSegue(withIdentifier: "libraryToDetail", sender: self)
+            self?.performSegue(withIdentifier: "gardenToDetail", sender: self)
             self?.tableView.deselectRow(at: indexPath, animated: true)
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -95,12 +95,13 @@ class LibraryViewController: UITableViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? DetailPagingViewController, let indexPath = tableView.indexPathForSelectedRow {
-            print("segue to DetailPagingVC")
+        if let destinationVC = segue.destination as? PagingViewController,
+            let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.plant = plantsManager.plants[indexPath.row]
             destinationVC.plantsManager = self.plantsManager
         }
     }
+    
     
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -116,13 +117,23 @@ class LibraryViewController: UITableViewController {
             self?.addPlant(copiedFromPlant: self?.plantsManager.plants[indexPath.row] ?? Plant(name: ""))
             success(true)
         }
-        copyAction.backgroundColor = FlatGreen()
+        if #available(iOS 13, *) {
+            copyAction.backgroundColor = .systemGreen
+        } else {
+            copyAction.backgroundColor = FlatGreen()
+        }
+
+        
         
         let editAction = UIContextualAction(style: .normal, title: "Edit") { [weak self] (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in
             self?.editPlantName(atIndex: indexPath)
             success(true)
         }
-        editAction.backgroundColor = FlatBlue()
+        if #available(iOS 13, *) {
+            editAction.backgroundColor = .systemBlue
+        } else {
+            editAction.backgroundColor = FlatBlue()
+        }
         
         return UISwipeActionsConfiguration(actions: [editAction, copyAction])
     }

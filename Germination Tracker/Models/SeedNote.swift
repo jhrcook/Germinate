@@ -10,19 +10,21 @@ import Foundation
 
 struct SeedNote: Codable {
     
-    var title: String
-    var detail: String
     var dateCreated: Date
+    var text: String
     
-    init(title: String, detail: String, dateCreated: Date) {
-        self.title = title
-        self.detail = detail
+    init(text: String, dateCreated: Date) {
+        self.text = text
         self.dateCreated = dateCreated
     }
     
-    init(title: String, detail: String) {
-        self.title = title
-        self.detail = detail
+    init(text: String) {
+        self.text = text
+        self.dateCreated = Date()
+    }
+    
+    init() {
+        self.text = ""
         self.dateCreated = Date()
     }
 }

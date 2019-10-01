@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		840100A32338F4EC00AD7B1B /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840100A22338F4EC00AD7B1B /* NotesTableViewController.swift */; };
 		840100A52338F52D00AD7B1B /* SeedNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840100A42338F52D00AD7B1B /* SeedNote.swift */; };
-		840100A92338F9A000AD7B1B /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840100A82338F9A000AD7B1B /* NoteTableViewCell.swift */; };
+		8405D4A723419236004CF4BB /* AppThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405D4A623419236004CF4BB /* AppThemeColors.swift */; };
 		841DF34423359FC900D20B08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF34323359FC900D20B08 /* AppDelegate.swift */; };
 		841DF34623359FC900D20B08 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF34523359FC900D20B08 /* LibraryViewController.swift */; };
 		841DF34923359FC900D20B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841DF34723359FC900D20B08 /* Main.storyboard */; };
@@ -17,6 +17,8 @@
 		841DF34E23359FCB00D20B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841DF34C23359FCB00D20B08 /* LaunchScreen.storyboard */; };
 		841DF3562335AAB700D20B08 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF3552335AAB700D20B08 /* Plant.swift */; };
 		841DF3582335ACC700D20B08 /* PlantsArrayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */; };
+		842149B0233DB137006CA704 /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842149AF233DB137006CA704 /* PagingViewController.swift */; };
+		842149B2233DB27F006CA704 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842149B1233DB27F006CA704 /* InformationViewController.swift */; };
 		845780F123383D55004EEAD1 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845780F023383D55004EEAD1 /* DatePickerViewController.swift */; };
 		847B6EF8233714FC00BEFFC4 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EF7233714FC00BEFFC4 /* InformationView.swift */; };
 		847B6EFC233717C600BEFFC4 /* DetailPagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */; };
@@ -30,7 +32,7 @@
 /* Begin PBXFileReference section */
 		840100A22338F4EC00AD7B1B /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
 		840100A42338F52D00AD7B1B /* SeedNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedNote.swift; sourceTree = "<group>"; };
-		840100A82338F9A000AD7B1B /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteTableViewCell.swift; path = "Germination Tracker/Views/NoteTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		8405D4A623419236004CF4BB /* AppThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeColors.swift; sourceTree = "<group>"; };
 		841DF34023359FC900D20B08 /* Germination Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Germination Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		841DF34323359FC900D20B08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		841DF34523359FC900D20B08 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +42,8 @@
 		841DF34F23359FCB00D20B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841DF3552335AAB700D20B08 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsArrayManager.swift; sourceTree = "<group>"; };
+		842149AF233DB137006CA704 /* PagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
+		842149B1233DB27F006CA704 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		845780F023383D55004EEAD1 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		847B6EF7233714FC00BEFFC4 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagingView.swift; sourceTree = "<group>"; };
@@ -110,9 +114,11 @@
 			children = (
 				841DF34523359FC900D20B08 /* LibraryViewController.swift */,
 				849CA3222336E28700505FE9 /* DetailPagingViewController.swift */,
+				842149AF233DB137006CA704 /* PagingViewController.swift */,
+				842149B1233DB27F006CA704 /* InformationViewController.swift */,
+				840100A22338F4EC00AD7B1B /* NotesTableViewController.swift */,
 				848E8CF0233B080400C663D0 /* ChartViewController.swift */,
 				845780F023383D55004EEAD1 /* DatePickerViewController.swift */,
-				840100A22338F4EC00AD7B1B /* NotesTableViewController.swift */,
 				84B63CA72339B54B0064444C /* EditNoteViewController.swift */,
 			);
 			path = "View Controllers";
@@ -123,10 +129,10 @@
 			children = (
 				847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */,
 				847B6EF7233714FC00BEFFC4 /* InformationView.swift */,
-				840100A82338F9A000AD7B1B /* NoteTableViewCell.swift */,
 				84B63CA92339B55C0064444C /* EditNoteView.swift */,
 				841DF34723359FC900D20B08 /* Main.storyboard */,
 				841DF34C23359FCB00D20B08 /* LaunchScreen.storyboard */,
+				8405D4A623419236004CF4BB /* AppThemeColors.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8405D4A723419236004CF4BB /* AppThemeColors.swift in Sources */,
 				841DF34623359FC900D20B08 /* LibraryViewController.swift in Sources */,
 				848E8CF1233B080400C663D0 /* ChartViewController.swift in Sources */,
 				840100A52338F52D00AD7B1B /* SeedNote.swift in Sources */,
@@ -272,11 +279,12 @@
 				849CA3232336E28700505FE9 /* DetailPagingViewController.swift in Sources */,
 				847B6EF8233714FC00BEFFC4 /* InformationView.swift in Sources */,
 				847B6EFC233717C600BEFFC4 /* DetailPagingView.swift in Sources */,
+				842149B0233DB137006CA704 /* PagingViewController.swift in Sources */,
 				841DF34423359FC900D20B08 /* AppDelegate.swift in Sources */,
 				841DF3582335ACC700D20B08 /* PlantsArrayManager.swift in Sources */,
 				840100A32338F4EC00AD7B1B /* NotesTableViewController.swift in Sources */,
 				84B63CA82339B54B0064444C /* EditNoteViewController.swift in Sources */,
-				840100A92338F9A000AD7B1B /* NoteTableViewCell.swift in Sources */,
+				842149B2233DB27F006CA704 /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

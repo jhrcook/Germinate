@@ -45,7 +45,6 @@ class DetailPagingView: UIView {
         
         // set up the views
         setupScrollView()
-        informationView.setupView(withFrame: frame)
         notesContainerView.frame = CGRect(origin: CGPoint(x: frame.width, y: 0), size: frame.size)
         
         // set up view heirarchy

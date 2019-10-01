@@ -13,16 +13,28 @@ import SnapKit
 
 class ChartViewController: UIViewController {
 
-    weak var plant: Plant!
+    var plant: Plant
     
     var germinationLineChartView = LineChartView()
+    
+    private var chartHasBeenDrawnPreviously = false
+    
+    init(plant: Plant) {
+        self.plant = plant
+        super.init(nibName: nil, bundle: nil)
+        drawChart(withAnimation: true)
+        chartHasBeenDrawnPreviously = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupView()
-        setGerminationLineChart()
     }
     
     
@@ -31,10 +43,23 @@ class ChartViewController: UIViewController {
         germinationLineChartView.snp.makeConstraints({ make in
             make.edges.equalTo(view).inset(20)
         })
+        
+        if #available(iOS 13, *) {
+            germinationLineChartView.backgroundColor = .tertiarySystemBackground
+            germinationLineChartView.layer.cornerRadius = 8
+            germinationLineChartView.layer.masksToBounds = true
+        }
     }
     
     
-    func setGerminationLineChart() {
+    func updateChart() {
+        drawChart(withAnimation: false)
+    }
+    
+    
+    func drawChart(withAnimation animate: Bool) {
+        
+        print("drawing chart")
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -45,6 +70,7 @@ class ChartViewController: UIViewController {
         // break early if today is the same day at start of germination
         if Calendar.current.isDate(startDate, inSameDayAs: nowDate) {
             germinationLineChartView.noDataText = "Good luck!"
+            germinationLineChartView.noDataFont = UIFont.preferredFont(forTextStyle: .headline)
             return
         }
         
@@ -88,41 +114,37 @@ class ChartViewController: UIViewController {
         set1.drawValuesEnabled = false
         set1.lineWidth = 2
         set1.axisDependency = .left
-        set1.colors = [FlatMintDark()]
+        
+        if #available(iOS 13, *) {
+            set1.colors = [UIColor.systemBlue]
+        } else {
+            set1.colors = [FlatMintDark()]
+        }
         
         let data = LineChartData(dataSet: set1)
         germinationLineChartView.data = data
         
-        germinationLineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInCubic)
+        germinationLineChartView.isUserInteractionEnabled = false
+        germinationLineChartView.xAxis.labelPosition = .bottom
+        germinationLineChartView.xAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
+        germinationLineChartView.leftAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
+        germinationLineChartView.rightAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
+        germinationLineChartView.xAxis.axisLineWidth = 2
+        germinationLineChartView.leftAxis.axisLineWidth = 2
+        germinationLineChartView.rightAxis.axisLineWidth = 2
         
+        if #available(iOS 13, *) {
+            germinationLineChartView.xAxis.labelTextColor = .label
+            germinationLineChartView.leftAxis.labelTextColor = .label
+            germinationLineChartView.rightAxis.labelTextColor = .label
+            germinationLineChartView.noDataTextColor = .label
+            germinationLineChartView.xAxis.axisLineColor = .systemGray
+            germinationLineChartView.leftAxis.axisLineColor = .systemGray
+            germinationLineChartView.rightAxis.axisLineColor = .systemGray
+        }
         
-//        // Test data
-//        let count = 100
-//        let range: UInt32 = 30
-//
-//        let now = Date().timeIntervalSince1970
-//        let hourSeconds: TimeInterval = 3600
-//        let from = now - (Double(count) / 2) * hourSeconds
-//        let to = now + (Double(count) / 2) * hourSeconds
-//        let values = stride(from: from, to: to, by: hourSeconds).map { (x) -> ChartDataEntry in
-//            let y = arc4random_uniform(range) + 50
-//            return ChartDataEntry(x: x, y: Double(y))
-//        }
-//        let set1 = LineChartDataSet(entries: values, label: "DataSet 1")
-//        set1.axisDependency = .left
-//        set1.setColor(UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1))
-//        set1.lineWidth = 1.5
-//        set1.drawCirclesEnabled = false
-//        set1.drawValuesEnabled = false
-//        set1.fillAlpha = 0.26
-//        set1.fillColor = UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)
-//        set1.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
-//        set1.drawCircleHoleEnabled = false
-//
-//        let data = LineChartData(dataSet: set1)
-//        data.setValueTextColor(.white)
-//        data.setValueFont(.systemFont(ofSize: 9, weight: .light))
-//
-//        germinationLineChartView.data = data
+        if (animate) {
+            germinationLineChartView.animate(xAxisDuration: 1.0, easingOption: .linear)
+        }
     }
 }
