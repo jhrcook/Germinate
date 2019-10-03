@@ -24,8 +24,6 @@ class NotesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        makeTestNotes()
         setupTableView()
     }
 
@@ -54,14 +52,14 @@ class NotesTableViewController: UITableViewController {
     }
     
     
-    func configureView(ofCell cell: inout UITableViewCell) {
+    private func configureView(ofCell cell: inout UITableViewCell) {
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         cell.detailTextLabel?.numberOfLines = 0
     }
     
     
-    func configure(_ cell: inout UITableViewCell, forNote note: SeedNote) {
+    private func configure(_ cell: inout UITableViewCell, forNote note: SeedNote) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         let text = dateFormatter.string(from: note.dateCreated)
@@ -71,7 +69,7 @@ class NotesTableViewController: UITableViewController {
     }
     
     
-    func setupTableView() {
+    private func setupTableView() {
         tableView.separatorStyle = .singleLine
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
@@ -92,6 +90,7 @@ class NotesTableViewController: UITableViewController {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(ac, animated: true)
     }
 
@@ -101,15 +100,5 @@ class NotesTableViewController: UITableViewController {
             delegate?.didDeleteNote(atIndex: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
         }
-    }
-}
-
-
-extension NotesTableViewController {
-    func makeTestNotes() {
-        notes = [
-            SeedNote(text: "Here is some notes detail text.This one is very long. So long in fact, that there is no way (whey) it will fit on a single line. Hopefully the text is wrapped, not truncated with some stupid ellipses!"),
-            SeedNote(text: "Wow, some more test detail text!")
-        ]
     }
 }

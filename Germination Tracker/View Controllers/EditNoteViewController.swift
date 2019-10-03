@@ -41,35 +41,40 @@ class EditNoteViewController: UIViewController {
         } else {
             view.backgroundColor = .white
         }
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
                 
         view.addSubview(editNoteView)
         editNoteView.snp.makeConstraints({ make in make.edges.equalTo(view.safeAreaLayoutGuide) })
         
-        editNoteView.datePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
-        
         editNoteView.configureEditView(withNote: note)
-        
+        setupUIConnections()
+    }
+    
+    
+    private func setupUIConnections() {
+        editNoteView.datePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
+        editNoteView.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        editNoteView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
     }
     
     
     @objc private func cancelButtonTapped() {
-        navigationController?.popViewController(animated: true)
+        print("user tapped 'Cancel'.")
+        dismiss(animated: true, completion: nil)
     }
     
     @objc private func saveButtonTapped() {
+        print("user tapped 'Save'.")
         note.text = editNoteView.textView.text
         
         if let delegate = delegate { delegate.noteWasEdited(note) }
         
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     
     @objc func datePickerChanged(picker: UIDatePicker) {
         note.dateCreated = picker.date
+        editNoteView.setDatePickerLabel(toDate: picker.date)
     }
 
 }

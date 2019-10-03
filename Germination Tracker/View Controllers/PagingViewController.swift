@@ -138,12 +138,12 @@ extension PagingViewController: NotesTableViewControllerContainerDelegate {
 extension PagingViewController: EditNoteViewControllerDelegate {
     func noteWasEdited(_ note: SeedNote) {
         if let index = selectedNoteIndex {
-            plant.notes[index] = note
+            plant.replaceNote(atIndex: index, with: note)
         } else {
-            plant.notes.append(note)
+            plant.add(note)
         }
+        notesTableViewController.notes = plant.notes
+        notesTableViewController.reloadData()
     }
-    
-    
 }
 

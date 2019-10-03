@@ -51,7 +51,16 @@ class EditNoteView: UIView {
     var datePickerLabelContainer = UIView()
     var datePickerLabel = UILabel()
     
-    var datePickerContainer = UIView()
+    var datePickerContainer: UIView = {
+        let v = UIView()
+        if #available(iOS 13, *) {
+            v.backgroundColor = .secondarySystemBackground
+        } else {
+            v.backgroundColor = .lightGray
+        }
+        return v
+    }()
+    
     var datePicker: UIDatePicker = {
         let dp = UIDatePicker()
         dp.datePickerMode = .date
@@ -67,11 +76,16 @@ class EditNoteView: UIView {
     
     var textViewContainer = UIView()
     var textView: UITextView = {
-        let textView = UITextView()
-        textView.textAlignment = .left
-        textView.layer.cornerRadius = 8
-        textView.layer.masksToBounds = true
-        return textView
+        let tv = UITextView()
+        tv.textAlignment = .left
+        tv.layer.cornerRadius = 8
+        tv.layer.masksToBounds = true
+        if #available(iOS 13, *) {
+            tv.backgroundColor = .secondarySystemBackground
+        } else {
+            tv.backgroundColor = .lightGray
+        }
+        return tv
     }()
     
     var mainStackView = UIStackView()
@@ -88,16 +102,10 @@ class EditNoteView: UIView {
         textView.text = note.text
         
         textView.font = UIFont.preferredFont(forTextStyle: .body)
-        
-        buttonContainerView.backgroundColor = .magenta
-        datePickerLabel.backgroundColor = .orange
-        datePicker.backgroundColor = .green
-        textViewLabel.backgroundColor = .yellow
-        textView.backgroundColor = .red
     }
     
     /// Set the date picker label the the format: "Date: Month Day, Year"
-    private func setDatePickerLabel(toDate date: Date) {
+    func setDatePickerLabel(toDate date: Date) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         let text = dateFormatter.string(from: date)
