@@ -79,6 +79,7 @@ class EditNoteView: UIView {
     var datePicker: UIDatePicker = {
         let dp = UIDatePicker()
         dp.datePickerMode = .date
+        dp.maximumDate = Date()
         return dp
     }()
     
@@ -100,6 +101,8 @@ class EditNoteView: UIView {
         } else {
             tv.backgroundColor = .lightGray
         }
+        tv.showsVerticalScrollIndicator = true
+        tv.showsHorizontalScrollIndicator = false
         return tv
     }()
     
@@ -272,12 +275,15 @@ extension EditNoteView {
 // MARK: Hiding and Showing SubViews
 
 extension EditNoteView {
-    func hideDatePickerViewsAndChangeButtons() {
+    func hideDatePickerViewsAndChangeButtons(withTopOfKeyboardAt newBottom: CGFloat) {
         showViewsInvolvedInTextEditing(true)
+        textView.contentInset.bottom = newBottom
+//        textView.scrollIndicatorInsets.bottom = newBottom
     }
     
     func showAllSubViews() {
         showViewsInvolvedInTextEditing(false)
+        textView.contentInset = .zero
     }
     
     private func showViewsInvolvedInTextEditing(_ state: Bool) {
@@ -294,12 +300,6 @@ extension EditNoteView {
             self.datePicker.alpha = viewAlpha
 
             self.doneTypingButton.alpha = state ? 1.0 : 0.0
-        }, completion: { finished in
-            if finished {
-                print("animation completed successfully")
-            } else {
-                print("animation failed")
-            }
         })
     }
 }

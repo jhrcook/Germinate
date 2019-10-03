@@ -24,11 +24,7 @@ class EditNoteViewController: UIViewController {
     var delegate: EditNoteViewControllerDelegate?
     
     private let keyboard = KeyboardObserver()
-    private var isInNoteTextEditingMode = false {
-        didSet {
-            updateViewForEditingMode()
-        }
-    }
+    private var isInNoteTextEditingMode = false
     
     init(note: SeedNote) {
         self.note = note
@@ -119,20 +115,18 @@ extension EditNoteViewController {
     
     
     private func activateTextEditingMode(withKeyboardHeight keyboardFrameEnd: CGRect) {
-        isInNoteTextEditingMode = true
+        if !isInNoteTextEditingMode {
+            let bottom = keyboardFrameEnd.height - view.alignmentRectInsets.bottom + 8
+            editNoteView.hideDatePickerViewsAndChangeButtons(withTopOfKeyboardAt: bottom)
+            isInNoteTextEditingMode = true
+        }
     }
     
     
     private func deactivateTextEditingMode() {
-        isInNoteTextEditingMode = false
-    }
-    
-    
-    private func updateViewForEditingMode() {
         if isInNoteTextEditingMode {
-            editNoteView.hideDatePickerViewsAndChangeButtons()
-        } else {
             editNoteView.showAllSubViews()
+            isInNoteTextEditingMode = false
         }
     }
 }
