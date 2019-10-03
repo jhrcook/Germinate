@@ -91,6 +91,7 @@ class DatePickerViewController: UIViewController {
     func setupView() {
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
+        datePicker.maximumDate = Date()
         
         view.addSubview(titleLabel)
         view.addSubview(datePicker)
