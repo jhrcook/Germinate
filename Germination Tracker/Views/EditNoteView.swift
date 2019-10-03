@@ -15,7 +15,9 @@ import SwiftyButton
 class EditNoteView: UIView {
     
     let buttonContainerView = UIView()
+    
     let buttonStackView = UIStackView()
+    
     let saveButton: FlatButton = {
         let button = FlatButton()
         if #available(iOS 13, *) {
@@ -46,20 +48,24 @@ class EditNoteView: UIView {
         return button
     }()
     
+    var datePickerLabelContainer = UIView()
     var datePickerLabel = UILabel()
     
+    var datePickerContainer = UIView()
     var datePicker: UIDatePicker = {
         let dp = UIDatePicker()
         dp.datePickerMode = .date
         return dp
     }()
     
+    var textViewLabelContainer = UIView()
     var textViewLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "  Notes"
+        lbl.text = " Notes"
         return lbl
     }()
     
+    var textViewContainer = UIView()
     var textView: UITextView = {
         let textView = UITextView()
         textView.textAlignment = .left
@@ -95,7 +101,7 @@ class EditNoteView: UIView {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         let text = dateFormatter.string(from: date)
-        datePickerLabel.text = "  Date: \(text)"
+        datePickerLabel.text = " Date: \(text)"
     }
 }
 
@@ -107,6 +113,9 @@ extension EditNoteView {
     private func setupView() {
         setupMainStackView()
         setupButtons()
+        setupDatePickerLabelView()
+        setupDatePickerView()
+        setupTextView()
     }
     
     private func setupMainStackView() {
@@ -121,10 +130,10 @@ extension EditNoteView {
         mainStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10)
         
         mainStackView.addArrangedSubview(buttonContainerView)
-        mainStackView.addArrangedSubview(datePickerLabel)
-        mainStackView.addArrangedSubview(datePicker)
-        mainStackView.addArrangedSubview(textViewLabel)
-        mainStackView.addArrangedSubview(textView)
+        mainStackView.addArrangedSubview(datePickerLabelContainer)
+        mainStackView.addArrangedSubview(datePickerContainer)
+        mainStackView.addArrangedSubview(textViewLabelContainer)
+        mainStackView.addArrangedSubview(textViewContainer)
         
         buttonContainerView.snp.makeConstraints({ make in
             make.top.equalTo(mainStackView)
@@ -132,22 +141,22 @@ extension EditNoteView {
             make.trailing.equalTo(mainStackView)
             make.height.equalTo(100)
         })
-        datePickerLabel.snp.makeConstraints({ make in
+        datePickerLabelContainer.snp.makeConstraints({ make in
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
             make.height.greaterThanOrEqualTo(44)
         })
-        datePicker.snp.makeConstraints({ make in
+        datePickerContainer.snp.makeConstraints({ make in
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
             make.centerX.equalTo(mainStackView)
         })
-        textViewLabel.snp.makeConstraints({ make in
+        textViewLabelContainer.snp.makeConstraints({ make in
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
-            make.height.equalTo(datePickerLabel)
+            make.height.greaterThanOrEqualTo(44)
         })
-        textView.snp.makeConstraints({ make in
+        textViewContainer.snp.makeConstraints({ make in
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
             make.bottom.equalTo(mainStackView)
@@ -175,4 +184,44 @@ extension EditNoteView {
             make.trailing.equalTo(buttonStackView)
         })
     }
+    
+    
+    private func setupDatePickerLabelView() {
+        datePickerLabelContainer.addSubview(datePickerLabel)
+        datePickerLabel.snp.makeConstraints({ make in
+            make.top.equalTo(datePickerLabelContainer)
+            make.bottom.equalTo(datePickerLabelContainer)
+            make.leading.equalTo(datePickerLabelContainer).inset(15)
+            make.trailing.equalTo(datePickerLabelContainer).inset(15)
+        })
+    }
+    
+    private func setupDatePickerView() {
+        datePickerContainer.addSubview(datePicker)
+        datePicker.snp.makeConstraints({ make in
+            make.top.equalTo(datePickerContainer)
+            make.bottom.equalTo(datePickerContainer)
+            make.leading.equalTo(datePickerContainer).inset(15)
+            make.trailing.equalTo(datePickerContainer).inset(15)
+        })
+    }
+    
+    private func setupTextView() {
+        textViewLabelContainer.addSubview(textViewLabel)
+        textViewLabel.snp.makeConstraints({ make in
+            make.top.equalTo(textViewLabelContainer)
+            make.bottom.equalTo(textViewLabelContainer)
+            make.leading.equalTo(textViewLabelContainer).inset(15)
+            make.trailing.equalTo(textViewLabelContainer).inset(15)
+        })
+        
+        textViewContainer.addSubview(textView)
+        textView.snp.makeConstraints({ make in
+            make.top.equalTo(textViewContainer)
+            make.bottom.equalTo(textViewContainer)
+            make.leading.equalTo(textViewContainer).inset(15)
+            make.trailing.equalTo(textViewContainer).inset(15)
+        })
+    }
 }
+
