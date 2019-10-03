@@ -11,4 +11,5 @@ target 'Germination Tracker' do
   pod 'SwiftyButton'
   pod 'Charts', '~> 3.3'
   pod 'Pageboy', '~> 3.2'
+  pod "KeyboardObserver", '~> 2.1'
 end

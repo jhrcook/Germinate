@@ -15,9 +15,8 @@ import SwiftyButton
 class EditNoteView: UIView {
     
     let buttonContainerView = UIView()
-    
     let buttonStackView = UIStackView()
-    
+    private let buttonHeight = 50
     let saveButton: FlatButton = {
         let button = FlatButton()
         if #available(iOS 13, *) {
@@ -33,7 +32,7 @@ class EditNoteView: UIView {
         return button
     }()
     
-    let cancelButton: UIButton = {
+    let cancelButton: FlatButton = {
         let button = FlatButton()
         if #available(iOS 13, *) {
             button.color = .systemRed
@@ -47,6 +46,22 @@ class EditNoteView: UIView {
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title2)
         return button
     }()
+    
+    let doneTypingbuttonContainerView = UIView()
+    let doneTypingButton: FlatButton = {
+        let button = FlatButton()
+        if #available(iOS 13, *) {
+            button.color = .systemPurple
+        } else {
+            button.color = FlatPurple()
+        }
+        button.highlightedColor = button.color.darken(byPercentage: 0.25)
+        button.cornerRadius = 8
+        button.titleLabel?.text = "Done Typing"
+        button.setTitle("Done Typing", for: [.normal])
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title2)
+        return button
+   }()
     
     var datePickerLabelContainer = UIView()
     var datePickerLabel = UILabel()
@@ -121,6 +136,7 @@ extension EditNoteView {
     private func setupView() {
         setupMainStackView()
         setupButtons()
+        setupDoneTypingView()
         setupDatePickerLabelView()
         setupDatePickerView()
         setupTextView()
@@ -138,12 +154,19 @@ extension EditNoteView {
         mainStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10)
         
         mainStackView.addArrangedSubview(buttonContainerView)
+        mainStackView.addArrangedSubview(doneTypingbuttonContainerView)
         mainStackView.addArrangedSubview(datePickerLabelContainer)
         mainStackView.addArrangedSubview(datePickerContainer)
         mainStackView.addArrangedSubview(textViewLabelContainer)
         mainStackView.addArrangedSubview(textViewContainer)
         
         buttonContainerView.snp.makeConstraints({ make in
+            make.top.equalTo(mainStackView)
+            make.leading.equalTo(mainStackView)
+            make.trailing.equalTo(mainStackView)
+            make.height.equalTo(100)
+        })
+        doneTypingbuttonContainerView.snp.makeConstraints({ make in
             make.top.equalTo(mainStackView)
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
@@ -183,14 +206,25 @@ extension EditNoteView {
         
         buttonStackView.snp.makeConstraints({ make in make.edges.equalTo(buttonContainerView).inset(10)})
         saveButton.snp.makeConstraints({ make in
-            make.height.equalTo(50)
+            make.height.equalTo(buttonHeight)
             make.leading.equalTo(buttonStackView)
         })
         cancelButton.snp.makeConstraints({ make in
             make.width.equalTo(saveButton)
             make.height.equalTo(saveButton)
-            make.trailing.equalTo(buttonStackView)
+            make.trailing.equalTo(buttonHeight)
         })
+    }
+    
+    private func setupDoneTypingView() {
+        doneTypingbuttonContainerView.addSubview(doneTypingButton)
+        doneTypingButton.snp.makeConstraints({ make in
+            make.centerY.equalTo(doneTypingbuttonContainerView)
+            make.leading.equalTo(doneTypingbuttonContainerView).inset(40)
+            make.trailing.equalTo(doneTypingbuttonContainerView).inset(40)
+            make.height.equalTo(buttonHeight)
+        })
+        doneTypingbuttonContainerView.isHidden = true
     }
     
     
@@ -233,3 +267,39 @@ extension EditNoteView {
     }
 }
 
+
+
+// MARK: Hiding and Showing SubViews
+
+extension EditNoteView {
+    func hideDatePickerViewsAndChangeButtons() {
+        showViewsInvolvedInTextEditing(true)
+    }
+    
+    func showAllSubViews() {
+        showViewsInvolvedInTextEditing(false)
+    }
+    
+    private func showViewsInvolvedInTextEditing(_ state: Bool) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.datePickerLabelContainer.isHidden = state
+            self.datePickerContainer.isHidden = state
+            self.buttonContainerView.isHidden = state
+            self.doneTypingbuttonContainerView.isHidden = !state
+            
+            let viewAlpha: CGFloat = state ? 0.0 : 1.0
+            self.saveButton.alpha = viewAlpha
+            self.cancelButton.alpha = viewAlpha
+            self.datePickerLabel.alpha = viewAlpha
+            self.datePicker.alpha = viewAlpha
+
+            self.doneTypingButton.alpha = state ? 1.0 : 0.0
+        }, completion: { finished in
+            if finished {
+                print("animation completed successfully")
+            } else {
+                print("animation failed")
+            }
+        })
+    }
+}

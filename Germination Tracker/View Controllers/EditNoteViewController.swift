@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import KeyboardObserver
+
 
 protocol EditNoteViewControllerDelegate {
     func noteWasEdited(_ note: SeedNote)
@@ -21,6 +23,12 @@ class EditNoteViewController: UIViewController {
     
     var delegate: EditNoteViewControllerDelegate?
     
+    private let keyboard = KeyboardObserver()
+    private var isInNoteTextEditingMode = false {
+        didSet {
+            updateViewForEditingMode()
+        }
+    }
     
     init(note: SeedNote) {
         self.note = note
@@ -47,6 +55,8 @@ class EditNoteViewController: UIViewController {
         
         editNoteView.configureEditView(withNote: note)
         setupUIConnections()
+        
+        setupKeyboardObserver()
     }
     
     
@@ -54,6 +64,7 @@ class EditNoteViewController: UIViewController {
         editNoteView.datePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
         editNoteView.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         editNoteView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        editNoteView.doneTypingButton.addTarget(self, action: #selector(doneTypingButtonTapped), for: .touchUpInside)
     }
     
     
@@ -71,10 +82,57 @@ class EditNoteViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc private func doneTypingButtonTapped() {
+        view.endEditing(true)
+    }
+    
     
     @objc func datePickerChanged(picker: UIDatePicker) {
         note.dateCreated = picker.date
         editNoteView.setDatePickerLabel(toDate: picker.date)
     }
 
+}
+
+
+
+// MARK: Keyboard Observer
+
+extension EditNoteViewController {
+    private func setupKeyboardObserver() {
+        keyboard.observe { [weak self] event -> Void in
+            
+            guard let self = self else { return }
+            
+            switch event.type {
+            case .willShow:
+                print("keyboard will hide")
+                self.activateTextEditingMode(withKeyboardHeight: event.keyboardFrameEnd)
+            case .willHide:
+                print("keyboard will hide")
+                self.deactivateTextEditingMode()
+            default:
+                break
+            }
+        }
+    }
+    
+    
+    private func activateTextEditingMode(withKeyboardHeight keyboardFrameEnd: CGRect) {
+        isInNoteTextEditingMode = true
+    }
+    
+    
+    private func deactivateTextEditingMode() {
+        isInNoteTextEditingMode = false
+    }
+    
+    
+    private func updateViewForEditingMode() {
+        if isInNoteTextEditingMode {
+            editNoteView.hideDatePickerViewsAndChangeButtons()
+        } else {
+            editNoteView.showAllSubViews()
+        }
+    }
 }

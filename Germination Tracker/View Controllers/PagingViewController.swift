@@ -36,7 +36,6 @@ class PagingViewController: PageboyViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        navigationController?.setNavigationBarHidden(false, animated: false)
         currentPageIndex = 0
         navigationItem.largeTitleDisplayMode = .never
                         
@@ -126,6 +125,7 @@ extension PagingViewController: NotesTableViewControllerContainerDelegate {
     
     func didDeleteNote(atIndex index: Int) {
         plant.notes.remove(at: index)
+        plantsManager.savePlants()
         notesTableViewController.notes = plant.notes
     }
     
@@ -142,6 +142,7 @@ extension PagingViewController: EditNoteViewControllerDelegate {
         } else {
             plant.add(note)
         }
+        plantsManager.savePlants()
         notesTableViewController.notes = plant.notes
         notesTableViewController.reloadData()
     }
