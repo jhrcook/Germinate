@@ -21,9 +21,7 @@
 		842149B2233DB27F006CA704 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842149B1233DB27F006CA704 /* InformationViewController.swift */; };
 		845780F123383D55004EEAD1 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845780F023383D55004EEAD1 /* DatePickerViewController.swift */; };
 		847B6EF8233714FC00BEFFC4 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EF7233714FC00BEFFC4 /* InformationView.swift */; };
-		847B6EFC233717C600BEFFC4 /* DetailPagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */; };
 		848E8CF1233B080400C663D0 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E8CF0233B080400C663D0 /* ChartViewController.swift */; };
-		849CA3232336E28700505FE9 /* DetailPagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CA3222336E28700505FE9 /* DetailPagingViewController.swift */; };
 		84B63CA82339B54B0064444C /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B63CA72339B54B0064444C /* EditNoteViewController.swift */; };
 		84B63CAA2339B55C0064444C /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B63CA92339B55C0064444C /* EditNoteView.swift */; };
 		FD1B73EA73842028A2F51E2E /* Pods_Germination_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32EC6AB9316DFB8B8D6E36C /* Pods_Germination_Tracker.framework */; };
@@ -46,9 +44,7 @@
 		842149B1233DB27F006CA704 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		845780F023383D55004EEAD1 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		847B6EF7233714FC00BEFFC4 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
-		847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagingView.swift; sourceTree = "<group>"; };
 		848E8CF0233B080400C663D0 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
-		849CA3222336E28700505FE9 /* DetailPagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagingViewController.swift; sourceTree = "<group>"; };
 		84B63CA72339B54B0064444C /* EditNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
 		84B63CA92339B55C0064444C /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
 		8AF7233A6627F2216CC4ACD7 /* Pods-Germination Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Germination Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Germination Tracker/Pods-Germination Tracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				841DF34523359FC900D20B08 /* LibraryViewController.swift */,
-				849CA3222336E28700505FE9 /* DetailPagingViewController.swift */,
 				842149AF233DB137006CA704 /* PagingViewController.swift */,
 				842149B1233DB27F006CA704 /* InformationViewController.swift */,
 				840100A22338F4EC00AD7B1B /* NotesTableViewController.swift */,
@@ -127,7 +122,6 @@
 		849CA32A2336E91600505FE9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				847B6EFB233717C600BEFFC4 /* DetailPagingView.swift */,
 				847B6EF7233714FC00BEFFC4 /* InformationView.swift */,
 				84B63CA92339B55C0064444C /* EditNoteView.swift */,
 				841DF34723359FC900D20B08 /* Main.storyboard */,
@@ -276,9 +270,7 @@
 				845780F123383D55004EEAD1 /* DatePickerViewController.swift in Sources */,
 				841DF3562335AAB700D20B08 /* Plant.swift in Sources */,
 				84B63CAA2339B55C0064444C /* EditNoteView.swift in Sources */,
-				849CA3232336E28700505FE9 /* DetailPagingViewController.swift in Sources */,
 				847B6EF8233714FC00BEFFC4 /* InformationView.swift in Sources */,
-				847B6EFC233717C600BEFFC4 /* DetailPagingView.swift in Sources */,
 				842149B0233DB137006CA704 /* PagingViewController.swift in Sources */,
 				841DF34423359FC900D20B08 /* AppDelegate.swift in Sources */,
 				841DF3582335ACC700D20B08 /* PlantsArrayManager.swift in Sources */,

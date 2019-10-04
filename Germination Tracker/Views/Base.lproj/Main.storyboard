@@ -72,21 +72,6 @@
             </objects>
             <point key="canvasLocation" x="1718" y="153"/>
         </scene>
-        <!--Detail Paging View Controller-->
-        <scene sceneID="caS-hL-xUz">
-            <objects>
-                <viewController id="Ee4-zP-Zv4" customClass="DetailPagingViewController" customModule="Germination_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="UuY-Tc-P5I">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="5PV-KS-E3Q"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dR3-ei-8ZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1706" y="979"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="YKm-8z-aIB">
             <objects>

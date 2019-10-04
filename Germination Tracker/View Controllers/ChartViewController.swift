@@ -19,6 +19,13 @@ class ChartViewController: UIViewController {
     
     private var chartHasBeenDrawnPreviously = false
     
+    private let dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        df.timeZone = TimeZone.current
+        return df
+    }()
+    
     init(plant: Plant) {
         self.plant = plant
         super.init(nibName: nil, bundle: nil)
@@ -59,29 +66,26 @@ class ChartViewController: UIViewController {
     
     func drawChart(withAnimation animate: Bool) {
         
-        print("drawing chart")
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        
         var startDate = plant.dateOfSeedSowing
-        let nowDate = Date()
+        let today = Date()
         
         // break early if today is the same day at start of germination
-        if Calendar.current.isDate(startDate, inSameDayAs: nowDate) {
-            germinationLineChartView.noDataText = "Good luck!"
+        if Calendar.current.isDate(startDate, inSameDayAs: today) {
+            germinationLineChartView.noDataText = "Good luck!\n(There's no data to present, yet.)"
             germinationLineChartView.noDataFont = UIFont.preferredFont(forTextStyle: .headline)
             return
         }
         
         // x-values for plot
         var allDatesSinceBeginning  = [Date]()
-        while startDate <= nowDate {
+        while startDate <= today {
             allDatesSinceBeginning.append(startDate)
             startDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)!
+
         }
-        allDatesSinceBeginning = allDatesSinceBeginning.sorted(by: { $0 < $1 })
+        allDatesSinceBeginning.append(startDate)
         
+        allDatesSinceBeginning = allDatesSinceBeginning.sorted(by: { $0 < $1 })
         
         // y-values for plot
         var cumulativeGerminationCount = [Double]()
@@ -91,6 +95,7 @@ class ChartViewController: UIViewController {
              for germDate in plant.seedGerminationDates {
                 if Calendar.current.isDate(day, inSameDayAs: germDate) { dayGermCount += 1 }
             }
+            
             totalGermCount += dayGermCount
             cumulativeGerminationCount.append(totalGermCount)
         }
@@ -99,6 +104,7 @@ class ChartViewController: UIViewController {
         if allDatesSinceBeginning.count != cumulativeGerminationCount.count {
             fatalError("The number of dates (x) does not equal the number of cumulative germ. counts (y).")
         }
+        
         
         // turn into chart data entry
         var values = [ChartDataEntry]()
@@ -123,7 +129,7 @@ class ChartViewController: UIViewController {
         
         let data = LineChartData(dataSet: set1)
         germinationLineChartView.data = data
-        
+                
         germinationLineChartView.isUserInteractionEnabled = false
         germinationLineChartView.xAxis.labelPosition = .bottom
         germinationLineChartView.xAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
@@ -148,3 +154,5 @@ class ChartViewController: UIViewController {
         }
     }
 }
+
+
