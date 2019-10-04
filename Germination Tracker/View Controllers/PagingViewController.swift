@@ -41,6 +41,7 @@ class PagingViewController: PageboyViewController {
                         
         informationViewController = InformationViewController(plant: plant)
         informationViewController.plantsManager = plantsManager
+        informationViewController.parentDelegate = self
         
         notesTableViewController.plantsManager = plantsManager
         notesTableViewController.notes = plant.notes
@@ -61,7 +62,7 @@ class PagingViewController: PageboyViewController {
         push(editVC)
     }
         
-        /// Push the edit note view controller with self as delegate.
+    /// Push the edit note view controller with self as delegate.
     fileprivate func push(_ editNoteViewController: EditNoteViewController) {
         editNoteViewController.modalPresentationStyle = .formSheet
         editNoteViewController.modalTransitionStyle = .coverVertical
@@ -148,3 +149,29 @@ extension PagingViewController: EditNoteViewControllerDelegate {
     }
 }
 
+
+// MARK: GerminationDatesTableViewControllerDelegate
+
+extension PagingViewController: GerminationDatesTableViewControllerDelegate {
+    
+    func updateGermination(toDates dates: [Date]) {
+        plant.seedGerminationDates = dates
+        plantsManager.savePlants()
+        informationViewController.updateGerminationDates()
+        // MARK: TODO
+    }
+    
+}
+
+
+// MARK: InformationViewControllerDelegate
+
+extension PagingViewController: InformationViewControllerDelegate {
+    func didTapGerminationDateLabel(_ label: UILabel) {
+        print("tapped germination counter label")
+        let vc = GerminationDatesTableViewController()
+        vc.germinationDates = plant.seedGerminationDates
+        vc.parentDelegate = self
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}

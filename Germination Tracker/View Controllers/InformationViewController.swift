@@ -9,10 +9,17 @@
 import UIKit
 import SnapKit
 
+
+protocol InformationViewControllerDelegate {
+    func didTapGerminationDateLabel(_ label: UILabel)
+}
+
 class InformationViewController: UIViewController {
 
     var plant: Plant
     var plantsManager: PlantsArrayManager!
+    
+    var parentDelegate: InformationViewControllerDelegate?
     
     var informationView: InformationView!
     var chartViewController: ChartViewController!
@@ -47,12 +54,25 @@ class InformationViewController: UIViewController {
         chartViewController.view.snp.makeConstraints({make in make.edges.equalTo(informationView.chartContainerView)})
         
     }
+    
+    
+    func updateGerminationDates() {
+        informationView.set(numberOfGerminationsTo: plant.numberOfGerminations)
+        chartViewController.updateChart()
+    }
 
 }
 
 // MARK: InformationViewDelegate
 
 extension InformationViewController: InformationViewDelegate {
+    
+    
+    func germinationCounterLabelWasTapped(_ label: UILabel) {
+        parentDelegate?.didTapGerminationDateLabel(label)
+    }
+    
+    
     func dateSownLabelWasTapped(_ label: UILabel) {
         print("tapped date sown label")
         let datePickerVC = DatePickerViewController()

@@ -16,6 +16,7 @@ protocol InformationViewDelegate {
     func numberOfSeedsSownLabelWasTapped(_ label: UILabel)
     func germinationStepperValueDidChange(_ stepper: UIStepper)
     func deathStepperValueDidChange(_ stepper: UIStepper)
+    func germinationCounterLabelWasTapped(_ label: UILabel)
 }
 
 
@@ -317,6 +318,11 @@ class InformationView: UIView {
         let tapNumberSown = UITapGestureRecognizer(target: self, action: #selector(numberOfSeedsSownLabelWasTapped))
         numberOfSeedsSownLabel.addGestureRecognizer(tapNumberSown)
         
+        // set up germination label recognition
+        germinationCounterLabel.isUserInteractionEnabled = true
+        let tapGerminationLabel = UITapGestureRecognizer(target: self, action: #selector(germinationCounterLabelWasTapped))
+        germinationCounterLabel.addGestureRecognizer(tapGerminationLabel)
+        
         // set stepper targets
         germinationStepper.addTarget(self, action: #selector(stepperValueDidChange), for: .valueChanged)
         deathStepper.addTarget(self, action: #selector(stepperValueDidChange), for: .valueChanged)
@@ -336,6 +342,11 @@ class InformationView: UIView {
     @objc private func numberOfSeedsSownLabelWasTapped() {
         guard let delegate = delegate else { return }
         delegate.numberOfSeedsSownLabelWasTapped(numberOfSeedsSownLabel)
+    }
+    
+    @objc private func germinationCounterLabelWasTapped() {
+        guard let delegate = delegate else { return }
+        delegate.germinationCounterLabelWasTapped(germinationCounterLabel)
     }
     
     /// Respond the the change in value of a stepper.
