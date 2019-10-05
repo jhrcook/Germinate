@@ -14,6 +14,8 @@ date: 2019-09-20
 
 A simple iOS app to track the germination of my seeds.
 
+**Checkout a summary of the app on the project page on my [website](https://joshuacook.netlify.com/project/ios-germination-tracker/).**
+
 The following GIF prevides a general summary of the current app.
 
 <img src="misc/screenshots/2019-10-03_screen-recording.gif" width=300 />
@@ -25,3 +27,5 @@ Third-Party Libraries
 * [Chameleon](https://github.com/viccalexander/Chameleon) for some theming (for lower than iOS 13).
 * [KeyboardObserver](https://github.com/morizotter/KeyboardObserver) for handling the notifications from the keyboard.
 * [SwiftyButton](https://github.com/TakeScoop/SwiftyButton) provides a nice, flat button.
+
+I made the icon using Procreate](https://procreate.art) and formatted it for iOS using [MakeAppIcon](https://makeappicon.com).

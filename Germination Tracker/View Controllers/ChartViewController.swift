@@ -81,9 +81,8 @@ class ChartViewController: UIViewController {
         while startDate <= today {
             allDatesSinceBeginning.append(startDate)
             startDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)!
-
         }
-        allDatesSinceBeginning.append(startDate)
+        allDatesSinceBeginning.append(startDate)    
         
         allDatesSinceBeginning = allDatesSinceBeginning.sorted(by: { $0 < $1 })
         
