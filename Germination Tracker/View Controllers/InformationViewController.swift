@@ -57,7 +57,7 @@ class InformationViewController: UIViewController {
     
     
     func updateGerminationDates() {
-        informationView.set(numberOfGerminationsTo: plant.numberOfGerminations)
+        informationView.set(numberOfGerminationsTo: plant.germinationDatesManager.totalCount)
         chartViewController.updateChart()
     }
 
@@ -120,10 +120,10 @@ extension InformationViewController: InformationViewDelegate {
     func germinationStepperValueDidChange(_ stepper: UIStepper) {
         let value = Int(stepper.value)
         informationView.set(numberOfGerminationsTo: value)
-        if value < plant.numberOfGerminations {
-            plant.removeGermination(atIndex: value)
+        if value < plant.germinationDatesManager.totalCount {
+            plant.germinationDatesManager.removeMostRecentEvent()
         } else {
-            plant.addGermination(nil)
+            plant.germinationDatesManager.addEvent(on: Date())
         }
         chartViewController.updateChart()
         plantsManager.savePlants()
@@ -132,10 +132,10 @@ extension InformationViewController: InformationViewDelegate {
     func deathStepperValueDidChange(_ stepper: UIStepper) {
         let value = Int(stepper.value)
         informationView.set(numberOfDeathsTo: value)
-        if value < plant.numberOfDeaths {
-            plant.removeDeath(atIndex: value)
+        if value < plant.deathDatesManager.totalCount {
+            plant.deathDatesManager.removeMostRecentEvent()
         } else {
-            plant.addDeath(nil)
+            plant.deathDatesManager.addEvent(on: Date())
         }
         plantsManager.savePlants()
     }

@@ -21,6 +21,7 @@
 		842149B2233DB27F006CA704 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842149B1233DB27F006CA704 /* InformationViewController.swift */; };
 		845780F123383D55004EEAD1 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845780F023383D55004EEAD1 /* DatePickerViewController.swift */; };
 		847B6EF8233714FC00BEFFC4 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EF7233714FC00BEFFC4 /* InformationView.swift */; };
+		8485E59A234C9581001ABEB9 /* DateCounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485E599234C9581001ABEB9 /* DateCounterManager.swift */; };
 		848E8CF1233B080400C663D0 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E8CF0233B080400C663D0 /* ChartViewController.swift */; };
 		84902E862347A78A0032E9D2 /* GerminationDatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84902E852347A78A0032E9D2 /* GerminationDatesTableViewController.swift */; };
 		84982F9B234B466C000AA023 /* GerminationDatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84982F9A234B466C000AA023 /* GerminationDatesTableViewCell.swift */; };
@@ -46,6 +47,7 @@
 		842149B1233DB27F006CA704 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		845780F023383D55004EEAD1 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		847B6EF7233714FC00BEFFC4 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		8485E599234C9581001ABEB9 /* DateCounterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCounterManager.swift; sourceTree = "<group>"; };
 		848E8CF0233B080400C663D0 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		84902E852347A78A0032E9D2 /* GerminationDatesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GerminationDatesTableViewController.swift; path = "Germination Tracker/View Controllers/GerminationDatesTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84982F9A234B466C000AA023 /* GerminationDatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GerminationDatesTableViewCell.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				841DF3572335ACC700D20B08 /* PlantsArrayManager.swift */,
 				841DF3552335AAB700D20B08 /* Plant.swift */,
 				840100A42338F52D00AD7B1B /* SeedNote.swift */,
+				8485E599234C9581001ABEB9 /* DateCounterManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				848E8CF1233B080400C663D0 /* ChartViewController.swift in Sources */,
 				840100A52338F52D00AD7B1B /* SeedNote.swift in Sources */,
 				845780F123383D55004EEAD1 /* DatePickerViewController.swift in Sources */,
+				8485E59A234C9581001ABEB9 /* DateCounterManager.swift in Sources */,
 				841DF3562335AAB700D20B08 /* Plant.swift in Sources */,
 				84B63CAA2339B55C0064444C /* EditNoteView.swift in Sources */,
 				84982F9B234B466C000AA023 /* GerminationDatesTableViewCell.swift in Sources */,

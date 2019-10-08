@@ -11,7 +11,7 @@ import UIKit
 
 
 protocol GerminationDatesTableViewControllerDelegate {
-    func updateGermination(toDates dates: [Date])
+    func DatesManagerWasChanged(_ dateCounterManager: DateCounterManager)
 }
 
 
@@ -19,9 +19,7 @@ class GerminationDatesTableViewController: UITableViewController {
 
     private let reuseIdentifier = "GerminationDateCell"
     
-    var germinationDates = [Date]()
-    var uniqueGerminationDates = [Date]()
-    var cumulativeGerminationDict = [Date: Int]()
+    var datesManager = DateCounterManager()
     
     private let dateFormatter: DateFormatter = {
         let df = DateFormatter()
@@ -43,8 +41,6 @@ class GerminationDatesTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         title = "Germination Dates"
-        
-        setupDateModels()
     }
 
     // MARK: - Table view data source
@@ -56,14 +52,14 @@ class GerminationDatesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return uniqueGerminationDates.count
+        return datesManager.orderedDates.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! GerminationDatesTableViewCell
-        let date = uniqueGerminationDates[indexPath.row]
-        let count = cumulativeGerminationDict[date] ?? 0
+        let date = datesManager.orderedDates[indexPath.row]
+        let count = datesManager.dateCounts[date] ?? 0
         cell.configureCell(forDate: date, withNumberOfGerminations: count, withTag: indexPath.row)
         cell.addButton.addTarget(self, action: #selector(addButtonTapped(sender:)), for: .touchUpInside)
         cell.subtractButton.addTarget(self, action: #selector(subtractButtonTapped(sender:)), for: .touchUpInside)
@@ -78,24 +74,13 @@ class GerminationDatesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            germinationDates.remove(at: indexPath.row)
+            let date = datesManager.orderedDates[indexPath.row]
+            datesManager.removeAllEvents(on: date)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            if let delegate = parentDelegate { delegate.updateGermination(toDates: germinationDates) }
+            if let delegate = parentDelegate { delegate.DatesManagerWasChanged(datesManager) }
         }
     }
-
     
-    /// Build the data models holding informatoin about dates.
-    private func setupDateModels() {
-        /// A dictionary with number of germinationations per date.
-        for date in germinationDates {
-            cumulativeGerminationDict[date] = 1 + (cumulativeGerminationDict[date] ?? 0)
-        }
-        
-        /// Array of unique germination dates
-        uniqueGerminationDates = Array(Set(germinationDates)).sorted(by: { $0 < $1 })
-    }
-
 }
 
 
@@ -103,10 +88,10 @@ class GerminationDatesTableViewController: UITableViewController {
 extension GerminationDatesTableViewController {
     
     @objc private func addButtonTapped(sender: UIButton) {
-        let date = uniqueGerminationDates[sender.tag]
+        let date = datesManager.orderedDates[sender.tag]
     }
     
     @objc private func subtractButtonTapped(sender: UIButton) {
-        let date = uniqueGerminationDates[sender.tag]
+        let date = datesManager.orderedDates[sender.tag]
    }
 }

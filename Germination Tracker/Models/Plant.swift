@@ -18,67 +18,41 @@ class Plant: Codable {
     /// The number of seeds sown for the plant.
     var numberOfSeedsSown: Int = 0
     
-    /// The date the seeds were sown
+    /// The date the seeds were sown.
     var dateOfSeedSowing: Date
     
-    /// An array of dates of germinations.
-    var seedGerminationDates = [Date]()
-    /// The number of germinations.
-    var numberOfGerminations: Int {
-        get {
-            return seedGerminationDates.count
-        }
-    }
+    /// A manager for the germination events.
+    var germinationDatesManager = DateCounterManager()
     
-    /// An array of dates of plant deaths.
-    var plantDeathDates = [Date]()
-    /// The number of plants that have died.
-    var numberOfDeaths: Int {
-        get {
-            return plantDeathDates.count
-        }
-    }
+    /// A manager for the death events.
+    var deathDatesManager = DateCounterManager()
     
     /// An array of type `SeedNote` containing notes about the germination process.
     var notes = [SeedNote]()
     
+    /// Initialize a plant by name.
     init(name: String) {
         self.name = name
         self.dateOfSeedSowing = Date()
     }
     
+    /// Inialize a plant by name and number of seeds sown.
     convenience init(name: String, numberOfSeedsSown: Int) {
         self.init(name: name)
         self.numberOfSeedsSown = numberOfSeedsSown
     }
     
-    /// Add a date to `seedGerminationDates`
-    func addGermination(_ date: Date?) {
-        seedGerminationDates.append(date ?? Date())
-    }
-    
-    /// Remove a date from `seedGerminationDates`
-    func removeGermination(atIndex index: Int) {
-        seedGerminationDates.remove(at: index)
-    }
-    
-    /// Add a date to `plantDeathDates`
-    func addDeath(_ date: Date?) {
-        plantDeathDates.append(date ?? Date())
-    }
-    
-    /// Remove a date from `plantDeathDates`
-    func removeDeath(atIndex index: Int) {
-        plantDeathDates.remove(at: index)
-    }
     
     /// Add a `SeedNote` to the `notes` array.
+    /// - parameter note: A `SeedNote` object to add to the plant's array of notes.
     func add(_ note: SeedNote) {
         notes.append(note)
         orderNotes()
     }
     
-    /// Replace a note in the `notes` array
+    /// Replace a note in the `notes` array.
+    /// - parameter index: Where in the array of notes to replace with a new note.
+    /// - parameter note: A new `SeedNote`
     func replaceNote(atIndex index: Int, with note: SeedNote) {
         notes[index] = note
         orderNotes()
@@ -88,4 +62,5 @@ class Plant: Codable {
     private func orderNotes() {
         notes = notes.sorted(by: { $0.dateCreated < $1.dateCreated })
     }
+
 }

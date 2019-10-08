@@ -271,8 +271,8 @@ class InformationView: UIView {
     func configureViewFor(_ plant: Plant) {
         set(dateSownLabelTo: plant.dateOfSeedSowing)
         set(numberOfSeedlingsTo: plant.numberOfSeedsSown)
-        set(numberOfGerminationsTo: plant.numberOfGerminations)
-        set(numberOfDeathsTo: plant.numberOfDeaths)
+        set(numberOfGerminationsTo: plant.germinationDatesManager.totalCount)
+        set(numberOfDeathsTo: plant.deathDatesManager.totalCount)
     }
     
     /// Set the date of sowing label.
