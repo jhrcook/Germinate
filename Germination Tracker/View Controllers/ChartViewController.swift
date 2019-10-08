@@ -89,13 +89,10 @@ class ChartViewController: UIViewController {
         // y-values for plot
         var cumulativeGerminationCount = [Double]()
         var totalGermCount: Double = 0
+        
+        // build cumulative germination counts over all dates since start
         for day in allDatesSinceBeginning {
-            var dayGermCount: Double = 0
-             for germDate in plant.seedGerminationDates {
-                if Calendar.current.isDate(day, inSameDayAs: germDate) { dayGermCount += 1 }
-            }
-            
-            totalGermCount += dayGermCount
+            totalGermCount += Double(plant.germinationDatesManager.dateCounts[day] ?? 0)
             cumulativeGerminationCount.append(totalGermCount)
         }
         

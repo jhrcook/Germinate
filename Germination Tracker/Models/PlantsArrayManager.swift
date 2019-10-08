@@ -16,8 +16,8 @@ class PlantsArrayManager {
     
     
     init() {
-        loadPlants()
-//        makeTestPlantsArray()
+//        loadPlants()
+        makeTestPlantsArray()
     }
     
     
@@ -73,7 +73,7 @@ class PlantsArrayManager {
             "09/15/2019", "09/15/2019", "09/15/2019", "09/15/2019"
         ]
         for date in datesToAdd {
-            anotherPlant.addGermination(dateFormatter.date(from: date)!)
+            anotherPlant.germinationDatesManager.addEvent(on: dateFormatter.date(from: date)!)
         }
         plants.append(anotherPlant)
         

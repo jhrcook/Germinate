@@ -154,11 +154,8 @@ extension PagingViewController: EditNoteViewControllerDelegate {
 
 extension PagingViewController: GerminationDatesTableViewControllerDelegate {
     
-    func updateGermination(toDates dates: [Date]) {
-        plant.seedGerminationDates = dates
-        plantsManager.savePlants()
-        informationViewController.updateGerminationDates()
-        // MARK: TODO
+    func DatesManagerWasChanged(_ dateCounterManager: DateCounterManager) {
+        // TODO: react to changes in dates
     }
     
 }
@@ -167,11 +164,12 @@ extension PagingViewController: GerminationDatesTableViewControllerDelegate {
 // MARK: InformationViewControllerDelegate
 
 extension PagingViewController: InformationViewControllerDelegate {
+    
     func didTapGerminationDateLabel(_ label: UILabel) {
-        print("tapped germination counter label")
         let vc = GerminationDatesTableViewController()
-        vc.germinationDates = plant.seedGerminationDates
+        vc.datesManager = plant.germinationDatesManager
         vc.parentDelegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
