@@ -22,20 +22,40 @@ class Plant: Codable {
     var dateOfSeedSowing: Date
     
     /// An array of dates of germinations.
-    var seedGerminationDates = [Date]()
+    var seedGerminationDates = [Date: Int]()
     /// The number of germinations.
     var numberOfGerminations: Int {
         get {
-            return seedGerminationDates.count
+            var counter = 0
+            for val in seedGerminationDates.values {
+                counter += val
+            }
+            return counter
+        }
+    }
+    /// Sorted array of dates of seed germinations
+    var orderedDatesOfGerminations: [Date] {
+        get {
+            Array(Set(seedGerminationDates.keys)).sorted(by: { $0 < $1 })
         }
     }
     
     /// An array of dates of plant deaths.
-    var plantDeathDates = [Date]()
+    var plantDeathDates = [Date: Int]()
     /// The number of plants that have died.
     var numberOfDeaths: Int {
+       get {
+           var counter = 0
+           for val in seedGerminationDates.values {
+               counter += val
+           }
+           return counter
+       }
+    }
+    /// Sorted array of dates of plant deaths
+    var orderedDatesOfDeaths: [Date] {
         get {
-            return plantDeathDates.count
+            Array(Set(plantDeathDates.keys)).sorted(by: { $0 < $1 })
         }
     }
     
@@ -53,23 +73,37 @@ class Plant: Codable {
     }
     
     /// Add a date to `seedGerminationDates`
-    func addGermination(_ date: Date?) {
-        seedGerminationDates.append(date ?? Date())
+    func addGermination(_ date: Date) {
+        seedGerminationDates[date] = 1 + (seedGerminationDates[date] ?? 0)
     }
     
-    /// Remove a date from `seedGerminationDates`
-    func removeGermination(atIndex index: Int) {
-        seedGerminationDates.remove(at: index)
+    /// Remove the more recent germination date
+    func removeMostRecentGermination() {
+        if let mostRecentDate = orderedDatesOfGerminations.last {
+            remove(numGermination: 1, fromDate: mostRecentDate)
+        }
     }
     
-    /// Add a date to `plantDeathDates`
-    func addDeath(_ date: Date?) {
-        plantDeathDates.append(date ?? Date())
+    /// Remove a specific number of germinations from a date
+    func remove(numGermination num: Int, fromDate date: Date) {
+        if let currentNumberOfGerminations = seedGerminationDates[date] {
+            seedGerminationDates[date] = max(currentNumberOfGerminations - num, 0)
+        }
+        clearZeroValues(fromDict: &seedGerminationDates)
     }
     
-    /// Remove a date from `plantDeathDates`
-    func removeDeath(atIndex index: Int) {
-        plantDeathDates.remove(at: index)
+    func removeAllGerminations(on date: Date) {
+        seedGerminationDates.removeValue(forKey: date)
+    }
+    
+    
+    
+    private func clearZeroValues(fromDict dict: inout [Date: Int]) {
+        for date in dict.keys {
+            if dict[date]! == 0 {
+                dict.removeValue(forKey: date)
+            }
+        }
     }
     
     /// Add a `SeedNote` to the `notes` array.
@@ -88,4 +122,5 @@ class Plant: Codable {
     private func orderNotes() {
         notes = notes.sorted(by: { $0.dateCreated < $1.dateCreated })
     }
+
 }
