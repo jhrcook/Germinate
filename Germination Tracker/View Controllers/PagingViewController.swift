@@ -155,7 +155,8 @@ extension PagingViewController: EditNoteViewControllerDelegate {
 extension PagingViewController: GerminationDatesTableViewControllerDelegate {
     
     func DatesManagerWasChanged(_ dateCounterManager: DateCounterManager) {
-        // TODO: react to changes in dates
+        informationViewController.updateGerminationDates()
+        plantsManager.savePlants()
     }
     
 }

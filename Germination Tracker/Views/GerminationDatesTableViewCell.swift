@@ -13,7 +13,7 @@ class GerminationDatesTableViewCell: UITableViewCell {
 
     let dateLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "Date"
+        lbl.isUserInteractionEnabled = true
         return lbl
     }()
     
@@ -89,6 +89,7 @@ class GerminationDatesTableViewCell: UITableViewCell {
         dateLabel.text = dateFormatter.string(from: date)
         numberLabel.text = "\(numberOfGerminations)"
         
+        dateLabel.tag = tag
         addButton.tag = tag
         subtractButton.tag = tag
     }

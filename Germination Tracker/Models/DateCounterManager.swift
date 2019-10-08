@@ -70,6 +70,19 @@ class DateCounterManager: Codable {
         dateCounts.removeValue(forKey: date)
     }
     
+    /// Move events from one date to another.
+    /// - parameter fromDate: Date to move values from.
+    /// - parameter toDate: Date to move values to.
+    func moveEvents(fromDate: Date, toDate: Date) {
+        guard let fromVals = dateCounts[fromDate] else { return }
+        let toVals = dateCounts[toDate] ?? 0
+        let newVals = fromVals + toVals
+        dateCounts[fromDate] = 0
+        dateCounts[toDate] = newVals
+        
+        clearZeroValues()
+    }
+    
     /// Clear all zero values from the `dateCounts` dictionary.
     private func clearZeroValues() {
         for date in dateCounts.keys {
