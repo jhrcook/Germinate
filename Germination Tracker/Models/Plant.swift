@@ -18,101 +18,41 @@ class Plant: Codable {
     /// The number of seeds sown for the plant.
     var numberOfSeedsSown: Int = 0
     
-    /// The date the seeds were sown
+    /// The date the seeds were sown.
     var dateOfSeedSowing: Date
     
-    /// An array of dates of germinations.
-    var seedGerminationDates = [Date: Int]()
-    /// The number of germinations.
-    var numberOfGerminations: Int {
-        get {
-            var counter = 0
-            for val in seedGerminationDates.values {
-                counter += val
-            }
-            return counter
-        }
-    }
-    /// Sorted array of dates of seed germinations
-    var orderedDatesOfGerminations: [Date] {
-        get {
-            Array(Set(seedGerminationDates.keys)).sorted(by: { $0 < $1 })
-        }
-    }
+    /// A manager for the germination events.
+    var germinationDatesManager = DateCounterManager()
     
-    /// An array of dates of plant deaths.
-    var plantDeathDates = [Date: Int]()
-    /// The number of plants that have died.
-    var numberOfDeaths: Int {
-       get {
-           var counter = 0
-           for val in seedGerminationDates.values {
-               counter += val
-           }
-           return counter
-       }
-    }
-    /// Sorted array of dates of plant deaths
-    var orderedDatesOfDeaths: [Date] {
-        get {
-            Array(Set(plantDeathDates.keys)).sorted(by: { $0 < $1 })
-        }
-    }
+    /// A manager for the death events.
+    var deathDatesManager = DateCounterManager()
     
     /// An array of type `SeedNote` containing notes about the germination process.
     var notes = [SeedNote]()
     
+    /// Initialize a plant by name.
     init(name: String) {
         self.name = name
         self.dateOfSeedSowing = Date()
     }
     
+    /// Inialize a plant by name and number of seeds sown.
     convenience init(name: String, numberOfSeedsSown: Int) {
         self.init(name: name)
         self.numberOfSeedsSown = numberOfSeedsSown
     }
     
-    /// Add a date to `seedGerminationDates`
-    func addGermination(_ date: Date) {
-        seedGerminationDates[date] = 1 + (seedGerminationDates[date] ?? 0)
-    }
-    
-    /// Remove the more recent germination date
-    func removeMostRecentGermination() {
-        if let mostRecentDate = orderedDatesOfGerminations.last {
-            remove(numGermination: 1, fromDate: mostRecentDate)
-        }
-    }
-    
-    /// Remove a specific number of germinations from a date
-    func remove(numGermination num: Int, fromDate date: Date) {
-        if let currentNumberOfGerminations = seedGerminationDates[date] {
-            seedGerminationDates[date] = max(currentNumberOfGerminations - num, 0)
-        }
-        clearZeroValues(fromDict: &seedGerminationDates)
-    }
-    
-    func removeAllGerminations(on date: Date) {
-        seedGerminationDates.removeValue(forKey: date)
-    }
-    
-    
-    
-    private func clearZeroValues(fromDict dict: inout [Date: Int]) {
-        for date in dict.keys {
-            if dict[date]! == 0 {
-                dict.removeValue(forKey: date)
-            }
-        }
-    }
     
     /// Add a `SeedNote` to the `notes` array.
+    /// - parameter note: A `SeedNote` object to add to the plant's array of notes.
     func add(_ note: SeedNote) {
         notes.append(note)
         orderNotes()
     }
     
-    /// Replace a note in the `notes` array
+    /// Replace a note in the `notes` array.
+    /// - parameter index: Where in the array of notes to replace with a new note.
+    /// - parameter note: A new `SeedNote`
     func replaceNote(atIndex index: Int, with note: SeedNote) {
         notes[index] = note
         orderNotes()
