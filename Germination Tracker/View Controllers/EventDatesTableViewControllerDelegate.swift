@@ -77,7 +77,7 @@ class EventDatesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! EventDatesTableViewCell
         let date = datesManager.orderedDates[indexPath.row]
-        let count = datesManager.dateCounts[date] ?? 0
+        let count = datesManager.numberOfEvents(onDate: date) ?? 0
         cell.configureCell(forDate: date, withNumberOfGerminations: count, withTag: indexPath.row)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dateLabelTapped(sender:)))
@@ -155,7 +155,7 @@ extension EventDatesTableViewController {
     @objc private func subtractButtonTapped(sender: UIButton) {
         let date = datesManager.orderedDates[sender.tag]
                 
-        if datesManager.dateCounts[date]! == 1 {
+        if datesManager.numberOfEvents(onDate: date) == 1 {
             datesManager.remove(numberOfEvents: 1, fromDate: date)
             
             UIView.animate(withDuration: 0.25, animations: { [weak self] in

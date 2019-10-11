@@ -186,7 +186,9 @@ class ChartViewController: UIViewController {
         
         // build cumulative counts over all dates
         for day in dates {
-            totalCount += Double(datesManager.dateCounts[day] ?? 0)
+            totalCount += Double(datesManager.numberOfEvents(onDate: day) ?? 0)
+            print("day: \(dateFormatter.string(from: day))")
+            print("value on day: \(datesManager.numberOfEvents(onDate: day) ?? -1)")
             cumulativeCount.append(totalCount)
         }
         
