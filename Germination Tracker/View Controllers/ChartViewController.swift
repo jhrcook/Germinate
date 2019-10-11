@@ -11,6 +11,11 @@ import Charts
 import ChameleonFramework
 import SnapKit
 
+
+fileprivate enum EventType {
+    case germination, death
+}
+
 class ChartViewController: UIViewController {
 
     var plant: Plant
@@ -26,6 +31,7 @@ class ChartViewController: UIViewController {
         return df
     }()
     
+    
     init(plant: Plant) {
         self.plant = plant
         super.init(nibName: nil, bundle: nil)
@@ -33,9 +39,11 @@ class ChartViewController: UIViewController {
         chartHasBeenDrawnPreviously = true
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,44 +94,38 @@ class ChartViewController: UIViewController {
         
         allDatesSinceBeginning = allDatesSinceBeginning.sorted(by: { $0 < $1 })
         
-        // y-values for plot
-        var cumulativeGerminationCount = [Double]()
-        var totalGermCount: Double = 0
-        
-        // build cumulative germination counts over all dates since start
-        for day in allDatesSinceBeginning {
-            totalGermCount += Double(plant.germinationDatesManager.dateCounts[day] ?? 0)
-            cumulativeGerminationCount.append(totalGermCount)
-        }
+        let cumulativeGerminationCount = calculateCumulativeCounts(forDatesManager: plant.germinationDatesManager, forDates: allDatesSinceBeginning)
+        let cumulativeDeathCount = calculateCumulativeCounts(forDatesManager: plant.deathDatesManager, forDates: allDatesSinceBeginning)
         
         
         if allDatesSinceBeginning.count != cumulativeGerminationCount.count {
             fatalError("The number of dates (x) does not equal the number of cumulative germ. counts (y).")
         }
+        if allDatesSinceBeginning.count != cumulativeDeathCount.count {
+            fatalError("The number of dates (x) does not equal the number of cumulative death counts (y).")
+        }
         
         
-        // turn into chart data entry
-        var values = [ChartDataEntry]()
+        // turn germination data into chart data entry
+        var germinationValues = [ChartDataEntry]()
         for i in 1..<cumulativeGerminationCount.count {
-            values.append(ChartDataEntry(x: Double(i), y: cumulativeGerminationCount[i]))
+            germinationValues.append(ChartDataEntry(x: Double(i), y: cumulativeGerminationCount[i]))
         }
                 
-        let set1 = LineChartDataSet(entries: values, label: "Germinations")
+        var germinationSet = LineChartDataSet(entries: germinationValues, label: "Germinations")
+        styleLineDataSet(&germinationSet, forEvent: .germination)
         
-        // customize set1
-        set1.drawCirclesEnabled = false
-        set1.drawCircleHoleEnabled = false
-        set1.drawValuesEnabled = false
-        set1.lineWidth = 2
-        set1.axisDependency = .left
-        
-        if #available(iOS 13, *) {
-            set1.colors = [UIColor.systemBlue]
-        } else {
-            set1.colors = [FlatMintDark()]
+        // turn death data into chart data entry
+        var deathValues = [ChartDataEntry]()
+        for i in 1..<cumulativeDeathCount.count {
+            deathValues.append(ChartDataEntry(x: Double(i), y: cumulativeDeathCount[i]))
         }
         
-        let data = LineChartData(dataSet: set1)
+        var deathSet = LineChartDataSet(entries: deathValues, label: "Deaths")
+        styleLineDataSet(&deathSet, forEvent: .death)
+        
+        
+        let data = LineChartData(dataSets: [germinationSet, deathSet])
         germinationLineChartView.data = data
                 
         germinationLineChartView.isUserInteractionEnabled = false
@@ -149,6 +151,48 @@ class ChartViewController: UIViewController {
             germinationLineChartView.animate(xAxisDuration: 1.0, easingOption: .linear)
         }
     }
+    
+    
+    private func styleLineDataSet(_ dataSet: inout LineChartDataSet, forEvent eventType: EventType) {
+        // customize germinationSet
+        dataSet.drawCirclesEnabled = false
+        dataSet.drawCircleHoleEnabled = false
+        dataSet.drawValuesEnabled = false
+        dataSet.lineWidth = 2
+        dataSet.axisDependency = .left
+        
+        switch eventType {
+        case .germination:
+            if #available(iOS 13, *) {
+                dataSet.colors = [UIColor.systemBlue]
+            } else {
+                dataSet.colors = [FlatMintDark()]
+            }
+        case .death:
+            if #available(iOS 13, *) {
+                dataSet.colors = [UIColor.systemRed]
+            } else {
+                dataSet.colors = [FlatRed()]
+            }
+        }
+        
+    }
+    
+    
+    private func calculateCumulativeCounts(forDatesManager datesManager: DateCounterManager, forDates dates: [Date]) -> [Double] {
+        // initialize empty array and counter
+        var cumulativeCount = [Double]()
+        var totalCount: Double = 0
+        
+        // build cumulative counts over all dates
+        for day in dates {
+            totalCount += Double(datesManager.dateCounts[day] ?? 0)
+            cumulativeCount.append(totalCount)
+        }
+        
+        return cumulativeCount
+    }
+    
 }
 
 
