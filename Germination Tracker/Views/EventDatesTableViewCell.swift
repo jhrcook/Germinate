@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class GerminationDatesTableViewCell: UITableViewCell {
+class EventDatesTableViewCell: UITableViewCell {
 
     let dateLabel: UILabel = {
         let lbl = UILabel()

@@ -10,12 +10,12 @@
 import UIKit
 
 
-protocol GerminationDatesTableViewControllerDelegate {
+protocol EventDatesTableViewControllerDelegate {
     func DatesManagerWasChanged(_ dateCounterManager: DateCounterManager)
 }
 
 
-class GerminationDatesTableViewController: UITableViewController {
+class EventDatesTableViewController: UITableViewController {
 
     private let reuseIdentifier = "GerminationDateCell"
     
@@ -30,19 +30,33 @@ class GerminationDatesTableViewController: UITableViewController {
         return df
     }()
     
-    var parentDelegate: GerminationDatesTableViewControllerDelegate?
+    enum EventType {
+        case germinations, deaths
+    }
+    var eventType: EventType? {
+        didSet {
+            switch eventType {
+            case .germinations:
+                title = "Germination Dates"
+            case .deaths:
+                title = "Death Dates"
+            default:
+                title = "Dates"
+            }
+        }
+    }
+    
+    var parentDelegate: EventDatesTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        tableView.register(GerminationDatesTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(EventDatesTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        title = "Germination Dates"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewDate))
     }
@@ -61,7 +75,7 @@ class GerminationDatesTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! GerminationDatesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! EventDatesTableViewCell
         let date = datesManager.orderedDates[indexPath.row]
         let count = datesManager.dateCounts[date] ?? 0
         cell.configureCell(forDate: date, withNumberOfGerminations: count, withTag: indexPath.row)
@@ -114,7 +128,7 @@ class GerminationDatesTableViewController: UITableViewController {
 
 
 
-extension GerminationDatesTableViewController {
+extension EventDatesTableViewController {
     
     @objc private func dateLabelTapped(sender: UITapGestureRecognizer) {
         guard let tag = sender.view?.tag else { return }
@@ -160,7 +174,7 @@ extension GerminationDatesTableViewController {
 
 
 
-extension GerminationDatesTableViewController: DatePickerViewControllerDelegate {
+extension EventDatesTableViewController: DatePickerViewControllerDelegate {
     func dateSubmitted(_ date: Date) {
         guard let indexOfDateBeingEdited = indexOfDateBeingEdited else { return }
         

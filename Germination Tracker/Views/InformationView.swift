@@ -17,6 +17,7 @@ protocol InformationViewDelegate {
     func germinationStepperValueDidChange(_ stepper: UIStepper)
     func deathStepperValueDidChange(_ stepper: UIStepper)
     func germinationCounterLabelWasTapped(_ label: UILabel)
+    func deathCounterLabelWasTapped(_ label: UILabel)
 }
 
 
@@ -60,9 +61,11 @@ class InformationView: UIView {
         setupInteractions()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     /// Setup the main stack view.
     func setupStackView() {
@@ -93,6 +96,7 @@ class InformationView: UIView {
         mainStackView.distribution = .fill
     }
     
+    
     /// Setup the date sown label.
     private func setupDateSownView() {
         dateSownContainerView.addSubview(dateSownLabel)
@@ -120,6 +124,7 @@ class InformationView: UIView {
         dateSownLabel.layer.masksToBounds = true
     }
     
+    
     /// Setup the date sown label.
     private func setupNumberOfSeedsSownLabel() {
         numberOfSeedsSownContainerView.addSubview(numberOfSeedsSownLabel)
@@ -146,6 +151,7 @@ class InformationView: UIView {
         numberOfSeedsSownLabel.layer.cornerRadius = cornerRadius
         numberOfSeedsSownLabel.layer.masksToBounds = true
     }
+    
     
     /// Setup the germination container view.
     private func setupGerminationContainer() {
@@ -203,6 +209,7 @@ class InformationView: UIView {
         germinationStepperBackgroundView.layer.masksToBounds = true
     }
     
+    
     /// Setup the death container view.
     private func setupDeathContainer() {
         deathCounterContainerView.addSubview(deathCounterStackView)
@@ -258,6 +265,7 @@ class InformationView: UIView {
         deathStepperBackgroundView.layer.masksToBounds = true
     }
     
+    
     /// Setup the container view for the chart.
     private func setupChartContainer() {
         chartContainerView.snp.makeConstraints({ make in
@@ -275,6 +283,7 @@ class InformationView: UIView {
         set(numberOfDeathsTo: plant.deathDatesManager.totalCount)
     }
     
+    
     /// Set the date of sowing label.
     func set(dateSownLabelTo date: Date) {
         let dateFormatter = DateFormatter()
@@ -289,6 +298,7 @@ class InformationView: UIView {
         numberOfSeedsSownLabel.text = "Num. seeds sown: \(num)"
     }
     
+    
     /// Set the number of germinations.
     ///
     /// This sets both the label and the stepper value.
@@ -296,6 +306,7 @@ class InformationView: UIView {
         germinationCounterLabel.text = "Num. of germinations: \(num)"
         germinationStepper.value = Double(num)
     }
+    
     
     /// Set the number of deaths.
     ///
@@ -318,15 +329,21 @@ class InformationView: UIView {
         let tapNumberSown = UITapGestureRecognizer(target: self, action: #selector(numberOfSeedsSownLabelWasTapped))
         numberOfSeedsSownLabel.addGestureRecognizer(tapNumberSown)
         
-        // set up germination label recognition
+        // set up germinations label recognition
         germinationCounterLabel.isUserInteractionEnabled = true
         let tapGerminationLabel = UITapGestureRecognizer(target: self, action: #selector(germinationCounterLabelWasTapped))
         germinationCounterLabel.addGestureRecognizer(tapGerminationLabel)
+        
+        // set up deaths label recognition
+        deathCounterLabel.isUserInteractionEnabled = true
+        let tapDeathLabel = UITapGestureRecognizer(target: self, action: #selector(deathCounterLabelWasTapped))
+        deathCounterLabel.addGestureRecognizer(tapDeathLabel)
         
         // set stepper targets
         germinationStepper.addTarget(self, action: #selector(stepperValueDidChange), for: .valueChanged)
         deathStepper.addTarget(self, action: #selector(stepperValueDidChange), for: .valueChanged)
     }
+    
     
     /// Respond to the date of sowing label being tapped.
     ///
@@ -336,6 +353,7 @@ class InformationView: UIView {
         delegate.dateSownLabelWasTapped(dateSownLabel)
     }
     
+    
     /// Respond to the number of seeds label being tapped.
     ///
     /// Calls the deleage's `numberOfSeedsSownLabelWasTapped(_ label: UILabel)` method.
@@ -344,10 +362,18 @@ class InformationView: UIView {
         delegate.numberOfSeedsSownLabelWasTapped(numberOfSeedsSownLabel)
     }
     
+    
     @objc private func germinationCounterLabelWasTapped() {
         guard let delegate = delegate else { return }
         delegate.germinationCounterLabelWasTapped(germinationCounterLabel)
     }
+    
+    
+    @objc private func deathCounterLabelWasTapped() {
+        guard let delegate = delegate else { return }
+        delegate.deathCounterLabelWasTapped(deathCounterLabel)
+    }
+    
     
     /// Respond the the change in value of a stepper.
     /// This is the target for both the germination and death steppers.

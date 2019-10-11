@@ -15,6 +15,8 @@ protocol EditNoteViewControllerDelegate {
     func noteWasEdited(_ note: SeedNote)
 }
 
+
+
 class EditNoteViewController: UIViewController {
     
     var note: SeedNote

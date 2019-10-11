@@ -12,6 +12,7 @@ import SnapKit
 
 protocol InformationViewControllerDelegate {
     func didTapGerminationDateLabel(_ label: UILabel)
+    func didTapDeathDateLabel(_ label: UILabel)
 }
 
 class InformationViewController: UIViewController {
@@ -60,6 +61,11 @@ class InformationViewController: UIViewController {
         informationView.set(numberOfGerminationsTo: plant.germinationDatesManager.totalCount)
         chartViewController.updateChart()
     }
+    
+    func updateDeathDates() {
+        informationView.set(numberOfDeathsTo: plant.deathDatesManager.totalCount)
+        chartViewController.updateChart()
+    }
 
 }
 
@@ -67,9 +73,13 @@ class InformationViewController: UIViewController {
 
 extension InformationViewController: InformationViewDelegate {
     
-    
     func germinationCounterLabelWasTapped(_ label: UILabel) {
         parentDelegate?.didTapGerminationDateLabel(label)
+    }
+    
+    
+    func deathCounterLabelWasTapped(_ label: UILabel) {
+        parentDelegate?.didTapDeathDateLabel(label)
     }
     
     
@@ -82,6 +92,7 @@ extension InformationViewController: InformationViewDelegate {
         datePickerVC.modalTransitionStyle = .coverVertical
         present(datePickerVC, animated: true, completion: nil)
     }
+    
     
     /// Response to tapping on the number of seeds label to get new value.
     ///
@@ -103,6 +114,7 @@ extension InformationViewController: InformationViewDelegate {
         present(ac, animated: true)
     }
     
+    
     /// Get the first integer from a string.
     ///
     /// Used to parse input from alert for getting number of seeds sown. Defaults to 0 if no integer is found.
@@ -117,6 +129,7 @@ extension InformationViewController: InformationViewDelegate {
         }
     }
     
+    
     func germinationStepperValueDidChange(_ stepper: UIStepper) {
         let value = Int(stepper.value)
         informationView.set(numberOfGerminationsTo: value)
@@ -128,6 +141,7 @@ extension InformationViewController: InformationViewDelegate {
         chartViewController.updateChart()
         plantsManager.savePlants()
     }
+    
     
     func deathStepperValueDidChange(_ stepper: UIStepper) {
         let value = Int(stepper.value)
@@ -148,6 +162,7 @@ extension InformationViewController: InformationViewDelegate {
 // MARK: DatePickerViewControllerDelegate
 
 extension InformationViewController: DatePickerViewControllerDelegate {
+    
     func dateSubmitted(_ date: Date) {
         plant.dateOfSeedSowing = date
         informationView.set(dateSownLabelTo: date)
