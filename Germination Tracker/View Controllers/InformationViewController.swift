@@ -151,6 +151,7 @@ extension InformationViewController: InformationViewDelegate {
         } else {
             plant.deathDatesManager.addEvent(on: Date())
         }
+        chartViewController.updateChart()
         plantsManager.savePlants()
     }
     
