@@ -127,8 +127,10 @@ class ChartViewController: UIViewController {
         
         let data = LineChartData(dataSets: [germinationSet, deathSet])
         germinationLineChartView.data = data
-                
-        germinationLineChartView.isUserInteractionEnabled = false
+        
+        germinationLineChartView.leftAxis.axisMinimum = 0.0
+        germinationLineChartView.rightAxis.axisMinimum = 0.0
+        germinationLineChartView.isUserInteractionEnabled = true
         germinationLineChartView.xAxis.labelPosition = .bottom
         germinationLineChartView.xAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
         germinationLineChartView.leftAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
@@ -145,10 +147,11 @@ class ChartViewController: UIViewController {
             germinationLineChartView.xAxis.axisLineColor = .systemGray
             germinationLineChartView.leftAxis.axisLineColor = .systemGray
             germinationLineChartView.rightAxis.axisLineColor = .systemGray
+            germinationLineChartView.legend.textColor = .label
         }
         
         if (animate) {
-            germinationLineChartView.animate(xAxisDuration: 1.0, easingOption: .linear)
+            germinationLineChartView.animate(xAxisDuration: 1.0, easingOption: .easeInBounce)
         }
     }
     
