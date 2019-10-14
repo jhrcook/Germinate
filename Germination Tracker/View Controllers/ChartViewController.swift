@@ -50,6 +50,8 @@ class ChartViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupView()
+        
+        germinationLineChartView.isUserInteractionEnabled = true
     }
     
     
@@ -130,7 +132,6 @@ class ChartViewController: UIViewController {
         
         germinationLineChartView.leftAxis.axisMinimum = 0.0
         germinationLineChartView.rightAxis.axisMinimum = 0.0
-        germinationLineChartView.isUserInteractionEnabled = true
         germinationLineChartView.xAxis.labelPosition = .bottom
         germinationLineChartView.xAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
         germinationLineChartView.leftAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
@@ -151,7 +152,7 @@ class ChartViewController: UIViewController {
         }
         
         if (animate) {
-            germinationLineChartView.animate(xAxisDuration: 1.0, easingOption: .easeInBounce)
+            germinationLineChartView.animate(xAxisDuration: 0.2, yAxisDuration: 0.2, easingOption: .linear)
         }
     }
     
@@ -196,7 +197,6 @@ class ChartViewController: UIViewController {
         
         return cumulativeCount
     }
-    
 }
 
 

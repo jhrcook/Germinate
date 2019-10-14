@@ -156,6 +156,12 @@ extension InformationViewController: InformationViewDelegate {
     }
     
     
+    enum ChartInteractionState { case on, off }
+    func turnChartInteraction(_ state: ChartInteractionState) {
+        chartViewController.germinationLineChartView.isUserInteractionEnabled = state == .on
+    }
+    
+    
 }
 
 

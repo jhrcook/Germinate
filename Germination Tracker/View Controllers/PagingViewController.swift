@@ -26,8 +26,7 @@ class PagingViewController: PageboyViewController {
             } else {
                 navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewNote))
             }
-            let titleAdditions = ["Info", "Notes"]
-            title = "\(plant.name) - \(titleAdditions[currentPageIndex])"
+            title = "\(plant.name) - \(["Info", "Notes"][currentPageIndex])"
         }
     }
     
@@ -55,7 +54,7 @@ class PagingViewController: PageboyViewController {
     }
     
     
-    @objc func addNewNote() {
+    @objc private func addNewNote() {
         selectedNoteIndex = nil
         let editVC = EditNoteViewController(note: SeedNote())
         editVC.delegate = self

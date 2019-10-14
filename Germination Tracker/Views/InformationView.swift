@@ -25,6 +25,10 @@ class InformationView: UIView {
     
     var delegate: InformationViewDelegate?
     
+    var mainStackView = UIStackView()
+    
+    var labelBackgroundView = UIView()
+    
     var dateSownContainerView = UIView()
     var dateSownLabel = UILabel()
     
@@ -45,11 +49,9 @@ class InformationView: UIView {
     
     var chartContainerView = UIView()
     
-    var mainStackView = UIStackView()
-    
     var halfViewFrameHeight: CGFloat = 0
     var heightOfTopViews: CGFloat = 0
-    var sideInset: CGFloat = 10
+    var sideInset: CGFloat = 15
     var verticalSeparation: CGFloat = 5
     
     var cornerRadius: CGFloat = 8
@@ -73,27 +75,44 @@ class InformationView: UIView {
         halfViewFrameHeight = frame.height / 2.0
         heightOfTopViews = halfViewFrameHeight / 4.0
         
+        addSubview(labelBackgroundView)
         addSubview(germinationStepperBackgroundView)
         addSubview(deathStepperBackgroundView)
         addSubview(mainStackView)
-        mainStackView.snp.makeConstraints({ make in make.edges.equalTo(safeAreaLayoutGuide) })
+        mainStackView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide)
+            make.leading.equalTo(safeAreaLayoutGuide)
+            make.trailing.equalTo(safeAreaLayoutGuide)
+            make.bottom.equalTo(safeAreaLayoutGuide).inset(5)
+        }
         
+        mainStackView.addArrangedSubview(chartContainerView)
         mainStackView.addArrangedSubview(dateSownContainerView)
         mainStackView.addArrangedSubview(numberOfSeedsSownContainerView)
         mainStackView.addArrangedSubview(germinationCounterContainerView)
         mainStackView.addArrangedSubview(deathCounterContainerView)
-        mainStackView.addArrangedSubview(chartContainerView)
         
         mainStackView.spacing = 0
         
+        setupChartContainer()
         setupDateSownView()
         setupNumberOfSeedsSownLabel()
         setupGerminationContainer()
         setupDeathContainer()
-        setupChartContainer()
+        
+        setupLabelBackgroundView()
         
         mainStackView.axis = .vertical
         mainStackView.distribution = .fill
+    }
+    
+    
+    /// Setup the container view for the chart.
+    private func setupChartContainer() {
+        chartContainerView.snp.makeConstraints({ make in
+            make.top.equalTo(mainStackView)
+            make.height.equalTo(halfViewFrameHeight)
+        })
     }
     
     
@@ -102,7 +121,6 @@ class InformationView: UIView {
         dateSownContainerView.addSubview(dateSownLabel)
         
         dateSownContainerView.snp.makeConstraints({ make in
-            make.top.equalTo(mainStackView)
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
         })
@@ -113,15 +131,7 @@ class InformationView: UIView {
             make.trailing.equalTo(dateSownContainerView).inset(sideInset)
         })
         
-        if #available(iOS 13, *) {
-            dateSownLabel.backgroundColor = .systemGreen
-        } else {
-            dateSownLabel.backgroundColor = UIColor.MyTheme.green
-        }
-        dateSownLabel.font = UIFont.preferredFont(forTextStyle: .headline)
-        dateSownLabel.textAlignment = .center
-        dateSownLabel.layer.cornerRadius = cornerRadius
-        dateSownLabel.layer.masksToBounds = true
+        setStyleFor(label: &dateSownLabel)
     }
     
     
@@ -141,15 +151,7 @@ class InformationView: UIView {
             make.trailing.equalTo(numberOfSeedsSownContainerView).inset(sideInset)
         })
         
-        if #available(iOS 13, *) {
-            numberOfSeedsSownLabel.backgroundColor = .systemGreen
-        } else {
-            numberOfSeedsSownLabel.backgroundColor = UIColor.MyTheme.green
-        }
-        numberOfSeedsSownLabel.font = UIFont.preferredFont(forTextStyle: .headline)
-        numberOfSeedsSownLabel.textAlignment = .center
-        numberOfSeedsSownLabel.layer.cornerRadius = cornerRadius
-        numberOfSeedsSownLabel.layer.masksToBounds = true
+        setStyleFor(label: &numberOfSeedsSownLabel)
     }
     
     
@@ -199,14 +201,7 @@ class InformationView: UIView {
         germinationStepper.minimumValue = 0
         germinationStepper.stepValue = 1
 
-        
-        if #available(iOS 13, *) {
-            germinationStepperBackgroundView.backgroundColor = .systemGreen
-        } else {
-            germinationStepperBackgroundView.backgroundColor = UIColor.MyTheme.green
-        }
-        germinationStepperBackgroundView.layer.cornerRadius = cornerRadius
-        germinationStepperBackgroundView.layer.masksToBounds = true
+        setStyleFor(view: &germinationStepperBackgroundView)
     }
     
     
@@ -227,6 +222,7 @@ class InformationView: UIView {
             make.leading.equalTo(mainStackView)
             make.trailing.equalTo(mainStackView)
             make.height.equalTo(dateSownContainerView)
+            make.bottom.equalTo(mainStackView)
         })
         deathCounterStackView.snp.makeConstraints({ make in
             make.top.equalTo(deathCounterContainerView)
@@ -254,24 +250,52 @@ class InformationView: UIView {
         
         deathStepper.minimumValue = 0
         deathStepper.stepValue = 1
-        deathStepper.tintColor = .white
+//        deathStepper.tintColor = .white
         
-        if #available(iOS 13, *) {
-            deathStepperBackgroundView.backgroundColor = .systemGreen
-        } else {
-            deathStepperBackgroundView.backgroundColor = UIColor.MyTheme.green
-        }
-        deathStepperBackgroundView.layer.cornerRadius = cornerRadius
-        deathStepperBackgroundView.layer.masksToBounds = true
+        setStyleFor(view: &deathStepperBackgroundView)
     }
     
     
-    /// Setup the container view for the chart.
-    private func setupChartContainer() {
-        chartContainerView.snp.makeConstraints({ make in
-            make.bottom.equalTo(mainStackView)
-            make.height.equalTo(halfViewFrameHeight)
-        })
+    private func setupLabelBackgroundView() {
+        setStyleFor(view: &labelBackgroundView)
+        if #available(iOS 13, *) {
+            labelBackgroundView.backgroundColor = .systemGroupedBackground
+        } else {
+            labelBackgroundView.backgroundColor = .gray
+        }
+        
+        let bufferSize = 8
+        
+        labelBackgroundView.snp.makeConstraints { make in
+            make.top.equalTo(dateSownLabel).offset(-bufferSize)
+            make.leading.equalTo(dateSownLabel).offset(-bufferSize)
+            make.trailing.equalTo(dateSownLabel).offset(bufferSize)
+            make.bottom.equalTo(deathStepperBackgroundView).offset(bufferSize)
+        }
+    }
+    
+    
+    private func setStyleFor(view: inout UIView) {
+        if #available(iOS 13, *) {
+            view.backgroundColor = .secondarySystemGroupedBackground
+        } else {
+            view.backgroundColor = .lightGray
+        }
+        view.layer.cornerRadius = cornerRadius
+        view.layer.masksToBounds = true
+    }
+    
+    
+    private func setStyleFor(label: inout UILabel) {
+        if #available(iOS 13, *) {
+            label.backgroundColor = .secondarySystemGroupedBackground
+        } else {
+            label.backgroundColor = .lightGray
+        }
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.textAlignment = .center
+        label.layer.cornerRadius = cornerRadius
+        label.layer.masksToBounds = true
     }
     
     
