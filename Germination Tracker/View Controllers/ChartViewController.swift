@@ -160,6 +160,7 @@ class ChartViewController: UIViewController {
         dataSet.drawValuesEnabled = false
         dataSet.lineWidth = 2
         dataSet.axisDependency = .left
+        dataSet.mode = .horizontalBezier
         
         switch eventType {
         case .germination:
