@@ -15,6 +15,7 @@ class LibraryViewController: UITableViewController {
     
     var plantsManager = PlantsArrayManager()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,6 +23,8 @@ class LibraryViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPlant))
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Garden"
+        
+        tableView.separatorStyle = .none
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,25 +33,25 @@ class LibraryViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as! LibraryTableViewCell
         
         // get plant and set name for cell
         let plant = plantsManager.plants[indexPath.row]
-        cell.textLabel?.text = plant.name
-        
-        // format the date of sowing
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        cell.detailTextLabel?.text = dateFormatter.string(from: plant.dateOfSeedSowing)
+        cell.configureCellFor(plant)
         
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return plantsManager.plants.count
     }
+    
     
     @objc func addNewPlant() {
         let ac = UIAlertController(title: "New plant name", message: "Enter the name of the new plant you are sowing.", preferredStyle: .alert)
@@ -68,11 +71,13 @@ class LibraryViewController: UITableViewController {
         present(ac, animated: true)
     }
     
+    
     func addPlant(copiedFromPlant plant: Plant) {
         let indexPath = IndexPath(row: plantsManager.plants.count, section: 0)
         plantsManager.newPlant(named: plant.name)
         tableView.insertRows(at: [indexPath], with: .fade)
     }
+    
     
     func editPlantName(atIndex indexPath: IndexPath) {
         let ac = UIAlertController(title: "Rename plant", message: nil, preferredStyle: .alert)
@@ -92,8 +97,6 @@ class LibraryViewController: UITableViewController {
     }
     
     
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? PagingViewController,
             let indexPath = tableView.indexPathForSelectedRow {
@@ -103,7 +106,6 @@ class LibraryViewController: UITableViewController {
     }
     
     
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             plantsManager.plants.remove(at: indexPath.row)
@@ -111,6 +113,7 @@ class LibraryViewController: UITableViewController {
             plantsManager.savePlants()
         }
     }
+    
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let copyAction = UIContextualAction(style: .normal, title: "Copy") { [weak self] (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in

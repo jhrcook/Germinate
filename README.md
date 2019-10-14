@@ -6,11 +6,9 @@
 [![jhc twitter](https://img.shields.io/badge/Twitter-@JoshDoesA-00aced.svg?style=flat&logo=twitter)](https://twitter.com/JoshDoesa)
 [![jhc website](https://img.shields.io/badge/Website-Joshua_Cook-5087B2.svg?style=flat&logo=telegram)](https://joshuacook.netlify.com)
 
-author: Joshua Cook  
-date: 2019-09-20
+<img src="misc/icon.jpg" width=200 \>
 
 *(In development)*
-
 
 A simple iOS app to track the germination of my seeds.
 
