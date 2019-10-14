@@ -21,19 +21,27 @@ class LibraryTableViewCell: UITableViewCell {
     }()
     
     let titleLabel: UILabel = {
-        let tl = UILabel()
-        tl.font = UIFont.preferredFont(forTextStyle: .title2)
-        return tl
+        let lbl = UILabel()
+        lbl.font = UIFont.preferredFont(forTextStyle: .title2)
+        return lbl
     }()
     
     let dateLabel: UILabel = {
-        let dl = UILabel()
-        dl.font = UIFont.preferredFont(forTextStyle: .body)
-        return dl
+        let lbl = UILabel()
+        lbl.font = UIFont.preferredFont(forTextStyle: .body)
+        return lbl
     }()
     
+    let germinationInfoLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = UIFont.preferredFont(forTextStyle: .body)
+        lbl.textAlignment = .right
+        return lbl
+    }()
     
-    
+    /// The disclosure button that is the indicator of a standard `UITableViewCell`.
+    /// This button may or may not be available depending on if there is a discolsure button available.
+    var accessoryButton: UIButton?
     
     
     private let dateFormatter: DateFormatter = {
@@ -61,6 +69,79 @@ class LibraryTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+
+    /// Set the values of a cell for a plant.
+    /// - parameter plant: The plant to use for the cell.
+    func configureCellFor(_ plant: Plant) {
+        titleLabel.text = plant.name
+        dateLabel.text = dateFormatter.string(from: plant.dateOfSeedSowing)
+        germinationInfoLabel.text = "\(plant.germinationDatesManager.totalCount) / \(plant.numberOfSeedsSown)"
+    }
+    
+    
+    /// Set up the view of the cell.
+    /// Needs only to be called once during initialization.
+    private func setupCellView() {
+        
+        getAccessoryButton()
+        
+        self.textLabel?.isHidden = true
+        self.detailTextLabel?.isHidden = true
+        self.imageView?.isHidden = true
+        
+        addSubview(containerView)
+        containerView.snp.makeConstraints { make in
+            make.top.equalTo(self).inset(5)
+            make.leading.equalTo(self).inset(10)
+            make.bottom.equalTo(self).inset(5)
+            make.trailing.equalTo(self).inset(10)
+            
+        }
+                
+        containerView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(containerView).inset(10)
+            make.bottom.equalTo(containerView.snp.centerY)
+            make.leading.equalTo(containerView).inset(10)
+            make.trailing.equalTo(containerView).inset(25)
+        }
+        titleLabel.sizeToFit()
+        
+        containerView.addSubview(dateLabel)
+        dateLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom)
+            make.bottom.equalTo(containerView).offset(10)
+            make.leading.equalTo(titleLabel)
+        }
+        dateLabel.sizeToFit()
+        
+        containerView.addSubview(germinationInfoLabel)
+        germinationInfoLabel.snp.makeConstraints { make in
+            make.top.equalTo(dateLabel)
+            make.bottom.equalTo(dateLabel)
+            make.leading.equalTo(dateLabel.snp.trailing).inset(20)
+            make.trailing.equalTo(titleLabel)
+        }
+        
+        if let button = accessoryButton {
+            containerView.addSubview(button)
+            containerView.snp.makeConstraints { make in
+                make.trailing.equalTo(contentView).inset(8)
+                make.centerY.equalTo(containerView)
+            }
+        }
+    }
+    
+    
+    /// Set the accessory button from standard `UITableViewCell` to `accessoryButton`.
+    /// This method is called during set-up and is only needed once.
+    private func getAccessoryButton() {
+        // If already assigned, then return early
+        if accessoryButton != nil { return }
+        accessoryType = .disclosureIndicator
+        accessoryButton = subviews.compactMap { $0 as? UIButton }.first
+    }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         // super.setSelected(selected, animated: animated)
@@ -74,44 +155,6 @@ class LibraryTableViewCell: UITableViewCell {
     }
     
     
-    func configureCellFor(_ plant: Plant) {
-        titleLabel.text = plant.name
-        dateLabel.text = dateFormatter.string(from: plant.dateOfSeedSowing)
-    }
-    
-    
-    private func setupCellView() {
-        
-        self.textLabel?.isHidden = true
-        self.detailTextLabel?.isHidden = true
-        self.imageView?.isHidden = true
-        
-        addSubview(containerView)
-        containerView.snp.makeConstraints{ make in
-            make.top.equalTo(self).inset(5)
-            make.leading.equalTo(self).inset(10)
-            make.top.equalTo(self).inset(5)
-            make.trailing.equalTo(self).inset(10)
-            
-        }
-        
-        containerView.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints{ make in
-            make.top.equalTo(containerView).inset(10)
-            make.leading.equalTo(containerView).inset(10)
-            make.trailing.equalTo(containerView).inset(10)
-        }
-        titleLabel.sizeToFit()
-        
-        // TODO: add date label to view hierarchy
-        containerView.addSubview(dateLabel)
-        dateLabel.snp.makeConstraints{ make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(5)
-            make.leading.equalTo(titleLabel)
-            make.trailing.equalTo(titleLabel)
-        }
-    }
-    
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         if highlighted {
             updateCellColor(forState: .selected)
@@ -120,7 +163,13 @@ class LibraryTableViewCell: UITableViewCell {
         }
     }
     
+    
+    /// The state of a cell as either selected or not.
     enum CellTappedState { case selected, notselected}
+    
+    
+    /// Set the table view cell background to the right color for whether it is tapped or not.
+    /// - parameter tappedState: Whether the cell is being tapped or not.
     private func updateCellColor(forState tappedState: CellTappedState) {
         
         var selectedColor: UIColor!
