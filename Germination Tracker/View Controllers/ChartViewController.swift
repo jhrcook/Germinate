@@ -11,19 +11,33 @@ import Charts
 import ChameleonFramework
 import SnapKit
 
-
+/// The different events that can be used. Currently, the app only shows germinations and deaths.
 fileprivate enum EventType {
     case germination, death
 }
 
+
+/*
+ The controller for the chart view.
+ 
+ A chart is plotted with two lines, one for germinations and one for deaths.
+ The lines are cumulative plots to show the rate of germination and death of
+ the seedlings.
+ */
 class ChartViewController: UIViewController {
 
+    /// Plant object to show.
+    /// This object is passed to several children view controllers.
     var plant: Plant
     
-    var germinationLineChartView = LineChartView()
+    /// The chart view being displayed.
+    var eventLineChartView = LineChartView()
     
+    /// A boolean value for if the chart has been drawn before. It is used to prevent re-animation for every
+    /// update to the data.
     private var chartHasBeenDrawnPreviously = false
     
+    /// A date formatter that uses the "yyyy-MM-dd" format in the current time zone.
     private let dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
@@ -32,6 +46,8 @@ class ChartViewController: UIViewController {
     }()
     
     
+    /// Initialize the controller with a plant object.
+    /// It automatically creates and draws the chart right away.
     init(plant: Plant) {
         self.plant = plant
         super.init(nibName: nil, bundle: nil)
@@ -48,32 +64,37 @@ class ChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         setupView()
         
-        germinationLineChartView.isUserInteractionEnabled = true
+        // Default to letting the user interact with the chart
+        eventLineChartView.isUserInteractionEnabled = true
     }
     
     
-    func setupView() {
-        view.addSubview(germinationLineChartView)
-        germinationLineChartView.snp.makeConstraints({ make in
-            make.edges.equalTo(view).inset(20)
+    /// Set up the view. This needs only be run once, and is automatically run when the view has loaded.
+    private func setupView() {
+        // Add the chart view to the default view for this view controller.
+        view.addSubview(eventLineChartView)
+        eventLineChartView.snp.makeConstraints({ make in
+            make.edges.equalTo(view).inset(10)
         })
         
         if #available(iOS 13, *) {
-            germinationLineChartView.backgroundColor = .tertiarySystemBackground
-            germinationLineChartView.layer.cornerRadius = 8
-            germinationLineChartView.layer.masksToBounds = true
+            eventLineChartView.backgroundColor = .tertiarySystemBackground
+            eventLineChartView.layer.cornerRadius = 8
+            eventLineChartView.layer.masksToBounds = true
         }
     }
     
     
+    /// Update the chart (without animation).
     func updateChart() {
         drawChart(withAnimation: false)
     }
     
     
+    /// The function responsible for drawing the chart.
+    /// - parameter animate: Whether the animate the drawing or not.
     func drawChart(withAnimation animate: Bool) {
         
         var startDate = plant.dateOfSeedSowing
@@ -81,8 +102,8 @@ class ChartViewController: UIViewController {
         
         // break early if today is the same day at start of germination
         if Calendar.current.isDate(startDate, inSameDayAs: today) {
-            germinationLineChartView.noDataText = "Good luck!\n(There's no data to present, yet.)"
-            germinationLineChartView.noDataFont = UIFont.preferredFont(forTextStyle: .headline)
+            eventLineChartView.noDataText = "Good luck!\n(There's no data to present, yet.)"
+            eventLineChartView.noDataFont = UIFont.preferredFont(forTextStyle: .headline)
             return
         }
         
@@ -113,7 +134,7 @@ class ChartViewController: UIViewController {
         for i in 1..<cumulativeGerminationCount.count {
             germinationValues.append(ChartDataEntry(x: Double(i), y: cumulativeGerminationCount[i]))
         }
-                
+        
         var germinationSet = LineChartDataSet(entries: germinationValues, label: "Germinations")
         styleLineDataSet(&germinationSet, forEvent: .germination)
         
@@ -128,35 +149,38 @@ class ChartViewController: UIViewController {
         
         
         let data = LineChartData(dataSets: [germinationSet, deathSet])
-        germinationLineChartView.data = data
+        eventLineChartView.data = data
         
-        germinationLineChartView.leftAxis.axisMinimum = 0.0
-        germinationLineChartView.rightAxis.axisMinimum = 0.0
-        germinationLineChartView.xAxis.labelPosition = .bottom
-        germinationLineChartView.xAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
-        germinationLineChartView.leftAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
-        germinationLineChartView.rightAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
-        germinationLineChartView.xAxis.axisLineWidth = 2
-        germinationLineChartView.leftAxis.axisLineWidth = 2
-        germinationLineChartView.rightAxis.axisLineWidth = 2
+        eventLineChartView.leftAxis.axisMinimum = 0.0
+        eventLineChartView.rightAxis.axisMinimum = 0.0
+        eventLineChartView.xAxis.labelPosition = .bottom
+        eventLineChartView.xAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
+        eventLineChartView.leftAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
+        eventLineChartView.rightAxis.labelFont = UIFont.preferredFont(forTextStyle: .footnote)
+        eventLineChartView.xAxis.axisLineWidth = 2
+        eventLineChartView.leftAxis.axisLineWidth = 2
+        eventLineChartView.rightAxis.axisLineWidth = 2
         
         if #available(iOS 13, *) {
-            germinationLineChartView.xAxis.labelTextColor = .label
-            germinationLineChartView.leftAxis.labelTextColor = .label
-            germinationLineChartView.rightAxis.labelTextColor = .label
-            germinationLineChartView.noDataTextColor = .label
-            germinationLineChartView.xAxis.axisLineColor = .systemGray
-            germinationLineChartView.leftAxis.axisLineColor = .systemGray
-            germinationLineChartView.rightAxis.axisLineColor = .systemGray
-            germinationLineChartView.legend.textColor = .label
+            eventLineChartView.xAxis.labelTextColor = .label
+            eventLineChartView.leftAxis.labelTextColor = .label
+            eventLineChartView.rightAxis.labelTextColor = .label
+            eventLineChartView.noDataTextColor = .label
+            eventLineChartView.xAxis.axisLineColor = .systemGray
+            eventLineChartView.leftAxis.axisLineColor = .systemGray
+            eventLineChartView.rightAxis.axisLineColor = .systemGray
+            eventLineChartView.legend.textColor = .label
         }
         
         if (animate) {
-            germinationLineChartView.animate(xAxisDuration: 0.2, yAxisDuration: 0.2, easingOption: .linear)
+            eventLineChartView.animate(xAxisDuration: 0.2, yAxisDuration: 0.2, easingOption: .linear)
         }
     }
     
     
+    /// Style the line data set
+    /// - parameter dataSet: The data set to style.
+    /// - parameter eventType: The type of event of the data set. The line color is determined by the event type.
     private func styleLineDataSet(_ dataSet: inout LineChartDataSet, forEvent eventType: EventType) {
         // customize germinationSet
         dataSet.drawCirclesEnabled = false
@@ -184,6 +208,9 @@ class ChartViewController: UIViewController {
     }
     
     
+    /// Calculates the cumulative number of events over the dates provided.
+    /// - parameter datesManager: The manager of the events being counted.
+    /// - parameter dates: The dates to accumulate the events over.
     private func calculateCumulativeCounts(forDatesManager datesManager: DateCounterManager, forDates dates: [Date]) -> [Double] {
         // initialize empty array and counter
         var cumulativeCount = [Double]()
