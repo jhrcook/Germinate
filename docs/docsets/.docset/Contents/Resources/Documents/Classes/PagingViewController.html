@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PagingViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/PagingViewController" class="dashAnchor"></a>
+    <a title="PagingViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (17% documented)</p>
+        <p class="header-right"><a href="https://github.com/jhrcook/Germination-Tracker"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        PagingViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ChartViewController.html">ChartViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DateCounterManager.html">DateCounterManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DatePickerViewController.html">DatePickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditNoteView.html">EditNoteView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditNoteViewController.html">EditNoteViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventDatesTableViewCell.html">EventDatesTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventDatesTableViewController.html">EventDatesTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventDatesTableViewController/EventType.html">– EventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InformationView.html">InformationView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InformationViewController.html">InformationViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InformationViewController/ChartInteractionState.html">– ChartInteractionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibraryTableViewCell.html">LibraryTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibraryTableViewCell/CellTappedState.html">– CellTappedState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibraryViewController.html">LibraryViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NotesTableViewController.html">NotesTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PagingViewController.html">PagingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Plant.html">Plant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PlantsArrayManager.html">PlantsArrayManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/EventType.html">EventType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor/MyTheme.html">– MyTheme</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/DatePickerViewControllerDelegate.html">DatePickerViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EditNoteViewControllerDelegate.html">EditNoteViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EventDatesTableViewControllerDelegate.html">EventDatesTableViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/InformationViewControllerDelegate.html">InformationViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/InformationViewDelegate.html">InformationViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NotesTableViewControllerContainerDelegate.html">NotesTableViewControllerContainerDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/SeedNote.html">SeedNote</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>PagingViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PagingViewController</span> <span class="p">:</span> <span class="kt">PageboyViewController</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC5plantAA5PlantCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/plant" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC5plantAA5PlantCSgvp">plant</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">plant</span><span class="p">:</span> <span class="kt"><a href="../Classes/Plant.html">Plant</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC13plantsManagerAA011PlantsArrayG0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/plantsManager" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC13plantsManagerAA011PlantsArrayG0CSgvp">plantsManager</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">plantsManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/PlantsArrayManager.html">PlantsArrayManager</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC011informationdE0AA011InformationdE0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/informationViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC011informationdE0AA011InformationdE0CSgvp">informationViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">informationViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/InformationViewController.html">InformationViewController</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC010notesTabledE0AA05NotesgdE0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/notesTableViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC010notesTabledE0AA05NotesgdE0Cvp">notesTableViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">notesTableViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/NotesTableViewController.html">NotesTableViewController</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC15viewControllersSaySo06UIViewE0CGvp"></a>
+                    <a name="//apple_ref/swift/Property/viewControllers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC15viewControllersSaySo06UIViewE0CGvp">viewControllers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">viewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC16currentPageIndexSivp"></a>
+                    <a name="//apple_ref/swift/Property/currentPageIndex" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC16currentPageIndexSivp">currentPageIndex</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">currentPageIndex</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC17selectedNoteIndexSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/selectedNoteIndex" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC17selectedNoteIndexSiSgvp">selectedNoteIndex</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">selectedNoteIndex</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC11viewDidLoadyyF"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC11viewDidLoadyyF">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC10addNewNote33_BEEF4BEEF5DC35C8BD424ADDC5F124C9LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/addNewNote()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC10addNewNote33_BEEF4BEEF5DC35C8BD424ADDC5F124C9LLyyF">addNewNote()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">private</span> <span class="kd">func</span> <span class="nf">addNewNote</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC4push33_BEEF4BEEF5DC35C8BD424ADDC5F124C9LLyyAA08EditNotedE0CF"></a>
+                    <a name="//apple_ref/swift/Method/push(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC4push33_BEEF4BEEF5DC35C8BD424ADDC5F124C9LLyyAA08EditNotedE0CF">push(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Push the edit note view controller with self as delegate.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">fileprivate</span> <span class="kd">func</span> <span class="nf">push</span><span class="p">(</span><span class="n">_</span> <span class="nv">editNoteViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/EditNoteViewController.html">EditNoteViewController</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/PageboyViewControllerDataSource"></a>
+                <a name="//apple_ref/swift/Section/PageboyViewControllerDataSource" class="dashAnchor"></a>
+                <a href="#/PageboyViewControllerDataSource">
+                  <h3 class="section-name">PageboyViewControllerDataSource</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC08numberOfD11ControllersySiXe_tcACF"></a>
+                    <a name="//apple_ref/swift/Method/numberOfViewControllers(in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC08numberOfD11ControllersySiXe_tcACF">numberOfViewControllers(in:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">numberOfViewControllers</span><span class="p">(</span><span class="k">in</span> <span class="nv">pageboyViewController</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC04viewE0ySo06UIViewE0CSgXe_XetcACF"></a>
+                    <a name="//apple_ref/swift/Method/viewController(for:at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC04viewE0ySo06UIViewE0CSgXe_XetcACF">viewController(for:at:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">viewController</span><span class="p">(</span><span class="k">for</span> <span class="nv">pageboyViewController</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="p">,</span> <span class="n">at</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="o">.</span><span class="kt">PageIndex</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC11defaultPageyXeXe_tcACF"></a>
+                    <a name="//apple_ref/swift/Method/defaultPage(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC11defaultPageyXeXe_tcACF">defaultPage(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">defaultPage</span><span class="p">(</span><span class="k">for</span> <span class="nv">pageboyViewController</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PageboyViewController</span><span class="o">.</span><span class="kt">Page</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/PageboyViewControllerDelegate"></a>
+                <a name="//apple_ref/swift/Section/PageboyViewControllerDelegate" class="dashAnchor"></a>
+                <a href="#/PageboyViewControllerDelegate">
+                  <h3 class="section-name">PageboyViewControllerDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC07pageboydE0yyXe_XeXeSbtcACF"></a>
+                    <a name="//apple_ref/swift/Method/pageboyViewController(_:willScrollToPageAt:direction:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC07pageboydE0yyXe_XeXeSbtcACF">pageboyViewController(_:willScrollToPageAt:direction:animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pageboyViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">pageboyViewController</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="p">,</span> <span class="n">willScrollToPageAt</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="o">.</span><span class="kt">PageIndex</span><span class="p">,</span> <span class="nv">direction</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="o">.</span><span class="kt">NavigationDirection</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC07pageboydE0yyXe_So7CGPointVXeSbtcACF"></a>
+                    <a name="//apple_ref/swift/Method/pageboyViewController(_:didScrollTo:direction:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC07pageboydE0yyXe_So7CGPointVXeSbtcACF">pageboyViewController(_:didScrollTo:direction:animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pageboyViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">pageboyViewController</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="p">,</span> <span class="n">didScrollTo</span> <span class="nv">position</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">direction</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="o">.</span><span class="kt">NavigationDirection</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC07pageboydE0yyXe_XeXeSbtcACF"></a>
+                    <a name="//apple_ref/swift/Method/pageboyViewController(_:didScrollToPageAt:direction:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC07pageboydE0yyXe_XeXeSbtcACF">pageboyViewController(_:didScrollToPageAt:direction:animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pageboyViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">pageboyViewController</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="p">,</span> <span class="n">didScrollToPageAt</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="o">.</span><span class="kt">PageIndex</span><span class="p">,</span> <span class="nv">direction</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="o">.</span><span class="kt">NavigationDirection</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC07pageboydE0yyXe_So06UIViewE0CXetcACF"></a>
+                    <a name="//apple_ref/swift/Method/pageboyViewController(_:didReloadWith:currentPageIndex:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC07pageboydE0yyXe_So06UIViewE0CXetcACF">pageboyViewController(_:didReloadWith:currentPageIndex:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pageboyViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">pageboyViewController</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="p">,</span> <span class="n">didReloadWith</span> <span class="nv">currentViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">currentPageIndex</span><span class="p">:</span> <span class="kt">PageboyViewController</span><span class="o">.</span><span class="kt">PageIndex</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/NotesTableViewControllerContainerDelegate"></a>
+                <a name="//apple_ref/swift/Section/NotesTableViewControllerContainerDelegate" class="dashAnchor"></a>
+                <a href="#/NotesTableViewControllerContainerDelegate">
+                  <h3 class="section-name">NotesTableViewControllerContainerDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC19didSelectNoteToEdit7atIndexySi_tF"></a>
+                    <a name="//apple_ref/swift/Method/didSelectNoteToEdit(atIndex:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC19didSelectNoteToEdit7atIndexySi_tF">didSelectNoteToEdit(atIndex:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didSelectNoteToEdit</span><span class="p">(</span><span class="n">atIndex</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC13didDeleteNote7atIndexySi_tF"></a>
+                    <a name="//apple_ref/swift/Method/didDeleteNote(atIndex:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC13didDeleteNote7atIndexySi_tF">didDeleteNote(atIndex:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didDeleteNote</span><span class="p">(</span><span class="n">atIndex</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/EditNoteViewControllerDelegate"></a>
+                <a name="//apple_ref/swift/Section/EditNoteViewControllerDelegate" class="dashAnchor"></a>
+                <a href="#/EditNoteViewControllerDelegate">
+                  <h3 class="section-name">EditNoteViewControllerDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC13noteWasEditedyyAA8SeedNoteVF"></a>
+                    <a name="//apple_ref/swift/Method/noteWasEdited(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC13noteWasEditedyyAA8SeedNoteVF">noteWasEdited(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">noteWasEdited</span><span class="p">(</span><span class="n">_</span> <span class="nv">note</span><span class="p">:</span> <span class="kt"><a href="../Structs/SeedNote.html">SeedNote</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/GerminationDatesTableViewControllerDelegate"></a>
+                <a name="//apple_ref/swift/Section/GerminationDatesTableViewControllerDelegate" class="dashAnchor"></a>
+                <a href="#/GerminationDatesTableViewControllerDelegate">
+                  <h3 class="section-name">GerminationDatesTableViewControllerDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC22DatesManagerWasChangedyyAA011DateCounterG0CF"></a>
+                    <a name="//apple_ref/swift/Method/DatesManagerWasChanged(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC22DatesManagerWasChangedyyAA011DateCounterG0CF">DatesManagerWasChanged(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="kt">DatesManagerWasChanged</span><span class="p">(</span><span class="n">_</span> <span class="nv">dateCounterManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/DateCounterManager.html">DateCounterManager</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/InformationViewControllerDelegate"></a>
+                <a name="//apple_ref/swift/Section/InformationViewControllerDelegate" class="dashAnchor"></a>
+                <a href="#/InformationViewControllerDelegate">
+                  <h3 class="section-name">InformationViewControllerDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC06didTapA9DateLabelyySo7UILabelCF"></a>
+                    <a name="//apple_ref/swift/Method/didTapGerminationDateLabel(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC06didTapA9DateLabelyySo7UILabelCF">didTapGerminationDateLabel(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didTapGerminationDateLabel</span><span class="p">(</span><span class="n">_</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">UILabel</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20PagingViewControllerC20didTapDeathDateLabelyySo7UILabelCF"></a>
+                    <a name="//apple_ref/swift/Method/didTapDeathDateLabel(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20PagingViewControllerC20didTapDeathDateLabelyySo7UILabelCF">didTapDeathDateLabel(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didTapDeathDateLabel</span><span class="p">(</span><span class="n">_</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">UILabel</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://joshuacook.netlify.com" target="_blank" rel="external">Joshua Cook</a>. All rights reserved. (Last updated: 2019-10-14)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

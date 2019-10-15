@@ -1,0 +1,1951 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/AppDelegate.swift",
+      "line": 12,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/AppDelegate.swift",
+      "line": 14,
+      "symbol": "AppDelegate.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/AppDelegate.swift",
+      "line": 17,
+      "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/AppDelegate.swift",
+      "line": 22,
+      "symbol": "AppDelegate.applicationWillResignActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/AppDelegate.swift",
+      "line": 27,
+      "symbol": "AppDelegate.applicationDidEnterBackground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/AppDelegate.swift",
+      "line": 32,
+      "symbol": "AppDelegate.applicationWillEnterForeground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/AppDelegate.swift",
+      "line": 36,
+      "symbol": "AppDelegate.applicationDidBecomeActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/AppDelegate.swift",
+      "line": 40,
+      "symbol": "AppDelegate.applicationWillTerminate(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/DateCounterManager.swift",
+      "line": 11,
+      "symbol": "DateCounterManager",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/PlantsArrayManager.swift",
+      "line": 15,
+      "symbol": "PlantsArrayManager.plants",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/PlantsArrayManager.swift",
+      "line": 18,
+      "symbol": "PlantsArrayManager.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/PlantsArrayManager.swift",
+      "line": 24,
+      "symbol": "PlantsArrayManager.loadPlants()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/PlantsArrayManager.swift",
+      "line": 38,
+      "symbol": "PlantsArrayManager.savePlants()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/PlantsArrayManager.swift",
+      "line": 50,
+      "symbol": "PlantsArrayManager.newPlant(named:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/PlantsArrayManager.swift",
+      "line": 57,
+      "symbol": "PlantsArrayManager.makeTestPlantsArray()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/SeedNote.swift",
+      "line": 11,
+      "symbol": "SeedNote",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/SeedNote.swift",
+      "line": 13,
+      "symbol": "SeedNote.dateCreated",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/SeedNote.swift",
+      "line": 14,
+      "symbol": "SeedNote.text",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/SeedNote.swift",
+      "line": 16,
+      "symbol": "SeedNote.init(text:dateCreated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/SeedNote.swift",
+      "line": 21,
+      "symbol": "SeedNote.init(text:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Models/SeedNote.swift",
+      "line": 26,
+      "symbol": "SeedNote.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 15,
+      "symbol": "EventType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 16,
+      "symbol": "EventType.death",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 16,
+      "symbol": "EventType.germination",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 19,
+      "symbol": "ChartViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 21,
+      "symbol": "ChartViewController.plant",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 23,
+      "symbol": "ChartViewController.germinationLineChartView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 25,
+      "symbol": "ChartViewController.chartHasBeenDrawnPreviously",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 27,
+      "symbol": "ChartViewController.dateFormatter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 35,
+      "symbol": "ChartViewController.init(plant:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 43,
+      "symbol": "ChartViewController.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 48,
+      "symbol": "ChartViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 58,
+      "symbol": "ChartViewController.setupView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 72,
+      "symbol": "ChartViewController.updateChart()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 77,
+      "symbol": "ChartViewController.drawChart(withAnimation:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 160,
+      "symbol": "ChartViewController.styleLineDataSet(_:forEvent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/ChartViewController.swift",
+      "line": 187,
+      "symbol": "ChartViewController.calculateCumulativeCounts(forDatesManager:forDates:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 15,
+      "symbol": "DatePickerViewControllerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 16,
+      "symbol": "DatePickerViewControllerDelegate.dateSubmitted(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 20,
+      "symbol": "DatePickerViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 22,
+      "symbol": "DatePickerViewController.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 38,
+      "symbol": "DatePickerViewController.datePicker",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 39,
+      "symbol": "DatePickerViewController.containerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 41,
+      "symbol": "DatePickerViewController.enterButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 56,
+      "symbol": "DatePickerViewController.cancelButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 72,
+      "symbol": "DatePickerViewController.selectedDate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 74,
+      "symbol": "DatePickerViewController.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 76,
+      "symbol": "DatePickerViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 91,
+      "symbol": "DatePickerViewController.setupView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 136,
+      "symbol": "DatePickerViewController.tapEnter()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 142,
+      "symbol": "DatePickerViewController.tapCancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/DatePickerViewController.swift",
+      "line": 146,
+      "symbol": "DatePickerViewController.datePickerChanged(picker:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 14,
+      "symbol": "EditNoteViewControllerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 15,
+      "symbol": "EditNoteViewControllerDelegate.noteWasEdited(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 20,
+      "symbol": "EditNoteViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 22,
+      "symbol": "EditNoteViewController.note",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 24,
+      "symbol": "EditNoteViewController.editNoteView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 26,
+      "symbol": "EditNoteViewController.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 28,
+      "symbol": "EditNoteViewController.keyboard",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 29,
+      "symbol": "EditNoteViewController.isInNoteTextEditingMode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 31,
+      "symbol": "EditNoteViewController.init(note:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 36,
+      "symbol": "EditNoteViewController.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 41,
+      "symbol": "EditNoteViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 61,
+      "symbol": "EditNoteViewController.setupUIConnections()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 69,
+      "symbol": "EditNoteViewController.cancelButtonTapped()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 74,
+      "symbol": "EditNoteViewController.saveButtonTapped()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 83,
+      "symbol": "EditNoteViewController.doneTypingButtonTapped()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 88,
+      "symbol": "EditNoteViewController.datePickerChanged(picker:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 99,
+      "symbol": "EditNoteViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 100,
+      "symbol": "EditNoteViewController.setupKeyboardObserver()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 119,
+      "symbol": "EditNoteViewController.activateTextEditingMode(withKeyboardHeight:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EditNoteViewController.swift",
+      "line": 128,
+      "symbol": "EditNoteViewController.deactivateTextEditingMode()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 13,
+      "symbol": "EventDatesTableViewControllerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 14,
+      "symbol": "EventDatesTableViewControllerDelegate.DatesManagerWasChanged(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 18,
+      "symbol": "EventDatesTableViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 20,
+      "symbol": "EventDatesTableViewController.reuseIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 22,
+      "symbol": "EventDatesTableViewController.datesManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 24,
+      "symbol": "EventDatesTableViewController.indexOfDateBeingEdited",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 26,
+      "symbol": "EventDatesTableViewController.dateFormatter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 33,
+      "symbol": "EventDatesTableViewController.EventType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 34,
+      "symbol": "EventDatesTableViewController.EventType.deaths",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 34,
+      "symbol": "EventDatesTableViewController.EventType.germinations",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 36,
+      "symbol": "EventDatesTableViewController.eventType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 49,
+      "symbol": "EventDatesTableViewController.parentDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 51,
+      "symbol": "EventDatesTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 67,
+      "symbol": "EventDatesTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 72,
+      "symbol": "EventDatesTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 77,
+      "symbol": "EventDatesTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 93,
+      "symbol": "EventDatesTableViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 98,
+      "symbol": "EventDatesTableViewController.tableView(_:commit:forRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 107,
+      "symbol": "EventDatesTableViewController.tableView(_:shouldHighlightRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 111,
+      "symbol": "EventDatesTableViewController.addNewDate()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 131,
+      "symbol": "EventDatesTableViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 133,
+      "symbol": "EventDatesTableViewController.dateLabelTapped(sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 147,
+      "symbol": "EventDatesTableViewController.addButtonTapped(sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 155,
+      "symbol": "EventDatesTableViewController.subtractButtonTapped(sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 177,
+      "symbol": "EventDatesTableViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift",
+      "line": 178,
+      "symbol": "EventDatesTableViewController.dateSubmitted(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 13,
+      "symbol": "InformationViewControllerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 14,
+      "symbol": "InformationViewControllerDelegate.didTapGerminationDateLabel(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 15,
+      "symbol": "InformationViewControllerDelegate.didTapDeathDateLabel(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 18,
+      "symbol": "InformationViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 20,
+      "symbol": "InformationViewController.plant",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 21,
+      "symbol": "InformationViewController.plantsManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 23,
+      "symbol": "InformationViewController.parentDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 25,
+      "symbol": "InformationViewController.informationView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 26,
+      "symbol": "InformationViewController.chartViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 28,
+      "symbol": "InformationViewController.init(plant:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 33,
+      "symbol": "InformationViewController.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 38,
+      "symbol": "InformationViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 60,
+      "symbol": "InformationViewController.updateGerminationDates()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 65,
+      "symbol": "InformationViewController.updateDeathDates()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 74,
+      "symbol": "InformationViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 76,
+      "symbol": "InformationViewController.germinationCounterLabelWasTapped(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 81,
+      "symbol": "InformationViewController.deathCounterLabelWasTapped(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 86,
+      "symbol": "InformationViewController.dateSownLabelWasTapped(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 133,
+      "symbol": "InformationViewController.germinationStepperValueDidChange(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 146,
+      "symbol": "InformationViewController.deathStepperValueDidChange(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 159,
+      "symbol": "InformationViewController.ChartInteractionState",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 159,
+      "symbol": "InformationViewController.ChartInteractionState.off",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 159,
+      "symbol": "InformationViewController.ChartInteractionState.on",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 160,
+      "symbol": "InformationViewController.turnChartInteraction(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 171,
+      "symbol": "InformationViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/InformationViewController.swift",
+      "line": 173,
+      "symbol": "InformationViewController.dateSubmitted(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/LibraryViewController.swift",
+      "line": 12,
+      "symbol": "LibraryViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/LibraryViewController.swift",
+      "line": 22,
+      "symbol": "LibraryViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/LibraryViewController.swift",
+      "line": 36,
+      "symbol": "LibraryViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/LibraryViewController.swift",
+      "line": 45,
+      "symbol": "LibraryViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/LibraryViewController.swift",
+      "line": 56,
+      "symbol": "LibraryViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/LibraryViewController.swift",
+      "line": 61,
+      "symbol": "LibraryViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/LibraryViewController.swift",
+      "line": 119,
+      "symbol": "LibraryViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/LibraryViewController.swift",
+      "line": 129,
+      "symbol": "LibraryViewController.tableView(_:commit:forRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/LibraryViewController.swift",
+      "line": 138,
+      "symbol": "LibraryViewController.tableView(_:leadingSwipeActionsConfigurationForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 12,
+      "symbol": "NotesTableViewControllerContainerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 13,
+      "symbol": "NotesTableViewControllerContainerDelegate.didSelectNoteToEdit(atIndex:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 14,
+      "symbol": "NotesTableViewControllerContainerDelegate.didDeleteNote(atIndex:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 17,
+      "symbol": "NotesTableViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 19,
+      "symbol": "NotesTableViewController.reuseIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 21,
+      "symbol": "NotesTableViewController.notes",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 22,
+      "symbol": "NotesTableViewController.plantsManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 23,
+      "symbol": "NotesTableViewController.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 25,
+      "symbol": "NotesTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 32,
+      "symbol": "NotesTableViewController.reloadData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 36,
+      "symbol": "NotesTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 41,
+      "symbol": "NotesTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 55,
+      "symbol": "NotesTableViewController.configureView(ofCell:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 62,
+      "symbol": "NotesTableViewController.configure(_:forNote:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 72,
+      "symbol": "NotesTableViewController.setupTableView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 78,
+      "symbol": "NotesTableViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/NotesTableViewController.swift",
+      "line": 98,
+      "symbol": "NotesTableViewController.tableView(_:commit:forRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 13,
+      "symbol": "PagingViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 15,
+      "symbol": "PagingViewController.plant",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 16,
+      "symbol": "PagingViewController.plantsManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 18,
+      "symbol": "PagingViewController.informationViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 19,
+      "symbol": "PagingViewController.notesTableViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 20,
+      "symbol": "PagingViewController.viewControllers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 22,
+      "symbol": "PagingViewController.currentPageIndex",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 33,
+      "symbol": "PagingViewController.selectedNoteIndex",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 35,
+      "symbol": "PagingViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 57,
+      "symbol": "PagingViewController.addNewNote()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 75,
+      "symbol": "PagingViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 77,
+      "symbol": "PagingViewController.numberOfViewControllers(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 82,
+      "symbol": "PagingViewController.viewController(for:at:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 87,
+      "symbol": "PagingViewController.defaultPage(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 95,
+      "symbol": "PagingViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 96,
+      "symbol": "PagingViewController.pageboyViewController(_:willScrollToPageAt:direction:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 100,
+      "symbol": "PagingViewController.pageboyViewController(_:didScrollTo:direction:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 104,
+      "symbol": "PagingViewController.pageboyViewController(_:didScrollToPageAt:direction:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 108,
+      "symbol": "PagingViewController.pageboyViewController(_:didReloadWith:currentPageIndex:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 117,
+      "symbol": "PagingViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 119,
+      "symbol": "PagingViewController.didSelectNoteToEdit(atIndex:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 126,
+      "symbol": "PagingViewController.didDeleteNote(atIndex:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 138,
+      "symbol": "PagingViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 139,
+      "symbol": "PagingViewController.noteWasEdited(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 154,
+      "symbol": "PagingViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 156,
+      "symbol": "PagingViewController.DatesManagerWasChanged(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 167,
+      "symbol": "PagingViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 169,
+      "symbol": "PagingViewController.didTapGerminationDateLabel(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/View Controllers/PagingViewController.swift",
+      "line": 178,
+      "symbol": "PagingViewController.didTapDeathDateLabel(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/AppThemeColors.swift",
+      "line": 12,
+      "symbol": "UIColor.MyTheme",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/AppThemeColors.swift",
+      "line": 15,
+      "symbol": "UIColor.MyTheme.lightGreen",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/AppThemeColors.swift",
+      "line": 16,
+      "symbol": "UIColor.MyTheme.green",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/AppThemeColors.swift",
+      "line": 17,
+      "symbol": "UIColor.MyTheme.darkGreen",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/AppThemeColors.swift",
+      "line": 22,
+      "symbol": "UIColor.MyTheme.dynamicGreenColor",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/AppThemeColors.swift",
+      "line": 31,
+      "symbol": "UIColor.MyTheme.dynamicLightLabelColor",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 15,
+      "symbol": "EditNoteView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 17,
+      "symbol": "EditNoteView.buttonContainerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 18,
+      "symbol": "EditNoteView.buttonStackView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 19,
+      "symbol": "EditNoteView.buttonHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 20,
+      "symbol": "EditNoteView.saveButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 35,
+      "symbol": "EditNoteView.cancelButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 50,
+      "symbol": "EditNoteView.doneTypingbuttonContainerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 51,
+      "symbol": "EditNoteView.doneTypingButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 66,
+      "symbol": "EditNoteView.datePickerLabelContainer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 67,
+      "symbol": "EditNoteView.datePickerLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 69,
+      "symbol": "EditNoteView.datePickerContainer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 79,
+      "symbol": "EditNoteView.datePicker",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 86,
+      "symbol": "EditNoteView.textViewLabelContainer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 87,
+      "symbol": "EditNoteView.textViewLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 93,
+      "symbol": "EditNoteView.textViewContainer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 94,
+      "symbol": "EditNoteView.textView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 109,
+      "symbol": "EditNoteView.mainStackView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 111,
+      "symbol": "EditNoteView.viewIsSetup",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 114,
+      "symbol": "EditNoteView.configureEditView(withNote:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 137,
+      "symbol": "EditNoteView",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 139,
+      "symbol": "EditNoteView.setupView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 148,
+      "symbol": "EditNoteView.setupMainStackView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 201,
+      "symbol": "EditNoteView.setupButtons()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 222,
+      "symbol": "EditNoteView.setupDoneTypingView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 234,
+      "symbol": "EditNoteView.setupDatePickerLabelView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 244,
+      "symbol": "EditNoteView.setupDatePickerView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 254,
+      "symbol": "EditNoteView.setupTextView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 277,
+      "symbol": "EditNoteView",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 278,
+      "symbol": "EditNoteView.hideDatePickerViewsAndChangeButtons(withTopOfKeyboardAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 284,
+      "symbol": "EditNoteView.showAllSubViews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EditNoteView.swift",
+      "line": 289,
+      "symbol": "EditNoteView.showViewsInvolvedInTextEditing(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EventDatesTableViewCell.swift",
+      "line": 12,
+      "symbol": "EventDatesTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EventDatesTableViewCell.swift",
+      "line": 14,
+      "symbol": "EventDatesTableViewCell.dateLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EventDatesTableViewCell.swift",
+      "line": 20,
+      "symbol": "EventDatesTableViewCell.counterContainer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EventDatesTableViewCell.swift",
+      "line": 22,
+      "symbol": "EventDatesTableViewCell.numberLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EventDatesTableViewCell.swift",
+      "line": 28,
+      "symbol": "EventDatesTableViewCell.subtractButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EventDatesTableViewCell.swift",
+      "line": 35,
+      "symbol": "EventDatesTableViewCell.addButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EventDatesTableViewCell.swift",
+      "line": 43,
+      "symbol": "EventDatesTableViewCell.dateFormatter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EventDatesTableViewCell.swift",
+      "line": 50,
+      "symbol": "EventDatesTableViewCell.init(style:reuseIdentifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EventDatesTableViewCell.swift",
+      "line": 56,
+      "symbol": "EventDatesTableViewCell.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EventDatesTableViewCell.swift",
+      "line": 61,
+      "symbol": "EventDatesTableViewCell.setupCell()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/EventDatesTableViewCell.swift",
+      "line": 88,
+      "symbol": "EventDatesTableViewCell.configureCell(forDate:withNumberOfGerminations:withTag:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 14,
+      "symbol": "InformationViewDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 15,
+      "symbol": "InformationViewDelegate.dateSownLabelWasTapped(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 16,
+      "symbol": "InformationViewDelegate.numberOfSeedsSownLabelWasTapped(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 17,
+      "symbol": "InformationViewDelegate.germinationStepperValueDidChange(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 18,
+      "symbol": "InformationViewDelegate.deathStepperValueDidChange(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 19,
+      "symbol": "InformationViewDelegate.germinationCounterLabelWasTapped(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 20,
+      "symbol": "InformationViewDelegate.deathCounterLabelWasTapped(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 24,
+      "symbol": "InformationView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 26,
+      "symbol": "InformationView.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 28,
+      "symbol": "InformationView.mainStackView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 30,
+      "symbol": "InformationView.labelBackgroundView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 32,
+      "symbol": "InformationView.dateSownContainerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 33,
+      "symbol": "InformationView.dateSownLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 35,
+      "symbol": "InformationView.numberOfSeedsSownContainerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 36,
+      "symbol": "InformationView.numberOfSeedsSownLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 38,
+      "symbol": "InformationView.germinationCounterContainerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 39,
+      "symbol": "InformationView.germinationCounterStackView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 40,
+      "symbol": "InformationView.germinationCounterLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 41,
+      "symbol": "InformationView.germinationStepper",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 42,
+      "symbol": "InformationView.germinationStepperBackgroundView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 44,
+      "symbol": "InformationView.deathCounterContainerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 45,
+      "symbol": "InformationView.deathCounterStackView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 46,
+      "symbol": "InformationView.deathCounterLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 47,
+      "symbol": "InformationView.deathStepper",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 48,
+      "symbol": "InformationView.deathStepperBackgroundView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 50,
+      "symbol": "InformationView.chartContainerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 52,
+      "symbol": "InformationView.halfViewFrameHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 53,
+      "symbol": "InformationView.heightOfTopViews",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 54,
+      "symbol": "InformationView.sideInset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 55,
+      "symbol": "InformationView.verticalSeparation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 57,
+      "symbol": "InformationView.cornerRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 60,
+      "symbol": "InformationView.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 67,
+      "symbol": "InformationView.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 259,
+      "symbol": "InformationView.setupLabelBackgroundView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 278,
+      "symbol": "InformationView.setStyleFor(view:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 289,
+      "symbol": "InformationView.setStyleFor(label:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 390,
+      "symbol": "InformationView.germinationCounterLabelWasTapped()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/InformationView.swift",
+      "line": 396,
+      "symbol": "InformationView.deathCounterLabelWasTapped()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 12,
+      "symbol": "LibraryTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 14,
+      "symbol": "LibraryTableViewCell.containerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 23,
+      "symbol": "LibraryTableViewCell.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 29,
+      "symbol": "LibraryTableViewCell.dateLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 35,
+      "symbol": "LibraryTableViewCell.germinationInfoLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 47,
+      "symbol": "LibraryTableViewCell.dateFormatter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 55,
+      "symbol": "LibraryTableViewCell.init(style:reuseIdentifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 61,
+      "symbol": "LibraryTableViewCell.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 67,
+      "symbol": "LibraryTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 146,
+      "symbol": "LibraryTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 158,
+      "symbol": "LibraryTableViewCell.setHighlighted(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 168,
+      "symbol": "LibraryTableViewCell.CellTappedState.notselected",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/admin/Documents/Swift/Germination Tracker/Germination Tracker/Views/LibraryTableViewCell.swift",
+      "line": 168,
+      "symbol": "LibraryTableViewCell.CellTappedState.selected",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/admin/Documents/Swift/Germination Tracker"
+}

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LibraryTableViewCell Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/LibraryTableViewCell" class="dashAnchor"></a>
+    <a title="LibraryTableViewCell Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (17% documented)</p>
+        <p class="header-right"><a href="https://github.com/jhrcook/Germination-Tracker"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        LibraryTableViewCell Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ChartViewController.html">ChartViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DateCounterManager.html">DateCounterManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DatePickerViewController.html">DatePickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditNoteView.html">EditNoteView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditNoteViewController.html">EditNoteViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventDatesTableViewCell.html">EventDatesTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventDatesTableViewController.html">EventDatesTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventDatesTableViewController/EventType.html">– EventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InformationView.html">InformationView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InformationViewController.html">InformationViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InformationViewController/ChartInteractionState.html">– ChartInteractionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibraryTableViewCell.html">LibraryTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibraryTableViewCell/CellTappedState.html">– CellTappedState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibraryViewController.html">LibraryViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NotesTableViewController.html">NotesTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PagingViewController.html">PagingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Plant.html">Plant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PlantsArrayManager.html">PlantsArrayManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/EventType.html">EventType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor/MyTheme.html">– MyTheme</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/DatePickerViewControllerDelegate.html">DatePickerViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EditNoteViewControllerDelegate.html">EditNoteViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EventDatesTableViewControllerDelegate.html">EventDatesTableViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/InformationViewControllerDelegate.html">InformationViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/InformationViewDelegate.html">InformationViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NotesTableViewControllerContainerDelegate.html">NotesTableViewControllerContainerDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/SeedNote.html">SeedNote</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>LibraryTableViewCell</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">LibraryTableViewCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20LibraryTableViewCellC09containerE0So6UIViewCvp"></a>
+                    <a name="//apple_ref/swift/Property/containerView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20LibraryTableViewCellC09containerE0So6UIViewCvp">containerView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">containerView</span><span class="p">:</span> <span class="kt">UIView</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20LibraryTableViewCellC10titleLabelSo7UILabelCvp"></a>
+                    <a name="//apple_ref/swift/Property/titleLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20LibraryTableViewCellC10titleLabelSo7UILabelCvp">titleLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">titleLabel</span><span class="p">:</span> <span class="kt">UILabel</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20LibraryTableViewCellC9dateLabelSo7UILabelCvp"></a>
+                    <a name="//apple_ref/swift/Property/dateLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20LibraryTableViewCellC9dateLabelSo7UILabelCvp">dateLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">dateLabel</span><span class="p">:</span> <span class="kt">UILabel</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20LibraryTableViewCellC20germinationInfoLabelSo7UILabelCvp"></a>
+                    <a name="//apple_ref/swift/Property/germinationInfoLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20LibraryTableViewCellC20germinationInfoLabelSo7UILabelCvp">germinationInfoLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">germinationInfoLabel</span><span class="p">:</span> <span class="kt">UILabel</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20LibraryTableViewCellC15accessoryButtonSo8UIButtonCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/accessoryButton" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20LibraryTableViewCellC15accessoryButtonSo8UIButtonCSgvp">accessoryButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The disclosure button that is the indicator of a standard <code>UITableViewCell</code>.
+This button may or may not be available depending on if there is a discolsure button available.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">accessoryButton</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20LibraryTableViewCellC13dateFormatter33_1E95661AF58020CE8B98420102EF3D63LLSo06NSDateH0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/dateFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20LibraryTableViewCellC13dateFormatter33_1E95661AF58020CE8B98420102EF3D63LLSo06NSDateH0Cvp">dateFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">dateFormatter</span><span class="p">:</span> <span class="kt">DateFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Germination_Tracker@objc(cs)LibraryTableViewCell(im)initWithStyle:reuseIdentifier:"></a>
+                    <a name="//apple_ref/swift/Method/init(style:reuseIdentifier:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Germination_Tracker@objc(cs)LibraryTableViewCell(im)initWithStyle:reuseIdentifier:">init(style:reuseIdentifier:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">.</span><span class="kt">CellStyle</span><span class="p">,</span> <span class="nv">reuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Germination_Tracker@objc(cs)LibraryTableViewCell(im)initWithCoder:"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Germination_Tracker@objc(cs)LibraryTableViewCell(im)initWithCoder:">init(coder:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">required</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">coder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Germination_Tracker@objc(cs)LibraryTableViewCell(im)awakeFromNib"></a>
+                    <a name="//apple_ref/swift/Method/awakeFromNib()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Germination_Tracker@objc(cs)LibraryTableViewCell(im)awakeFromNib">awakeFromNib()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">awakeFromNib</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20LibraryTableViewCellC09configureF3ForyyAA5PlantCF"></a>
+                    <a name="//apple_ref/swift/Method/configureCellFor(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20LibraryTableViewCellC09configureF3ForyyAA5PlantCF">configureCellFor(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the values of a cell for a plant.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">configureCellFor</span><span class="p">(</span><span class="n">_</span> <span class="nv">plant</span><span class="p">:</span> <span class="kt"><a href="../Classes/Plant.html">Plant</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>plant</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The plant to use for the cell.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20LibraryTableViewCellC05setupfE033_1E95661AF58020CE8B98420102EF3D63LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/setupCellView()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20LibraryTableViewCellC05setupfE033_1E95661AF58020CE8B98420102EF3D63LLyyF">setupCellView()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set up the view of the cell.
+Needs only to be called once during initialization.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">setupCellView</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20LibraryTableViewCellC18getAccessoryButton33_1E95661AF58020CE8B98420102EF3D63LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/getAccessoryButton()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20LibraryTableViewCellC18getAccessoryButton33_1E95661AF58020CE8B98420102EF3D63LLyyF">getAccessoryButton()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the accessory button from standard <code>UITableViewCell</code> to <code><a href="../Classes/LibraryTableViewCell.html#/s:19Germination_Tracker20LibraryTableViewCellC15accessoryButtonSo8UIButtonCSgvp">accessoryButton</a></code>.
+This method is called during set-up and is only needed once.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">getAccessoryButton</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Germination_Tracker@objc(cs)LibraryTableViewCell(im)setSelected:animated:"></a>
+                    <a name="//apple_ref/swift/Method/setSelected(_:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Germination_Tracker@objc(cs)LibraryTableViewCell(im)setSelected:animated:">setSelected(_:animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">setSelected</span><span class="p">(</span><span class="n">_</span> <span class="nv">selected</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Germination_Tracker@objc(cs)LibraryTableViewCell(im)setHighlighted:animated:"></a>
+                    <a name="//apple_ref/swift/Method/setHighlighted(_:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Germination_Tracker@objc(cs)LibraryTableViewCell(im)setHighlighted:animated:">setHighlighted(_:animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">setHighlighted</span><span class="p">(</span><span class="n">_</span> <span class="nv">highlighted</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20LibraryTableViewCellC0F11TappedStateO"></a>
+                    <a name="//apple_ref/swift/Enum/CellTappedState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20LibraryTableViewCellC0F11TappedStateO">CellTappedState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The state of a cell as either selected or not.</p>
+
+                        <a href="../Classes/LibraryTableViewCell/CellTappedState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">CellTappedState</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker20LibraryTableViewCellC06updateF5Color33_1E95661AF58020CE8B98420102EF3D63LL8forStateyAC0f6TappedP0O_tF"></a>
+                    <a name="//apple_ref/swift/Method/updateCellColor(forState:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker20LibraryTableViewCellC06updateF5Color33_1E95661AF58020CE8B98420102EF3D63LL8forStateyAC0f6TappedP0O_tF">updateCellColor(forState:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the table view cell background to the right color for whether it is tapped or not.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">updateCellColor</span><span class="p">(</span><span class="n">forState</span> <span class="nv">tappedState</span><span class="p">:</span> <span class="kt"><a href="../Classes/LibraryTableViewCell/CellTappedState.html">CellTappedState</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tappedState</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Whether the cell is being tapped or not.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://joshuacook.netlify.com" target="_blank" rel="external">Joshua Cook</a>. All rights reserved. (Last updated: 2019-10-14)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

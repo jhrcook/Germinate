@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DateCounterManager Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/DateCounterManager" class="dashAnchor"></a>
+    <a title="DateCounterManager Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (17% documented)</p>
+        <p class="header-right"><a href="https://github.com/jhrcook/Germination-Tracker"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        DateCounterManager Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ChartViewController.html">ChartViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DateCounterManager.html">DateCounterManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DatePickerViewController.html">DatePickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditNoteView.html">EditNoteView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditNoteViewController.html">EditNoteViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventDatesTableViewCell.html">EventDatesTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventDatesTableViewController.html">EventDatesTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventDatesTableViewController/EventType.html">– EventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InformationView.html">InformationView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InformationViewController.html">InformationViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InformationViewController/ChartInteractionState.html">– ChartInteractionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibraryTableViewCell.html">LibraryTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibraryTableViewCell/CellTappedState.html">– CellTappedState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibraryViewController.html">LibraryViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NotesTableViewController.html">NotesTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PagingViewController.html">PagingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Plant.html">Plant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PlantsArrayManager.html">PlantsArrayManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/EventType.html">EventType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor/MyTheme.html">– MyTheme</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/DatePickerViewControllerDelegate.html">DatePickerViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EditNoteViewControllerDelegate.html">EditNoteViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EventDatesTableViewControllerDelegate.html">EventDatesTableViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/InformationViewControllerDelegate.html">InformationViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/InformationViewDelegate.html">InformationViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NotesTableViewControllerContainerDelegate.html">NotesTableViewControllerContainerDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/SeedNote.html">SeedNote</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>DateCounterManager</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">DateCounterManager</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC10dateCounts33_13B5FB6D17D647AAAE1E575CA6F2212ELLSDy10Foundation0C0VSiGvp"></a>
+                    <a name="//apple_ref/swift/Property/dateCounts" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC10dateCounts33_13B5FB6D17D647AAAE1E575CA6F2212ELLSDy10Foundation0C0VSiGvp">dateCounts</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A dictionary of <code>Date</code> to <code>Int</code> key-value pairs.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">dateCounts</span><span class="p">:</span> <span class="p">[</span><span class="kt">Date</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC12orderedDatesSay10Foundation0C0VGvp"></a>
+                    <a name="//apple_ref/swift/Property/orderedDates" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC12orderedDatesSay10Foundation0C0VGvp">orderedDates</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Array of all dates in ascending ordered (oldest to newest)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">orderedDates</span><span class="p">:</span> <span class="p">[</span><span class="kt">Date</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC10totalCountSivp"></a>
+                    <a name="//apple_ref/swift/Property/totalCount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC10totalCountSivp">totalCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Total number of events over all dates</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">totalCount</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerCACycfc"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerCACycfc">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialization of a new <code>DateCounterManager</code> object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC14numberOfEvents02onC0SiSg10Foundation0C0V_tF"></a>
+                    <a name="//apple_ref/swift/Method/numberOfEvents(onDate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC14numberOfEvents02onC0SiSg10Foundation0C0V_tF">numberOfEvents(onDate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the number of events on a date.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">numberOfEvents</span><span class="p">(</span><span class="n">onDate</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC8addEvent2ony10Foundation0C0V_tF"></a>
+                    <a name="//apple_ref/swift/Method/addEvent(on:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC8addEvent2ony10Foundation0C0V_tF">addEvent(on:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add one event to a specific date.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addEvent</span><span class="p">(</span><span class="n">on</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The date to increment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC21removeMostRecentEventyyF"></a>
+                    <a name="//apple_ref/swift/Method/removeMostRecentEvent()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC21removeMostRecentEventyyF">removeMostRecentEvent()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove the most recent event.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeMostRecentEvent</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC6remove14numberOfEvents04fromC0ySi_10Foundation0C0VtF"></a>
+                    <a name="//apple_ref/swift/Method/remove(numberOfEvents:fromDate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC6remove14numberOfEvents04fromC0ySi_10Foundation0C0VtF">remove(numberOfEvents:fromDate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove a specific number of events from a date.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    If the number of events to remove from a date is greater than the number of events
+available to remove, the value will be set to 0 (not a negative value).
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">numberOfEvents</span> <span class="nv">num</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">fromDate</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>num</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Number of events to remove.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The date to remove the events from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC15removeAllEvents2ony10Foundation0C0V_tF"></a>
+                    <a name="//apple_ref/swift/Method/removeAllEvents(on:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC15removeAllEvents2ony10Foundation0C0V_tF">removeAllEvents(on:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove all events on a date.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeAllEvents</span><span class="p">(</span><span class="n">on</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The date to remove all events from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC10moveEvents04fromC002toC0y10Foundation0C0V_AItF"></a>
+                    <a name="//apple_ref/swift/Method/moveEvents(fromDate:toDate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC10moveEvents04fromC002toC0y10Foundation0C0V_AItF">moveEvents(fromDate:toDate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Move events from one date to another.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">moveEvents</span><span class="p">(</span><span class="nv">fromDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="nv">toDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fromDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Date to move values from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>toDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Date to move values to.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC15clearZeroValues33_13B5FB6D17D647AAAE1E575CA6F2212ELLyyF"></a>
+                    <a name="//apple_ref/swift/Method/clearZeroValues()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC15clearZeroValues33_13B5FB6D17D647AAAE1E575CA6F2212ELLyyF">clearZeroValues()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clear all zero values from the <code><a href="../Classes/DateCounterManager.html#/s:19Germination_Tracker18DateCounterManagerC10dateCounts33_13B5FB6D17D647AAAE1E575CA6F2212ELLSDy10Foundation0C0VSiGvp">dateCounts</a></code> dictionary.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">clearZeroValues</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC010getCurrentC033_13B5FB6D17D647AAAE1E575CA6F2212ELL10Foundation0C0VyF"></a>
+                    <a name="//apple_ref/swift/Method/getCurrentDate()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC010getCurrentC033_13B5FB6D17D647AAAE1E575CA6F2212ELL10Foundation0C0VyF">getCurrentDate()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the current date to the percision of day and at midnight.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">getCurrentDate</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The current date to the precision of day at midnight.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC011getMidnightC033_13B5FB6D17D647AAAE1E575CA6F2212ELL03forC010Foundation0C0VAI_tF"></a>
+                    <a name="//apple_ref/swift/Method/getMidnightDate(forDate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC011getMidnightC033_13B5FB6D17D647AAAE1E575CA6F2212ELL03forC010Foundation0C0VAI_tF">getMidnightDate(forDate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the date to the precision of day at midnight.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">getMidnightDate</span><span class="p">(</span><span class="n">forDate</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The date to transform.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker18DateCounterManagerC8dateFrom33_13B5FB6D17D647AAAE1E575CA6F2212ELL4year5month3day10Foundation0C0VSi_S2itF"></a>
+                    <a name="//apple_ref/swift/Method/dateFrom(year:month:day:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker18DateCounterManagerC8dateFrom33_13B5FB6D17D647AAAE1E575CA6F2212ELL4year5month3day10Foundation0C0VSi_S2itF">dateFrom(year:month:day:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the date to the percision of day at midnight.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">dateFrom</span><span class="p">(</span><span class="nv">year</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">month</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">day</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>year</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Year of the date.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>month</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Month of the date.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>day</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Day of the date.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A date to the percision of day at midnight.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://joshuacook.netlify.com" target="_blank" rel="external">Joshua Cook</a>. All rights reserved. (Last updated: 2019-10-14)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

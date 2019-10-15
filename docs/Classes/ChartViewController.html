@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ChartViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ChartViewController" class="dashAnchor"></a>
+    <a title="ChartViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (17% documented)</p>
+        <p class="header-right"><a href="https://github.com/jhrcook/Germination-Tracker"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ChartViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ChartViewController.html">ChartViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DateCounterManager.html">DateCounterManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DatePickerViewController.html">DatePickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditNoteView.html">EditNoteView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditNoteViewController.html">EditNoteViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventDatesTableViewCell.html">EventDatesTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventDatesTableViewController.html">EventDatesTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventDatesTableViewController/EventType.html">– EventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InformationView.html">InformationView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InformationViewController.html">InformationViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InformationViewController/ChartInteractionState.html">– ChartInteractionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibraryTableViewCell.html">LibraryTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibraryTableViewCell/CellTappedState.html">– CellTappedState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibraryViewController.html">LibraryViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NotesTableViewController.html">NotesTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PagingViewController.html">PagingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Plant.html">Plant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PlantsArrayManager.html">PlantsArrayManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/EventType.html">EventType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor/MyTheme.html">– MyTheme</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/DatePickerViewControllerDelegate.html">DatePickerViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EditNoteViewControllerDelegate.html">EditNoteViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EventDatesTableViewControllerDelegate.html">EventDatesTableViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/InformationViewControllerDelegate.html">InformationViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/InformationViewDelegate.html">InformationViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NotesTableViewControllerContainerDelegate.html">NotesTableViewControllerContainerDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/SeedNote.html">SeedNote</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ChartViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ChartViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker19ChartViewControllerC5plantAA5PlantCvp"></a>
+                    <a name="//apple_ref/swift/Property/plant" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker19ChartViewControllerC5plantAA5PlantCvp">plant</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">plant</span><span class="p">:</span> <span class="kt"><a href="../Classes/Plant.html">Plant</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker19ChartViewControllerC015germinationLinecD0Xevp"></a>
+                    <a name="//apple_ref/swift/Property/germinationLineChartView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker19ChartViewControllerC015germinationLinecD0Xevp">germinationLineChartView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">germinationLineChartView</span><span class="p">:</span> <span class="o">&lt;&lt;</span><span class="n">error</span> <span class="n">type</span><span class="o">&gt;&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker19ChartViewControllerC27chartHasBeenDrawnPreviously33_1546A7EF81CFDBB40A8C07E7D891C912LLSbvp"></a>
+                    <a name="//apple_ref/swift/Property/chartHasBeenDrawnPreviously" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker19ChartViewControllerC27chartHasBeenDrawnPreviously33_1546A7EF81CFDBB40A8C07E7D891C912LLSbvp">chartHasBeenDrawnPreviously</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">chartHasBeenDrawnPreviously</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker19ChartViewControllerC13dateFormatter33_1546A7EF81CFDBB40A8C07E7D891C912LLSo06NSDateG0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/dateFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker19ChartViewControllerC13dateFormatter33_1546A7EF81CFDBB40A8C07E7D891C912LLSo06NSDateG0Cvp">dateFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">dateFormatter</span><span class="p">:</span> <span class="kt">DateFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker19ChartViewControllerC5plantAcA5PlantC_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(plant:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker19ChartViewControllerC5plantAcA5PlantC_tcfc">init(plant:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">plant</span><span class="p">:</span> <span class="kt"><a href="../Classes/Plant.html">Plant</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Germination_Tracker@objc(cs)ChartViewController(im)initWithCoder:"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Germination_Tracker@objc(cs)ChartViewController(im)initWithCoder:">init(coder:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">required</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">coder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Germination_Tracker@objc(cs)ChartViewController(im)viewDidLoad"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Germination_Tracker@objc(cs)ChartViewController(im)viewDidLoad">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker19ChartViewControllerC05setupD0yyF"></a>
+                    <a name="//apple_ref/swift/Method/setupView()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker19ChartViewControllerC05setupD0yyF">setupView()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setupView</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker19ChartViewControllerC06updateC0yyF"></a>
+                    <a name="//apple_ref/swift/Method/updateChart()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker19ChartViewControllerC06updateC0yyF">updateChart()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateChart</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker19ChartViewControllerC04drawC013withAnimationySb_tF"></a>
+                    <a name="//apple_ref/swift/Method/drawChart(withAnimation:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker19ChartViewControllerC04drawC013withAnimationySb_tF">drawChart(withAnimation:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">drawChart</span><span class="p">(</span><span class="n">withAnimation</span> <span class="nv">animate</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker19ChartViewControllerC16styleLineDataSet33_1546A7EF81CFDBB40A8C07E7D891C912LLyyXe_AA9EventTypeAELLOtcACF"></a>
+                    <a name="//apple_ref/swift/Method/styleLineDataSet(_:forEvent:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker19ChartViewControllerC16styleLineDataSet33_1546A7EF81CFDBB40A8C07E7D891C912LLyyXe_AA9EventTypeAELLOtcACF">styleLineDataSet(_:forEvent:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">styleLineDataSet</span><span class="p">(</span><span class="n">_</span> <span class="nv">dataSet</span><span class="p">:</span> <span class="k">inout</span> <span class="kt">LineChartDataSet</span><span class="p">,</span> <span class="n">forEvent</span> <span class="nv">eventType</span><span class="p">:</span> <span class="kt"><a href="../Enums/EventType.html">EventType</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19Germination_Tracker19ChartViewControllerC25calculateCumulativeCounts33_1546A7EF81CFDBB40A8C07E7D891C912LL15forDatesManager0qR0SaySdGAA011DateCounterS0C_Say10Foundation0T0VGtF"></a>
+                    <a name="//apple_ref/swift/Method/calculateCumulativeCounts(forDatesManager:forDates:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19Germination_Tracker19ChartViewControllerC25calculateCumulativeCounts33_1546A7EF81CFDBB40A8C07E7D891C912LL15forDatesManager0qR0SaySdGAA011DateCounterS0C_Say10Foundation0T0VGtF">calculateCumulativeCounts(forDatesManager:forDates:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">calculateCumulativeCounts</span><span class="p">(</span><span class="n">forDatesManager</span> <span class="nv">datesManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/DateCounterManager.html">DateCounterManager</a></span><span class="p">,</span> <span class="n">forDates</span> <span class="nv">dates</span><span class="p">:</span> <span class="p">[</span><span class="kt">Date</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Double</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://joshuacook.netlify.com" target="_blank" rel="external">Joshua Cook</a>. All rights reserved. (Last updated: 2019-10-14)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
