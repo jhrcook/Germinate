@@ -170,6 +170,7 @@ extension PagingViewController: InformationViewControllerDelegate {
         let vc = EventDatesTableViewController()
         vc.datesManager = plant.germinationDatesManager
         vc.parentDelegate = self
+        vc.title = "Edit germinations"
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -178,6 +179,7 @@ extension PagingViewController: InformationViewControllerDelegate {
         let vc = EventDatesTableViewController()
         vc.datesManager = plant.deathDatesManager
         vc.parentDelegate = self
+        vc.title = "Edit deaths"
         navigationController?.pushViewController(vc, animated: true)
     }
     
