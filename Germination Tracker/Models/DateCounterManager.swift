@@ -35,7 +35,7 @@ class DateCounterManager: Codable {
     
     /// Initialization of a new `DateCounterManager` object.
     init() {
-        
+        // empty
     }
     
     

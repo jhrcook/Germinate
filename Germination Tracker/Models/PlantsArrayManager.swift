@@ -9,18 +9,19 @@
 import Foundation
 
 
-/// A manager object responsible for caring for the array of plants in the app
+/// A manager object responsible for caring for the array of plants in the app.
 class PlantsArrayManager {
     
+    /// Array of plants.
     var plants = [Plant]()
     
-    
+    /// Initialize the object and automatically load the plants from file.
     init() {
         loadPlants()
 //        makeTestPlantsArray()
     }
     
-    
+    /// Lead the plants from file.
     func loadPlants() {
         let defaults = UserDefaults.standard
         if let savedPlants = defaults.object(forKey: "plants") as? Data{
@@ -35,26 +36,29 @@ class PlantsArrayManager {
     }
     
     
+    /// Save plants to file.
     func savePlants() {
         let jsonEncoder = JSONEncoder()
         if let savedData = try? jsonEncoder.encode(plants) {
             let defaults = UserDefaults.standard
             defaults.set(savedData, forKey: "plants")
-            print("Saved \(plants.count) plants.")
         } else {
             fatalError("Failed to save plants.")
         }
     }
     
     
+    /// Add a new plant.
+    /// - parameter name: The name of the new plant.
     func newPlant(named name: String) {
-        print("Making new plant.")
         plants.append(Plant(name: name))
         savePlants()
     }
     
     
-    func makeTestPlantsArray() {
+    /// Make fake plants and append to `plants` array.
+    /// - note: This is for testing purposes only and willl not be used in production.
+    private func makeTestPlantsArray() {
         plants = [
             Plant(name: "Lithops julli"),
             Plant(name: "Euphorbia obesa"),
