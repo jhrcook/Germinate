@@ -12,6 +12,8 @@ import UIKit
 
 /// A protocol for for communicating with the parent view controller that the user has changed the date.
 protocol EventDatesTableViewControllerDelegate {
+    /// The date of the dates manager was changed.
+    /// - parameter dateCounterManager: The `DateCounterManager` that was edited.
     func DatesManagerWasChanged(_ dateCounterManager: DateCounterManager)
 }
 

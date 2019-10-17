@@ -12,11 +12,28 @@ import ChameleonFramework
 
 /// A protocol for the communication between the `InformationView` and its view controller.
 protocol InformationViewDelegate {
+    /// The date sown label was tapped.
+    /// - Parameter label: The `UILabel` object.
     func dateSownLabelWasTapped(_ label: UILabel)
+    
+    /// The label showing the number of seeds was tapped.
+    /// - Parameter label: The `UILabel` object.
     func numberOfSeedsSownLabelWasTapped(_ label: UILabel)
+    
+    /// The germination stepper changed value.
+    /// - Parameter stepper: The `UIStepper` object.
     func germinationStepperValueDidChange(_ stepper: UIStepper)
+    
+    /// The death stepper changed value.
+    /// - Parameter stepper: The `UIStepper` object.
     func deathStepperValueDidChange(_ stepper: UIStepper)
+    
+    /// The germination counter label was tapped.
+    /// - Parameter label: The `UILabel` object.
     func germinationCounterLabelWasTapped(_ label: UILabel)
+    
+    /// The death counter label was tapped.
+    /// - Parameter label: The `UILabel` object.
     func deathCounterLabelWasTapped(_ label: UILabel)
 }
 

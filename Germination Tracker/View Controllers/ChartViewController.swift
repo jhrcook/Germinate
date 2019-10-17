@@ -13,7 +13,10 @@ import SnapKit
 
 /// The different events that can be used. Currently, the app only shows germinations and deaths.
 fileprivate enum EventType {
-    case germination, death
+    /// Germination events.
+    case germination
+    /// Death events.
+    case death
 }
 
 

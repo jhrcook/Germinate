@@ -13,6 +13,8 @@ import SwiftyButton
 
 /// A protocol for communicating to the parent view controller when the date has been selected.
 protocol DatePickerViewControllerDelegate {
+    /// A new date is being submitted by the user.
+    /// - parameter date: The new date.
     func dateSubmitted(_ date: Date)
 }
 

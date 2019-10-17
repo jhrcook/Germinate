@@ -13,6 +13,8 @@ import KeyboardObserver
 
 /// A protocol for communicating that a note was edited to the parent controller.
 protocol EditNoteViewControllerDelegate {
+    /// The note was edited by the user.
+    /// - parameter note: The note that was edited.
     func noteWasEdited(_ note: SeedNote)
 }
 

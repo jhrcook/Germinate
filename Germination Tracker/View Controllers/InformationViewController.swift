@@ -12,7 +12,12 @@ import SnapKit
 
 /// Delegate for `InformationViewController` to handle navigations if germination or death event labels are tapped.
 protocol InformationViewControllerDelegate {
+    /// The germination date label was tapped.
+    /// - parameter label: The label object.
     func didTapGerminationDateLabel(_ label: UILabel)
+    
+    /// The death date label was tapped.
+    /// - parameter label: The label object.
     func didTapDeathDateLabel(_ label: UILabel)
 }
 
