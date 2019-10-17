@@ -11,7 +11,7 @@ import ChameleonFramework
 
 class LibraryViewController: UITableViewController {
 
-    /// Cell identifier string.
+    /// String to reference reusbale cells.
     private let reusableCellIdentifier = "PlantCell"
     
     /// The object that handles the plants array.
