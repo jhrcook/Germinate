@@ -8,9 +8,8 @@
 
 import Foundation
 
-/*
- A simple structure for notes for seeds.
- */
+
+/// A simple structure for notes for seeds.
 struct SeedNote: Codable {
     
     /// Date the note was created.

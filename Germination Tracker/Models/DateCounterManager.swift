@@ -8,6 +8,12 @@
 
 import UIKit
 
+/**
+ A manager of events on dates.
+ 
+ It keeps track of how many events happened on a day.
+ It safely abstracts a lot of the hassle away from the other view controllers and presents a simple API to store and retrieve information.
+ */
 class DateCounterManager: Codable {
     
     /// A dictionary of `Date` to `Int` key-value pairs.

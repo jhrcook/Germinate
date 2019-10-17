@@ -15,13 +15,12 @@ protocol NotesTableViewControllerContainerDelegate {
     func didDeleteNote(atIndex index: Int)
 }
 
-/*
+/**
  A table view of the notes for a plant.
  
- The notes are displayed in standard cells with the date of creation as the
- header and an exandable text view below. Tapping on a cell allows the user to
- delete or edit the note. A note can also be edited by tapping the "+" in the
- navigation bar.
+ The notes are displayed in standard cells with the date of creation as the header and an exandable text view below.
+ Tapping on a cell allows the user to delete or edit the note.
+ A note can also be edited by tapping the "+" in the navigation bar.
  */
 class NotesTableViewController: UITableViewController {
     

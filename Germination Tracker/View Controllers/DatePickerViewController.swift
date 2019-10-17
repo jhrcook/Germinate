@@ -17,13 +17,12 @@ protocol DatePickerViewControllerDelegate {
 }
 
 
-/*
+/**
  A view controller for picking a date.
  
  It presents the standard iOS date picker with a "Save" and "Cancel" button.
- Tapping the button causes the controller to dismiss itself. If "Save" was
- tapped, then the new date is submitted to the parent view controller through
- a delegate method.
+ Tapping the button causes the controller to dismiss itself.
+ If "Save" was tapped, then the new date is submitted to the parent view controller through a delegate method.
  */
 class DatePickerViewController: UIViewController {
 

@@ -9,8 +9,11 @@
 import UIKit
 import SnapKit
 
+
+/// The custom table view cell for the `LibraryViewController` table view.
 class LibraryTableViewCell: UITableViewCell {
 
+    /// The main container table.
     let containerView: UIView = {
         let v = UIView()
         if #available(iOS 13, *) {
@@ -20,18 +23,22 @@ class LibraryTableViewCell: UITableViewCell {
         return v
     }()
     
+    /// The title label.
     let titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.preferredFont(forTextStyle: .title2)
         return lbl
     }()
     
+    /// The date label that shows the date the plant was sown.
     let dateLabel: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.preferredFont(forTextStyle: .body)
         return lbl
     }()
     
+    /// The label with some germination information. It is currently set to display the fraction of seeds that
+    /// have successfully germinated.
     let germinationInfoLabel: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.preferredFont(forTextStyle: .body)
@@ -43,7 +50,7 @@ class LibraryTableViewCell: UITableViewCell {
     /// This button may or may not be available depending on if there is a discolsure button available.
     var accessoryButton: UIButton?
     
-    
+    /// A `DateFormatter` object with the format "yyyy-MM-dd" in the current time zone.
     private let dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .long
@@ -52,18 +59,21 @@ class LibraryTableViewCell: UITableViewCell {
     }()
     
     
+    // Initialization calls custom set up.
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCellView()
     }
     
     
+    // Initialization calls custom set up.
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupCellView()
     }
     
     
+    // Not used.
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

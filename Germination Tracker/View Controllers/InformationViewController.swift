@@ -16,13 +16,12 @@ protocol InformationViewControllerDelegate {
     func didTapDeathDateLabel(_ label: UILabel)
 }
 
-/*
+/**
  The view controller for the general information of a plant.
  
  It presents 5 main components within a main stack view.
  The top half is dominated by a chart showing the germinations and deaths over time.
- The bottom half has smaller cells for the date of sowing, number of seeds sown,
- number of germinations, and the number of deaths.
+ The bottom half has smaller cells for the date of sowing, number of seeds sown, number of germinations, and the number of deaths.
  Tapping each of the labels presents a way of editing the information.
  The germination and death event cells have stepper buttons for easily input information.
  */
@@ -203,7 +202,7 @@ extension InformationViewController: InformationViewDelegate {
     /// - note: This function is not currently used, though the framework is in place incase I want to
     /// add the feature in the future. Persistence of state is neccessary for this to be useful.
     func turnChartInteraction(_ state: ChartInteractionState) {
-        chartViewController.germinationLineChartView.isUserInteractionEnabled = state == .on
+        chartViewController.eventLineChartView.isUserInteractionEnabled = state == .on
     }
 }
 

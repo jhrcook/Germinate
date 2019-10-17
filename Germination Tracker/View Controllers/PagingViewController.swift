@@ -10,15 +10,12 @@ import UIKit
 import Pageboy
 import ChameleonFramework
 
-/*
+/**
  A paging view of general information and notes.
  
  This is the parent view controller for the detail information for a single plant.
- It has two children view controllers, one for managing the general infomation and
- another for the notes. This view controller handles most of the navigation,
- though some is still left to the children when the edits are narrow enough and
- relevant to the view controller.
- 
+ It has two children view controllers, one for managing the general infomation and another for the notes.
+ This view controller handles most of the navigation, though some is still left to the children when the edits are narrow enough and relevant to the view controller.
  */
 class PagingViewController: PageboyViewController {
     /// Plant object to show.

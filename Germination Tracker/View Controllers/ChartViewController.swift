@@ -17,12 +17,11 @@ fileprivate enum EventType {
 }
 
 
-/*
+/**
  The controller for the chart view.
  
  A chart is plotted with two lines, one for germinations and one for deaths.
- The lines are cumulative plots to show the rate of germination and death of
- the seedlings.
+ The lines are cumulative plots to show the rate of germination and death of the seedlings.
  */
 class ChartViewController: UIViewController {
 

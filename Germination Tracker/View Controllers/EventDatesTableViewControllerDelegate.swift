@@ -16,13 +16,11 @@ protocol EventDatesTableViewControllerDelegate {
 }
 
 
-/*
+/**
  The view controller for manually editing events handled by a `DateCounterManager`.
  
- A table view where each cell is a date with the number of events shown between
- an increment and decrement button. The user can change the number of events on
- a specific date using the incrementing and decrementing buttons or by swiping
- to delete all of the values.
+ A table view where each cell is a date with the number of events shown between an increment and decrement button.
+ The user can change the number of events on a specific date using the incrementing and decrementing buttons or by swiping to delete all of the values.
  */
 class EventDatesTableViewController: UITableViewController {
 
@@ -77,7 +75,6 @@ class EventDatesTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -97,7 +94,7 @@ class EventDatesTableViewController: UITableViewController {
         
         // Configure the cell with the data.
         // The tag is for the increment and decrement buttons.
-        cell.configureCell(forDate: date, withNumberOfGerminations: count, withTag: indexPath.row)
+        cell.configureCell(forDate: date, withNumber: count, withTag: indexPath.row)
         
         // Register a tap gesture on the label to edit the date.
         let tap = UITapGestureRecognizer(target: self, action: #selector(dateLabelTapped(sender:)))

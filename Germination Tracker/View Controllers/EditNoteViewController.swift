@@ -17,14 +17,13 @@ protocol EditNoteViewControllerDelegate {
 }
 
 
-/*
+/**
  A view controller for editing a note.
  
- There are three main regions: the buttons along the top, a date picker in
- the middle, and a text view at the bottom. The two buttons at the top are
- "Save" and "Cancel." When the text view is tapped on, it is moved to the middle
- and a new button, "Done," is animated in place of the original two. Tapping
- the "Done" button brings back the original view.
+ There are three main regions: the buttons along the top, a date picker in the middle, and a text view at the bottom.
+ The two buttons at the top are "Save" and "Cancel."
+ When the text view is tapped on, it is moved to the middle and a new button, "Done," is animated in place of the original two.
+ Tapping the "Done" button brings back the original view.
  */
 class EditNoteViewController: UIViewController {
     
@@ -153,7 +152,7 @@ extension EditNoteViewController {
     
     
     /// Begin text editing mode.
-    /// - Parameter keyboardFrameEnd: The frame at the end of the keyboard. The bottom is
+    /// - parameter keyboardFrameEnd: The frame at the end of the keyboard. The bottom is
     /// used as the new bottom  of the view.
     private func activateTextEditingMode(withKeyboardHeight keyboardFrameEnd: CGRect) {
         if !isInNoteTextEditingMode {

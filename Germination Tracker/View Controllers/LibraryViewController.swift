@@ -9,6 +9,9 @@
 import UIKit
 import ChameleonFramework
 
+/**
+ A table view controller for all of the sowings.
+ */
 class LibraryViewController: UITableViewController {
 
     /// String to reference reusbale cells.

@@ -14,7 +14,7 @@
     <a title="EditNoteViewController Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (17% documented)</p>
+        <p><a href="../index.html"> Docs</a> (58% documented)</p>
         <p class="header-right"><a href="https://github.com/jhrcook/Germination-Tracker"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -152,7 +152,12 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>A view controller for editing a note.</p>
+
+<p>There are three main regions: the buttons along the top, a date picker in the middle, and a text view at the bottom.
+The two buttons at the top are <q>Save</q> and <q>Cancel.</q>
+When the text view is tapped on, it is moved to the middle and a new button, <q>Done,</q> is animated in place of the original two.
+Tapping the <q>Done</q> button brings back the original view.</p>
 
           </section>
           <section class="section task-group-section">
@@ -171,7 +176,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The note to pull information from and change when the user changes information.</p>
 
                       </div>
                       <div class="declaration">
@@ -198,7 +203,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The main view that displays all of the interaciton components.
+It is made a subview of the default <code>view</code> and snapped to the edges.</p>
 
                       </div>
                       <div class="declaration">
@@ -225,7 +231,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The  delegate to tell when information has been changed and saved.</p>
 
                       </div>
                       <div class="declaration">
@@ -252,7 +258,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>An observer of the keyboard that alert the controller when the keyboard appears.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This class is from the library <a href="https://github.com/morizotter/KeyboardObserver"><code>KeyboardObserver</code></a>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -279,7 +290,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A boolean for if the app is in text editing mode of not.</p>
 
                       </div>
                       <div class="declaration">
@@ -306,7 +317,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initialize the view controller with a note.</p>
 
                       </div>
                       <div class="declaration">
@@ -316,6 +327,25 @@
                           <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">note</span><span class="p">:</span> <span class="kt"><a href="../Structs/SeedNote.html">SeedNote</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>note</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The note to present to the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -387,7 +417,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Setup the interactions with the buttons, date picker, and text view. This method need only be called
+once upon set up. It is automatically called when the view is loaded.</p>
 
                       </div>
                       <div class="declaration">
@@ -414,7 +445,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Dismiss the view controller when the <q>Cancel</q> button is tapped.</p>
 
                       </div>
                       <div class="declaration">
@@ -442,7 +473,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Send the note to the delegate and dismiss the view controller with the <q>Save</q> button is tapped.</p>
 
                       </div>
                       <div class="declaration">
@@ -470,7 +501,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Called when the <q>Done</q> button is tapped when in editing mode.</p>
 
                       </div>
                       <div class="declaration">
@@ -498,7 +529,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Called when the date picker value changes.</p>
 
                       </div>
                       <div class="declaration">
@@ -509,6 +540,25 @@
 <span class="kd">func</span> <span class="nf">datePickerChanged</span><span class="p">(</span><span class="nv">picker</span><span class="p">:</span> <span class="kt">UIDatePicker</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>picker</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIDatePicker</code> object that has changed value.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -564,7 +614,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Begin text editing mode.</p>
 
                       </div>
                       <div class="declaration">
@@ -574,6 +624,26 @@
                           <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">activateTextEditingMode</span><span class="p">(</span><span class="n">withKeyboardHeight</span> <span class="nv">keyboardFrameEnd</span><span class="p">:</span> <span class="kt">CGRect</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyboardFrameEnd</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The frame at the end of the keyboard. The bottom is
+used as the new bottom  of the view.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -591,7 +661,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>End text editing mode.
+The  view is returned to normal.</p>
 
                       </div>
                       <div class="declaration">
@@ -610,7 +681,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://joshuacook.netlify.com" target="_blank" rel="external">Joshua Cook</a>. All rights reserved. (Last updated: 2019-10-14)</p>
+          <p>&copy; 2019 <a class="link" href="https://joshuacook.netlify.com" target="_blank" rel="external">Joshua Cook</a>. All rights reserved. (Last updated: 2019-10-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -14,7 +14,7 @@
     <a title="PagingViewController Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (17% documented)</p>
+        <p><a href="../index.html"> Docs</a> (58% documented)</p>
         <p class="header-right"><a href="https://github.com/jhrcook/Germination-Tracker"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -152,7 +152,11 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>A paging view of general information and notes.</p>
+
+<p>This is the parent view controller for the detail information for a single plant.
+It has two children view controllers, one for managing the general infomation and another for the notes.
+This view controller handles most of the navigation, though some is still left to the children when the edits are narrow enough and relevant to the view controller.</p>
 
           </section>
           <section class="section task-group-section">
@@ -171,7 +175,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Plant object to show.
+This object is passed to several children view controllers.</p>
 
                       </div>
                       <div class="declaration">
@@ -198,7 +203,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The object that handles the plants array.
+This object gets passed to several child view controllers.</p>
 
                       </div>
                       <div class="declaration">
@@ -225,7 +231,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The view controller for the main information page.</p>
 
                       </div>
                       <div class="declaration">
@@ -252,7 +258,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The view controller for the table of notes.</p>
 
                       </div>
                       <div class="declaration">
@@ -279,7 +285,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The array of view controllers for the <code>PageboyViewController</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -306,7 +312,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The current index of the paging view.
+When set, the right navigation bar button and title are updated.</p>
 
                       </div>
                       <div class="declaration">
@@ -333,7 +340,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The index of a selected note. This is for keeping track of which note is being edited.</p>
 
                       </div>
                       <div class="declaration">
@@ -387,7 +394,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Create a new note.
+This presents a new view for the user to edit the new note in.</p>
 
                       </div>
                       <div class="declaration">
@@ -425,6 +433,25 @@
                           <pre class="highlight swift"><code><span class="kd">fileprivate</span> <span class="kd">func</span> <span class="nf">push</span><span class="p">(</span><span class="n">_</span> <span class="nv">editNoteViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/EditNoteViewController.html">EditNoteViewController</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>editNoteViewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code><a href="../Classes/EditNoteViewController.html">EditNoteViewController</a></code> to push.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -664,7 +691,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Presents the view for editing a notes.</p>
 
                       </div>
                       <div class="declaration">
@@ -674,6 +701,25 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didSelectNoteToEdit</span><span class="p">(</span><span class="n">atIndex</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>index</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The index of the note to edit.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -691,7 +737,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Delete a note from the plant&rsquo;s list.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This is part of a standard <code>UITableView</code> delete sequence.
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -701,6 +752,25 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didDeleteNote</span><span class="p">(</span><span class="n">atIndex</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>index</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The index of the note to delete.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -729,7 +799,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>When a note is edited, it replaces the note at the <code><a href="../Classes/PagingViewController.html#/s:19Germination_Tracker20PagingViewControllerC17selectedNoteIndexSiSgvp">selectedNoteIndex</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -739,6 +809,25 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">noteWasEdited</span><span class="p">(</span><span class="n">_</span> <span class="nv">note</span><span class="p">:</span> <span class="kt"><a href="../Structs/SeedNote.html">SeedNote</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>note</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The edited note to keep.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -767,7 +856,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>If a plant&rsquo;s date manager is changed, this method updated the <code><a href="../Classes/InformationViewController.html">InformationViewController</a></code> and saves the plants array.
+The plant&rsquo;s data manager could be either the one for germination or deaths.</p>
 
                       </div>
                       <div class="declaration">
@@ -805,7 +895,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>If the user taps on the germination label, a new view controller is presented to edit the dates and events.</p>
 
                       </div>
                       <div class="declaration">
@@ -815,6 +905,25 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didTapGerminationDateLabel</span><span class="p">(</span><span class="n">_</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">UILabel</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>label</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The label that was tapped (not changed here).</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -832,7 +941,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>If the user taps on the deaths label, a new view controller is presented to edit the dates and events.</p>
 
                       </div>
                       <div class="declaration">
@@ -843,6 +952,25 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>label</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The label that was tapped (not changed here).</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -851,7 +979,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://joshuacook.netlify.com" target="_blank" rel="external">Joshua Cook</a>. All rights reserved. (Last updated: 2019-10-14)</p>
+          <p>&copy; 2019 <a class="link" href="https://joshuacook.netlify.com" target="_blank" rel="external">Joshua Cook</a>. All rights reserved. (Last updated: 2019-10-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

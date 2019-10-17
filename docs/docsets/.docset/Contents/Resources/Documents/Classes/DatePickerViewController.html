@@ -14,7 +14,7 @@
     <a title="DatePickerViewController Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (17% documented)</p>
+        <p><a href="../index.html"> Docs</a> (58% documented)</p>
         <p class="header-right"><a href="https://github.com/jhrcook/Germination-Tracker"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -152,7 +152,11 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>A view controller for picking a date.</p>
+
+<p>It presents the standard iOS date picker with a <q>Save</q> and <q>Cancel</q> button.
+Tapping the button causes the controller to dismiss itself.
+If <q>Save</q> was tapped, then the new date is submitted to the parent view controller through a delegate method.</p>
 
           </section>
           <section class="section task-group-section">
@@ -171,7 +175,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Label at the head of the view saying <q>Date of Sowing</q>.</p>
 
                       </div>
                       <div class="declaration">
@@ -198,7 +202,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A standard iOS date picker.</p>
 
                       </div>
                       <div class="declaration">
@@ -225,7 +229,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A contianer view for the buttons.</p>
 
                       </div>
                       <div class="declaration">
@@ -252,7 +256,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The <q>Enter</q> button.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This button is from the <a href="https://github.com/TakeScoop/SwiftyButton"><code>SwiftyButton</code></a> library.
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -279,7 +288,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The <q>Cancel</q> button.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This button is from the <a href="https://github.com/TakeScoop/SwiftyButton"><code>SwiftyButton</code></a> library.
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -306,7 +320,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The date selected  by the user.</p>
 
                       </div>
                       <div class="declaration">
@@ -333,7 +347,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Delegate that will take the response from the user if they tap <q>Enter</q>.</p>
 
                       </div>
                       <div class="declaration">
@@ -387,7 +401,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Organize the view. This need only be called once and is automatically called when the view has been loaded.</p>
 
                       </div>
                       <div class="declaration">
@@ -414,7 +428,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Is called when the user taps the <q>Enter</q> button. It sends the selected date to the delegate and then dismisses the view controller.</p>
 
                       </div>
                       <div class="declaration">
@@ -442,7 +456,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Is called when the user taps the <q>Cancel</q> button. It dismisses the view controller.</p>
 
                       </div>
                       <div class="declaration">
@@ -460,9 +474,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Germination_Tracker@objc(cs)DatePickerViewController(im)datePickerChangedWithPicker:"></a>
+                    <a name="/s:19Germination_Tracker24DatePickerViewControllerC04dateD7Changed33_066FA5011453270BFDC9A76AD72D0B53LL6pickerySo06UIDateD0C_tF"></a>
                     <a name="//apple_ref/swift/Method/datePickerChanged(picker:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Germination_Tracker@objc(cs)DatePickerViewController(im)datePickerChangedWithPicker:">datePickerChanged(picker:)</a>
+                    <a class="token" href="#/s:19Germination_Tracker24DatePickerViewControllerC04dateD7Changed33_066FA5011453270BFDC9A76AD72D0B53LL6pickerySo06UIDateD0C_tF">datePickerChanged(picker:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -470,7 +484,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Is  called when the date picker changes value. It updates the <code><a href="../Classes/DatePickerViewController.html#/s:19Germination_Tracker24DatePickerViewControllerC08selectedC010Foundation0C0VSgvp">selectedDate</a></code> attribute.</p>
 
                       </div>
                       <div class="declaration">
@@ -478,7 +492,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">func</span> <span class="nf">datePickerChanged</span><span class="p">(</span><span class="nv">picker</span><span class="p">:</span> <span class="kt">UIDatePicker</span><span class="p">)</span></code></pre>
+<span class="kd">private</span> <span class="kd">func</span> <span class="nf">datePickerChanged</span><span class="p">(</span><span class="nv">picker</span><span class="p">:</span> <span class="kt">UIDatePicker</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -490,7 +504,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://joshuacook.netlify.com" target="_blank" rel="external">Joshua Cook</a>. All rights reserved. (Last updated: 2019-10-14)</p>
+          <p>&copy; 2019 <a class="link" href="https://joshuacook.netlify.com" target="_blank" rel="external">Joshua Cook</a>. All rights reserved. (Last updated: 2019-10-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

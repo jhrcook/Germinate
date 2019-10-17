@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (17% documented)</p>
+        <p><a href="index.html"> Docs</a> (58% documented)</p>
         <p class="header-right"><a href="https://github.com/jhrcook/Germination-Tracker"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -198,7 +198,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A manager of events on dates.</p>
+
+<p>It keeps track of how many events happened on a day.
+It safely abstracts a lot of the hassle away from the other view controllers and presents a simple API to store and retrieve information.</p>
 
                         <a href="Classes/DateCounterManager.html" class="slightly-smaller">See more</a>
                       </div>
@@ -262,7 +265,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A manager object responsible for caring for the array of plants in the app</p>
+                        <p>A manager object responsible for caring for the array of plants in the app.</p>
 
                         <a href="Classes/PlantsArrayManager.html" class="slightly-smaller">See more</a>
                       </div>
@@ -294,7 +297,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The controller for the chart view.</p>
+
+<p>A chart is plotted with two lines, one for germinations and one for deaths.
+The lines are cumulative plots to show the rate of germination and death of the seedlings.</p>
 
                         <a href="Classes/ChartViewController.html" class="slightly-smaller">See more</a>
                       </div>
@@ -326,7 +332,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A view controller for picking a date.</p>
+
+<p>It presents the standard iOS date picker with a <q>Save</q> and <q>Cancel</q> button.
+Tapping the button causes the controller to dismiss itself.
+If <q>Save</q> was tapped, then the new date is submitted to the parent view controller through a delegate method.</p>
 
                         <a href="Classes/DatePickerViewController.html" class="slightly-smaller">See more</a>
                       </div>
@@ -358,7 +368,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A view controller for editing a note.</p>
+
+<p>There are three main regions: the buttons along the top, a date picker in the middle, and a text view at the bottom.
+The two buttons at the top are <q>Save</q> and <q>Cancel.</q>
+When the text view is tapped on, it is moved to the middle and a new button, <q>Done,</q> is animated in place of the original two.
+Tapping the <q>Done</q> button brings back the original view.</p>
 
                         <a href="Classes/EditNoteViewController.html" class="slightly-smaller">See more</a>
                       </div>
@@ -390,7 +405,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The view controller for manually editing events handled by a <code><a href="Classes/DateCounterManager.html">DateCounterManager</a></code>.</p>
+
+<p>A table view where each cell is a date with the number of events shown between an increment and decrement button.
+The user can change the number of events on a specific date using the incrementing and decrementing buttons or by swiping to delete all of the values.</p>
 
                         <a href="Classes/EventDatesTableViewController.html" class="slightly-smaller">See more</a>
                       </div>
@@ -422,7 +440,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The view controller for the general information of a plant.</p>
+
+<p>It presents 5 main components within a main stack view.
+The top half is dominated by a chart showing the germinations and deaths over time.
+The bottom half has smaller cells for the date of sowing, number of seeds sown, number of germinations, and the number of deaths.
+Tapping each of the labels presents a way of editing the information.
+The germination and death event cells have stepper buttons for easily input information.</p>
 
                         <a href="Classes/InformationViewController.html" class="slightly-smaller">See more</a>
                       </div>
@@ -454,7 +478,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A table view controller for all of the sowings.</p>
 
                         <a href="Classes/LibraryViewController.html" class="slightly-smaller">See more</a>
                       </div>
@@ -486,7 +510,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A table view of the notes for a plant.</p>
+
+<p>The notes are displayed in standard cells with the date of creation as the header and an exandable text view below.
+Tapping on a cell allows the user to delete or edit the note.
+A note can also be edited by tapping the <q>+</q> in the navigation bar.</p>
 
                         <a href="Classes/NotesTableViewController.html" class="slightly-smaller">See more</a>
                       </div>
@@ -518,7 +546,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A paging view of general information and notes.</p>
+
+<p>This is the parent view controller for the detail information for a single plant.
+It has two children view controllers, one for managing the general infomation and another for the notes.
+This view controller handles most of the navigation, though some is still left to the children when the edits are narrow enough and relevant to the view controller.</p>
 
                         <a href="Classes/PagingViewController.html" class="slightly-smaller">See more</a>
                       </div>
@@ -582,7 +614,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A custom table view cell that shows a date and a counter.</p>
+
+<p>The date is shown on the left. The right side shows <q>-</q> and <q>+</q> buttons
+surrounding a number.</p>
 
                         <a href="Classes/EventDatesTableViewCell.html" class="slightly-smaller">See more</a>
                       </div>
@@ -614,7 +649,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A view to show the general information about a set of seedlings.</p>
+
+<p>It contains a chart on the top showing the rate of germination and death of the
+seedlings. This is followed by labels showing the sowing date, number of
+seeds sown, and counters for germination and death. There are many tap targets
+and a lot of user interaction.</p>
 
                         <a href="Classes/InformationView.html" class="slightly-smaller">See more</a>
                       </div>
@@ -646,7 +686,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The custom table view cell for the <code><a href="Classes/LibraryViewController.html">LibraryViewController</a></code> table view.</p>
 
                         <a href="Classes/LibraryTableViewCell.html" class="slightly-smaller">See more</a>
                       </div>
@@ -666,7 +706,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://joshuacook.netlify.com" target="_blank" rel="external">Joshua Cook</a>. All rights reserved. (Last updated: 2019-10-14)</p>
+          <p>&copy; 2019 <a class="link" href="https://joshuacook.netlify.com" target="_blank" rel="external">Joshua Cook</a>. All rights reserved. (Last updated: 2019-10-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
