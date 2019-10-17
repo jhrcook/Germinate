@@ -11,14 +11,24 @@ import SnapKit
 import ChameleonFramework
 import SwiftyButton
 
-
+/// A protocol for communicating to the parent view controller when the date has been selected.
 protocol DatePickerViewControllerDelegate {
+    /// A new date is being submitted by the user.
+    /// - parameter date: The new date.
     func dateSubmitted(_ date: Date)
 }
 
 
+/**
+ A view controller for picking a date.
+ 
+ It presents the standard iOS date picker with a "Save" and "Cancel" button.
+ Tapping the button causes the controller to dismiss itself.
+ If "Save" was tapped, then the new date is submitted to the parent view controller through a delegate method.
+ */
 class DatePickerViewController: UIViewController {
 
+    /// Label at the head of the view saying "Date of Sowing".
     let titleLabel: UILabel = {
         let lbl = UILabel()
         
@@ -35,9 +45,14 @@ class DatePickerViewController: UIViewController {
         return lbl
     }()
     
+    /// A standard iOS date picker.
     let datePicker = UIDatePicker()
+    
+    /// A contianer view for the buttons.
     let containerView = UIView()
     
+    /// The "Enter" button.
+    /// - note: This button is from the [`SwiftyButton`](https://github.com/TakeScoop/SwiftyButton) library.
     let enterButton: FlatButton = {
         let button = FlatButton()
         if #available(iOS 13, *) {
@@ -53,6 +68,8 @@ class DatePickerViewController: UIViewController {
         return button
     }()
     
+    /// The "Cancel" button.
+    /// - note: This button is from the [`SwiftyButton`](https://github.com/TakeScoop/SwiftyButton) library.
     let cancelButton: UIButton = {
         let button = FlatButton()
         if #available(iOS 13, *) {
@@ -68,15 +85,16 @@ class DatePickerViewController: UIViewController {
         return button
     }()
     
-    
+    /// The date selected  by the user.
     var selectedDate: Date?
     
+    /// Delegate that will take the response from the user if they tap "Enter".
     var delegate: DatePickerViewControllerDelegate?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         if #available(iOS 13, *) {
             view.backgroundColor = .systemBackground
         } else {
@@ -88,6 +106,7 @@ class DatePickerViewController: UIViewController {
     }
 
     
+    /// Organize the view. This need only be called once and is automatically called when the view has been loaded.
     func setupView() {
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
@@ -133,17 +152,21 @@ class DatePickerViewController: UIViewController {
     }
     
     
+    /// Is called when the user taps the "Enter" button. It sends the selected date to the delegate and then dismisses the view controller.
     @objc private func tapEnter() {
         if let delegate = delegate { delegate.dateSubmitted(selectedDate ?? datePicker.date) }
         dismiss(animated: true, completion: nil)
     }
     
     
+    /// Is called when the user taps the "Cancel" button. It dismisses the view controller.
     @objc private func tapCancel() {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func datePickerChanged(picker: UIDatePicker) {
+    
+    /// Is  called when the date picker changes value. It updates the `selectedDate` attribute.
+    @objc private func datePickerChanged(picker: UIDatePicker) {
         selectedDate = picker.date
     }
 

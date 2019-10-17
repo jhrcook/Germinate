@@ -12,11 +12,24 @@ import ChameleonFramework
 import SwiftyButton
 
 
+/**
+ A view for editing a note.
+ 
+ It contains buttons for saving or canceling changes, a date picker for changing the date,  and a text view for interacting with the note.
+ See `EditNoteViewController` for how to control the view.
+ */
 class EditNoteView: UIView {
     
+    /// The main stack view responsible for organizing all of the subviews.
+    var mainStackView = UIStackView()
+    
+    /// A container for the buttons.
     let buttonContainerView = UIView()
+    /// A stack view for organizing the buttons.
     let buttonStackView = UIStackView()
+    /// The height of a button.
     private let buttonHeight = 50
+    /// The save button.
     let saveButton: FlatButton = {
         let button = FlatButton()
         if #available(iOS 13, *) {
@@ -31,7 +44,7 @@ class EditNoteView: UIView {
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title2)
         return button
     }()
-    
+    /// The cancel button.
     let cancelButton: FlatButton = {
         let button = FlatButton()
         if #available(iOS 13, *) {
@@ -47,7 +60,9 @@ class EditNoteView: UIView {
         return button
     }()
     
+    /// A container for the "Done" typing button.
     let doneTypingbuttonContainerView = UIView()
+    /// The "Done" typing button.
     let doneTypingButton: FlatButton = {
         let button = FlatButton()
         if #available(iOS 13, *) {
@@ -61,11 +76,15 @@ class EditNoteView: UIView {
         button.setTitle("Done Typing", for: [.normal])
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title2)
         return button
-   }()
+    }()
     
+    /// A container for the date picker label.
     var datePickerLabelContainer = UIView()
+    /// The date picker label that shows the current date of the picker.
+    /// It sits between the buttons and the date picker.
     var datePickerLabel = UILabel()
     
+    /// A container for the date picker.
     var datePickerContainer: UIView = {
         let v = UIView()
         if #available(iOS 13, *) {
@@ -76,6 +95,7 @@ class EditNoteView: UIView {
         return v
     }()
     
+    /// The date picker using a standard iOS `UIDatePicker`.
     var datePicker: UIDatePicker = {
         let dp = UIDatePicker()
         dp.datePickerMode = .date
@@ -83,14 +103,18 @@ class EditNoteView: UIView {
         return dp
     }()
     
+    /// A container for the label above the text view.
     var textViewLabelContainer = UIView()
+    /// The label above the text view. It just says "Notes".
     var textViewLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = " Notes"
         return lbl
     }()
     
+    /// A container for the text view.
     var textViewContainer = UIView()
+    /// The text vew where the note text is held and can be edited.
     var textView: UITextView = {
         let tv = UITextView()
         tv.textAlignment = .left
@@ -106,13 +130,16 @@ class EditNoteView: UIView {
         return tv
     }()
     
-    var mainStackView = UIStackView()
+    /// A boolean value for whether the view has been set up or not.
+    private var viewIsSetup = false
     
-    var viewIsSetup = false
     
     
+    /// Configure the view with the information from a note.
+    /// - Parameter note: The note to pull information from.
     func configureEditView(withNote note: SeedNote) {
         
+        // If the view has yet to be set up, do that first.
         if !viewIsSetup { setupView() }
         
         setDatePickerLabel(toDate: note.dateCreated)
@@ -123,6 +150,7 @@ class EditNoteView: UIView {
     }
     
     /// Set the date picker label the the format: "Date: Month Day, Year"
+    /// - Parameter date: The date to set the label to.
     func setDatePickerLabel(toDate date: Date) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
@@ -134,8 +162,10 @@ class EditNoteView: UIView {
 
 
 // MARK: Setup Views
+
 extension EditNoteView {
     
+    /// A function that calls all of the subviews to be set up.
     private func setupView() {
         setupMainStackView()
         setupButtons()
@@ -145,6 +175,7 @@ extension EditNoteView {
         setupTextView()
     }
     
+    /// Organize the main stack view.
     private func setupMainStackView() {
         addSubview(mainStackView)
         mainStackView.snp.makeConstraints({ make in make.edges.equalTo(safeAreaLayoutGuide) })
@@ -198,6 +229,7 @@ extension EditNoteView {
     }
     
     
+    /// Set up the "Save" and "Cancel" buttons.
     private func setupButtons() {
         buttonContainerView.addSubview(buttonStackView)
         buttonStackView.addArrangedSubview(saveButton)
@@ -219,6 +251,8 @@ extension EditNoteView {
         })
     }
     
+    
+    /// Set up the "Done" typing button.
     private func setupDoneTypingView() {
         doneTypingbuttonContainerView.addSubview(doneTypingButton)
         doneTypingButton.snp.makeConstraints({ make in
@@ -231,6 +265,7 @@ extension EditNoteView {
     }
     
     
+    /// Set up the date picker label.
     private func setupDatePickerLabelView() {
         datePickerLabelContainer.addSubview(datePickerLabel)
         datePickerLabel.snp.makeConstraints({ make in
@@ -241,6 +276,8 @@ extension EditNoteView {
         })
     }
     
+    
+    /// Set up the date picker.
     private func setupDatePickerView() {
         datePickerContainer.addSubview(datePicker)
         datePicker.snp.makeConstraints({ make in
@@ -251,6 +288,8 @@ extension EditNoteView {
         })
     }
     
+    
+    /// Set up the text view.
     private func setupTextView() {
         textViewLabelContainer.addSubview(textViewLabel)
         textViewLabel.snp.makeConstraints({ make in
@@ -275,17 +314,24 @@ extension EditNoteView {
 // MARK: Hiding and Showing SubViews
 
 extension EditNoteView {
+    
+    
+    /// Enter the mode for editing the text of the note.
+    /// - Parameter newBottom: The new bottom of the frame with the keyboard in view.
     func hideDatePickerViewsAndChangeButtons(withTopOfKeyboardAt newBottom: CGFloat) {
         showViewsInvolvedInTextEditing(true)
         textView.contentInset.bottom = newBottom
-//        textView.scrollIndicatorInsets.bottom = newBottom
     }
     
+    /// Return to the normal view with the keyboard out of the way.
     func showAllSubViews() {
         showViewsInvolvedInTextEditing(false)
         textView.contentInset = .zero
     }
     
+    
+    /// Turn the view into the mode for editing the text. This is an animated transition.
+    /// - Parameter state: A boolean for whether the view should be in the mode for editing the text of the note.
     private func showViewsInvolvedInTextEditing(_ state: Bool) {
         UIView.animate(withDuration: 0.3, animations: {
             self.datePickerLabelContainer.isHidden = state

@@ -10,53 +10,103 @@ import UIKit
 import SnapKit
 import ChameleonFramework
 
-
+/// A protocol for the communication between the `InformationView` and its view controller.
 protocol InformationViewDelegate {
+    /// The date sown label was tapped.
+    /// - Parameter label: The `UILabel` object.
     func dateSownLabelWasTapped(_ label: UILabel)
+    
+    /// The label showing the number of seeds was tapped.
+    /// - Parameter label: The `UILabel` object.
     func numberOfSeedsSownLabelWasTapped(_ label: UILabel)
+    
+    /// The germination stepper changed value.
+    /// - Parameter stepper: The `UIStepper` object.
     func germinationStepperValueDidChange(_ stepper: UIStepper)
+    
+    /// The death stepper changed value.
+    /// - Parameter stepper: The `UIStepper` object.
     func deathStepperValueDidChange(_ stepper: UIStepper)
+    
+    /// The germination counter label was tapped.
+    /// - Parameter label: The `UILabel` object.
     func germinationCounterLabelWasTapped(_ label: UILabel)
+    
+    /// The death counter label was tapped.
+    /// - Parameter label: The `UILabel` object.
     func deathCounterLabelWasTapped(_ label: UILabel)
 }
 
 
+/**
+ A view to show the general information about a set of seedlings.
+ 
+ It contains a chart on the top showing the rate of germination and death of the
+ seedlings. This is followed by labels showing the sowing date, number of
+ seeds sown, and counters for germination and death. There are many tap targets
+ and a lot of user interaction.
+ */
 class InformationView: UIView {
     
+    /// The delegate should be the controller for the view.
     var delegate: InformationViewDelegate?
     
+    /// The stack view that contains everything.
     var mainStackView = UIStackView()
     
+    /// The background for the labels underneath the chart.
     var labelBackgroundView = UIView()
     
+    /// A container for the date sown label: `dateSownLabel`.
     var dateSownContainerView = UIView()
+
+    /// The label that shows the date.
     var dateSownLabel = UILabel()
     
+    /// A container for the label with the number of seeds: `numberOfSeedsSownLabel`.
     var numberOfSeedsSownContainerView = UIView()
+    /// The label showing the number of seeds.
     var numberOfSeedsSownLabel = UILabel()
     
+    /// The container for the components that comprise the germination counter.
     var germinationCounterContainerView = UIView()
+    /// A stack view for organizing the components of the germination counter.
+    /// This sits within the `germinationCounterContainerView`,
     var germinationCounterStackView = UIStackView()
+    /// The label showing the number of germinations.
     var germinationCounterLabel = UILabel()
+    /// The stepper for the germinations.
     var germinationStepper = UIStepper()
+    /// A background view for the germination counter components.
     var germinationStepperBackgroundView = UIView()
     
+    /// The container for the components that comprise the death counter.
     var deathCounterContainerView = UIView()
+    /// A stack view for organizing the components of the death counter.
+    /// This sits within the `deathCounterContainerView`,
     var deathCounterStackView = UIStackView()
+    /// The label showing the number of deaths.
     var deathCounterLabel = UILabel()
+    /// The stepper for the deaths.
     var deathStepper = UIStepper()
+    /// A background view for the death counter components.
     var deathStepperBackgroundView = UIView()
     
+    /// The view holding the chart view.
     var chartContainerView = UIView()
     
-    var halfViewFrameHeight: CGFloat = 0
-    var heightOfTopViews: CGFloat = 0
-    var sideInset: CGFloat = 15
-    var verticalSeparation: CGFloat = 5
+    /// A value for half the height of the view. It gets set after the view loads.
+    private var halfViewFrameHeight: CGFloat = 0
+    /// The inset of all subviews from the edges.
+    private var sideInset: CGFloat = 15
+    /// The vertical spacing between subviews.
+    private var verticalSeparation: CGFloat = 5
     
-    var cornerRadius: CGFloat = 8
+    /// The corner radius for labels and background views.
+    private var cornerRadius: CGFloat = 8
     
     
+    // Set up the view after initialization.
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupStackView()
@@ -64,8 +114,11 @@ class InformationView: UIView {
     }
     
     
+    // Set up the view after initialization.
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setupStackView()
+        setupInteractions()
     }
     
     
@@ -73,7 +126,6 @@ class InformationView: UIView {
     func setupStackView() {
         
         halfViewFrameHeight = frame.height / 2.0
-        heightOfTopViews = halfViewFrameHeight / 4.0
         
         addSubview(labelBackgroundView)
         addSubview(germinationStepperBackgroundView)
@@ -250,12 +302,12 @@ class InformationView: UIView {
         
         deathStepper.minimumValue = 0
         deathStepper.stepValue = 1
-//        deathStepper.tintColor = .white
         
         setStyleFor(view: &deathStepperBackgroundView)
     }
     
     
+    /// Set up the background view of the labels.
     private func setupLabelBackgroundView() {
         setStyleFor(view: &labelBackgroundView)
         if #available(iOS 13, *) {
@@ -274,7 +326,7 @@ class InformationView: UIView {
         }
     }
     
-    
+    /// Set the style of views to a standardized appearance.
     private func setStyleFor(view: inout UIView) {
         if #available(iOS 13, *) {
             view.backgroundColor = .secondarySystemGroupedBackground
@@ -286,6 +338,7 @@ class InformationView: UIView {
     }
     
     
+    /// Set the style of labels to a standardized appearance.
     private func setStyleFor(label: inout UILabel) {
         if #available(iOS 13, *) {
             label.backgroundColor = .secondarySystemGroupedBackground
@@ -324,7 +377,6 @@ class InformationView: UIView {
     
     
     /// Set the number of germinations.
-    ///
     /// This sets both the label and the stepper value.
     func set(numberOfGerminationsTo num: Int) {
         germinationCounterLabel.text = "Num. of germinations: \(num)"
@@ -333,7 +385,6 @@ class InformationView: UIView {
     
     
     /// Set the number of deaths.
-    ///
     /// This sets both the label and the stepper value.
     func set(numberOfDeathsTo num: Int) {
         deathCounterLabel.text = "Num. of deaths: \(num)"
@@ -370,8 +421,7 @@ class InformationView: UIView {
     
     
     /// Respond to the date of sowing label being tapped.
-    ///
-    /// Calls the deleage's `dateSownLabelWasTapped(_ label: UILabel)` method.
+    /// Calls the delegate's `dateSownLabelWasTapped(_: UILabel)` method.
     @objc private func dateSownLabelWasTapped() {
         guard let delegate = delegate else { return }
         delegate.dateSownLabelWasTapped(dateSownLabel)
@@ -379,20 +429,23 @@ class InformationView: UIView {
     
     
     /// Respond to the number of seeds label being tapped.
-    ///
-    /// Calls the deleage's `numberOfSeedsSownLabelWasTapped(_ label: UILabel)` method.
+    /// Calls the delegate's `numberOfSeedsSownLabelWasTapped(_: UILabel)` method.
     @objc private func numberOfSeedsSownLabelWasTapped() {
         guard let delegate = delegate else { return }
         delegate.numberOfSeedsSownLabelWasTapped(numberOfSeedsSownLabel)
     }
     
     
+    /// Respond to the label for the germination counter being tapped.
+    /// Calls the delegate's `germinationCounterLabelWasTapped(_: UILabel)` method.
     @objc private func germinationCounterLabelWasTapped() {
         guard let delegate = delegate else { return }
         delegate.germinationCounterLabelWasTapped(germinationCounterLabel)
     }
     
     
+    /// Respond to the label for the death counter being tapped.
+    /// Calls the delegate's `deathCounterLabelWasTapped(_: UILabel)` method.
     @objc private func deathCounterLabelWasTapped() {
         guard let delegate = delegate else { return }
         delegate.deathCounterLabelWasTapped(deathCounterLabel)
@@ -401,7 +454,6 @@ class InformationView: UIView {
     
     /// Respond the the change in value of a stepper.
     /// This is the target for both the germination and death steppers.
-    ///
     /// Calls the delegate's appropriate method for dealing with the steppers.
     @objc private func stepperValueDidChange(_ stepper: UIStepper) {
         guard let delegate = delegate else { return }
