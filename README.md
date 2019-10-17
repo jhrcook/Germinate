@@ -18,6 +18,8 @@ The following GIF prevides a general summary of the current app.
 
 <img src="misc/screenshots/2019-10-03_screen-recording.gif" width=300 />
 
+**[Documentation](https://jhrcook.github.io/Germination-Tracker/)**
+
 
 Third-Party Libraries
 
