@@ -95,6 +95,7 @@
 		841DF34223359FC900D20B08 /* Germination Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				841DF34F23359FCB00D20B08 /* Info.plist */,
 				84D3BDD72358ACD50061D9C3 /* Supporting Files */,
 				849CA3292336E78200505FE9 /* View Controllers */,
 				849CA3282336E77400505FE9 /* Models */,
@@ -148,7 +149,6 @@
 			children = (
 				841DF34A23359FCB00D20B08 /* Assets.xcassets */,
 				841DF34323359FC900D20B08 /* AppDelegate.swift */,
-				841DF34F23359FCB00D20B08 /* Info.plist */,
 				84D3BDD82358AD6D0061D9C3 /* Log.swift */,
 			);
 			path = "Supporting Files";
