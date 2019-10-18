@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 import ChameleonFramework
 
 /**
@@ -23,6 +24,8 @@ class LibraryViewController: UITableViewController {
     
     
     override func viewDidLoad() {
+        os_log("Library view controller view did load.", log: Log.libraryVC, type: .info)
+        
         super.viewDidLoad()
         
         // Navigation bar button to add a new plant.
@@ -37,9 +40,11 @@ class LibraryViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        os_log("Library view controller view will appear.", log: Log.libraryVC, type: .info)
+        
         super.viewWillAppear(animated)
         
-        // Save plants and reload the table view's data every time the view will appear
+        // Save plants and reload the table view's data every time the view will appear.
         plantsManager.savePlants()
         tableView.reloadData()
     }
@@ -70,6 +75,8 @@ class LibraryViewController: UITableViewController {
     /// This opens a alert controller with a text field for the user to enter the new plant's name.
     /// It then saves the new plant and opens its detail view.
     @objc private func addNewPlant() {
+        os_log("Adding a new plant.", log: Log.libraryVC, type: .info)
+        
         let ac = UIAlertController(title: "New plant name", message: "Enter the name of the new plant you are sowing.", preferredStyle: .alert)
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "Submit", style: .default) { [weak self] _ in
@@ -80,6 +87,7 @@ class LibraryViewController: UITableViewController {
             // Reload the table view with the new plant and open its detail view.
             self?.tableView.reloadData()
             let indexPath = IndexPath(row: (self?.plantsManager.plants.count)! - 1, section: 0)
+                        
             self?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
             self?.performSegue(withIdentifier: "gardenToDetail", sender: self)
             self?.tableView.deselectRow(at: indexPath, animated: true)
@@ -92,6 +100,7 @@ class LibraryViewController: UITableViewController {
     /// Make a new plant with the name of another plant.
     /// - parameter plant: Plant object to use as the template for the copy.
     private func addPlant(copiedFromPlant plant: Plant) {
+        os_log("User is adding a new plant.", log: Log.libraryVC, type: .info)
         let indexPath = IndexPath(row: plantsManager.plants.count, section: 0)
         plantsManager.newPlant(named: plant.name)
         tableView.insertRows(at: [indexPath], with: .fade)
@@ -102,6 +111,7 @@ class LibraryViewController: UITableViewController {
     /// This function presents an alert controller with a text field for the user to enter the new name of the plant.
     /// - parameter indexPath: The index of the plant to change the name of.
     private func editPlantName(atIndex indexPath: IndexPath) {
+        os_log("User is editing the name of a plant.", log: Log.libraryVC, type: .info)
         let ac = UIAlertController(title: "Rename plant", message: nil, preferredStyle: .alert)
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self] _ in
@@ -112,6 +122,7 @@ class LibraryViewController: UITableViewController {
                 plant.name = text
                 manager.savePlants()
                 tableView.reloadData()
+                os_log("User has change the name of a plant.", log: Log.libraryVC, type: .info)
             }
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
