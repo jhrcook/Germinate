@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 import SnapKit
 import ChameleonFramework
 import SwiftyButton
@@ -138,7 +139,7 @@ class EditNoteView: UIView {
     /// Configure the view with the information from a note.
     /// - Parameter note: The note to pull information from.
     func configureEditView(withNote note: SeedNote) {
-        
+        os_log("Configuring the edit note view with a note.", log: Log.editNoteV, type: .info)
         // If the view has yet to be set up, do that first.
         if !viewIsSetup { setupView() }
         
@@ -152,6 +153,7 @@ class EditNoteView: UIView {
     /// Set the date picker label the the format: "Date: Month Day, Year"
     /// - Parameter date: The date to set the label to.
     func setDatePickerLabel(toDate date: Date) {
+        os_log("Setting date picker label.", log: Log.editNoteV, type: .info)
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         let text = dateFormatter.string(from: date)
@@ -319,12 +321,14 @@ extension EditNoteView {
     /// Enter the mode for editing the text of the note.
     /// - Parameter newBottom: The new bottom of the frame with the keyboard in view.
     func hideDatePickerViewsAndChangeButtons(withTopOfKeyboardAt newBottom: CGFloat) {
+        os_log("Entering text editing mode.", log: Log.editNoteV, type: .info)
         showViewsInvolvedInTextEditing(true)
         textView.contentInset.bottom = newBottom
     }
     
     /// Return to the normal view with the keyboard out of the way.
     func showAllSubViews() {
+        os_log("Leaving text editing mode.", log: Log.editNoteV, type: .info)
         showViewsInvolvedInTextEditing(false)
         textView.contentInset = .zero
     }
