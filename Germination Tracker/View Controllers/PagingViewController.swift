@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 import Pageboy
 import ChameleonFramework
 
@@ -39,6 +40,7 @@ class PagingViewController: PageboyViewController {
     /// When set, the right navigation bar button and title are updated.
     var currentPageIndex = 0 {
         didSet {
+            os_log("Paging index is changing to %d", log: Log.pagingVC, type: .info, currentPageIndex)
             if currentPageIndex == 0 {
                 navigationItem.rightBarButtonItem = nil
             } else {
@@ -52,6 +54,8 @@ class PagingViewController: PageboyViewController {
     var selectedNoteIndex: Int? = nil
     
     override func viewDidLoad() {
+        os_log("Paging view controller's view did load.", log: Log.pagingVC, type: .info)
+        
         super.viewDidLoad()
         
         currentPageIndex = 0
@@ -80,15 +84,18 @@ class PagingViewController: PageboyViewController {
     /// Create a new note.
     /// This presents a new view for the user to edit the new note in.
     @objc private func addNewNote() {
+        os_log("User is adding a note.", log: Log.pagingVC, type: .info)
         selectedNoteIndex = nil
         let editVC = EditNoteViewController(note: SeedNote())
         editVC.delegate = self
+        
         push(editVC)
     }
         
     /// Push the edit note view controller with self as delegate.
     /// - parameter editNoteViewController: The `EditNoteViewController` to push.
     fileprivate func push(_ editNoteViewController: EditNoteViewController) {
+        os_log("Pushing note editing view controller.", log: Log.pagingVC, type: .info)
         editNoteViewController.modalPresentationStyle = .formSheet
         editNoteViewController.modalTransitionStyle = .coverVertical
         present(editNoteViewController, animated: true, completion: nil)
@@ -150,6 +157,7 @@ extension PagingViewController: NotesTableViewControllerContainerDelegate {
     /// Presents the view for editing a notes.
     /// - parameter index: The index of the note to edit.
     func didSelectNoteToEdit(atIndex index: Int) {
+        os_log("User did select note at index %d.", log: Log.pagingVC, type: .info, index)
         selectedNoteIndex = index
         let editVC = EditNoteViewController(note: plant.notes[index])
         editVC.delegate = self
@@ -161,6 +169,7 @@ extension PagingViewController: NotesTableViewControllerContainerDelegate {
     /// - parameter index: The index of the note to delete.
     /// - Note: This is part of a standard `UITableView` delete sequence.
     func didDeleteNote(atIndex index: Int) {
+        os_log("User did delete note at index %d.", log: Log.pagingVC, type: .info, index)
         plant.notes.remove(at: index)
         plantsManager.savePlants()
         notesTableViewController.notes = plant.notes
@@ -175,6 +184,7 @@ extension PagingViewController: EditNoteViewControllerDelegate {
     /// When a note is edited, it replaces the note at the `selectedNoteIndex`.
     /// - parameter note: The edited note to keep.
     func noteWasEdited(_ note: SeedNote) {
+        os_log("User edited a note.", log: Log.pagingVC, type: .info)
         if let index = selectedNoteIndex {
             plant.replaceNote(atIndex: index, with: note)
         } else {
@@ -194,6 +204,7 @@ extension PagingViewController: EventDatesTableViewControllerDelegate {
     /// If a plant's date manager is changed, this method updated the `InformationViewController` and saves the plants array.
     /// The plant's data manager could be either the one for germination or deaths.
     func DatesManagerWasChanged(_ dateCounterManager: DateCounterManager) {
+        os_log("The data of a date counter manager did change.", log: Log.pagingVC, type: .info)
         informationViewController.updateGerminationDates()
         informationViewController.updateDeathDates()
         plantsManager.savePlants()
@@ -209,6 +220,7 @@ extension PagingViewController: InformationViewControllerDelegate {
     /// If the user taps on the germination label, a new view controller is presented to edit the dates and events.
     /// - parameter label: The label that was tapped (not changed here).
     func didTapGerminationDateLabel(_ label: UILabel) {
+        os_log("Pushing view controller for editing germination dates.", log: Log.pagingVC, type: .info)
         let vc = EventDatesTableViewController()
         vc.datesManager = plant.germinationDatesManager
         vc.parentDelegate = self
@@ -220,6 +232,7 @@ extension PagingViewController: InformationViewControllerDelegate {
     /// If the user taps on the deaths label, a new view controller is presented to edit the dates and events.
     /// - parameter label: The label that was tapped (not changed here).
     func didTapDeathDateLabel(_ label: UILabel) {
+        os_log("Pushing view controller for editing death dates.", log: Log.pagingVC, type: .info)
         let vc = EventDatesTableViewController()
         vc.datesManager = plant.deathDatesManager
         vc.parentDelegate = self
