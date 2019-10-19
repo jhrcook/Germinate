@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 import Charts
 import ChameleonFramework
 import SnapKit
@@ -51,6 +52,7 @@ class ChartViewController: UIViewController {
     /// Initialize the controller with a plant object.
     /// It automatically creates and draws the chart right away.
     init(plant: Plant) {
+        os_log("Initializing a chart with a plant.", log: Log.chartVC, type: .info)
         self.plant = plant
         super.init(nibName: nil, bundle: nil)
         drawChart(withAnimation: true)
@@ -64,6 +66,8 @@ class ChartViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        os_log("View did load.", log: Log.chartVC, type: .info)
+        
         super.viewDidLoad()
 
         setupView()
@@ -91,6 +95,7 @@ class ChartViewController: UIViewController {
     
     /// Update the chart (without animation).
     func updateChart() {
+        os_log("Instructed to update the chart.", log: Log.chartVC, type: .info)
         drawChart(withAnimation: false)
     }
     
@@ -98,6 +103,7 @@ class ChartViewController: UIViewController {
     /// The function responsible for drawing the chart.
     /// - parameter animate: Whether the animate the drawing or not.
     func drawChart(withAnimation animate: Bool) {
+        os_log("Drawing the chart.", log: Log.chartVC, type: .info)
         
         var startDate = plant.dateOfSeedSowing
         let today = Date()
@@ -124,9 +130,11 @@ class ChartViewController: UIViewController {
         
         
         if allDatesSinceBeginning.count != cumulativeGerminationCount.count {
+            os_log("The number of dates (x) does not equal the number of cumulative germ. counts (y).", log: Log.chartVC, type: .error)
             fatalError("The number of dates (x) does not equal the number of cumulative germ. counts (y).")
         }
         if allDatesSinceBeginning.count != cumulativeDeathCount.count {
+            os_log("The number of dates (x) does not equal the number of cumulative death counts (y).", log: Log.chartVC, type: .error)
             fatalError("The number of dates (x) does not equal the number of cumulative death counts (y).")
         }
         
@@ -184,6 +192,8 @@ class ChartViewController: UIViewController {
     /// - parameter dataSet: The data set to style.
     /// - parameter eventType: The type of event of the data set. The line color is determined by the event type.
     private func styleLineDataSet(_ dataSet: inout LineChartDataSet, forEvent eventType: EventType) {
+        os_log("Styling a line data set.", log: Log.chartVC, type: .info)
+        
         // customize germinationSet
         dataSet.drawCirclesEnabled = false
         dataSet.drawCircleHoleEnabled = false
@@ -214,6 +224,8 @@ class ChartViewController: UIViewController {
     /// - parameter datesManager: The manager of the events being counted.
     /// - parameter dates: The dates to accumulate the events over.
     private func calculateCumulativeCounts(forDatesManager datesManager: DateCounterManager, forDates dates: [Date]) -> [Double] {
+        os_log("Calculating the cumulative counts.", log: Log.chartVC, type: .info)
+        
         // initialize empty array and counter
         var cumulativeCount = [Double]()
         var totalCount: Double = 0
