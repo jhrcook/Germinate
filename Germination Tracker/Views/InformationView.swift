@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 import SnapKit
 import ChameleonFramework
 
@@ -108,6 +109,7 @@ class InformationView: UIView {
     
     // Set up the view after initialization.
     override init(frame: CGRect) {
+        os_log("Initializing information view with a frame.", log: Log.informationV, type: .info)
         super.init(frame: frame)
         setupStackView()
         setupInteractions()
@@ -116,6 +118,7 @@ class InformationView: UIView {
     
     // Set up the view after initialization.
     required init?(coder: NSCoder) {
+        os_log("Initializing information view with a NSCoder.", log: Log.informationV, type: .info)
         super.init(coder: coder)
         setupStackView()
         setupInteractions()
@@ -354,6 +357,7 @@ class InformationView: UIView {
     
     /// Set up the information for a plant object.
     func configureViewFor(_ plant: Plant) {
+        os_log("Configuring the view for a plant.", log: Log.informationV, type: .info)
         set(dateSownLabelTo: plant.dateOfSeedSowing)
         set(numberOfSeedlingsTo: plant.numberOfSeedsSown)
         set(numberOfGerminationsTo: plant.germinationDatesManager.totalCount)
@@ -363,6 +367,7 @@ class InformationView: UIView {
     
     /// Set the date of sowing label.
     func set(dateSownLabelTo date: Date) {
+        os_log("Setting the date sown label.", log: Log.informationV, type: .info)
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         let text = "Date sown: \(dateFormatter.string(from: date))"
@@ -372,6 +377,7 @@ class InformationView: UIView {
     
     /// Set the number of seedlings label.
     func set(numberOfSeedlingsTo num: Int) {
+        os_log("Setting the number of seeds sown label.", log: Log.informationV, type: .info)
         numberOfSeedsSownLabel.text = "Num. seeds sown: \(num)"
     }
     
@@ -379,6 +385,7 @@ class InformationView: UIView {
     /// Set the number of germinations.
     /// This sets both the label and the stepper value.
     func set(numberOfGerminationsTo num: Int) {
+        os_log("Setting the number of germinations label.", log: Log.informationV, type: .info)
         germinationCounterLabel.text = "Num. of germinations: \(num)"
         germinationStepper.value = Double(num)
     }
@@ -387,6 +394,7 @@ class InformationView: UIView {
     /// Set the number of deaths.
     /// This sets both the label and the stepper value.
     func set(numberOfDeathsTo num: Int) {
+        os_log("Setting the number of deaths label.", log: Log.informationV, type: .info)
         deathCounterLabel.text = "Num. of deaths: \(num)"
         deathStepper.value = Double(num)
     }
@@ -423,6 +431,7 @@ class InformationView: UIView {
     /// Respond to the date of sowing label being tapped.
     /// Calls the delegate's `dateSownLabelWasTapped(_: UILabel)` method.
     @objc private func dateSownLabelWasTapped() {
+        os_log("The date sown label was tapped.", log: Log.informationV, type: .info)
         guard let delegate = delegate else { return }
         delegate.dateSownLabelWasTapped(dateSownLabel)
     }
@@ -431,6 +440,7 @@ class InformationView: UIView {
     /// Respond to the number of seeds label being tapped.
     /// Calls the delegate's `numberOfSeedsSownLabelWasTapped(_: UILabel)` method.
     @objc private func numberOfSeedsSownLabelWasTapped() {
+        os_log("The number of seeds sown label was tapped.", log: Log.informationV, type: .info)
         guard let delegate = delegate else { return }
         delegate.numberOfSeedsSownLabelWasTapped(numberOfSeedsSownLabel)
     }
@@ -439,6 +449,7 @@ class InformationView: UIView {
     /// Respond to the label for the germination counter being tapped.
     /// Calls the delegate's `germinationCounterLabelWasTapped(_: UILabel)` method.
     @objc private func germinationCounterLabelWasTapped() {
+        os_log("The germination counter label was tapped.", log: Log.informationV, type: .info)
         guard let delegate = delegate else { return }
         delegate.germinationCounterLabelWasTapped(germinationCounterLabel)
     }
@@ -447,6 +458,7 @@ class InformationView: UIView {
     /// Respond to the label for the death counter being tapped.
     /// Calls the delegate's `deathCounterLabelWasTapped(_: UILabel)` method.
     @objc private func deathCounterLabelWasTapped() {
+        os_log("The death counter sown label was tapped.", log: Log.informationV, type: .info)
         guard let delegate = delegate else { return }
         delegate.deathCounterLabelWasTapped(deathCounterLabel)
     }
@@ -456,6 +468,7 @@ class InformationView: UIView {
     /// This is the target for both the germination and death steppers.
     /// Calls the delegate's appropriate method for dealing with the steppers.
     @objc private func stepperValueDidChange(_ stepper: UIStepper) {
+        os_log("The stepper value did change.", log: <#T##OSLog#>, type: <#T##OSLogType#>, <#T##args: CVarArg...##CVarArg#>)
         guard let delegate = delegate else { return }
         if stepper == germinationStepper {
             delegate.germinationStepperValueDidChange(stepper)

@@ -71,13 +71,6 @@ class LibraryTableViewCell: UITableViewCell {
         super.init(coder: coder)
         setupCellView()
     }
-    
-    
-    // Not used.
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
 
     /// Set the values of a cell for a plant.
@@ -154,8 +147,6 @@ class LibraryTableViewCell: UITableViewCell {
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-        // super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
         if selected {
             updateCellColor(forState: .selected)
