@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 import SnapKit
 import KeyboardObserver
 
@@ -49,17 +50,20 @@ class EditNoteViewController: UIViewController {
     /// Initialize the view controller with a note.
     /// - parameter note: The note to present to the user.
     init(note: SeedNote) {
+        os_log("A note editing view was initialized with a note.", log: Log.editNoteVC, type: .info)
         self.note = note
         super.init(nibName: nil, bundle: nil)
     }
     
     
     required init?(coder: NSCoder) {
+        os_log("The 'NSCoder' initializer was used and caused a crash.", log: Log.editNoteVC, type: .fault)
         fatalError("init(coder:) has not been implemented")
     }
     
 
     override func viewDidLoad() {
+        os_log("View did load.", log: Log.editNoteVC, type: .info)
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -89,6 +93,7 @@ class EditNoteViewController: UIViewController {
     /// Setup the interactions with the buttons, date picker, and text view. This method need only be called
     /// once upon set up. It is automatically called when the view is loaded.
     private func setupUIConnections() {
+        os_log("UI connections are being set up.", log: Log.editNoteVC, type: .info)
         editNoteView.datePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
         editNoteView.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         editNoteView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
@@ -98,12 +103,14 @@ class EditNoteViewController: UIViewController {
     
     /// Dismiss the view controller when the "Cancel" button is tapped.
     @objc private func cancelButtonTapped() {
+        os_log("The 'Cancel' button was tapped.", log: Log.editNoteVC, type: .info)
         dismiss(animated: true, completion: nil)
     }
     
     
     /// Send the note to the delegate and dismiss the view controller with the "Save" button is tapped.
     @objc private func saveButtonTapped() {
+        os_log("The 'Save' button was tapped.", log: Log.editNoteVC, type: .info)
         // Get the text from the text view.
         note.text = editNoteView.textView.text
         
@@ -116,6 +123,7 @@ class EditNoteViewController: UIViewController {
     
     /// Called when the "Done" button is tapped when in editing mode.
     @objc private func doneTypingButtonTapped() {
+        os_log("The 'Done' typing button was tapped.", log: Log.editNoteVC, type: .info)
         view.endEditing(true)
     }
     
@@ -123,6 +131,7 @@ class EditNoteViewController: UIViewController {
     /// Called when the date picker value changes.
     /// - parameter picker: The `UIDatePicker` object that has changed value.
     @objc func datePickerChanged(picker: UIDatePicker) {
+        os_log("The value fo the date picker changed.", log: Log.editNoteVC, type: .info)
         // Store the new date  and set as the current date in the label.
         note.dateCreated = picker.date
         editNoteView.setDatePickerLabel(toDate: picker.date)
@@ -137,13 +146,16 @@ class EditNoteViewController: UIViewController {
 extension EditNoteViewController {
     
     private func setupKeyboardObserver() {
+        os_log("Keyboard observer was notified.", log: Log.editNoteVC, type: .info)
         keyboard.observe { [weak self] event -> Void in
             guard let self = self else { return }
             
             switch event.type {
             case .willShow:
+                os_log("Keyboard will show.", log: Log.editNoteVC, type: .info)
                 self.activateTextEditingMode(withKeyboardHeight: event.keyboardFrameEnd)
             case .willHide:
+                os_log("Keyboard will hide.", log: Log.editNoteVC, type: .info)
                 self.deactivateTextEditingMode()
             default:
                 break
@@ -157,6 +169,7 @@ extension EditNoteViewController {
     /// - parameter keyboardFrameEnd: The frame at the end of the keyboard. The bottom is
     /// used as the new bottom  of the view.
     private func activateTextEditingMode(withKeyboardHeight keyboardFrameEnd: CGRect) {
+        os_log("Activating text editing mode.", log: Log.editNoteVC, type: .info)
         if !isInNoteTextEditingMode {
             let bottom = keyboardFrameEnd.height - view.alignmentRectInsets.bottom + 8
             editNoteView.hideDatePickerViewsAndChangeButtons(withTopOfKeyboardAt: bottom)
@@ -168,6 +181,7 @@ extension EditNoteViewController {
     /// End text editing mode.
     /// The  view is returned to normal.
     private func deactivateTextEditingMode() {
+        os_log("Deactivating text editing mode.", log: Log.editNoteVC, type: .info)
         if isInNoteTextEditingMode {
             editNoteView.showAllSubViews()
             isInNoteTextEditingMode = false
