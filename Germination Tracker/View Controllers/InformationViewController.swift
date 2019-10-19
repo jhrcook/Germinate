@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 import SnapKit
 
 
@@ -52,6 +53,7 @@ class InformationViewController: UIViewController {
     
     /// Initialize the view controller with a plant object.
     init(plant: Plant) {
+        os_log("Initializing the information view controller with a plant.", log: Log.informationVC, type: .info)
         self.plant = plant
         super.init(nibName: nil, bundle: nil)
     }
@@ -65,6 +67,8 @@ class InformationViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        os_log("View did load.", log: Log.informationVC, type: .info)
+        
         super.viewDidLoad()
         
         // Set up `chartViewController` for the plant.
@@ -86,6 +90,7 @@ class InformationViewController: UIViewController {
     /// If there are any changes to the germination events, calling this function will update the relevant subviews.
     /// It updates the germination counter label and stepper and the chart.
     func updateGerminationDates() {
+        os_log("Germination dates are being updated.", log: Log.informationVC, type: .info)
         informationView.set(numberOfGerminationsTo: plant.germinationDatesManager.totalCount)
         chartViewController.updateChart()
     }
@@ -93,6 +98,7 @@ class InformationViewController: UIViewController {
     /// If there are any changes to the death events, calling this function will update the relevant subviews.
     /// It updates the death counter label and stepper and the chart.
     func updateDeathDates() {
+        os_log("Death dates are being updated.", log: Log.informationVC, type: .info)
         informationView.set(numberOfDeathsTo: plant.deathDatesManager.totalCount)
         chartViewController.updateChart()
     }
@@ -105,12 +111,14 @@ extension InformationViewController: InformationViewDelegate {
     
     /// If the user taps the germination counter label to edit the events, the parent delegate is notified.
     func germinationCounterLabelWasTapped(_ label: UILabel) {
+        os_log("Germination counter label was tapped.", log: Log.informationVC, type: .info)
         parentDelegate?.didTapGerminationDateLabel(label)
     }
     
     
     /// If the user taps the death counter label to edit the events, the parent delegate is notified
     func deathCounterLabelWasTapped(_ label: UILabel) {
+        os_log("Death counter label was tapped.", log: Log.informationVC, type: .info)
         parentDelegate?.didTapDeathDateLabel(label)
     }
     
@@ -118,7 +126,7 @@ extension InformationViewController: InformationViewDelegate {
     /// If the user taps on the date sown label, a model view controller is presented to allow the user to
     /// change the date.
     func dateSownLabelWasTapped(_ label: UILabel) {
-        print("tapped date sown label")
+        os_log("Date label was tapped; pushing date picker view.", log: Log.informationVC, type: .info)
         let datePickerVC = DatePickerViewController()
         datePickerVC.delegate = self
         datePickerVC.datePicker.setDate(plant.dateOfSeedSowing, animated: false)
@@ -131,11 +139,13 @@ extension InformationViewController: InformationViewDelegate {
     /// Response to tapping on the number of seeds label to get new value.
     /// Sends an alert with a text field to get a new value.
     func numberOfSeedsSownLabelWasTapped(_ label: UILabel) {
+        os_log("The number of seeds sown label was tapped.", log: Log.informationVC, type: .info)
         let ac = UIAlertController(title: "Number of seeds sown", message: nil, preferredStyle: .alert)
         ac.addTextField(configurationHandler: { textField in
             textField.keyboardType = .numberPad
         })
         ac.addAction(UIAlertAction(title: "Enter", style: .default) { [weak self] _ in
+            os_log("The number of seeds sown has been changed.", log: Log.informationVC, type: .info)
             // Try to turn the input into an integer.
             if let numSeeds = self?.getFirstInteger(fromString: ac.textFields![0].text) {
                 // Get new number of seeds.
@@ -171,6 +181,7 @@ extension InformationViewController: InformationViewDelegate {
     /// If the value is decremented, the most recent event is removed.
     /// If the value is increased, the number of events for the current day is incremented.
     func germinationStepperValueDidChange(_ stepper: UIStepper) {
+        os_log("The germination stepper was used.", log: Log.informationVC, type: .info)
         let value = Int(stepper.value)
         informationView.set(numberOfGerminationsTo: value)
         if value < plant.germinationDatesManager.totalCount {
@@ -187,6 +198,7 @@ extension InformationViewController: InformationViewDelegate {
     /// If the value is decremented, the most recent event is removed.
     /// If the value is increased, the number of events for the current day is incremented.
     func deathStepperValueDidChange(_ stepper: UIStepper) {
+        os_log("The death stepper was used.", log: Log.informationVC, type: .info)
         let value = Int(stepper.value)
         informationView.set(numberOfDeathsTo: value)
         if value < plant.deathDatesManager.totalCount {
@@ -219,6 +231,7 @@ extension InformationViewController: DatePickerViewControllerDelegate {
     
     /// If a date is selected for the date of seed sowing, the information is stored and relevant subviews are updated.
     func dateSubmitted(_ date: Date) {
+        os_log("A new date was submitted.", log: Log.informationVC, type: .info)
         plant.dateOfSeedSowing = date
         informationView.set(dateSownLabelTo: date)
         plantsManager.savePlants()

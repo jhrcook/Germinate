@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import os
 
 
 /// A protocol for for communicating with the parent view controller that the user has changed the date.
@@ -67,6 +68,7 @@ class EventDatesTableViewController: UITableViewController {
     
     
     override func viewDidLoad() {
+        os_log("View did load.", log: Log.eventDatesTVC, type: .info)
         super.viewDidLoad()
 
         tableView.register(EventDatesTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
@@ -117,6 +119,7 @@ class EventDatesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            os_log("Swipe-to-delete at row %d.", log: Log.eventDatesTableVC, type: .info, indexPath.row)
             let date = datesManager.orderedDates[indexPath.row]
             datesManager.removeAllEvents(on: date)
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -134,6 +137,7 @@ class EventDatesTableViewController: UITableViewController {
     /// This function just adds the
     /// - todo: Use `Calendar` to get the day before.
     @objc private func addNewDate() {
+        os_log("Adding a new date.", log: Log.eventDatesTableVC, type: .info)
         var newDate = Date()
         if datesManager.totalCount != 0 {
             newDate = datesManager.orderedDates.first! - (24 * 60 * 60)
@@ -159,6 +163,7 @@ extension EventDatesTableViewController {
     /// Respond to the date label of a cell being tapped by showing a view controller with a date picker.
     /// - parameter sender: The gesture calling the function.
     @objc private func dateLabelTapped(sender: UITapGestureRecognizer) {
+        os_log("Date label was tapped; pushing the date picker view.", log: Log.eventDatesTableVC, type: .info)
         guard let tag = sender.view?.tag else { return }
         
         let currentDate = datesManager.orderedDates[tag]
@@ -177,6 +182,7 @@ extension EventDatesTableViewController {
     /// - parameter sender: The button that was tapped.
     /// - todo: There may be a bug here after swiping to delete a cell 
     @objc private func addButtonTapped(sender: UIButton) {
+        os_log("The '+' button was tapped.", log: Log.eventDatesTableVC, type: .info)
         let date = datesManager.orderedDates[sender.tag]
         datesManager.addEvent(on: date)
         if let delegate = parentDelegate { delegate.DatesManagerWasChanged(datesManager) }
@@ -188,6 +194,7 @@ extension EventDatesTableViewController {
     /// - parameter sender: The button that was tapped.
     /// - todo: There may be a bug here after swiping to delete a cell
     @objc private func subtractButtonTapped(sender: UIButton) {
+        os_log("The '-' button was tapped.", log: Log.eventDatesTableVC, type: .info)
         let date = datesManager.orderedDates[sender.tag]
                 
         if datesManager.numberOfEvents(onDate: date) == 1 {
@@ -215,6 +222,7 @@ extension EventDatesTableViewController: DatePickerViewControllerDelegate {
     /// Responds to a change in the date of a cell using the picker view.
     /// - parameter date: The new date for the cell.
     func dateSubmitted(_ date: Date) {
+        os_log("New date was submitted.", log: Log.eventDatesTableVC, type: .info)
         guard let indexOfDateBeingEdited = indexOfDateBeingEdited else { return }
         
         let oldDate = datesManager.orderedDates[indexOfDateBeingEdited]

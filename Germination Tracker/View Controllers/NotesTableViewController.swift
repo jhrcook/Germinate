@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 import ChameleonFramework
 
 /// A protocol for the communincation of of changes to notes to the owner of the plant
@@ -48,6 +49,7 @@ class NotesTableViewController: UITableViewController {
     
     
     override func viewDidLoad() {
+        os_log("View did load.", log: Log.notesTableVC, type: .info)
         super.viewDidLoad()
         setupTableView()
     }
@@ -108,6 +110,8 @@ class NotesTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        os_log("Cell %d was selected.", log: Log.notesTableVC, type: .info, indexPath.row)
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
         // Alert controller to edit or delete a cell.
@@ -132,6 +136,7 @@ class NotesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // Swipe to delete a note.
         if editingStyle == .delete {
+            os_log("Swipe-to-delete at row %d.", log: Log.notesTableVC, type: .info, indexPath.row)
             delegate?.didDeleteNote(atIndex: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
         }

@@ -149,3 +149,7 @@ xcuserdata
 # End of https://www.gitignore.io/api/swift,xcode,macos,swiftpm,cocoapods,swiftpackagemanager
 
 *.DS_Store
+
+
+
+Germination Tracker.xcworkspace/xcuserdata/admin.xcuserdatad/UserInterfaceState.xcuserstate

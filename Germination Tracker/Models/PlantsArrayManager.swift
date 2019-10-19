@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os
 
 
 /// A manager object responsible for caring for the array of plants in the app.
@@ -23,14 +24,15 @@ class PlantsArrayManager {
     
     /// Lead the plants from file.
     func loadPlants() {
+        os_log("Trying to load plants.", log: Log.plantsManager, type: .info)
         let defaults = UserDefaults.standard
         if let savedPlants = defaults.object(forKey: "plants") as? Data{
             let jsonDecoder = JSONDecoder()
             do {
                 plants = try jsonDecoder.decode([Plant].self, from: savedPlants)
-                print("Loading \(plants.count) plants.")
+                os_log("Loading %d plants.", log: Log.plantsManager, type: .info, plants.count)
             } catch {
-                print("Data type has changed and we lost your plants... sad.")
+                os_log("Unable to load data from file.", log: Log.plantsManager, type: .error)
             }
         }
     }
@@ -38,12 +40,14 @@ class PlantsArrayManager {
     
     /// Save plants to file.
     func savePlants() {
+        os_log("Trying to save plants.", log: Log.plantsManager, type: .info)
         let jsonEncoder = JSONEncoder()
         if let savedData = try? jsonEncoder.encode(plants) {
             let defaults = UserDefaults.standard
             defaults.set(savedData, forKey: "plants")
+            os_log("Successfully saved plants", log: Log.plantsManager, type: .info)
         } else {
-            fatalError("Failed to save plants.")
+            os_log("Failed to save plants.", log: Log.plantsManager, type: .fault)
         }
     }
     
@@ -51,6 +55,7 @@ class PlantsArrayManager {
     /// Add a new plant.
     /// - parameter name: The name of the new plant.
     func newPlant(named name: String) {
+        os_log("Making a new plant.", log: Log.plantsManager, type: .info)
         plants.append(Plant(name: name))
         savePlants()
     }
@@ -59,6 +64,7 @@ class PlantsArrayManager {
     /// Make fake plants and append to `plants` array.
     /// - note: This is for testing purposes only and willl not be used in production.
     private func makeTestPlantsArray() {
+        os_log("Making test plants.", log: Log.plantsManager, type: .info)
         plants = [
             Plant(name: "Lithops julli"),
             Plant(name: "Euphorbia obesa"),

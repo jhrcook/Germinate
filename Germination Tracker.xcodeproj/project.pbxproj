@@ -24,10 +24,11 @@
 		847B6EF8233714FC00BEFFC4 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B6EF7233714FC00BEFFC4 /* InformationView.swift */; };
 		8485E59A234C9581001ABEB9 /* DateCounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485E599234C9581001ABEB9 /* DateCounterManager.swift */; };
 		848E8CF1233B080400C663D0 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E8CF0233B080400C663D0 /* ChartViewController.swift */; };
-		84902E862347A78A0032E9D2 /* EventDatesTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84902E852347A78A0032E9D2 /* EventDatesTableViewControllerDelegate.swift */; };
+		84902E862347A78A0032E9D2 /* EventDatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84902E852347A78A0032E9D2 /* EventDatesTableViewController.swift */; };
 		84982F9B234B466C000AA023 /* EventDatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84982F9A234B466C000AA023 /* EventDatesTableViewCell.swift */; };
 		84B63CA82339B54B0064444C /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B63CA72339B54B0064444C /* EditNoteViewController.swift */; };
 		84B63CAA2339B55C0064444C /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B63CA92339B55C0064444C /* EditNoteView.swift */; };
+		84D3BDD92358AD6D0061D9C3 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3BDD82358AD6D0061D9C3 /* Log.swift */; };
 		FD1B73EA73842028A2F51E2E /* Pods_Germination_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32EC6AB9316DFB8B8D6E36C /* Pods_Germination_Tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,10 +52,11 @@
 		847B6EF7233714FC00BEFFC4 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		8485E599234C9581001ABEB9 /* DateCounterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCounterManager.swift; sourceTree = "<group>"; };
 		848E8CF0233B080400C663D0 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
-		84902E852347A78A0032E9D2 /* EventDatesTableViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventDatesTableViewControllerDelegate.swift; path = "Germination Tracker/View Controllers/EventDatesTableViewControllerDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		84902E852347A78A0032E9D2 /* EventDatesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventDatesTableViewController.swift; path = "Germination Tracker/View Controllers/EventDatesTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84982F9A234B466C000AA023 /* EventDatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDatesTableViewCell.swift; sourceTree = "<group>"; };
 		84B63CA72339B54B0064444C /* EditNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
 		84B63CA92339B55C0064444C /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
+		84D3BDD82358AD6D0061D9C3 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		8AF7233A6627F2216CC4ACD7 /* Pods-Germination Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Germination Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Germination Tracker/Pods-Germination Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		8DBB20544F06CC20347A6E10 /* Pods-Germination Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Germination Tracker.release.xcconfig"; path = "Target Support Files/Pods-Germination Tracker/Pods-Germination Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		A32EC6AB9316DFB8B8D6E36C /* Pods_Germination_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Germination_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,12 +95,11 @@
 		841DF34223359FC900D20B08 /* Germination Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				841DF34323359FC900D20B08 /* AppDelegate.swift */,
+				841DF34F23359FCB00D20B08 /* Info.plist */,
+				84D3BDD72358ACD50061D9C3 /* Supporting Files */,
 				849CA3292336E78200505FE9 /* View Controllers */,
 				849CA3282336E77400505FE9 /* Models */,
 				849CA32A2336E91600505FE9 /* Views */,
-				841DF34A23359FCB00D20B08 /* Assets.xcassets */,
-				841DF34F23359FCB00D20B08 /* Info.plist */,
 			);
 			path = "Germination Tracker";
 			sourceTree = "<group>";
@@ -124,7 +125,7 @@
 				848E8CF0233B080400C663D0 /* ChartViewController.swift */,
 				845780F023383D55004EEAD1 /* DatePickerViewController.swift */,
 				84B63CA72339B54B0064444C /* EditNoteViewController.swift */,
-				84902E852347A78A0032E9D2 /* EventDatesTableViewControllerDelegate.swift */,
+				84902E852347A78A0032E9D2 /* EventDatesTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -141,6 +142,16 @@
 				8405D4A623419236004CF4BB /* AppThemeColors.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		84D3BDD72358ACD50061D9C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				841DF34A23359FCB00D20B08 /* Assets.xcassets */,
+				841DF34323359FC900D20B08 /* AppDelegate.swift */,
+				84D3BDD82358AD6D0061D9C3 /* Log.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D615FDE04AEB6FAD7724A321 /* Pods */ = {
@@ -289,9 +300,10 @@
 				842149B0233DB137006CA704 /* PagingViewController.swift in Sources */,
 				841DF34423359FC900D20B08 /* AppDelegate.swift in Sources */,
 				841DF3582335ACC700D20B08 /* PlantsArrayManager.swift in Sources */,
+				84D3BDD92358AD6D0061D9C3 /* Log.swift in Sources */,
 				840100A32338F4EC00AD7B1B /* NotesTableViewController.swift in Sources */,
 				84B63CA82339B54B0064444C /* EditNoteViewController.swift in Sources */,
-				84902E862347A78A0032E9D2 /* EventDatesTableViewControllerDelegate.swift in Sources */,
+				84902E862347A78A0032E9D2 /* EventDatesTableViewController.swift in Sources */,
 				842149B2233DB27F006CA704 /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
