@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 import SnapKit
 import ChameleonFramework
 import SwiftyButton
@@ -93,6 +94,8 @@ class DatePickerViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        os_log("View did load.", log: Log.datePickerVC, type: .info)
+        
         super.viewDidLoad()
         
         if #available(iOS 13, *) {
@@ -154,6 +157,7 @@ class DatePickerViewController: UIViewController {
     
     /// Is called when the user taps the "Enter" button. It sends the selected date to the delegate and then dismisses the view controller.
     @objc private func tapEnter() {
+        os_log("The 'Enter' button was tapped.", log: Log.datePickerVC, type: .info)
         if let delegate = delegate { delegate.dateSubmitted(selectedDate ?? datePicker.date) }
         dismiss(animated: true, completion: nil)
     }
@@ -161,12 +165,14 @@ class DatePickerViewController: UIViewController {
     
     /// Is called when the user taps the "Cancel" button. It dismisses the view controller.
     @objc private func tapCancel() {
+        os_log("The 'Cancer' button was tapped.", log: Log.datePickerVC, type: .info)
         dismiss(animated: true, completion: nil)
     }
     
     
     /// Is  called when the date picker changes value. It updates the `selectedDate` attribute.
     @objc private func datePickerChanged(picker: UIDatePicker) {
+        os_log("The date picker's value changed.", log: Log.datePickerVC, type: .info)
         selectedDate = picker.date
     }
 
