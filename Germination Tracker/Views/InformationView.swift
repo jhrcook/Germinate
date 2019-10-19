@@ -468,7 +468,7 @@ class InformationView: UIView {
     /// This is the target for both the germination and death steppers.
     /// Calls the delegate's appropriate method for dealing with the steppers.
     @objc private func stepperValueDidChange(_ stepper: UIStepper) {
-        os_log("The stepper value did change.", log: <#T##OSLog#>, type: <#T##OSLogType#>, <#T##args: CVarArg...##CVarArg#>)
+        os_log("The stepper value did change.", log: Log.informationV, type: .info)
         guard let delegate = delegate else { return }
         if stepper == germinationStepper {
             delegate.germinationStepperValueDidChange(stepper)
