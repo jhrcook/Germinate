@@ -12,6 +12,7 @@ import os
 
 /// A plant trying to be grown from seed.
 class Plant: Codable {
+    
 
     /// The name of the plant.
     var name: String
@@ -72,4 +73,14 @@ class Plant: Codable {
         notes = notes.sorted(by: { $0.dateCreated < $1.dateCreated })
     }
 
+}
+
+
+extension Plant {
+    
+    static func == (lhs: Plant, rhs: Plant) -> Bool {
+        return lhs.name == rhs.name && lhs.dateOfSeedSowing == rhs.dateOfSeedSowing && lhs.numberOfSeedsSown == rhs.numberOfSeedsSown
+    }
+    
+    
 }

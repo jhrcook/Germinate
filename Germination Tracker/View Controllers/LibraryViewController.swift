@@ -10,6 +10,7 @@ import UIKit
 import os
 import ChameleonFramework
 
+
 /**
  A table view controller for all of the sowings.
  */
@@ -18,9 +19,24 @@ class LibraryViewController: UITableViewController {
     /// String to reference reusbale cells.
     private let reusableCellIdentifier = "PlantCell"
     
+    /// The sorting system for the library's cells.
+    private var sortOption: SortOption = {
+        let defaults = UserDefaults.standard
+        let option = defaults.object(forKey: "librarySortOption") as? SortOption ?? SortOption.byDateAscending
+        return option
+        }() {
+        didSet {
+            sectionManager.sortOption = self.sortOption
+            reloadData()
+        }
+    }
+    
     /// The object that handles the plants array.
     /// This object gets passed to several child view controllers.
     var plantsManager = PlantsArrayManager()
+    
+    
+    var sectionManager: LibraryTableViewDataManager!
     
     
     override func viewDidLoad() {
@@ -28,15 +44,16 @@ class LibraryViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        // Navigation bar button to add a new plant.
+        // Navigation bar button to sort (left) or add a new plant (right).
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(changeSortOption))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPlant))
         
         // Set up title.
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Garden"
         
-        // Remove table view cell separating lines.
-//        tableView.separatorStyle = .none
+        // Setup the data manager.
+        sectionManager = LibraryTableViewDataManager(plantsManager: plantsManager, sortOption: sortOption)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,18 +63,43 @@ class LibraryViewController: UITableViewController {
         
         // Save plants and reload the table view's data every time the view will appear.
         plantsManager.savePlants()
+        
+        // Organize the cells.
+        reloadData()
+    }
+    
+    
+    func reloadData() {
+        sectionManager.organizeSections()
         tableView.reloadData()
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionManager.sections[section].sectionName
+    }
+    
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as! LibraryTableViewCell
         
         // Get plant and set let the cell configure itself for a plant object.
-        let plant = plantsManager.plants[indexPath.row]
+        let section = sectionManager.sections[indexPath.section]
+        let plant = section.rows[indexPath.row]
         cell.configureCellFor(plant)
-        
         return cell
+    }
+
+    
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionManager.sections.count
+    }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sectionManager.sections[section].rows.count
     }
     
     
@@ -66,8 +108,15 @@ class LibraryViewController: UITableViewController {
     }
     
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return plantsManager.plants.count
+    
+    @objc private func changeSortOption() {
+        let ac = UIAlertController(title: "Sort Plants", message: "Change the sorting method of the plants.", preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "By plant name", style: .default) { [weak self] _ in self?.sortOption = SortOption.byPlantName })
+        ac.addAction(UIAlertAction(title: "By date (descending)", style: .default) { [weak self] _ in self?.sortOption = SortOption.byDateDescending })
+        ac.addAction(UIAlertAction(title: "By date (ascending)", style: .default) { [weak self] _ in self?.sortOption = SortOption.byDateAscending })
+        ac.addAction(UIAlertAction(title: "Into Active and Archived", style: .default) { [weak self] _ in self?.sortOption = SortOption.byActive })
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
     }
     
     
@@ -101,9 +150,10 @@ class LibraryViewController: UITableViewController {
     /// - parameter plant: Plant object to use as the template for the copy.
     private func addPlant(copiedFromPlant plant: Plant) {
         os_log("User is adding a new plant.", log: Log.libraryVC, type: .info)
-        let indexPath = IndexPath(row: plantsManager.plants.count, section: 0)
+//        let indexPath = IndexPath(row: plantsManager.plants.count, section: 0)
         plantsManager.newPlant(named: plant.name)
-        tableView.insertRows(at: [indexPath], with: .fade)
+        reloadData()
+//        tableView.insertRows(at: [indexPath], with: .fade)
     }
     
     
@@ -115,13 +165,12 @@ class LibraryViewController: UITableViewController {
         let ac = UIAlertController(title: "Rename plant", message: nil, preferredStyle: .alert)
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self] _ in
-            if let plant = self?.plantsManager.plants[indexPath.row],
+            if let plant = self?.sectionManager.plantForRowAt(indexPath: indexPath),
                 let text = ac.textFields![0].text,
-                let manager = self?.plantsManager,
-                let tableView = self?.tableView {
+                let manager = self?.plantsManager {
                 plant.name = text
                 manager.savePlants()
-                tableView.reloadData()
+                self?.reloadData()
                 os_log("User has change the name of a plant.", log: Log.libraryVC, type: .info)
             }
         }))
@@ -142,9 +191,10 @@ class LibraryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            plantsManager.plants.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .left)
+            let plant = sectionManager.plantForRowAt(indexPath: indexPath)
+            plantsManager.remove(plant)
             plantsManager.savePlants()
+            reloadData()
         }
     }
     
@@ -152,7 +202,7 @@ class LibraryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         // An action to copy the plant into a new `Plant` object.
         let copyAction = UIContextualAction(style: .normal, title: "Copy") { [weak self] (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in
-            self?.addPlant(copiedFromPlant: self?.plantsManager.plants[indexPath.row] ?? Plant(name: ""))
+            self?.addPlant(copiedFromPlant: self?.sectionManager.plantForRowAt(indexPath: indexPath) ?? Plant(name: ""))
             success(true)
         }
         if #available(iOS 13, *) {

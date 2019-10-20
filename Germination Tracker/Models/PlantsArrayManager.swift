@@ -68,6 +68,14 @@ class PlantsArrayManager {
     }
     
     
+    func remove(_ plant: Plant) {
+        if let idx = plants.firstIndex(where: { $0 == plant }) {
+            os_log("Removing plant at index %d", log: Log.plantsManager, type: .info, idx)
+            plants.remove(at: idx)
+        }
+    }
+    
+    
     /// Make fake plants and append to `plants` array.
     /// - note: This is for testing purposes only and willl not be used in production.
     private func makeTestPlantsArray() {
