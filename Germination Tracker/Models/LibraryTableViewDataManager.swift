@@ -13,7 +13,7 @@ import UIKit
 /**
  Options by which to sort the plants.
  */
-enum SortOption {
+enum SortOption: String {
     /// Order by date (descending).
     case byDateDescending
     /// Order by date (ascending).

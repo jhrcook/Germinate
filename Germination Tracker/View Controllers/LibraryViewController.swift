@@ -22,10 +22,17 @@ class LibraryViewController: UITableViewController {
     /// The sorting system for the library's cells.
     private var sortOption: SortOption = {
         let defaults = UserDefaults.standard
-        let option = defaults.object(forKey: "librarySortOption") as? SortOption ?? SortOption.byDateAscending
+        var option: SortOption!
+        if let optionString = defaults.string(forKey: "librarySortOption") {
+            option = SortOption(rawValue: optionString)
+        } else {
+            option = SortOption.byDateAscending
+        }
         return option
         }() {
         didSet {
+            let defaults = UserDefaults.standard
+            defaults.set(sortOption.rawValue, forKey: "librarySortOption")
             sectionManager.sortOption = self.sortOption
             reloadData()
         }
@@ -74,14 +81,40 @@ class LibraryViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionManager.sections[section].sectionName
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return sortOption == .byActive || sortOption == .byPlantName ? 50 : 0
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        
+        if #available(iOS 13, *) {
+            headerView.backgroundColor = .systemBackground
+        }
+        
+        let headerLabel = UILabel()
+        headerLabel.text = sectionManager.sections[section].sectionName
+        headerLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        
+        headerView.addSubview(headerLabel)
+        headerLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(headerView).inset(8)
+            make.leading.equalTo(headerView).inset(20)
+            make.trailing.equalTo(headerView).inset(20)
+        }
+        headerLabel.sizeToFit()
+        
+        
+        return headerView
+    }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as! LibraryTableViewCell
+        
+        // Tell the cell if it is part of a group or not
+        cell.cellsAreGrouped = (sortOption == .byActive || sortOption == .byPlantName)
         
         // Get plant and set let the cell configure itself for a plant object.
         let section = sectionManager.sections[indexPath.section]
@@ -111,10 +144,18 @@ class LibraryViewController: UITableViewController {
     
     @objc private func changeSortOption() {
         let ac = UIAlertController(title: "Sort Plants", message: "Change the sorting method of the plants.", preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "By plant name", style: .default) { [weak self] _ in self?.sortOption = SortOption.byPlantName })
-        ac.addAction(UIAlertAction(title: "By date (descending)", style: .default) { [weak self] _ in self?.sortOption = SortOption.byDateDescending })
-        ac.addAction(UIAlertAction(title: "By date (ascending)", style: .default) { [weak self] _ in self?.sortOption = SortOption.byDateAscending })
-        ac.addAction(UIAlertAction(title: "Into Active and Archived", style: .default) { [weak self] _ in self?.sortOption = SortOption.byActive })
+        ac.addAction(UIAlertAction(title: "By plant name", style: .default) { [weak self] _ in
+            if self?.sortOption != .byPlantName { self?.sortOption = .byPlantName }
+        })
+        ac.addAction(UIAlertAction(title: "By date (descending)", style: .default) { [weak self] _ in
+            if self?.sortOption != .byDateDescending { self?.sortOption = .byDateDescending }
+        })
+        ac.addAction(UIAlertAction(title: "By date (ascending)", style: .default) { [weak self] _ in
+            if self?.sortOption != .byDateAscending { self?.sortOption = .byDateAscending }
+        })
+        ac.addAction(UIAlertAction(title: "Into Active and Archived", style: .default) { [weak self] _ in
+            if self?.sortOption != .byActive { self?.sortOption = .byActive }
+        })
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }

@@ -13,6 +13,9 @@ import SnapKit
 /// The custom table view cell for the `LibraryViewController` table view.
 class LibraryTableViewCell: UITableViewCell {
 
+    /// If the cells are grouped or not.
+    var cellsAreGrouped = false
+    
     /// The title label.
     let titleLabel: UILabel = {
         let lbl = UILabel()
@@ -87,6 +90,24 @@ class LibraryTableViewCell: UITableViewCell {
         
         // Set information view.
         archiveLabel.isHidden = plant.isActive ?? false
+        
+        setBackgroundBasedOnGrouping()
+    }
+    
+    private func setBackgroundBasedOnGrouping() {
+        if cellsAreGrouped {
+            if #available(iOS 13, *) {
+                backgroundColor = .groupTableViewBackground
+            } else {
+                backgroundColor = .lightGray
+            }
+        } else {
+            if #available(iOS 13, *) {
+                backgroundColor = .systemBackground
+            } else {
+                backgroundColor = .white
+            }
+        }
     }
     
     
@@ -99,7 +120,7 @@ class LibraryTableViewCell: UITableViewCell {
         self.textLabel?.isHidden = true
         self.detailTextLabel?.isHidden = true
         self.imageView?.isHidden = true
-        
+
         
         addSubview(titleLabel)
         addSubview(dateLabel)
