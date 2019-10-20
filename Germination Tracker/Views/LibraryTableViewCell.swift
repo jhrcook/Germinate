@@ -19,14 +19,14 @@ class LibraryTableViewCell: UITableViewCell {
     /// The title label.
     let titleLabel: UILabel = {
         let lbl = UILabel()
-        lbl.font = UIFont.preferredFont(forTextStyle: .title2)
+        lbl.font = UIFont.preferredFont(forTextStyle: .body)
         return lbl
     }()
     
     /// The date label that shows the date the plant was sown.
     let dateLabel: UILabel = {
         let lbl = UILabel()
-        lbl.font = UIFont.preferredFont(forTextStyle: .body)
+        lbl.font = UIFont.preferredFont(forTextStyle: .caption1)
         return lbl
     }()
     
@@ -91,23 +91,6 @@ class LibraryTableViewCell: UITableViewCell {
         // Set information view.
         archiveLabel.isHidden = plant.isActive ?? false
         
-        setBackgroundBasedOnGrouping()
-    }
-    
-    private func setBackgroundBasedOnGrouping() {
-        if cellsAreGrouped {
-            if #available(iOS 13, *) {
-                backgroundColor = .groupTableViewBackground
-            } else {
-                backgroundColor = .lightGray
-            }
-        } else {
-            if #available(iOS 13, *) {
-                backgroundColor = .systemBackground
-            } else {
-                backgroundColor = .white
-            }
-        }
     }
     
     
@@ -129,10 +112,11 @@ class LibraryTableViewCell: UITableViewCell {
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(self)
-            make.bottom.equalTo(self.snp.centerY)
-            make.leading.equalTo(self).inset(10)
+            make.bottom.equalTo(self.snp.centerY).offset(10)
+            make.leading.equalTo(self).inset(25)
             make.trailing.equalTo(self).inset(25)
         }
+        
         
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom)

@@ -26,7 +26,7 @@ class LibraryViewController: UITableViewController {
         if let optionString = defaults.string(forKey: "librarySortOption") {
             option = SortOption(rawValue: optionString)
         } else {
-            option = SortOption.byDateAscending
+            option = SortOption.byPlantName
         }
         return option
         }() {
@@ -80,33 +80,10 @@ class LibraryViewController: UITableViewController {
         sectionManager.organizeSections()
         tableView.reloadData()
     }
+
     
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return sortOption == .byActive || sortOption == .byPlantName ? 50 : 0
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        
-        if #available(iOS 13, *) {
-            headerView.backgroundColor = .systemBackground
-        }
-        
-        let headerLabel = UILabel()
-        headerLabel.text = sectionManager.sections[section].sectionName
-        headerLabel.font = UIFont.preferredFont(forTextStyle: .title2)
-        
-        headerView.addSubview(headerLabel)
-        headerLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(headerView).inset(8)
-            make.leading.equalTo(headerView).inset(20)
-            make.trailing.equalTo(headerView).inset(20)
-        }
-        headerLabel.sizeToFit()
-        
-        
-        return headerView
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionManager.sections[section].sectionName
     }
     
     
@@ -137,7 +114,7 @@ class LibraryViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 60
     }
     
     
@@ -191,10 +168,10 @@ class LibraryViewController: UITableViewController {
     /// - parameter plant: Plant object to use as the template for the copy.
     private func addPlant(copiedFromPlant plant: Plant) {
         os_log("User is adding a new plant.", log: Log.libraryVC, type: .info)
-//        let indexPath = IndexPath(row: plantsManager.plants.count, section: 0)
         plantsManager.newPlant(named: plant.name)
-        reloadData()
-//        tableView.insertRows(at: [indexPath], with: .fade)
+        sectionManager.organizeSections()
+        let indexPath = sectionManager.indexPathForPlant(plant)
+        tableView.insertRows(at: [indexPath], with: .fade)
     }
     
     
@@ -232,10 +209,12 @@ class LibraryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            os_log("User is deleting the cell at section %d, row %d", log: Log.libraryVC, type: .info, indexPath.section, indexPath.row)
             let plant = sectionManager.plantForRowAt(indexPath: indexPath)
             plantsManager.remove(plant)
             plantsManager.savePlants()
-            reloadData()
+            sectionManager.organizeSections()
+            tableView.deleteRows(at: [indexPath], with: .left)
         }
     }
     

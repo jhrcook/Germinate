@@ -36,6 +36,7 @@ class PlantsArrayManager {
                 // Temporary fix for lack of migrations.
                 for plant in plants {
                     if plant.isActive == nil { plant.isActive = true }
+                    if plant.uuid == nil { plant.uuid = UUID().uuidString}
                 }
                 
             } catch {

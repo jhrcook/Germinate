@@ -127,4 +127,21 @@ class LibraryTableViewDataManager {
     func plantForRowAt(indexPath: IndexPath) -> Plant {
         return sections[indexPath.section].rows[indexPath.row]
     }
+    
+    
+    func indexPathForPlant(_ plant: Plant) -> IndexPath {
+        switch sortOption {
+        case .byDateDescending, .byDateAscending:
+            let row = sections[0].rows.firstIndex { $0 == plant } ?? sections[0].rows.count
+            return IndexPath(row: row, section: 0)
+        case .byActive:
+            let section = plant.isActive! ? 0 : 1
+            let row = sections[section].rows.firstIndex { $0 == plant } ?? sections[section].rows.count
+            return IndexPath(row: row, section: section)
+        case .byPlantName:
+            let section = sections.map { $0.sectionName }.firstIndex { $0 == plant.name }
+            let row = sections[section!].rows.firstIndex { $0 == plant }
+            return IndexPath(row: row!, section: section!)
+        }
+    }
 }
