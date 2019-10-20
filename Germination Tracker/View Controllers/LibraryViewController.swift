@@ -36,7 +36,7 @@ class LibraryViewController: UITableViewController {
         title = "Garden"
         
         // Remove table view cell separating lines.
-        tableView.separatorStyle = .none
+//        tableView.separatorStyle = .none
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +62,7 @@ class LibraryViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 70
     }
     
     

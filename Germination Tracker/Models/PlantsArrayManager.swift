@@ -31,6 +31,13 @@ class PlantsArrayManager {
             do {
                 plants = try jsonDecoder.decode([Plant].self, from: savedPlants)
                 os_log("Loading %d plants.", log: Log.plantsManager, type: .info, plants.count)
+                
+                
+                // Temporary fix for lack of migrations.
+                for plant in plants {
+                    if plant.isActive == nil { plant.isActive = true }
+                }
+                
             } catch {
                 os_log("Unable to load data from file.", log: Log.plantsManager, type: .error)
             }

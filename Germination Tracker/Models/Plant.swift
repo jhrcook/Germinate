@@ -31,6 +31,9 @@ class Plant: Codable {
     /// An array of type `SeedNote` containing notes about the germination process.
     var notes = [SeedNote]()
     
+    /// Is the plant currently being cultivated.
+    var isActive: Bool? = true
+    
     /// Initialize a plant by name.
     init(name: String) {
         os_log("Initializing a plant with a name.", log: Log.plant, type: .info)
