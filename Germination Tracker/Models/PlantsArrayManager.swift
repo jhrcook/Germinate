@@ -68,6 +68,16 @@ class PlantsArrayManager {
         savePlants()
     }
     
+    /// Add a new plant and it is returned, too.
+    /// - parameter name: The name of the new plant.
+    func getNewPlant(named name: String) -> Plant {
+        os_log("Making a new plant.", log: Log.plantsManager, type: .info)
+        let plant = Plant(name: name)
+        plants.append(plant)
+        savePlants()
+        return(plant)
+    }
+    
     
     func remove(_ plant: Plant) {
         if let idx = plants.firstIndex(where: { $0 == plant }) {

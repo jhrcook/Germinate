@@ -147,17 +147,25 @@ class LibraryViewController: UITableViewController {
         let ac = UIAlertController(title: "New plant name", message: "Enter the name of the new plant you are sowing.", preferredStyle: .alert)
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "Submit", style: .default) { [weak self] _ in
-            // Make and save new plant.
-            self?.plantsManager.newPlant(named: ac.textFields![0].text ?? "")
-            self?.plantsManager.savePlants()
-            
-            // Reload the table view with the new plant and open its detail view.
-            self?.tableView.reloadData()
-            let indexPath = IndexPath(row: (self?.plantsManager.plants.count)! - 1, section: 0)
-                        
-            self?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
-            self?.performSegue(withIdentifier: "gardenToDetail", sender: self)
-            self?.tableView.deselectRow(at: indexPath, animated: true)
+            if let manager = self?.plantsManager, let sectionManager = self?.sectionManager, let tv = self?.tableView {
+                // Make a new plant, reorganize the table view, and get index path of the new plant.
+                let plant = manager.getNewPlant(named: ac.textFields![0].text ?? "")
+                sectionManager.organizeSections()
+                let newIndexPath = sectionManager.indexPathForPlant(plant)
+                
+                // If necessary, insert a new section and insert a new row.
+                tv.performBatchUpdates({
+                    if sectionManager.numberOfPlants(inSection: newIndexPath.section) == 1 {
+                        tv.insertSections(IndexSet(integer: newIndexPath.section), with: .left)
+                    }
+                    tv.insertRows(at: [newIndexPath], with: .left)
+                })
+                
+                // Select the new plant to enter the detail view.
+                tv.selectRow(at: newIndexPath, animated: true, scrollPosition: .middle)
+                self?.performSegue(withIdentifier: "gardenToDetail", sender: self)
+                tv.deselectRow(at: newIndexPath, animated: true)
+            }
         })
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(ac, animated: true)
@@ -171,7 +179,7 @@ class LibraryViewController: UITableViewController {
         plantsManager.newPlant(named: plant.name)
         sectionManager.organizeSections()
         let indexPath = sectionManager.indexPathForPlant(plant)
-        tableView.insertRows(at: [indexPath], with: .fade)
+        tableView.insertRows(at: [indexPath], with: .left)
     }
     
     
