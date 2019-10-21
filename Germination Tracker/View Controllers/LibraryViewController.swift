@@ -243,7 +243,7 @@ class LibraryViewController: UITableViewController {
         // Specific segue instructions for passing to a `PagingViewController` for a plant.
         if let destinationVC = segue.destination as? PagingViewController,
             let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.plant = plantsManager.plants[indexPath.row]
+            destinationVC.plant = sectionManager.plantForRowAt(indexPath: indexPath)
             destinationVC.plantsManager = self.plantsManager
         }
     }
