@@ -255,8 +255,9 @@ class LibraryViewController: UITableViewController {
             let plant = sectionManager.plantForRowAt(indexPath: indexPath)
             let numberOfPlantsInSection = sectionManager.numberOfPlants(inSection: indexPath.section)
             plantsManager.remove(plant)
-            plantsManager.savePlants()
             sectionManager.organizeSections()
+            os_log("Number of plants in section %d to be deleted: %d.", log: Log.libraryVC, type: .debug, indexPath.section, numberOfPlantsInSection)
+            os_log("Number of sections currently in manager: %d", log: Log.libraryVC, type: .debug, sectionManager.sections.count)
             if numberOfPlantsInSection == 1 {
                 tableView.deleteSections(IndexSet(integer: indexPath.section), with: .left)
             } else {

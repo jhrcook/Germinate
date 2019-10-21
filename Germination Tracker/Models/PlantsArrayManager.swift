@@ -83,6 +83,7 @@ class PlantsArrayManager {
         if let idx = plants.firstIndex(where: { $0 == plant }) {
             os_log("Removing plant at index %d", log: Log.plantsManager, type: .info, idx)
             plants.remove(at: idx)
+            savePlants()
         }
     }
     

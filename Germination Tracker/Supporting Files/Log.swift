@@ -35,6 +35,8 @@ struct Log {
     
     
     // ---- Models ---- //
+    /// Logging object for `LibraryTableViewDataManager`.
+    static let libraryDM = OSLog(subsystem: subsystem, category: "LibraryTableViewDataManager")
     /// Logging object for `PlantsArrayManager`.
     static let plantsManager = OSLog(subsystem: subsystem, category: "PlantsArrayManager")
     /// Logging object for `Plant`.
