@@ -144,4 +144,9 @@ class LibraryTableViewDataManager {
             return IndexPath(row: row!, section: section!)
         }
     }
+    
+    
+    func numberOfPlants(inSection sectionIndex: Int) -> Int {
+        return sections[sectionIndex].rows.count
+    }
 }

@@ -181,14 +181,48 @@ class LibraryViewController: UITableViewController {
     private func editPlantName(atIndex indexPath: IndexPath) {
         os_log("User is editing the name of a plant.", log: Log.libraryVC, type: .info)
         let ac = UIAlertController(title: "Rename plant", message: nil, preferredStyle: .alert)
-        ac.addTextField()
+        ac.addTextField { [weak self] tf in
+            if let plant = self?.sectionManager.plantForRowAt(indexPath: indexPath) {
+                tf.text = plant.name
+                tf.selectedTextRange = tf.textRange(from: tf.endOfDocument, to: tf.endOfDocument)
+                tf.clearButtonMode = .always
+            }
+        }
         ac.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self] _ in
             if let plant = self?.sectionManager.plantForRowAt(indexPath: indexPath),
                 let text = ac.textFields![0].text,
-                let manager = self?.plantsManager {
+                let tv = self?.tableView,
+                let manager = self?.plantsManager,
+                let sectionManager = self?.sectionManager {
+                
+                // Nothing to update
+                if plant.name == text { return }
+                
+                // Get the number of plants that were in the section before the change (used during table view update).
+                let numberOfPlantsInOldSection = sectionManager.numberOfPlants(inSection: indexPath.section)
+                
+                // Update the plant, save, and reorganize the table view sections.
                 plant.name = text
                 manager.savePlants()
-                self?.reloadData()
+                sectionManager.organizeSections()
+                let newIndexPath = sectionManager.indexPathForPlant(plant)
+                
+                // Batch updates to table view.
+                tv.performBatchUpdates({
+                    // Remove section if it only had one plant left.
+                    if numberOfPlantsInOldSection == 1 {
+                        tv.deleteSections(IndexSet(integer: indexPath.section), with: .left)
+                    }
+                    // Insert section if it only has one plant after the move.
+                    // This means it is a new section.
+                    if sectionManager.numberOfPlants(inSection: newIndexPath.section) == 1 {
+                        tv.insertSections(IndexSet(integer: newIndexPath.section), with: .left)
+                    }
+                    
+                    // Delete old and insert new rows.
+                    tv.deleteRows(at: [indexPath], with: .left)
+                    tv.insertRows(at: [newIndexPath], with: .left)
+                })
                 os_log("User has change the name of a plant.", log: Log.libraryVC, type: .info)
             }
         }))
@@ -211,10 +245,15 @@ class LibraryViewController: UITableViewController {
         if editingStyle == .delete {
             os_log("User is deleting the cell at section %d, row %d", log: Log.libraryVC, type: .info, indexPath.section, indexPath.row)
             let plant = sectionManager.plantForRowAt(indexPath: indexPath)
+            let numberOfPlantsInSection = sectionManager.numberOfPlants(inSection: indexPath.section)
             plantsManager.remove(plant)
             plantsManager.savePlants()
             sectionManager.organizeSections()
-            tableView.deleteRows(at: [indexPath], with: .left)
+            if numberOfPlantsInSection == 1 {
+                tableView.deleteSections(IndexSet(integer: indexPath.section), with: .left)
+            } else {
+                tableView.deleteRows(at: [indexPath], with: .left)
+            }
         }
     }
     
