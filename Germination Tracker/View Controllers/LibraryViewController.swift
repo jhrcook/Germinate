@@ -94,9 +94,9 @@ class LibraryViewController: UITableViewController {
         cell.cellsAreGrouped = (sortOption == .byActive || sortOption == .byPlantName)
         
         // Get plant and set let the cell configure itself for a plant object.
-        let section = sectionManager.sections[indexPath.section]
-        let plant = section.rows[indexPath.row]
+        let plant = sectionManager.plantForRowAt(indexPath: indexPath)
         cell.configureCellFor(plant)
+        
         return cell
     }
 
@@ -109,7 +109,7 @@ class LibraryViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sectionManager.sections[section].rows.count
+        return sectionManager.numberOfPlants(inSection: section)
     }
     
     
@@ -147,9 +147,12 @@ class LibraryViewController: UITableViewController {
         let ac = UIAlertController(title: "New plant name", message: "Enter the name of the new plant you are sowing.", preferredStyle: .alert)
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "Submit", style: .default) { [weak self] _ in
-            if let manager = self?.plantsManager, let sectionManager = self?.sectionManager, let tv = self?.tableView {
+            if let manager = self?.plantsManager,
+                let sectionManager = self?.sectionManager,
+                let tv = self?.tableView {
+                
                 // Make a new plant, reorganize the table view, and get index path of the new plant.
-                let plant = manager.getNewPlant(named: ac.textFields![0].text ?? "")
+                let plant = manager.getNewPlant(named: ac.textFields?[0].text ?? "")
                 sectionManager.organizeSections()
                 let newIndexPath = sectionManager.indexPathForPlant(plant)
                 
@@ -256,8 +259,7 @@ class LibraryViewController: UITableViewController {
             let numberOfPlantsInSection = sectionManager.numberOfPlants(inSection: indexPath.section)
             plantsManager.remove(plant)
             sectionManager.organizeSections()
-            os_log("Number of plants in section %d to be deleted: %d.", log: Log.libraryVC, type: .debug, indexPath.section, numberOfPlantsInSection)
-            os_log("Number of sections currently in manager: %d", log: Log.libraryVC, type: .debug, sectionManager.sections.count)
+            os_log("Number of plants in section %d to be deleted: %d.", log: Log.libraryVC, type: .info, indexPath.section, numberOfPlantsInSection)
             if numberOfPlantsInSection == 1 {
                 tableView.deleteSections(IndexSet(integer: indexPath.section), with: .left)
             } else {
@@ -269,8 +271,8 @@ class LibraryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         // An action to copy the plant into a new `Plant` object.
-        let copyAction = UIContextualAction(style: .normal, title: "Copy") { [weak self] (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in
-            self?.addPlant(copiedFromPlant: self?.sectionManager.plantForRowAt(indexPath: indexPath) ?? Plant(name: ""))
+        let copyAction = UIContextualAction(style: .normal, title: "Copy") { (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in
+            self.addPlant(copiedFromPlant: self.sectionManager.plantForRowAt(indexPath: indexPath))
             success(true)
         }
         if #available(iOS 13, *) {

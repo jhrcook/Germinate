@@ -80,8 +80,9 @@ class PlantsArrayManager {
     
     
     func remove(_ plant: Plant) {
-        if let idx = plants.firstIndex(where: { $0 == plant }) {
+        if let idx = plants.firstIndex(where: { $0 === plant }) {
             os_log("Removing plant at index %d", log: Log.plantsManager, type: .info, idx)
+            os_log("Removing plant named %{public}s.", log: Log.plantsManager, type: .info, plant.name)
             plants.remove(at: idx)
             savePlants()
         }

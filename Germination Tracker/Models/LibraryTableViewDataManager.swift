@@ -134,7 +134,8 @@ class LibraryTableViewDataManager {
     
     func plantForRowAt(indexPath: IndexPath) -> Plant {
         os_log("Retrieving plant for a specific index path.", log: Log.libraryDM, type: .info)
-        return sections[indexPath.section].rows[indexPath.row]
+        let plant = sections[indexPath.section].rows[indexPath.row]
+        return plant
     }
     
     
@@ -142,15 +143,15 @@ class LibraryTableViewDataManager {
         os_log("Retrieving index for a plant.", log: Log.libraryDM, type: .info)
         switch sortOption {
         case .byDateDescending, .byDateAscending:
-            let row = sections[0].rows.firstIndex { $0 == plant } ?? sections[0].rows.count
+            let row = sections[0].rows.firstIndex { $0 === plant } ?? sections[0].rows.count
             return IndexPath(row: row, section: 0)
         case .byActive:
             let section = plant.isActive! ? 0 : 1
-            let row = sections[section].rows.firstIndex { $0 == plant } ?? sections[section].rows.count
+            let row = sections[section].rows.firstIndex { $0 === plant } ?? sections[section].rows.count
             return IndexPath(row: row, section: section)
         case .byPlantName:
             let section = sections.map { $0.sectionName }.firstIndex { $0 == plant.name }
-            let row = sections[section!].rows.firstIndex { $0 == plant }
+            let row = sections[section!].rows.firstIndex { $0 === plant }
             return IndexPath(row: row!, section: section!)
         }
     }
@@ -158,6 +159,7 @@ class LibraryTableViewDataManager {
     
     func numberOfPlants(inSection sectionIndex: Int) -> Int {
         os_log("Retrieving number of rows in section %d.", log: Log.libraryDM, type: .info, sectionIndex)
+        if sectionIndex >= sections.count { return 0 }
         return sections[sectionIndex].rows.count
     }
 }

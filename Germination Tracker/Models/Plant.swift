@@ -80,8 +80,9 @@ class Plant: Codable {
 
 extension Plant {
     
+    /// Are the plants of the same name.
     static func == (lhs: Plant, rhs: Plant) -> Bool {
-        return lhs.uuid == rhs.uuid
+        return lhs.name == rhs.name
     }
     
     
