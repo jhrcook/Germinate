@@ -40,7 +40,7 @@ class DatePickerViewController: UIViewController {
             lbl.backgroundColor = .white
             lbl.textColor = .black
         }
-        lbl.text = "Date of Sowing"
+        lbl.text = "Select a date"
         lbl.textAlignment = .center
         lbl.font = UIFont.preferredFont(forTextStyle: .title1)
         return lbl
@@ -93,6 +93,12 @@ class DatePickerViewController: UIViewController {
     var delegate: DatePickerViewControllerDelegate?
     
     
+    var headLabelTitle: String = "Select a date" {
+        didSet {
+            titleLabel.text = headLabelTitle
+        }
+    }
+    
     override func viewDidLoad() {
         os_log("View did load.", log: Log.datePickerVC, type: .info)
         
@@ -107,7 +113,6 @@ class DatePickerViewController: UIViewController {
         // set up the picker and buttons
         setupView()
     }
-
     
     /// Organize the view. This need only be called once and is automatically called when the view has been loaded.
     func setupView() {

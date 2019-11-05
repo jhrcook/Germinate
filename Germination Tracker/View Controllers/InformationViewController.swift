@@ -129,6 +129,7 @@ extension InformationViewController: InformationViewDelegate {
         os_log("Date label was tapped; pushing date picker view.", log: Log.informationVC, type: .info)
         let datePickerVC = DatePickerViewController()
         datePickerVC.delegate = self
+        datePickerVC.headLabelTitle = "Date of Sowing"
         datePickerVC.datePicker.setDate(plant.dateOfSeedSowing, animated: false)
         datePickerVC.modalPresentationStyle = .formSheet
         datePickerVC.modalTransitionStyle = .coverVertical
