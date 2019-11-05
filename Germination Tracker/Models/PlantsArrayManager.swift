@@ -31,6 +31,14 @@ class PlantsArrayManager {
             do {
                 plants = try jsonDecoder.decode([Plant].self, from: savedPlants)
                 os_log("Loading %d plants.", log: Log.plantsManager, type: .info, plants.count)
+                
+                
+                // Temporary fix for lack of migrations.
+                for plant in plants {
+                    if plant.isActive == nil { plant.isActive = true }
+                    if plant.uuid == nil { plant.uuid = UUID().uuidString}
+                }
+                
             } catch {
                 os_log("Unable to load data from file.", log: Log.plantsManager, type: .error)
             }
@@ -58,6 +66,26 @@ class PlantsArrayManager {
         os_log("Making a new plant.", log: Log.plantsManager, type: .info)
         plants.append(Plant(name: name))
         savePlants()
+    }
+    
+    /// Add a new plant and it is returned, too.
+    /// - parameter name: The name of the new plant.
+    func getNewPlant(named name: String) -> Plant {
+        os_log("Making a new plant.", log: Log.plantsManager, type: .info)
+        let plant = Plant(name: name)
+        plants.append(plant)
+        savePlants()
+        return(plant)
+    }
+    
+    
+    func remove(_ plant: Plant) {
+        if let idx = plants.firstIndex(where: { $0 === plant }) {
+            os_log("Removing plant at index %d", log: Log.plantsManager, type: .info, idx)
+            os_log("Removing plant named %{public}s.", log: Log.plantsManager, type: .info, plant.name)
+            plants.remove(at: idx)
+            savePlants()
+        }
     }
     
     
