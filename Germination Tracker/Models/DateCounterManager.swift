@@ -20,7 +20,7 @@ class DateCounterManager: Codable {
     /// A dictionary of `Date` to `Int` key-value pairs.
     private var dateCounts = [Date: Int]()
     
-    /// Array of all dates in ascending ordered (oldest to newest)
+    /// Array of all dates in ascending ordered (oldest to newest).
     var orderedDates: [Date] {
         get {
             Array(Set(dateCounts.keys)).sorted(by: { $0 < $1 })
@@ -28,7 +28,7 @@ class DateCounterManager: Codable {
     }
     
     
-    /// Total number of events over all dates
+    /// Total number of events over all dates.
     var totalCount: Int {
         get {
             var counter = 0
