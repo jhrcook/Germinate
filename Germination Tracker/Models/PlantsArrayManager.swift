@@ -13,6 +13,9 @@ import os
 /// A manager object responsible for caring for the array of plants in the app.
 class PlantsArrayManager {
     
+    /// The current version of `Plant`.
+    private let currentPlantVersion = 1
+    
     /// Array of plants.
     var plants = [Plant]()
     
@@ -34,10 +37,9 @@ class PlantsArrayManager {
                 
                 
                 // Temporary fix for lack of migrations.
-                for plant in plants {
-                    if plant.isActive == nil { plant.isActive = true }
-                    if plant.uuid == nil { plant.uuid = UUID().uuidString}
-                }
+                let plantMigrationManager = PlantMigrationManager(currentVersion: currentPlantVersion)
+                plantMigrationManager.update(plants)
+                
                 
             } catch {
                 os_log("Unable to load data from file.", log: Log.plantsManager, type: .error)
