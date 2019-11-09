@@ -16,6 +16,9 @@ class Plant: Codable {
     /// A unique identifier of a plant.
     var uuid: String?
     
+    /// The version of the plant object.
+    var plantVersion: Int = 0
+    
     /// The name of the plant.
     var name: String
     

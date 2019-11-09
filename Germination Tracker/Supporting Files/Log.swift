@@ -45,6 +45,8 @@ struct Log {
     static let seedNote = OSLog(subsystem: subsystem, category: "SeedNote")
     /// Logging object for `DateCounterManager`.
     static let dateCounterManager = OSLog(subsystem: subsystem, category: "DateCounterManager")
+    /// Logging object for 
+    static let plantMM = OSLog(subsystem: subsystem, category: "PlantMigrationManager")
     
     
     // ---- Views ---- //
