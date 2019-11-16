@@ -6,7 +6,7 @@ target 'Germination Tracker' do
   use_frameworks!
 
   # Pods for Germination Tracker
-  pod 'SnapKit', '~> 4.0'
+  pod 'SnapKit', '~> 5.0'
   pod 'ChameleonFramework/Swift'
   pod 'SwiftyButton'
   pod 'Charts', '~> 3.3'
