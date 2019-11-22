@@ -130,7 +130,7 @@ class LibraryTableViewDataManager {
         os_log("Sorting plants into active and inactive.", log: Log.libraryDM, type: .info)
         
         let groups = Dictionary(grouping: plantsManager.plants) { (plant) in
-            return plant.isActive! ? "Active" : "Archived"
+            return plant.isActive ? "Active" : "Archived"
         }
         
         sections = groups.map { (key, values) in
@@ -173,7 +173,7 @@ class LibraryTableViewDataManager {
             let row = sections[0].rows.firstIndex { $0 === plant } ?? sections[0].rows.count
             return IndexPath(row: row, section: 0)
         case .byActive:
-            let section = plant.isActive! ? 0 : 1
+            let section = plant.isActive ? 0 : 1
             let row = sections[section].rows.firstIndex { $0 === plant } ?? sections[section].rows.count
             return IndexPath(row: row, section: section)
         case .byPlantName:

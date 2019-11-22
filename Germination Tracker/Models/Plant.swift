@@ -14,7 +14,7 @@ import os
 class Plant: Codable {
     
     /// A unique identifier of a plant.
-    var uuid: String?
+    var uuid: String
     
     /// The version of the plant object.
     var plantVersion: Int = 0
@@ -38,13 +38,18 @@ class Plant: Codable {
     var notes = [SeedNote]()
     
     /// Is the plant currently being cultivated.
-    var isActive: Bool? = true
+    var isActive: Bool = true
+    
+    /// A manager of the photos for the plant.
+    var photosManager = PhotosManager()
+    
     
     /// Initialize a plant by name.
     init(name: String) {
         os_log("Initializing a plant with a name.", log: Log.plant, type: .info)
         self.name = name
         self.dateOfSeedSowing = Date()
+        self.uuid = UUID().uuidString
     }
     
     /// Inialize a plant by name and number of seeds sown.

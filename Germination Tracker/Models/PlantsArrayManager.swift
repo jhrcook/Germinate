@@ -21,8 +21,8 @@ class PlantsArrayManager {
     
     /// Initialize the object and automatically load the plants from file.
     init() {
-        loadPlants()
-//        makeTestPlantsArray()
+//        loadPlants()
+        makeTestPlantsArray()
     }
     
     /// Lead the plants from file.

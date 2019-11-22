@@ -89,7 +89,7 @@ class LibraryTableViewCell: UITableViewCell {
         germinationInfoLabel.text = "\(plant.germinationDatesManager.totalCount) / \(plant.numberOfSeedsSown)"
         
         // Set information view.
-        archiveLabel.isHidden = plant.isActive ?? false
+        archiveLabel.isHidden = plant.isActive
         
     }
     
