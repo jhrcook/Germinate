@@ -31,7 +31,10 @@ class PagingViewController: PageboyViewController {
     var informationViewController: InformationViewController!
     
     /// The view controller for the table of notes.
-    var notesTableViewController = NotesTableViewController()
+    var notesTableViewController: NotesTableViewController!
+    
+    /// The view controller for the photos.
+    var photoLibraryViewController: PhotoLibraryCollectionViewController!
     
     /// The array of view controllers for the `PageboyViewController`.
     var viewControllers = [UIViewController]()
@@ -46,19 +49,20 @@ class PagingViewController: PageboyViewController {
             } else {
                 navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewNote))
             }
-            title = "\(plant.name) - \(["Info", "Notes"][currentPageIndex])"
+            title = "\(plant.name) - \(["Photos", "Info", "Notes"][currentPageIndex])"
         }
     }
     
     /// The index of a selected note. This is for keeping track of which note is being edited.
     var selectedNoteIndex: Int? = nil
     
+    
     override func viewDidLoad() {
         os_log("Paging view controller's view did load.", log: Log.pagingVC, type: .info)
         
         super.viewDidLoad()
         
-        currentPageIndex = 0
+        currentPageIndex = 1
         navigationItem.largeTitleDisplayMode = .never
         
         // Initialize the information view controller.
@@ -67,11 +71,16 @@ class PagingViewController: PageboyViewController {
         informationViewController.parentDelegate = self
         
         // Intialize the notes view controller.
+        notesTableViewController = NotesTableViewController()
         notesTableViewController.plantsManager = plantsManager
         notesTableViewController.notes = plant.notes
         notesTableViewController.delegate = self
         
+        // Initialize the photos library.
+        photoLibraryViewController = PhotoLibraryCollectionViewController(plant: plant)
+        
         // Provide `PageBoy` with the view controllers to page through.
+        viewControllers.append(photoLibraryViewController)
         viewControllers.append(informationViewController)
         viewControllers.append(notesTableViewController)
         
@@ -91,6 +100,7 @@ class PagingViewController: PageboyViewController {
         
         push(editVC)
     }
+    
         
     /// Push the edit note view controller with self as delegate.
     /// - parameter editNoteViewController: The `EditNoteViewController` to push.
@@ -118,7 +128,8 @@ extension PagingViewController: PageboyViewControllerDataSource {
     
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-        return nil
+        return .at(index: currentPageIndex)
+//        return nil
     }
 }
 
@@ -128,7 +139,7 @@ extension PagingViewController: PageboyViewControllerDataSource {
 extension PagingViewController: PageboyViewControllerDelegate {
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController, willScrollToPageAt index: PageboyViewController.PageIndex, direction: PageboyViewController.NavigationDirection, animated: Bool) {
-        // not used
+        // Not used, but stub is required.
     }
     
     
@@ -140,12 +151,12 @@ extension PagingViewController: PageboyViewControllerDelegate {
     
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController, didScrollToPageAt index: PageboyViewController.PageIndex, direction: PageboyViewController.NavigationDirection, animated: Bool) {
-        // not used
+        // Not used, but stub is required.
     }
     
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController, didReloadWith currentViewController: UIViewController, currentPageIndex: PageboyViewController.PageIndex) {
-        // not used
+        // Not used, but stub is required.
     }
 }
 
