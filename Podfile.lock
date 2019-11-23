@@ -1,17 +1,18 @@
 PODS:
-  - ChameleonFramework/Default (2.1.0)
-  - ChameleonFramework/Swift (2.1.0):
-    - ChameleonFramework/Default
+  - AssetsPickerViewController (2.7.5):
+    - Device
+    - SnapKit
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
+  - Device (3.2.1)
   - KeyboardObserver (2.1.0)
   - Pageboy (3.5.0)
   - SnapKit (5.0.1)
   - SwiftyButton (0.8.2)
 
 DEPENDENCIES:
-  - ChameleonFramework/Swift
+  - AssetsPickerViewController (~> 2.7)
   - Charts (~> 3.3)
   - KeyboardObserver (~> 2.1)
   - Pageboy (~> 3.2)
@@ -20,21 +21,23 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - ChameleonFramework
+    - AssetsPickerViewController
     - Charts
+    - Device
     - KeyboardObserver
     - Pageboy
     - SnapKit
     - SwiftyButton
 
 SPEC CHECKSUMS:
-  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  AssetsPickerViewController: 6954aff04b95d26be0d65a58557a9dfbef7811c3
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
+  Device: 0738862dd8a30856b4bd9e21cb9b728873d21392
   KeyboardObserver: 338f87db88f4d6f4b4af334fe025bc824251d57b
   Pageboy: 3794c578aae5fcce06e90b3ed4a0ad6b807d75bb
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
 
-PODFILE CHECKSUM: 2b6e0b9afc3ef02a595bf9ebc3e871a37cd2df4b
+PODFILE CHECKSUM: 02b714172452d1f8ec7e65ec25afe7486f864842
 
 COCOAPODS: 1.8.4
