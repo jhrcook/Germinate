@@ -50,12 +50,15 @@ struct Photo : Codable, Equatable {
     
     
     /// Remove the image file from disk. Only call this when deleting the photo.
-    func removeImageFromDisk() throws {
-        do {
-            let fileManager = FileManager()
-            try fileManager.removeItem(atPath: fullFilePath)
-        } catch {
-            throw error
+    func removeImageFromDisk() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                let fileManager = FileManager()
+                try fileManager.removeItem(atPath: self.fullFilePath)
+            } catch {
+                /// TODO: handle error unable to delete file.
+                print("Unable to delete image.")
+            }
         }
     }
     

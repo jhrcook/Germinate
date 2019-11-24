@@ -9,6 +9,7 @@
 import UIKit
 import os
 import Pageboy
+import AssetsPickerViewController
 
 /**
  A paging view of general information and notes.
@@ -48,7 +49,7 @@ class PagingViewController: PageboyViewController {
             case 0:
                 navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                                     target: self,
-                                                                    action: #selector(addNewNote))
+                                                                    action: #selector(getImagesFromLibrary))
             case 2:
                 navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                                     target: self,
@@ -109,6 +110,15 @@ class PagingViewController: PageboyViewController {
         push(editVC)
     }
     
+    @objc private func getImagesFromLibrary() {
+        os_log("Sending view controller to get images.", log: Log.pagingVC, type: .info)
+        let pickerDelegate = AssetsPickerDelegate()
+        let pickerVC = AssetsPickerViewController()
+        pickerVC.pickerDelegate = pickerDelegate
+        present(pickerVC, animated: true)
+        
+    }
+    
         
     /// Push the edit note view controller with self as delegate.
     /// - parameter editNoteViewController: The `EditNoteViewController` to push.
@@ -137,7 +147,6 @@ extension PagingViewController: PageboyViewControllerDataSource {
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return .at(index: currentPageIndex)
-//        return nil
     }
 }
 

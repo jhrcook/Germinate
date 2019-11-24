@@ -38,17 +38,16 @@ class PhotosManager : Codable {
     }
     
     
+    /// Delete the image file from disk for a photo.
+    /// - parameter Photo: Photo for which to delete image.
     func deletePhoto(_ photo: Photo) {
-        do {
-            try photo.removeImageFromDisk()
-            photos = photos.filter { $0 != photo }
-            os_log("Deleted image file.", log: Log.photosManager, type: .info)
-        } catch {
-            os_log("Unable to delete an image file.", log: Log.photosManager, type: .error)
-        }
+        photo.removeImageFromDisk()
+        photos = photos.filter { $0 != photo }
+        os_log("Deleted image file.", log: Log.photosManager, type: .info)
     }
     
     
+    /// Sort the photos by date they were created.
     private func sortPhotosByDateCreated() {
         photos.sort { $0.datePhotoWasCaptured < $1.datePhotoWasCaptured}
     }
