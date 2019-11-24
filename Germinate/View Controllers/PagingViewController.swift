@@ -112,7 +112,7 @@ class PagingViewController: PageboyViewController {
     
     @objc private func getImagesFromLibrary() {
         os_log("Sending view controller to get images.", log: Log.pagingVC, type: .info)
-        let pickerDelegate = AssetsPickerDelegate()
+        let pickerDelegate = AssetsPickerDelegate(parentViewController: self)
         let pickerVC = AssetsPickerViewController()
         pickerVC.pickerDelegate = pickerDelegate
         present(pickerVC, animated: true)
