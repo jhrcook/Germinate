@@ -110,13 +110,12 @@ class PagingViewController: PageboyViewController {
         push(editVC)
     }
     
+    
+    /// <#Description#>
     @objc private func getImagesFromLibrary() {
         os_log("Sending view controller to get images.", log: Log.pagingVC, type: .info)
-        let pickerDelegate = AssetsPickerDelegate(parentViewController: self)
-        let pickerVC = AssetsPickerViewController()
-        pickerVC.pickerDelegate = pickerDelegate
+        let pickerVC = MyAssetsPickerViewController()
         present(pickerVC, animated: true)
-        
     }
     
         
@@ -126,7 +125,7 @@ class PagingViewController: PageboyViewController {
         os_log("Pushing note editing view controller.", log: Log.pagingVC, type: .info)
         editNoteViewController.modalPresentationStyle = .formSheet
         editNoteViewController.modalTransitionStyle = .coverVertical
-        present(editNoteViewController, animated: true, completion: nil)
+        present(editNoteViewController, animated: true)
     }
 }
 
@@ -163,7 +162,10 @@ extension PagingViewController: PageboyViewControllerDelegate {
     func pageboyViewController(_ pageboyViewController: PageboyViewController, didScrollTo position: CGPoint, direction: PageboyViewController.NavigationDirection, animated: Bool) {
         // The provided `position` is a decimal value [0, 1] indicating the percent
         // progress between pages.
-        currentPageIndex = Int(round(position.x))
+        let newPage = Int(round(position.x))
+        if (newPage != currentPageIndex) {
+            currentPageIndex = newPage
+        }
     }
     
     
