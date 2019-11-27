@@ -111,10 +111,10 @@ class PagingViewController: PageboyViewController {
     }
     
     
-    /// <#Description#>
+    /// Present a view controller to get images from the user's Photos library.
     @objc private func getImagesFromLibrary() {
         os_log("Sending view controller to get images.", log: Log.pagingVC, type: .info)
-        let pickerVC = MyAssetsPickerViewController()
+        let pickerVC = MyAssetsPickerViewController(plant: plant)
         present(pickerVC, animated: true)
     }
     

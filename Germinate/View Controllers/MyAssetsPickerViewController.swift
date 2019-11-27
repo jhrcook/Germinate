@@ -12,7 +12,22 @@ import Photos
 
 class MyAssetsPickerViewController: AssetsPickerViewController {
 
-    let myPickerDelegate = AssetsPickerDelegate()
+    let myPickerDelegate: AssetsPickerDelegate
+    
+    let plant: Plant
+    
+    init(plant: Plant) {
+        self.plant = plant
+        self.myPickerDelegate = AssetsPickerDelegate(plant: plant)
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +38,8 @@ class MyAssetsPickerViewController: AssetsPickerViewController {
     }
     
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         
         myPickerDelegate.assetsPickerDidCancel(controller: self)
     }

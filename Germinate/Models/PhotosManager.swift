@@ -23,17 +23,30 @@ class PhotosManager : Codable {
     
     
     /// Add a photo to the array
-    func addPhoto(_ image: UIImage, capturedOn dateCaptured: Date, createdOn dateCreated: Date?) {
+    /// - Parameters:
+    ///   - image: The image to write to file.
+    ///   - dateCaptured: The date the photo was captured.
+    ///   - dateAdded: The date the photo was added to the library.
+    /// - Returns: The file name.
+    func addPhoto(_ image: UIImage, capturedOn dateCaptured: Date, dateAdded: Date?) -> String {
         
         // Create a new Photo object and save to Photos.
-        let photo = Photo(fileName: UUID().uuidString, datePhotoWasCaptured: dateCaptured, dateCreated: dateCreated ?? Date())
+        let photo = Photo(fileName: UUID().uuidString,
+                          datePhotoWasCaptured: dateCaptured,
+                          dateAdded: dateAdded ?? Date())
+        photo.writeImageToDisk(image)
         photos.append(photo)
         
-        // Save the image to disk on a background thread.
-        DispatchQueue.global(qos: .userInitiated).async {
-            if let jpegData = image.jpegData(compressionQuality: 1.0) {
-                try? jpegData.write(to: photo.fullFileURL)
-            }
+        os_log("Saved photo.", log: Log.photosManager, type: .info)
+        return photo.fileName
+    }
+    
+    
+    /// Delete a photo by file name.
+    /// - Parameter fileName: The file name of the photo to delete.
+    func deletePhoto(withFilename fileName: String) {
+        if let photo = photos.first(where: { $0.fileName == fileName }) {
+            deletePhoto(photo)
         }
     }
     
@@ -49,6 +62,7 @@ class PhotosManager : Codable {
     
     /// Sort the photos by date they were created.
     private func sortPhotosByDateCreated() {
+        os_log("Sorting photos by data created.", log: Log.photosManager, type: .info)
         photos.sort { $0.datePhotoWasCaptured < $1.datePhotoWasCaptured}
     }
     
