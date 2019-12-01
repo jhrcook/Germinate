@@ -10,11 +10,19 @@ import UIKit
 import AssetsPickerViewController
 import Photos
 
+
+protocol MyAssetsPickerViewControllerDelegate {
+    func assetSelectDidChange(_ controller: MyAssetsPickerViewController)
+    func didFinishAssetPicking(_ controller: MyAssetsPickerViewController)
+}
+
 class MyAssetsPickerViewController: AssetsPickerViewController {
 
     let myPickerDelegate: AssetsPickerDelegate
     
     let plant: Plant
+    
+    var myDelegate: MyAssetsPickerViewControllerDelegate?
     
     init(plant: Plant) {
         self.plant = plant
@@ -42,5 +50,9 @@ class MyAssetsPickerViewController: AssetsPickerViewController {
         super.viewDidDisappear(animated)
         
         myPickerDelegate.assetsPickerDidCancel(controller: self)
+        
+        if let myDelegate = myDelegate {
+            myDelegate.didFinishAssetPicking(self)
+        }
     }
 }

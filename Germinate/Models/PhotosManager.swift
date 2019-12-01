@@ -34,7 +34,8 @@ class PhotosManager : Codable {
         let photo = Photo(fileName: UUID().uuidString,
                           datePhotoWasCaptured: dateCaptured,
                           dateAdded: dateAdded ?? Date())
-        photo.writeImageToDisk(image)
+        photo.writeImageToDisk(image, withFileURL: photo.fullFileURL)
+        photo.makeThumbnail(forFullImage: image)
         photos.append(photo)
         
         os_log("Saved photo.", log: Log.photosManager, type: .info)
@@ -54,7 +55,7 @@ class PhotosManager : Codable {
     /// Delete the image file from disk for a photo.
     /// - parameter Photo: Photo for which to delete image.
     func deletePhoto(_ photo: Photo) {
-        photo.removeImageFromDisk()
+        photo.removeImagesFromDisk()
         photos = photos.filter { $0 != photo }
         os_log("Deleted image file.", log: Log.photosManager, type: .info)
     }
@@ -66,4 +67,26 @@ class PhotosManager : Codable {
         photos.sort { $0.datePhotoWasCaptured < $1.datePhotoWasCaptured}
     }
     
+    
+    /// Get all of the images from all of the photos.
+    func retrieveAllImages() -> [UIImage] {
+        var images = [UIImage]()
+        for photo in photos {
+            if let img = photo.retrieveImage() { images.append(img) }
+        }
+        return images
+    }
+    
+    /// Retrieve all of the thumbnails for all of the photos.
+    func retrieveAllThumbnails() -> [UIImage] {
+        var images = [UIImage]()
+        for photo in photos {
+            if let img = photo.retrieveThumbnail() { images.append(img) }
+        }
+        return images
+    }
+    
+    func imageAt(index: Int) -> UIImage? {
+        return photos[index].retrieveThumbnail()
+    }
 }

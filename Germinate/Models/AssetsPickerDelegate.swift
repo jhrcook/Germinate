@@ -52,7 +52,7 @@ class AssetsPickerDelegate: AssetsPickerViewControllerDelegate {
     /// - Note: All of the deselected images are confirmed to have been deleted and removed from disk.
     func assetsPickerDidCancel(controller: AssetsPickerViewController) {
         // Must delete all of the downloaded images.
-        print("Did cancel with cancel button.")
+        confirmAllIntendedDeletions()
     }
     
     
@@ -64,7 +64,15 @@ class AssetsPickerDelegate: AssetsPickerViewControllerDelegate {
     ///   - assets: The assets to be saved. (Again, all assets have already be saved.)
     func assetsPicker(controller: AssetsPickerViewController, selected assets: [PHAsset]) {
         // Make sure all of the selected assets have been downloaded.
-        print("Selected \(assets.count) assets.")
+        confirmAllIntendedDeletions()
+    }
+    
+    
+    /// Try to delete all files that were deselected.
+    private func confirmAllIntendedDeletions() {
+        for filename in assetsManager.allFilesIntendedToBeDeleted {
+            plant.photosManager.deletePhoto(withFilename: filename)
+        }
     }
     
     

@@ -19,16 +19,7 @@ class PhotoLibraryCollectionViewController: UICollectionViewController {
     private let reuseIdentifier = "photoCell"
     
     /// Images to present in the cells.
-    var images = [UIImage]()
-    
-    /// The size of each collection view cell.
-    var cellSize: CGSize {
-        get {
-            CGSize(width: collectionView.frame.width / 3.0,
-                   height: collectionView.frame.width / 3.0)
-        }
-    }
-    
+//    var images = [UIImage]()
     
     /// A gray label that appears in the center when no images are available.
     private let noImagesLabel: UILabel = {
@@ -45,14 +36,19 @@ class PhotoLibraryCollectionViewController: UICollectionViewController {
         return lbl
     }()
     
+    /// The number of images in a row
+    private let numberOfImagesPerRow: CGFloat = 4.0
     
+    /// The spacing between images.
+    private let spacingBetweenCells: CGFloat = 0.5
+    
+    /// The flow layout for the collection view.
+    let flowLayout = UICollectionViewFlowLayout()
+        
     /// Initialize the photo library view controller with the plant being shown.
     init(plant: Plant) {
         self.plant = plant
-        super.init(collectionViewLayout: UICollectionViewLayout())
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        super.init(collectionViewLayout: flowLayout)
     }
     
     
@@ -63,14 +59,9 @@ class PhotoLibraryCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Register cell classes
         self.collectionView!.register(PhotoLibraryCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
         
         // Some styling of the view.
         if #available(iOS 13, *) {
@@ -79,30 +70,79 @@ class PhotoLibraryCollectionViewController: UICollectionViewController {
             collectionView.backgroundColor = .white
         }
         
+        loadPlantImages()
         
-        // Hide the no images label when there are images.
-        view.addSubview(noImagesLabel)
-        noImagesLabel.snp.makeConstraints { make in
-            make.center.equalTo(self.view)
-        }
-        noImagesLabel.isHidden = images.count != 0
+        collectionView.alwaysBounceVertical = true
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        loadPlantImages()
+//    }
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoLibraryCollectionViewCell
         
-        cell.setCellImageTo(images[indexPath.item])
-        
+        if let image = plant.photosManager.imageAt(index: indexPath.item) {
+            cell.setCellImageTo(image)
+            cell.backgroundColor = .green
+        }
         return cell
+    }
+
+    
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("There are \(plant.photosManager.numberOfPhotos) photos.")
+        return plant.photosManager.numberOfPhotos
+    }
+    
+    /// Call this function is the photos may have changed.
+    func plantPhotosMayHaveChanged() {
+        loadPlantImages()
+    }
+    
+    /// Load the images to show of the plants.
+    private func loadPlantImages() {
+        // Load images to be shown.
+//        images.removeAll(keepingCapacity: true)
+//        images = plant.photosManager.retrieveAllThumbnails()
+        
+        collectionView.reloadData()
+        
+        // Hide the no images label when there are images.
+        view.addSubview(noImagesLabel)
+        noImagesLabel.snp.makeConstraints { make in
+            make.center.equalTo(self.view).priority(.low)
+        }
+        noImagesLabel.isHidden = plant.photosManager.numberOfPhotos != 0
     }
     
 }
 
 
-
 extension PhotoLibraryCollectionViewController: UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return cellSize
+        let width = collectionView.frame.width / numberOfImagesPerRow - (spacingBetweenCells * numberOfImagesPerRow)
+        return CGSize(width: width, height: width)
+    }
+
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return spacingBetweenCells
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return spacingBetweenCells
     }
 }

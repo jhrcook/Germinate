@@ -79,6 +79,8 @@ class PagingViewController: PageboyViewController {
         informationViewController.plantsManager = plantsManager
         informationViewController.parentDelegate = self
         
+        print("info frame size: \(informationViewController.view.frame.size)")
+                
         // Intialize the notes view controller.
         notesTableViewController = NotesTableViewController()
         notesTableViewController.plantsManager = plantsManager
@@ -115,6 +117,7 @@ class PagingViewController: PageboyViewController {
     @objc private func getImagesFromLibrary() {
         os_log("Sending view controller to get images.", log: Log.pagingVC, type: .info)
         let pickerVC = MyAssetsPickerViewController(plant: plant)
+        pickerVC.myDelegate = self
         present(pickerVC, animated: true)
     }
     
@@ -268,5 +271,18 @@ extension PagingViewController: InformationViewControllerDelegate {
         vc.parentDelegate = self
         vc.title = "Edit deaths"
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+
+
+extension PagingViewController: MyAssetsPickerViewControllerDelegate {
+    
+    func assetSelectDidChange(_ controller: MyAssetsPickerViewController) {
+        photoLibraryViewController.plantPhotosMayHaveChanged()
+    }
+    
+    func didFinishAssetPicking(_ controller: MyAssetsPickerViewController) {
+        photoLibraryViewController.plantPhotosMayHaveChanged()
     }
 }

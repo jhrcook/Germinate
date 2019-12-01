@@ -7,13 +7,22 @@
 //
 
 import UIKit
+import SnapKit
 
 class PhotoLibraryCollectionViewCell: UICollectionViewCell {
     
     /// Image view for the cell.
     var imageView = UIImageView()
     
+    private var cellHasBeenSetup = false
+    
     func setCellImageTo(_ image: UIImage) {
+        if !cellHasBeenSetup { setupCell() }
         imageView.image = image
+    }
+    
+    private func setupCell() {
+        self.addSubview(imageView)
+        imageView.snp.makeConstraints { make in make.edges.equalTo(self) }
     }
 }

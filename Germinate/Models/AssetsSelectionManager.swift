@@ -34,6 +34,15 @@ class AssetsSelectionManager {
     /// This is useful for double-checking that all image deletions have been completed at the end.
     private var intendedDeletions = [AssetInformation]()
     
+    var allFilesIntendedToBeDeleted: [String] {
+        get {
+            let fn = intendedDeletions
+                .filter({ $0.fileName != nil })
+                .map({ $0.fileName! })
+            return fn
+        }
+    }
+    
     /// Add a new asset to the manager.
     /// - Parameters:
     ///   - asset: The new asset.
