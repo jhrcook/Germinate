@@ -19,7 +19,7 @@ class PhotoLibraryCollectionViewController: UICollectionViewController {
     private let reuseIdentifier = "photoCell"
     
     /// Images to present in the cells.
-//    var images = [UIImage]()
+    var images = [UIImage]()
     
     /// A gray label that appears in the center when no images are available.
     private let noImagesLabel: UILabel = {
@@ -94,7 +94,6 @@ class PhotoLibraryCollectionViewController: UICollectionViewController {
     }
 
     
-    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -112,6 +111,15 @@ class PhotoLibraryCollectionViewController: UICollectionViewController {
     /// Load the images to show of the plants.
     private func loadPlantImages() {
         // Load images to be shown.
+        print("Loading thumbnails.")
+        print("  number of photos: \(plant.photosManager.numberOfPhotos)")
+        images.removeAll(keepingCapacity: true)
+        for photo in plant.photosManager.photos {
+            if let image = photo.retrieveThumbnail() {
+                images.append(image)
+            }
+        }
+        print("  number of images: \(images.count)")
         collectionView.reloadData()
         
         // Hide the no images label when there are images.

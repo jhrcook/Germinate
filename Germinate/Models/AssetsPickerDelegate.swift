@@ -11,6 +11,10 @@ import os
 import AssetsPickerViewController
 import Photos
 
+protocol AssetsPickerDelegateController {
+    func assetSelectionDidChange()
+}
+
 
 class AssetsPickerDelegate: AssetsPickerViewControllerDelegate {
     
@@ -23,9 +27,14 @@ class AssetsPickerDelegate: AssetsPickerViewControllerDelegate {
     /// The manager that organizes the downloaded and deleting of selected and deselected assets.
     let assetsManager = AssetsSelectionManager()
     
+    /// The parent view controller to get notified of selection changes.
+    var parentController: AssetsPickerDelegateController?
+    
+    
     init(plant: Plant) {
         self.plant = plant
     }
+    
     
     /// Request options for the PHImageManager.
     private let imageOptions: PHImageRequestOptions = {
@@ -103,6 +112,10 @@ class AssetsPickerDelegate: AssetsPickerViewControllerDelegate {
         if let fileToDelete = assetsManager.filename(of: asset) {
             assetsManager.addToDeleteList(asset)
             plant.photosManager.deletePhoto(withFilename: fileToDelete)
+            
+            if let controller = controller as? AssetsPickerDelegateController {
+                controller.assetSelectionDidChange()
+            }
         }
     }
     
@@ -138,6 +151,9 @@ class AssetsPickerDelegate: AssetsPickerViewControllerDelegate {
         let assetFilename = plant.photosManager.addPhoto(image,
                                                          capturedOn: assetInfo.asset.creationDate ?? Date(),
                                                          dateAdded: Date())
+        if let pc = parentController {
+            pc.assetSelectionDidChange()
+        }
         assetsManager.include(fileName: assetFilename, forAsset: assetInfo.asset)
     }
 }

@@ -27,8 +27,9 @@ class MyAssetsPickerViewController: AssetsPickerViewController {
     init(plant: Plant) {
         self.plant = plant
         self.myPickerDelegate = AssetsPickerDelegate(plant: plant)
-        
         super.init(nibName: nil, bundle: nil)
+        
+        myPickerDelegate.parentController = self
     }
     
     
@@ -54,5 +55,13 @@ class MyAssetsPickerViewController: AssetsPickerViewController {
         if let myDelegate = myDelegate {
             myDelegate.didFinishAssetPicking(self)
         }
+    }
+}
+
+
+
+extension MyAssetsPickerViewController: AssetsPickerDelegateController {
+    func assetSelectionDidChange() {
+        myDelegate?.assetSelectDidChange(self)
     }
 }
