@@ -78,10 +78,10 @@ class PhotoLibraryCollectionViewController: UICollectionViewController {
         collectionView.dataSource = self
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        loadPlantImages()
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadPlantImages()
+    }
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -89,7 +89,6 @@ class PhotoLibraryCollectionViewController: UICollectionViewController {
         
         if let image = plant.photosManager.imageAt(index: indexPath.item) {
             cell.setCellImageTo(image)
-            cell.backgroundColor = .green
         }
         return cell
     }
@@ -102,7 +101,6 @@ class PhotoLibraryCollectionViewController: UICollectionViewController {
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("There are \(plant.photosManager.numberOfPhotos) photos.")
         return plant.photosManager.numberOfPhotos
     }
     
@@ -114,9 +112,6 @@ class PhotoLibraryCollectionViewController: UICollectionViewController {
     /// Load the images to show of the plants.
     private func loadPlantImages() {
         // Load images to be shown.
-//        images.removeAll(keepingCapacity: true)
-//        images = plant.photosManager.retrieveAllThumbnails()
-        
         collectionView.reloadData()
         
         // Hide the no images label when there are images.

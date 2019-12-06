@@ -280,9 +280,11 @@ extension PagingViewController: MyAssetsPickerViewControllerDelegate {
     
     func assetSelectDidChange(_ controller: MyAssetsPickerViewController) {
         photoLibraryViewController.plantPhotosMayHaveChanged()
+        plantsManager.savePlants()
     }
     
     func didFinishAssetPicking(_ controller: MyAssetsPickerViewController) {
         photoLibraryViewController.plantPhotosMayHaveChanged()
+        plantsManager.savePlants()
     }
 }

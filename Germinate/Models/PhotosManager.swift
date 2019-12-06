@@ -34,8 +34,8 @@ class PhotosManager : Codable {
         let photo = Photo(fileName: UUID().uuidString,
                           datePhotoWasCaptured: dateCaptured,
                           dateAdded: dateAdded ?? Date())
-        photo.writeImageToDisk(image, withFileURL: photo.fullFileURL)
         photo.makeThumbnail(forFullImage: image)
+        photo.writeImageToDisk(image, withFileURL: photo.fullFileURL)
         photos.append(photo)
         
         os_log("Saved photo.", log: Log.photosManager, type: .info)
